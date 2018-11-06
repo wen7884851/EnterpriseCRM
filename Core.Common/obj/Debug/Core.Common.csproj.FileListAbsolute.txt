@@ -1,0 +1,132 @@
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\obj\Debug\Core.Common.csprojResolveAssemblyReference.cache
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Core.Tool.dll.config
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Core.Tool.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Core.Tool.pdb
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ICSharpCode.TextEditor.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Client.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Common.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Redis.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Text.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Buffers.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Memory.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.ValueTuple.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Helpers.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Mvc.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Razor.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Client.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Common.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Redis.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\ServiceStack.Text.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Buffers.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Memory.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.ValueTuple.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Helpers.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Mvc.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.Razor.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\obj\Debug\Core.Tool.dll
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Core.Tool\obj\Debug\Core.Tool.pdb
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.dll.config
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.pdb
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.TextEditor.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Client.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Common.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Redis.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Text.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Buffers.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Memory.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.ValueTuple.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Razor.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Client.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Common.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Redis.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Text.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Buffers.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Memory.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.ValueTuple.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Razor.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.csprojResolveAssemblyReference.cache
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.pdb
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.dll.config
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Core.Common.pdb
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.TextEditor.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Newtonsoft.Json.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Client.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Common.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Interfaces.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Redis.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Text.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Buffers.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Memory.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.ValueTuple.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Helpers.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Mvc.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Razor.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Razor.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ICSharpCode.SharpZipLib.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\Newtonsoft.Json.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Client.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Common.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Interfaces.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Redis.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\ServiceStack.Text.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Buffers.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Memory.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.ValueTuple.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Helpers.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Mvc.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.Razor.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\bin\Debug\System.Web.WebPages.Razor.xml
+E:\文闻\代码\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.csprojResolveAssemblyReference.cache
+E:\文闻\代码\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.dll
+E:\文闻\代码\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.pdb
