@@ -1,0 +1,91 @@
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.csprojResolveAssemblyReference.cache
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll.config
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.pdb
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.Tool.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.Common.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Redis.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Mvc.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Text.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Common.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Razor.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Memory.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.ValueTuple.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Buffers.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.Tool.pdb
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.Common.pdb
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\Core.Common.dll.config
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Redis.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Mvc.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Text.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Common.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Razor.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Memory.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.ValueTuple.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\bin\Debug\System.Buffers.xml
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.dll
+C:\Users\wen.wen\Documents\Visual Studio 2017\Projects\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.pdb
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll.config
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.pdb
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.Tool.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.SqlServer.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Newtonsoft.Json.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.Common.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Redis.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Interfaces.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Mvc.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Text.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Common.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Razor.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Razor.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Memory.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.ValueTuple.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Buffers.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.Tool.pdb
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\EntityFramework.SqlServer.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Newtonsoft.Json.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\Core.Common.pdb
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Redis.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Interfaces.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Mvc.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ICSharpCode.SharpZipLib.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Text.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\ServiceStack.Common.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Razor.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.Razor.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Memory.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.ValueTuple.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\bin\Debug\System.Buffers.xml
+E:\文闻\代码\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.csprojResolveAssemblyReference.cache
+E:\文闻\代码\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.dll
+E:\文闻\代码\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.pdb

@@ -1,0 +1,10 @@
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\app\account\login.js
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\app\account\login.js.map
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\app\common\cookie.js
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\app\common\cookie.js.map
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\lib\ko\ko_observableArray_fn.js
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\lib\ko\ko_observableArray_fn.js.map
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\_typings\ko\knockout.js
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\_typings\ko\knockout.js.map
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\_typings\knockout.mapping\knockout.mapping.js
+C:\Users\wen.wen\Documents\visual studio 2017\Projects\EnterpriseCRM\Web.Site.CMS\Scripts\_typings\knockout.mapping\knockout.mapping.js.map

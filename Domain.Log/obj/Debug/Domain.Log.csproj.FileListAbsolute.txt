@@ -1,0 +1,5 @@
+E:\文闻\代码\EnterpriseCRM\Domain.Log\bin\Debug\Domain.Log.dll
+E:\文闻\代码\EnterpriseCRM\Domain.Log\bin\Debug\Domain.Log.pdb
+E:\文闻\代码\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csprojResolveAssemblyReference.cache
+E:\文闻\代码\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.dll
+E:\文闻\代码\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.pdb

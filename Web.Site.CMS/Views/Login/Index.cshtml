@@ -1,0 +1,66 @@
+﻿@using System.Web.Optimization;
+@{Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign in</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    @Styles.Render("~/bundles/css/cssBase")
+    @Styles.Render("~/scripts/loginJs")
+    <!-- FAVICONS -->
+</head>
+<body onkeydown="if (event.keyCode == 13) document.getElementById('btnLogin').click();">
+    <div id="loginbox">
+        <div class="control-group normal_text">
+            <h3>公众服务平台登录</h3>
+        </div>
+        <form id="loginform" class="form-vertical" data-bind="checkAndSubmit: login" method="post">
+
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_lg"><i class="icon-user"></i></span>
+                        <input id="userName" data-bind="text:userName" class="span3" placeholder="用户名" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                        <input id="password" data-bind="text:password" class="span3" placeholder="密码" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <span class="pull-right">
+                    <button type="submit" class="btn btn-success btn-login" value="登录" id="btnLogin" data-bind="enable:canLogin" />
+                </span>
+            </div>
+        </form>
+
+        <form id="recoverform" class="form-vertical">
+            <p class="normal_text">输入您注册的email地址，我们将给您发送一封邮件说明如何重置密码。</p>
+
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lo"><i class="icon-envelope"></i></span>
+                    <input type="text" placeholder="电子邮件" />
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; 回到登录</a></span>
+                <span class="pull-right"><a class="btn btn-info">发送</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+@Scripts.Render("~/scripts/jsBase")
+@Scripts.Render("~/scripts/loginJs")
+

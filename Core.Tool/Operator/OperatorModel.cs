@@ -1,0 +1,37 @@
+﻿using System;
+
+namespace Core.Tool.Operator
+{
+    public class OperatorModel
+    {
+        public int UserId { get; set; }
+        public string LoginName { get; set; }
+        public string LoginPwd { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public bool Enabled { get; set; }
+        public string AppKey { get; set; }
+        public int PwdErrorCount { get; set; }
+        public int LoginCount { get; set; }
+        public DateTime? RegisterTime { get; set; }
+        public DateTime? LastLoginTime { get; set; }
+
+        public string LoginIPAddress { get; set; }
+        public string LoginIPAddressName { get; set; }
+        public string LoginToken { get; set; }
+        /// <summary>
+        /// 通讯SessionID
+        /// </summary>
+        public string SessionID { get; set; }
+        /// <summary>
+        /// 系统GID
+        /// </summary>
+        public string SystemGid { get; set; }
+        public DateTime? LoginTime { get; set; }
+        /// <summary>
+        /// 是否是超级管理员
+        /// </summary>
+        public bool IsSystem { get; set; }
+    }
+}
