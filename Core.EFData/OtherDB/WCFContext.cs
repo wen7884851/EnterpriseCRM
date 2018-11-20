@@ -14,7 +14,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Web;
 using Newtonsoft.Json;
 
-namespace Core.EFData.OtherDB
+namespace Framework.EFData.OtherDB
 {
     /// <summary>
     /// 服务调用上下文，主要传输IP，操作人，认证等数据，可用于WCF传输用

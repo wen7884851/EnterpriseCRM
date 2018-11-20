@@ -1,7 +1,7 @@
-﻿using Core.Tool.Operator;
+﻿using Framework.Tool.Operator;
 using System;
 
-namespace Core.Tool.Entity
+namespace Framework.Tool.Entity
 {
     public class IEntity<TEntity>
     {

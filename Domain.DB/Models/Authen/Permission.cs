@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 
 namespace Domain.DB.Models.Authen
 {

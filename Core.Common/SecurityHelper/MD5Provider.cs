@@ -2,7 +2,7 @@
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Core.Common.SecurityHelper
+namespace Framework.Common.SecurityHelper
 {
     /// <summary>
     /// MD5Provider 的摘要说明

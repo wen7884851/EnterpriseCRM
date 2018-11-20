@@ -4,11 +4,11 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 
-using Core.EFData;
+using Framework.EFData;
 using Domain.DB.Models.Authen;
 
 
-namespace Business.Service
+namespace Core.Service
 {
     /// <summary>
     /// 核心业务实现基类

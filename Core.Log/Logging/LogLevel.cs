@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-namespace Core.Log
+namespace Framework.Log
 {
     /// <summary>
     /// 日志级别

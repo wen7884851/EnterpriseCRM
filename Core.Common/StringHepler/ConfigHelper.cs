@@ -1,7 +1,7 @@
 using System;
 using System.Configuration;
 
-namespace Core.Common.ConfigHelper
+namespace Framework.Common.ConfigHelper
 {
 	/// <summary>
 	/// web.config²Ù×÷Àà

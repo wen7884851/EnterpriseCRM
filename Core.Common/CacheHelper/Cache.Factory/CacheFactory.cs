@@ -1,6 +1,6 @@
-﻿using Core.Common.ToolsHelper;
+﻿using Framework.Common.ToolsHelper;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// 版 本 6.1

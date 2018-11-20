@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// Session 操作类

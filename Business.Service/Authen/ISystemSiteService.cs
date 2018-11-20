@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using Core.Tool;
+using Framework.Tool;
 using Domain.DB.Models.Authen;
 using Domain.Site.Common.Models;
 using System.Collections.Generic;
 using Domain.Site.Models.Authen.SystemSite;
 
-namespace Business.Service.Authen
+namespace Core.Service.Authen
 {
     /// <summary>
     /// 服务层接口 —— ISystemSiteService

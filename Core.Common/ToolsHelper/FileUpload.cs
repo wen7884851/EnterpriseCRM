@@ -5,7 +5,7 @@ using System.Text;
 using System.Web;
 using System.IO;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// 文件上传

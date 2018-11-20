@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.EFData.OtherDB
+namespace Framework.EFData.OtherDB
 {
     public class AuditableAttribute : Attribute
     {

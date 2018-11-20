@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 using System.Web.Mvc;
 
 namespace Domain.Site.Models.Authen.FaceLiveness

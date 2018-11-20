@@ -19,7 +19,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Core.Common.FileHelper
+namespace Framework.Common.FileHelper
 {
     /// <summary>
     ///pic_zip 图片缩略图生成类

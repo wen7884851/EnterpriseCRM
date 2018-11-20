@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.Common.Redis
+namespace Framework.Common.Redis
 {
     /// <summary>
     /// 版 本 6.1

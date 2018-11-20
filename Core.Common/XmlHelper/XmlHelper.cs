@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// XML序列化工具

@@ -9,7 +9,7 @@ using System.Data;
 using System.Data.Common;
 using System.Web.Script.Serialization;
 
-namespace Core.Common.JsonHelper
+namespace Framework.Common.JsonHelper
 {
     /// <summary>
     /// 过期版本,以后不使用
@@ -46,7 +46,7 @@ namespace Core.Common.JsonHelper
                     for (int j = 0; j < pi.Length; j++)
                     {
                         //注意这里要做非空判断,否则空值会发生异常
-                        if (Core.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
+                        if (Framework.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
                         {
 
                             Json.Append("\"" + pi[j].Name.ToString() + "\":" + "\"\"");
@@ -91,7 +91,7 @@ namespace Core.Common.JsonHelper
                     for (int j = 0; j < pi.Length; j++)
                     {
                         //注意这里要做非空判断,否则空值会发生异常
-                        if (Core.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
+                        if (Framework.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
                         {
 
                             Json.Append("\"" + pi[j].Name.ToString() + "\":" + "\"\"");
@@ -306,7 +306,7 @@ namespace Core.Common.JsonHelper
                     for (int j = 0; j < pi.Length; j++)
                     {
                         //注意这里要做非空判断,否则空值会发生异常
-                        if (Core.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
+                        if (Framework.Common.ToolsHelper.Tools.IsNullOrEmpty(pi[j].GetValue(list[i], null)))
                         {
 
                             Json.Append("\"" + pi[j].Name.ToString() + "\":" + "\"\"");

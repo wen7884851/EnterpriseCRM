@@ -10,10 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     定义仓储模型中的数据标准操作

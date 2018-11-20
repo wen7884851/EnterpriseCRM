@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     通用类型扩展方法类

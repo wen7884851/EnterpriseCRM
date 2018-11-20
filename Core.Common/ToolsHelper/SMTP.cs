@@ -6,7 +6,7 @@ using System.Web;
 using System.Net.Mail;
 using System.Net;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 { 
 
 /// <summary>

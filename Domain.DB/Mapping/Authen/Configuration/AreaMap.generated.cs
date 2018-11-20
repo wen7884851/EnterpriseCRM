@@ -9,7 +9,7 @@
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using Domain.DB.Models.Authen;
-using Core.EFData;
+using Framework.EFData;
 
 namespace Domain.DB.Mapping.Authen
 {

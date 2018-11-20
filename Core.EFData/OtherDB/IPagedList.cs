@@ -1,4 +1,4 @@
-﻿namespace Core.EFData.OtherDB
+﻿namespace Framework.EFData.OtherDB
 {
     public interface IPagedList
     {

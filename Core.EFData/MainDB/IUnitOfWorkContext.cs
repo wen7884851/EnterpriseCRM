@@ -9,10 +9,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     数据单元操作接口

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Common.TimeHelper
+namespace Framework.Common.TimeHelper
 {
     /// <summary>
     /// 时间类

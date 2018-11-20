@@ -14,7 +14,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace Core.Common.ToolsHelper.Net
+namespace Framework.Common.ToolsHelper.Net
 {
     public class HttpMethods
     {

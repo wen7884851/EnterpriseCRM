@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 强制转化辅助类(无异常抛出)

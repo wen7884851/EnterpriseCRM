@@ -7,7 +7,7 @@ using ICSharpCode.SharpZipLib.Checksum;
 using System.Web;
 
 
-namespace Core.Common.FileHelper
+namespace Framework.Common.FileHelper
 {
     public static class ZipClass
     {

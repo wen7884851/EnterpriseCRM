@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
 
-namespace Core.Common.JsonHelper
+namespace Framework.Common.JsonHelper
 {
     /// <summary>
     /// 前台Ajax请求的统一返回结果类

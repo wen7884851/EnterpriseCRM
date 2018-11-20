@@ -1,4 +1,4 @@
-﻿using Core.Tool.Entity;
+﻿using Framework.Tool.Entity;
 using Domain.Site.Models.Authen.FaceLiveness.Person;
 using System;
 using System.Collections.Generic;

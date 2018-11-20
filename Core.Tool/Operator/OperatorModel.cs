@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Tool.Operator
+namespace Framework.Tool.Operator
 {
     public class OperatorModel
     {

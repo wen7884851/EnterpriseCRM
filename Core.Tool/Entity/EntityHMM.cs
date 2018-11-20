@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace Core.Tool.Entity
+namespace Framework.Tool.Entity
 {
     [Serializable]
     public abstract class EntityHHM<TKey> : IEntity<TKey>

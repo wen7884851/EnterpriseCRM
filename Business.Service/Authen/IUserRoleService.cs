@@ -7,10 +7,10 @@
 // </auto-generated>
 //
 // <copyright file="IUserRoleService.cs">
-//		Copyright(c)2013 QuickFramework.All rights reserved.
-//		开发组织：QuickFramework
-//		公司网站：QuickFramework
-//		所属工程：Business.Service
+//		Copyright(c)2013 QuickCore.All rights reserved.
+//		开发组织：QuickCore
+//		公司网站：QuickCore
+//		所属工程：Core.Service
 //		生成时间：2013-12-11 23:55
 // </copyright>
 //------------------------------------------------------------------------------
@@ -18,12 +18,12 @@
 using System;
 using System.Linq;
 
-using Core.Tool;
-using Domain.Repository.Authen;
+using Framework.Tool;
+using Core.Repository.Authen;
 using Domain.DB.Models.Authen;
 using System.Collections.Generic;
 
-namespace Business.Service.Authen
+namespace Core.Service.Authen
 {
 	/// <summary>
     /// 服务层接口 —— IUserRoleService

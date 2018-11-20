@@ -7,10 +7,10 @@
 // </auto-generated>
 //
 // <copyright file="UserRoleService.cs">
-//		Copyright(c)2013 QuickFramework.All rights reserved.
-//		开发组织：QuickFramework
-//		公司网站：QuickFramework
-//		所属工程：Business.Service
+//		Copyright(c)2013 QuickCore.All rights reserved.
+//		开发组织：QuickCore
+//		公司网站：QuickCore
+//		所属工程：Core.Service
 //		生成时间：2013-12-11 23:55
 // </copyright>
 //------------------------------------------------------------------------------
@@ -20,12 +20,12 @@ using System.ComponentModel.Composition;
 using System.Linq;
 
 using Domain.DB.Models.Authen;
-using Domain.Repository.Authen;
-using Core.Tool;
+using Core.Repository.Authen;
+using Framework.Tool;
 using System.Collections.Generic;
 
 
-namespace Business.Service.Authen.Impl
+namespace Core.Service.Authen.Impl
 {
 	/// <summary>
     /// 服务层实现 —— UserRoleService

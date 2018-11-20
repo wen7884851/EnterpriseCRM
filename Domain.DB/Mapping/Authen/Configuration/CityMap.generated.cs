@@ -8,7 +8,7 @@
 
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
-using Core.EFData;
+using Framework.EFData;
 using Domain.DB.Models.Authen;
 
 namespace Domain.DB.Mapping.Authen

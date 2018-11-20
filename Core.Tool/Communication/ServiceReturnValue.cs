@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Xml;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     /// 服务代理返回实体类

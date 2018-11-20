@@ -12,7 +12,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Web;
 
-namespace Core.Common
+namespace Framework.Common
 {
     public class HttpContextHelp
     {

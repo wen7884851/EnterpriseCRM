@@ -1,25 +1,16 @@
-﻿//**********************************
-//*ClassName:
-//*Version:
-//*Date:
-//*Author:
-//*Effect:
-//**********************************
-
-
-using System;
+﻿using System;
 using System.ComponentModel.Composition;
 using System.Linq;
 
 using Domain.DB.Models.Authen;
-using Core.Tool;
-using Domain.Repository.Authen;
+using Framework.Tool;
+using Core.Repository.Authen;
 using Domain.Site.Models.Authen.Permission;
 using System.Collections.Generic;
 using Domain.Site.Models.Authen.SystemSite;
 using Domain.Site.Common.Models;
 
-namespace Business.Service.Authen.Impl
+namespace Core.Service.Authen.Impl
 {
     /// <summary>
     /// 服务层实现 —— SystemSiteService

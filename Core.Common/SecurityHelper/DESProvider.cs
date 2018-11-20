@@ -3,7 +3,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace Core.Common.SecurityHelper
+namespace Framework.Common.SecurityHelper
 {
     /// <summary>
     /// DES算法加密解密

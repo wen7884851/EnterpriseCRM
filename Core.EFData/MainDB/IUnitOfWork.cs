@@ -6,7 +6,7 @@
 //*Effect:
 //**********************************
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     业务单元操作接口

@@ -9,7 +9,7 @@
 using System;
 
 
-namespace Core.EFData.OtherDB
+namespace Framework.EFData.OtherDB
 {
     public class Operater
     {

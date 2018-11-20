@@ -6,7 +6,7 @@ using System.Net;
 using System.Web;
 using System.IO;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 用webClient下载文件

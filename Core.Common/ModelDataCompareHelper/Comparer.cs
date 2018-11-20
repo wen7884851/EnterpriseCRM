@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Core.Common.ModelDataCompareHelper
+namespace Framework.Common.ModelDataCompareHelper
 {
     /// <summary>
     /// 模型数据比较器

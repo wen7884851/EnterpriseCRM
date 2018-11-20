@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     属性排序条件信息类

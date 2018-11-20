@@ -6,9 +6,9 @@
 // </auto-generated>
 //
 // <copyright file="UserMap.generated.cs">
-//		Copyright(c)2013 QuickFramework.All rights reserved.
-//		开发组织：QuickFramework
-//		公司网站：QuickFramework
+//		Copyright(c)2013 QuickDomain.All rights reserved.
+//		开发组织：QuickDomain
+//		公司网站：QuickDomain
 //		所属工程：Domain.DB
 //		生成时间：2013-12-30 00:25
 // </copyright>
@@ -18,7 +18,7 @@ using System;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 
-using Core.EFData;
+using Framework.EFData;
 using Domain.DB.Models.Authen;
 
 

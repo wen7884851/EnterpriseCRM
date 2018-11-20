@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     ///ConvertHtmlPage 生成静态页面

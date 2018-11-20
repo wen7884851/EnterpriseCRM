@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
    public static class TypeHelper
     {

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Routing;
 
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     ///  文件服务器分离，需要得到文件服务器上文件的地址

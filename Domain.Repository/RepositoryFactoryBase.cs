@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repository
+namespace Core.Repository
 {
     public class RepositoryFactoryBase
     {

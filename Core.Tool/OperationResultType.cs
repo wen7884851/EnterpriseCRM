@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     表示业务操作结果的枚举

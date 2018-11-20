@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : Core.Common
+// Assembly         : Framework.Common
 // Author           : 郭一文
 // Created          : 2018-03-20
 // Last Modified By : 郭一文
@@ -16,7 +16,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 邮件帮助类

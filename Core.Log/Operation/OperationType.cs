@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Core.Log
+namespace Framework.Log
 {
     /// <summary>
     /// 操作类型

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     public class Class1
     {
