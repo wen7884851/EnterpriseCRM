@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Tool.Entity
+namespace Framework.Tool.Entity
 {
     public interface IDeleteAudited 
     {

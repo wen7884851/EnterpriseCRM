@@ -8,7 +8,7 @@
 
 
 using System;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 using System.Collections.Generic;
 
 namespace Domain.DB.Models.Authen

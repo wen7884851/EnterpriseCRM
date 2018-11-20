@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Web;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// 版 本 6.1

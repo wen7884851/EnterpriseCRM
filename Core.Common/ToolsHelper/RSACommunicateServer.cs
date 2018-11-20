@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     public class RSACommunicateServer
     {

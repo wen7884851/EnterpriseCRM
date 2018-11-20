@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Text;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     枚举扩展方法类

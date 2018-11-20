@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.MessageHelper
+namespace Framework.Common.MessageHelper
 {
     /// <summary>
     /// 系统的常见操作

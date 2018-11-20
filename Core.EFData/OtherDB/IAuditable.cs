@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.EFData.OtherDB
+namespace Framework.EFData.OtherDB
 {
     /// <summary>
     /// 用于写数据修改，添加等历史日志

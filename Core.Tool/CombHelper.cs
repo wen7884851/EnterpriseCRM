@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     COMB（有序的Guid，Guid与时间混合型）类型操作类

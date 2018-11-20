@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.LINQHelper
+namespace Framework.Common.LINQHelper
 {
   public  class CommonEqualityComparer<T, V> : IEqualityComparer<T>
   {

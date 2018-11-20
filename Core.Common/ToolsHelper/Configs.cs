@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using System.Web;
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     public class Configs
     {

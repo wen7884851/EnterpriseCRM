@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Common.ImageHelper
+namespace Framework.Common.ImageHelper
 {
    public class ImageHelper
     {

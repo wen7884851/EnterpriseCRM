@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     数据辅助操作类

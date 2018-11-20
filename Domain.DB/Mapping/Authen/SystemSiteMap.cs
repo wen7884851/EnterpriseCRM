@@ -9,7 +9,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using Core.EFData;
+using Framework.EFData;
 using Domain.DB.Models.Authen;
 
 namespace Domain.DB.Mapping.Authen

@@ -1,6 +1,6 @@
 ﻿
 using System;
-namespace Core.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志消息

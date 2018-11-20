@@ -12,7 +12,7 @@ using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
 
-namespace Core.Common.Helpers
+namespace Framework.Common.Helpers
 {
     /// <summary>
     ///  创建人： 郭一文

@@ -11,7 +11,7 @@ using System.Text;
 using System.Web;
 using System.IO;
 
-namespace Core.Common.FileHelper
+namespace Framework.Common.FileHelper
 {
     public class FileOperate
     {

@@ -1,14 +1,14 @@
 ﻿
-using Core.Tool;
+using Framework.Tool;
 using System;
 using System.Configuration;
-using Core.Common.ToolsHelper;
-using Core.Common.SecurityHelper;
-using Core.Common;
-using Core.Common.JsonHelper;
-using Core.Common.ToolsHelper.Net;
+using Framework.Common.ToolsHelper;
+using Framework.Common.SecurityHelper;
+using Framework.Common;
+using Framework.Common.JsonHelper;
+using Framework.Common.ToolsHelper.Net;
 
-namespace Core.Tool.Operator
+namespace Framework.Tool.Operator
 {
     public class OperatorProvider
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.EFData.DBExtend
+namespace Framework.EFData.DBExtend
 {
     /// <summary>
     /// 实现多DbContext的事务，支持分布式事务

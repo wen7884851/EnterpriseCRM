@@ -3,7 +3,7 @@ using System.Web;
 using System.Drawing;
 using System.Security.Cryptography;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 验证码类

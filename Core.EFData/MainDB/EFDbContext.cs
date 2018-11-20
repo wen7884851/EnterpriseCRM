@@ -13,7 +13,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     EF数据访问上下文

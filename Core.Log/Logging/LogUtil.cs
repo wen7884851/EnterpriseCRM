@@ -8,9 +8,9 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using System.Xml;
-using Core.Common.FileHelper;
+using Framework.Common.FileHelper;
 
-namespace Core.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志

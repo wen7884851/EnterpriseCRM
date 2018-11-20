@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Core.Common.JsonHelper
+namespace Framework.Common.JsonHelper
 {
     public static class Json
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;//System.Transactions 引用
 
-namespace Core.EFData.DBExtend
+namespace Framework.EFData.DBExtend
 {
     public class UnitOfWork : IUnitOfWork
     {

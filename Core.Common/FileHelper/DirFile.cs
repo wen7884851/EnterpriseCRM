@@ -10,7 +10,7 @@ using System;
 using System.Text;
 using System.IO;
 
-namespace Core.Common.FileHelper
+namespace Framework.Common.FileHelper
 {
     /// <summary>
     /// 文件操作夹

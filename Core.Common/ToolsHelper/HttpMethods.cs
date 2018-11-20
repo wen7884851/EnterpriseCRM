@@ -9,7 +9,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace Core.Common
+namespace Framework.Common
 {
     public class HttpMethods
     {

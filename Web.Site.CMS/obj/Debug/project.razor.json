@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\File\\myp\\EnterpriseCRM\\Web.Site.CMS\\Web.Site.CMS.csproj",
+  "TargetFramework": "v4.6.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

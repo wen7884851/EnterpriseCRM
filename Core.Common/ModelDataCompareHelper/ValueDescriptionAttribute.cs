@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.ModelDataCompareHelper
+namespace Framework.Common.ModelDataCompareHelper
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public class ValueDescriptionAttribute : Attribute

@@ -16,10 +16,10 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-using Core.Tool;
-using Core.Tool.Entity;
+using Framework.Tool;
+using Framework.Tool.Entity;
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     public static class DbContextExtensions
     {

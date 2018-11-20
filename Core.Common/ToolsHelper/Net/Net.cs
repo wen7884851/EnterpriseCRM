@@ -1,5 +1,5 @@
 ﻿
-using Core.Common.JsonHelper;
+using Framework.Common.JsonHelper;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Web;
 
-namespace Core.Common.ToolsHelper.Net
+namespace Framework.Common.ToolsHelper.Net
 {
     /// <summary>
     /// 网络操作

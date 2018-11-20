@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
@@ -244,7 +245,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\LoginController.cs" />
-    <Compile Include="Controllers\Account\LoginController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extension\Filters\AdminOperateLogAttribute.cs" />
     <Compile Include="Extension\Filters\AdminPermissionAttribute.cs" />
@@ -303,23 +304,23 @@
     <TypeScriptCompile Include="Scripts\_typings\jquery\jquery.raty.d.ts" />
     <TypeScriptCompile Include="Scripts\_typings\knockout.mapping\knockout.mapping.ts" />
     <TypeScriptCompile Include="Scripts\_typings\ko\knockout.ts" />
-    <TypeScriptCompile Include="Scripts\_typings\lodash.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\lodash.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+    <ProjectReference Include="..\Core.Common\Framework.Common.csproj">
       <Project>{3f48f990-aee4-499a-b0c7-0f6d53f30d96}</Project>
-      <Name>Core.Common</Name>
+      <Name>Framework.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core.Log\Core.Log.csproj">
+    <ProjectReference Include="..\Core.Log\Framework.Logging.csproj">
       <Project>{bed098c3-53b5-426b-9408-ddf4fa8b5449}</Project>
-      <Name>Core.Log</Name>
+      <Name>Framework.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core.Tool\Core.Tool.csproj">
+    <ProjectReference Include="..\Core.Tool\Framework.Tool.csproj">
       <Project>{b23d0601-3d8c-4800-931e-95d94009ab8e}</Project>
-      <Name>Core.Tool</Name>
+      <Name>Framework.Tool</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain.Site\Domain.Site.csproj">
       <Project>{d45e2f1e-cca9-443c-af35-4c816533a742}</Project>

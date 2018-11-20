@@ -1,9 +1,9 @@
-﻿using Core.Common.ToolsHelper;
+﻿using Framework.Common.ToolsHelper;
 using log4net;
 using System;
 using System.IO;
 using System.Web;
-namespace Core.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志初始化

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// XmlFiles 的摘要说明。

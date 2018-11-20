@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     业务操作结果信息类，对操作结果进行封装

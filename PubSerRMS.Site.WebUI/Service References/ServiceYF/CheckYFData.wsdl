@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="YFPersonCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RealName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YFPersonCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YFPersonCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YFPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RealName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDCard" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YFPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YFPersonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="YFPersonCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:YFPersonCheck" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:YFPersonCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:YFPerson" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:YFPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonCheckHttpGetIn">
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDCard" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonCheckHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonHttpGetIn">
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDCard" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonCheckHttpPostIn">
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDCard" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonCheckHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonHttpPostIn">
+    <wsdl:part name="RealName" type="s:string" />
+    <wsdl:part name="IDCard" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YFPersonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CheckYFDataSoap">
+    <wsdl:operation name="YFPersonCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名，
+1、确定信息在优抚对象列表中则返回对象救助信息
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonCheckSoapIn" />
+      <wsdl:output message="tns:YFPersonCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonSoapIn" />
+      <wsdl:output message="tns:YFPersonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CheckYFDataHttpGet">
+    <wsdl:operation name="YFPersonCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名，
+1、确定信息在优抚对象列表中则返回对象救助信息
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonCheckHttpGetIn" />
+      <wsdl:output message="tns:YFPersonCheckHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonHttpGetIn" />
+      <wsdl:output message="tns:YFPersonHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CheckYFDataHttpPost">
+    <wsdl:operation name="YFPersonCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名，
+1、确定信息在优抚对象列表中则返回对象救助信息
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonCheckHttpPostIn" />
+      <wsdl:output message="tns:YFPersonCheckHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过接口获取微信对象身份证号码和姓名
+2、对象未在列表则返回错误</wsdl:documentation>
+      <wsdl:input message="tns:YFPersonHttpPostIn" />
+      <wsdl:output message="tns:YFPersonHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckYFDataSoap" type="tns:CheckYFDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="YFPersonCheck">
+      <soap:operation soapAction="http://tempuri.org/YFPersonCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <soap:operation soapAction="http://tempuri.org/YFPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckYFDataSoap12" type="tns:CheckYFDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="YFPersonCheck">
+      <soap12:operation soapAction="http://tempuri.org/YFPersonCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <soap12:operation soapAction="http://tempuri.org/YFPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckYFDataHttpGet" type="tns:CheckYFDataHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="YFPersonCheck">
+      <http:operation location="/YFPersonCheck" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <http:operation location="/YFPerson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckYFDataHttpPost" type="tns:CheckYFDataHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="YFPersonCheck">
+      <http:operation location="/YFPersonCheck" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YFPerson">
+      <http:operation location="/YFPerson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckYFData">
+    <wsdl:port name="CheckYFDataSoap" binding="tns:CheckYFDataSoap">
+      <soap:address location="http://124.232.153.41:88/MCWebService/WxYFManager/CheckYFData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckYFDataSoap12" binding="tns:CheckYFDataSoap12">
+      <soap12:address location="http://124.232.153.41:88/MCWebService/WxYFManager/CheckYFData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckYFDataHttpGet" binding="tns:CheckYFDataHttpGet">
+      <http:address location="http://124.232.153.41:88/MCWebService/WxYFManager/CheckYFData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckYFDataHttpPost" binding="tns:CheckYFDataHttpPost">
+      <http:address location="http://124.232.153.41:88/MCWebService/WxYFManager/CheckYFData.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

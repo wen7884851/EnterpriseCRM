@@ -9,7 +9,7 @@ using System.CodeDom;
 using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     public class MyServicesProxy
     {

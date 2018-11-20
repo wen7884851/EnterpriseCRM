@@ -1,4 +1,4 @@
-﻿using Core.EFData;
+﻿using Framework.EFData;
 using Domain.DB.Models.Authen;
 using System;
 using System.Collections.Generic;

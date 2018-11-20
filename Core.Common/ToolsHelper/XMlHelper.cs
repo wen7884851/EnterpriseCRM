@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Web;
 using System.Xml;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     ///XMlHelper 的摘要说明

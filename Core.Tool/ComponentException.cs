@@ -10,7 +10,7 @@ using System;
 using System.Runtime.Serialization;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     组件异常类
@@ -19,12 +19,12 @@ namespace Core.Tool
     public class ComponentException : Exception
     {
         /// <summary>
-        ///     初始化Core.Tool.ComponentsException 类的新实例
+        ///     初始化Framework.Tool.ComponentsException 类的新实例
         /// </summary>
         public ComponentException() { }
 
         /// <summary>
-        ///     使用指定错误消息初始化Core.Tool.ComponentsException 类的新实例。
+        ///     使用指定错误消息初始化Framework.Tool.ComponentsException 类的新实例。
         /// </summary>
         /// <param name="message">描述错误的消息</param>
         public ComponentException(string message)
@@ -32,7 +32,7 @@ namespace Core.Tool
         { }
 
         /// <summary>
-        ///     使用异常消息与一个内部异常实例化一个Core.Tool.ComponentException 类的新实例
+        ///     使用异常消息与一个内部异常实例化一个Framework.Tool.ComponentException 类的新实例
         /// </summary>
         /// <param name="message">异常消息</param>
         /// <param name="inner">用于封装在ComponentException内部的异常实例</param>
@@ -41,7 +41,7 @@ namespace Core.Tool
         { }
 
         /// <summary>
-        ///     使用可序列化数据实例化一个Core.Tool.ComponentException 类的新实例
+        ///     使用可序列化数据实例化一个Framework.Tool.ComponentException 类的新实例
         /// </summary>
         /// <param name="info">保存序列化对象数据的对象。</param>
         /// <param name="context">有关源或目标的上下文信息。</param>

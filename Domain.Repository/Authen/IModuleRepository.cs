@@ -10,18 +10,18 @@
 //		Copyright(c)2013 PubSerFramework.All rights reserved.
 //		开发组织：PubSerFramework
 //		公司网站：PubSerFramework
-//		所属工程：Domain.Repository
+//		所属工程：Core.Repository
 //		生成时间：2017-11-15 17:06
 // </copyright>
 //------------------------------------------------------------------------------
 
 using System;
 
-using Core.EFData;
+using Framework.EFData;
 using Domain.DB.Models.Authen;
 
 
-namespace Domain.Repository.Authen
+namespace Core.Repository.Authen
 {
 	/// <summary>
     /// 仓储操作层接口 —— Module

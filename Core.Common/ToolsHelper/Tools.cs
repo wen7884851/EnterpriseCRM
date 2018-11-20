@@ -1,11 +1,11 @@
-﻿using Core.Common;
-using Core.Common.JsonHelper;
+﻿using Framework.Common;
+using Framework.Common.JsonHelper;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 共用工具类

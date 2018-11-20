@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.Redis
+namespace Framework.Common.Redis
 {
     /// <summary>
     /// 版 本 6.1
@@ -358,13 +358,13 @@ namespace Core.Common.Redis
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <param name="t"></param>
-        /// <param name="score"></param>
-        public static bool SortedSet_Add<T>(string key, T t, double score)
+        /// <param name="sFramework"></param>
+        public static bool SortedSet_Add<T>(string key, T t, double sFramework)
         {
             using (IRedisClient redis = prcm.GetClient())
             {
                 string value = ServiceStack.Text.JsonSerializer.SerializeToString<T>(t);
-                return redis.AddItemToSortedSet(key, value, score);
+                return redis.AddItemToSortedSet(key, value, sFramework);
             }
         }
         /// <summary>

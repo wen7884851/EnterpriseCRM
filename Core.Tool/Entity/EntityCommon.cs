@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace Core.Tool.Entity
+namespace Framework.Tool.Entity
 {
     /// <summary>
     /// 数据公用实体配置

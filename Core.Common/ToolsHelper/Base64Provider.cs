@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// 实现Base64编码与其它编码转换的类

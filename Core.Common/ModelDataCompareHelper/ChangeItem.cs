@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Core.Common.ModelDataCompareHelper
+namespace Framework.Common.ModelDataCompareHelper
 {
     /// <summary>
     /// 复杂数据类型变更项类：如泛型集合、具有多个属性的类型等。

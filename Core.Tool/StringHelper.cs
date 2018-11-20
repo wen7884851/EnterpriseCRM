@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     字符串辅助操作类

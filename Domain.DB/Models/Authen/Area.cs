@@ -7,7 +7,7 @@
 //**********************************
 
 using System;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 
 namespace Domain.DB.Models.Authen
 {

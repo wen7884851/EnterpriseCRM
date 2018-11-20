@@ -5,7 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.Net;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     /// socket通讯类

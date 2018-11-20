@@ -14,10 +14,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-using Core.Tool;
+using Framework.Tool;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     数据单元操作类

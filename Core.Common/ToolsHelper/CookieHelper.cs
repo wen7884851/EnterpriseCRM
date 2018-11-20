@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace Core.Common.ToolsHelper
+namespace Framework.Common.ToolsHelper
 {
     /// <summary>
     /// Cookie辅助类

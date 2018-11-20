@@ -14,10 +14,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-using Core.Tool;
-using Core.Tool.Entity;
+using Framework.Tool;
+using Framework.Tool.Entity;
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     EntityFramework仓储操作基类

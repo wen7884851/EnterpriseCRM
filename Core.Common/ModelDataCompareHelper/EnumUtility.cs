@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Core.Common.ModelDataCompareHelper
+namespace Framework.Common.ModelDataCompareHelper
 {
     /// <summary>
     /// 该类提供用于枚举类型处理的相关静态方法

@@ -13,9 +13,9 @@ using System.Collections;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Security.Cryptography;
-using Core.Common;
+using Framework.Common;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     public class ToolClass
     {

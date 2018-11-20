@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Web.Mvc;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 using Domain.Site.Common.Models;
 
 namespace Domain.Site.Models.Authen.User
 {
-	public class UpdateUserModel : Core.Tool.Entity.EntityCommon
+	public class UpdateUserModel : Framework.Tool.Entity.EntityCommon
     {
         public UpdateUserModel()
         {

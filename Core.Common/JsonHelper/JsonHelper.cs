@@ -5,7 +5,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 
-namespace Core.Common.JsonHelper
+namespace Framework.Common.JsonHelper
 {
 
     /// <summary>

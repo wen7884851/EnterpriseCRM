@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 using System.Reflection;
 
-namespace Core.Common
+namespace Framework.Common
 {
     /// <summary>
     /// XML转换器

@@ -2,7 +2,7 @@
     export class cookie {
         public setCookie(c_name, value) {
             var exdate = new Date()
-            document.cookie = c_name + "=" + escape(value);
+            document.cookie = c_name + "=" + value;
         }
 
         public delCookie(name) {
@@ -17,7 +17,7 @@
         public getCookie(name) {
             var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
             if (arr = document.cookie.match(reg))
-                return unescape(arr[2]);
+                return arr[2];
             else
                 return null;
         }

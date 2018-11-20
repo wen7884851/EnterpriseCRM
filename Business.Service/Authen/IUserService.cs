@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 
-using Core.Tool;
+using Framework.Tool;
 using Domain.DB.Models.Authen;
 using Domain.Site.Models.Authen.User;
 using Domain.Site.Common.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace Business.Service.Authen
+namespace Core.Service.Authen
 {
     /// <summary>
     /// 服务层接口 —— IUserService

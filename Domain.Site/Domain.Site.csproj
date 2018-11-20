@@ -129,13 +129,17 @@
     <Folder Include="Mapping\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.EFData\Core.EFData.csproj">
+    <ProjectReference Include="..\Core.EFData\Framework.EFData.csproj">
       <Project>{5fe41d5d-1367-462d-ae95-bbd1b7217592}</Project>
-      <Name>Core.EFData</Name>
+      <Name>Framework.EFData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core.Tool\Core.Tool.csproj">
+    <ProjectReference Include="..\Core.Tool\Framework.Tool.csproj">
       <Project>{b23d0601-3d8c-4800-931e-95d94009ab8e}</Project>
-      <Name>Core.Tool</Name>
+      <Name>Framework.Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Repository\Core.Repository.csproj">
+      <Project>{f8f9f307-b0d5-4b45-8807-468cf0e85ca0}</Project>
+      <Name>Core.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

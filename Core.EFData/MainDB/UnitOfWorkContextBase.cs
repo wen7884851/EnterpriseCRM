@@ -15,11 +15,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-using Core.EFData;
-using Core.Tool;
-using Core.Tool.Entity;
+using Framework.EFData;
+using Framework.Tool;
+using Framework.Tool.Entity;
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     /// 单元操作实现基类

@@ -13,7 +13,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.EFData.OtherDB
+namespace Framework.EFData.OtherDB
 {
     public interface IDataRepository
     {

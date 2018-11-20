@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Linq.Expressions;
 
-namespace Core.Common.LINQHelper
+namespace Framework.Common.LINQHelper
 {
    
     /// <summary>

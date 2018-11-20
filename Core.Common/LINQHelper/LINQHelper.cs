@@ -9,7 +9,7 @@ using System.Data.EntityClient;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Core.Common.LINQHelper
+namespace Framework.Common.LINQHelper
 {
    public static  class LINQHelper
     {

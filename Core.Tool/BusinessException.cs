@@ -10,7 +10,7 @@ using System;
 using System.Runtime.Serialization;
 
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     数据访问层异常类，用于封装业务逻辑层引发的异常，以供 UI 层抓取
@@ -19,12 +19,12 @@ namespace Core.Tool
     public class BusinessException : Exception
     {
         /// <summary>
-        ///     实体化一个Core.Tool.BllException 类的新实例
+        ///     实体化一个Framework.Tool.BllException 类的新实例
         /// </summary>
         public BusinessException() { }
 
         /// <summary>
-        ///     使用异常消息实例化一个Core.Tool.BllException 类的新实例
+        ///     使用异常消息实例化一个Framework.Tool.BllException 类的新实例
         /// </summary>
         /// <param name="message">异常消息</param>
         public BusinessException(string message)
@@ -32,7 +32,7 @@ namespace Core.Tool
         { }
 
         /// <summary>
-        ///     使用异常消息与一个内部异常实例化一个Core.Tool.BllException 类的新实例
+        ///     使用异常消息与一个内部异常实例化一个Framework.Tool.BllException 类的新实例
         /// </summary>
         /// <param name="message">异常消息</param>
         /// <param name="inner">用于封装在BllException内部的异常实例</param>
@@ -41,7 +41,7 @@ namespace Core.Tool
         { }
 
         /// <summary>
-        ///     使用可序列化数据实例化一个Core.Tool.BllException 类的新实例
+        ///     使用可序列化数据实例化一个Framework.Tool.BllException 类的新实例
         /// </summary>
         /// <param name="info">保存序列化对象数据的对象。</param>
         /// <param name="context">有关源或目标的上下文信息。</param>

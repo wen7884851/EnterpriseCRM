@@ -14,9 +14,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 
-namespace Core.Tool
+namespace Framework.Tool
 {
     /// <summary>
     ///     集合扩展方法类

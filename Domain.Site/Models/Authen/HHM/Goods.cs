@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Tool.Entity;
+using Framework.Tool.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 

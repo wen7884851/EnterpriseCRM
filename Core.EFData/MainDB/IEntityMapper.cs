@@ -10,7 +10,7 @@ using System.ComponentModel.Composition;
 using System.Data.Entity.ModelConfiguration.Configuration;
 
 
-namespace Core.EFData
+namespace Framework.EFData
 {
     /// <summary>
     ///     实体映射接口

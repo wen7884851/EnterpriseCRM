@@ -1,4 +1,4 @@
-﻿using Core.Tool.Operator;
+﻿using Framework.Tool.Operator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;

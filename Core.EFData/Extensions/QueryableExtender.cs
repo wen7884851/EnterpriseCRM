@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.EFData
+namespace Framework.EFData
 {
 
         /// <summary>
