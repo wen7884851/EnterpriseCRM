@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Framework.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志格式器

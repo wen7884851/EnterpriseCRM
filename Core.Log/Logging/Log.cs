@@ -1,6 +1,6 @@
 ﻿using log4net;
 using System;
-namespace Framework.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志

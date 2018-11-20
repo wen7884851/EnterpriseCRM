@@ -1,6 +1,3 @@
-D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Core.Repository.csprojResolveAssemblyReference.cache
-D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Domain.Repository.dll
-D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Domain.Repository.pdb
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\Domain.Repository.dll
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\Domain.Repository.pdb
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\Core.EFData.dll
@@ -49,3 +46,6 @@ D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\zh-Hans\System.Web.WebPage
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Repository\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Core.Repository.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Domain.Repository.dll
+D:\File\myp\EnterpriseCRM\Domain.Repository\obj\Debug\Domain.Repository.pdb

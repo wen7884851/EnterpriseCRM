@@ -45,9 +45,6 @@ E:\文闻\代码\EnterpriseCRM\Domain.DB\bin\Debug\System.Buffers.xml
 E:\文闻\代码\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csprojResolveAssemblyReference.cache
 E:\文闻\代码\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
 E:\文闻\代码\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb
-D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csprojResolveAssemblyReference.cache
-D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
-D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Domain.DB.dll.config
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Domain.DB.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Domain.DB.pdb
@@ -97,3 +94,6 @@ D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.resour
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
+D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb

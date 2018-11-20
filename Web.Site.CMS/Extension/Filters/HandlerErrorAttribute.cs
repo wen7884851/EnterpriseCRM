@@ -1,16 +1,16 @@
-﻿using Core.Common;
+﻿using Framework.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Core.Log;
-using Core.Common.ToolsHelper.Net;
-using Core.Tool.Operator;
-using Core.Tool;
-using Core.Common.ToolsHelper;
-using Core.Common.JsonHelper;
+using Framework.Log;
+using Framework.Common.ToolsHelper.Net;
+using Framework.Tool.Operator;
+using Framework.Tool;
+using Framework.Common.ToolsHelper;
+using Framework.Common.JsonHelper;
 
 namespace Web.Site.CMS.Extension.Filter
 {

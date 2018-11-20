@@ -3,7 +3,7 @@ using Framework.Common;
 using Framework.Common.JsonHelper;
 using Framework.Common.ToolsHelper;
 using Framework.Common.ToolsHelper.Net;
-using Framework.Log;
+using Framework.Logging;
 using Framework.Tool;
 using Framework.Tool.Operator;
 using System;

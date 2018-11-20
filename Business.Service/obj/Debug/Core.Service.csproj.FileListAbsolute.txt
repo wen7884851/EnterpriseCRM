@@ -1,6 +1,3 @@
-D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Core.Service.csprojResolveAssemblyReference.cache
-D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Business.Service.dll
-D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Business.Service.pdb
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\Business.Service.dll
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\Business.Service.pdb
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\Core.Common.dll
@@ -56,3 +53,6 @@ D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\zh-Hans\System.Web.Razor.re
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Business.Service\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
+D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Core.Service.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Business.Service.dll
+D:\File\myp\EnterpriseCRM\Business.Service\obj\Debug\Business.Service.pdb

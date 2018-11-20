@@ -1,3 +1,1 @@
 D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\Web.Site.WebUI.csprojResolveAssemblyReference.cache
-D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
-D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb

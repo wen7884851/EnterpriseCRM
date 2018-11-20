@@ -57,7 +57,6 @@ E:\文闻\代码\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages
 E:\文闻\代码\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\文闻\代码\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CoreCompileInputs.cache
 E:\文闻\代码\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CopyComplete
-D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.Site.dll.config
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.Site.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.Site.pdb
@@ -114,5 +113,6 @@ D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.Razor.resourc
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
+D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.pdb

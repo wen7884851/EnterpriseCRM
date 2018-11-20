@@ -45,5 +45,6 @@ D:\File\myp\EnterpriseCRM\Core.Common\bin\Debug\zh-Hans\System.Web.Razor.resourc
 D:\File\myp\EnterpriseCRM\Core.Common\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Common\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Common\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
+D:\File\myp\EnterpriseCRM\Core.Common\obj\Debug\Framework.Common.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.dll
 D:\File\myp\EnterpriseCRM\Core.Common\obj\Debug\Core.Common.pdb

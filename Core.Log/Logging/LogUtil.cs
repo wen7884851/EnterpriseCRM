@@ -10,7 +10,7 @@ using System.Diagnostics;
 using System.Xml;
 using Framework.Common.FileHelper;
 
-namespace Framework.Log
+namespace Framework.Logging
 {
     /// <summary>
     /// 日志

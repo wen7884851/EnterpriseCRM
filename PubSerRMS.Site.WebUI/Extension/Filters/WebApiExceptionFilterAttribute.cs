@@ -1,5 +1,5 @@
 ﻿using Framework.Common.ToolsHelper.Net;
-using Framework.Log;
+using Framework.Logging;
 using Framework.Tool.Operator;
 using System;
 using System.Collections.Generic;

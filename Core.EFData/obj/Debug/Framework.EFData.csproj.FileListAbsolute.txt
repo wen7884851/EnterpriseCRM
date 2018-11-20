@@ -1,4 +1,3 @@
-D:\File\myp\EnterpriseCRM\Core.EFData\obj\Debug\Framework.EFData.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll.config
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.dll
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\Core.EFData.pdb
@@ -46,5 +45,6 @@ D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\zh-Hans\System.Web.WebPages.reso
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Core.EFData\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+D:\File\myp\EnterpriseCRM\Core.EFData\obj\Debug\Framework.EFData.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.dll
 D:\File\myp\EnterpriseCRM\Core.EFData\obj\Debug\Core.EFData.pdb
