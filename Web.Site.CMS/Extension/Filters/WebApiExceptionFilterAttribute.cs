@@ -1,6 +1,6 @@
-﻿using Core.Common.ToolsHelper.Net;
-using Core.Log;
-using Core.Tool.Operator;
+﻿using Framework.Common.ToolsHelper.Net;
+using Framework.Logging;
+using Framework.Tool.Operator;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -19,23 +19,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.DB", "Domain.DB\Doma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Site", "Domain.Site\Domain.Site.csproj", "{D45E2F1E-CCA9-443C-AF35-4C816533A742}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Repository", "Domain.Repository\Core.Repository.csproj", "{F8F9F307-B0D5-4B45-8807-468CF0E85CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Repository", "Core.Repository\Core.Repository.csproj", "{F8F9F307-B0D5-4B45-8807-468CF0E85CA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Log", "Business.Log\Business.Log.csproj", "{B1C20C03-BB72-4391-8BAD-F23AF580FFEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Common", "Core.Common\Framework.Common.csproj", "{3F48F990-AEE4-499A-B0C7-0F6D53F30D96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Common", "Framework.Common\Framework.Common.csproj", "{3F48F990-AEE4-499A-B0C7-0F6D53F30D96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.EFData", "Core.EFData\Framework.EFData.csproj", "{5FE41D5D-1367-462D-AE95-BBD1B7217592}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.EFData", "Framework.EFData\Framework.EFData.csproj", "{5FE41D5D-1367-462D-AE95-BBD1B7217592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Tool", "Core.Tool\Framework.Tool.csproj", "{B23D0601-3D8C-4800-931E-95D94009AB8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Tool", "Framework.Tool\Framework.Tool.csproj", "{B23D0601-3D8C-4800-931E-95D94009AB8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service", "Business.Service\Core.Service.csproj", "{8D995397-38A2-4994-B1B8-8EB57255D48A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service", "Core.Service\Core.Service.csproj", "{8D995397-38A2-4994-B1B8-8EB57255D48A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Log", "Domain.Log\Domain.Log.csproj", "{87F65E9E-02BB-4EFC-94E0-7AA91530C247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.CMS", "Web.Site.CMS\Web.Site.CMS.csproj", "{BB28921D-E74F-40D5-9D9C-F146E7F70A60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "Core.Log\Framework.Logging.csproj", "{BED098C3-53B5-426B-9408-DDF4FA8B5449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "Framework.Logging\Framework.Logging.csproj", "{BED098C3-53B5-426B-9408-DDF4FA8B5449}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.WebUI", "PubSerRMS.Site.WebUI\Web.Site.WebUI.csproj", "{F321A33C-A12D-42BD-B4F1-5FDD742076A0}"
 EndProject
