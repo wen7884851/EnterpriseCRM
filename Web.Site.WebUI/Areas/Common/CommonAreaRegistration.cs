@@ -18,7 +18,7 @@ namespace Web.Site.WebUI.Areas.Common
                 "Common_default",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                new string[] { "Domain.Site.WebUI.Areas.Common.Controllers" }
+                new string[] { "Web.Site.WebUI.Areas.Common.Controllers" }
             );
         }
     }

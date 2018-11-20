@@ -28,6 +28,7 @@ namespace Web.Site.WebUI
 
         private static CompositionContainer ConfigureContainer()
         {
+            var ss = new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);
             var catalog = new AggregateCatalog(new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath));
             var container = new CompositionContainer(catalog, CompositionOptions.DisableSilentRejection);
             HttpContext.Current.Application["Container"] = container;

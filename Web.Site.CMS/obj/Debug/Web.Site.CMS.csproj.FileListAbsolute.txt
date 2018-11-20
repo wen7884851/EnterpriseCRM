@@ -121,8 +121,6 @@ E:\文闻\代码\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.WebPages.Razo
 E:\文闻\代码\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CopyComplete
 E:\文闻\代码\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.dll
 E:\文闻\代码\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.pdb
-D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojAssemblyReference.cache
-D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Web.Site.CMS.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Web.Site.CMS.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Web.Site.CMS.pdb
@@ -206,11 +204,9 @@ D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\System.ValueTuple.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\System.Runtime.CompilerServices.Unsafe.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Core.Common.pdb
-D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Core.Log.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Core.Tool.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Domain.Site.pdb
-D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Domain.Site.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Antlr3.Runtime.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\Newtonsoft.Json.xml
@@ -241,6 +237,6 @@ D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.Razor.resources.dl
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojResolveAssemblyReference.cache

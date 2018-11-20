@@ -17,7 +17,7 @@ namespace Web.Site.WebUI
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "Domain.Site.WebUI.Controllers" }
+                namespaces: new string[] { "Web.Site.WebUI.Controllers" }
             );
         }
     }

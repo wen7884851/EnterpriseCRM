@@ -11,7 +11,7 @@ namespace Web.Site.WebUI.Common
     public class ConfigSettingHelper
     {
 
-        private readonly static string WebNamespace = "Domain.Site.WebUI";
+        private readonly static string WebNamespace = "Web.Site.WebUI";
         private readonly static string AdminController = "AdminController";
 
         /// <summary>
