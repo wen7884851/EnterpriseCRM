@@ -37,7 +37,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.CMS", "Web.Site.CM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "Framework.Logging\Framework.Logging.csproj", "{BED098C3-53B5-426B-9408-DDF4FA8B5449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.WebUI", "PubSerRMS.Site.WebUI\Web.Site.WebUI.csproj", "{F321A33C-A12D-42BD-B4F1-5FDD742076A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.WebUI", "Web.Site.WebUI\Web.Site.WebUI.csproj", "{F321A33C-A12D-42BD-B4F1-5FDD742076A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
