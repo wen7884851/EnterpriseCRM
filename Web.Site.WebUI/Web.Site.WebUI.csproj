@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F321A33C-A12D-42BD-B4F1-5FDD742076A0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PubSerRMS.Site.WebUI</RootNamespace>
+    <AssemblyName>PubSerRMS.Site.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=3.2.0.157, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.3.2.0.157\lib\net40\MiniProfiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler.EntityFramework6, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.EF6.3.0.11\lib\net40\MiniProfiler.EntityFramework6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler.Mvc, Version=3.0.10.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.MVC4.3.0.10\lib\net40\MiniProfiler.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MefConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
+    <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Common\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Common\Controllers\LoginController.cs" />
+    <Compile Include="Common\AdminController.cs" />
+    <Compile Include="Common\ConfigSettingHelper.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extension\Filters\AdminLayoutAttribute.cs" />
+    <Compile Include="Extension\Filters\AdminOperateLogAttribute.cs" />
+    <Compile Include="Extension\Filters\AdminPermissionAttribute.cs" />
+    <Compile Include="Extension\Filters\ElmahErrorAttribute.cs" />
+    <Compile Include="Extension\Filters\HandlerErrorAttribute.cs" />
+    <Compile Include="Extension\Filters\HandlerLoginAttribute.cs" />
+    <Compile Include="Extension\Filters\WebApiExceptionFilterAttribute.cs" />
+    <Compile Include="Extension\ModelBinder\TrimModelBinder.cs" />
+    <Compile Include="Extension\MvcHelper\DynamicLambda.cs" />
+    <Compile Include="Extension\MvcHelper\ScriptBlockExtension.cs" />
+    <Compile Include="Extension\MvcHtmlHelper\BooleanFor.cs" />
+    <Compile Include="Extension\MvcHtmlHelper\CheckBoxListFor.cs" />
+    <Compile Include="Extension\MvcHtmlHelper\DatePickerFor.cs" />
+    <Compile Include="Extension\MvcHtmlHelper\RadioListFor.cs" />
+    <Compile Include="Extension\ViewEngine\ExtendedRazorViewEngine.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceYF\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\admin\css\bootstrap.min.css" />
+    <Content Include="Content\admin\css\font.css" />
+    <Content Include="Content\admin\css\matrix-login.css" />
+    <Content Include="Content\admin\css\matrix-media.css" />
+    <Content Include="Content\admin\css\matrix-style.css" />
+    <Content Include="Content\admin\css\select2.css" />
+    <Content Include="Content\admin\css\uniform.css" />
+    <Content Include="Content\admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\admin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\admin\images\icon\details_close.png" />
+    <Content Include="Content\admin\images\icon\details_open.png" />
+    <Content Include="Content\admin\images\icon\sort_asc.png" />
+    <Content Include="Content\admin\images\icon\sort_asc_disabled.png" />
+    <Content Include="Content\admin\images\icon\sort_both.png" />
+    <Content Include="Content\admin\images\icon\sort_desc.png" />
+    <Content Include="Content\admin\images\icon\sort_desc_disabled.png" />
+    <Content Include="Content\admin\img\breadcrumb.png" />
+    <Content Include="Content\admin\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\admin\img\gritter.png" />
+    <Content Include="Content\admin\img\hue.png" />
+    <Content Include="Content\admin\img\larrow.png" />
+    <Content Include="Content\admin\img\line.png" />
+    <Content Include="Content\admin\img\logo.png" />
+    <Content Include="Content\admin\img\menu-active.png" />
+    <Content Include="Content\admin\img\rarrow.png" />
+    <Content Include="Content\admin\img\saturation.png" />
+    <Content Include="Content\admin\img\select2.png" />
+    <Content Include="Content\admin\img\spinner.gif" />
+    <Content Include="Content\admin\img\sprite.png" />
+    <Content Include="Content\admin\js\bootbox.min.js" />
+    <Content Include="Content\admin\js\bootstrap.min.js" />
+    <Content Include="Content\admin\js\jquery.dataTables.AjaxSource.min.js" />
+    <Content Include="Content\admin\js\jquery.dataTables.columnFilter.js" />
+    <Content Include="Content\admin\js\jquery.dataTables.min.js" />
+    <Content Include="Content\admin\js\jquery.min.js" />
+    <Content Include="Content\admin\js\matrix.js" />
+    <Content Include="Content\admin\js\select2.min.js" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\admin\css\normalize.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\codemirror\css\codemirror-5.3.0.min.css" />
+    <Content Include="Content\codemirror\js\codemirror-5.3.0.min.js" />
+    <Content Include="Content\codemirror\js\codemirror-5.3.0.xml.min.js" />
+    <Content Include="Content\froalaEditor\css\froala_editor.css" />
+    <Content Include="Content\froalaEditor\css\froala_editor.min.css" />
+    <Content Include="Content\froalaEditor\css\froala_editor.pkgd.css" />
+    <Content Include="Content\froalaEditor\css\froala_editor.pkgd.min.css" />
+    <Content Include="Content\froalaEditor\css\froala_style.css" />
+    <Content Include="Content\froalaEditor\css\froala_style.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\char_counter.css" />
+    <Content Include="Content\froalaEditor\css\plugins\char_counter.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\code_view.css" />
+    <Content Include="Content\froalaEditor\css\plugins\code_view.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\colors.css" />
+    <Content Include="Content\froalaEditor\css\plugins\colors.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\draggable.css" />
+    <Content Include="Content\froalaEditor\css\plugins\draggable.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\emoticons.css" />
+    <Content Include="Content\froalaEditor\css\plugins\emoticons.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\file.css" />
+    <Content Include="Content\froalaEditor\css\plugins\file.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\fullscreen.css" />
+    <Content Include="Content\froalaEditor\css\plugins\fullscreen.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\help.css" />
+    <Content Include="Content\froalaEditor\css\plugins\help.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\image.css" />
+    <Content Include="Content\froalaEditor\css\plugins\image.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\image_manager.css" />
+    <Content Include="Content\froalaEditor\css\plugins\image_manager.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\line_breaker.css" />
+    <Content Include="Content\froalaEditor\css\plugins\line_breaker.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\quick_insert.css" />
+    <Content Include="Content\froalaEditor\css\plugins\quick_insert.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\special_characters.css" />
+    <Content Include="Content\froalaEditor\css\plugins\special_characters.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\table.css" />
+    <Content Include="Content\froalaEditor\css\plugins\table.min.css" />
+    <Content Include="Content\froalaEditor\css\plugins\video.css" />
+    <Content Include="Content\froalaEditor\css\plugins\video.min.css" />
+    <Content Include="Content\froalaEditor\css\themes\dark.css" />
+    <Content Include="Content\froalaEditor\css\themes\dark.min.css" />
+    <Content Include="Content\froalaEditor\css\themes\gray.css" />
+    <Content Include="Content\froalaEditor\css\themes\gray.min.css" />
+    <Content Include="Content\froalaEditor\css\themes\red.css" />
+    <Content Include="Content\froalaEditor\css\themes\red.min.css" />
+    <Content Include="Content\froalaEditor\css\themes\royal.css" />
+    <Content Include="Content\froalaEditor\css\themes\royal.min.css" />
+    <Content Include="Content\froalaEditor\css\third_party\embedly.css" />
+    <Content Include="Content\froalaEditor\css\third_party\embedly.min.css" />
+    <Content Include="Content\froalaEditor\css\third_party\spell_checker.css" />
+    <Content Include="Content\froalaEditor\css\third_party\spell_checker.min.css" />
+    <Content Include="Content\froalaEditor\img\photo1.jpg" />
+    <Content Include="Content\froalaEditor\js\froala_editor.min.js" />
+    <Content Include="Content\froalaEditor\js\froala_editor.pkgd.min.js" />
+    <Content Include="Content\froalaEditor\js\languages\ar.js" />
+    <Content Include="Content\froalaEditor\js\languages\bs.js" />
+    <Content Include="Content\froalaEditor\js\languages\cs.js" />
+    <Content Include="Content\froalaEditor\js\languages\da.js" />
+    <Content Include="Content\froalaEditor\js\languages\de.js" />
+    <Content Include="Content\froalaEditor\js\languages\en_ca.js" />
+    <Content Include="Content\froalaEditor\js\languages\en_gb.js" />
+    <Content Include="Content\froalaEditor\js\languages\es.js" />
+    <Content Include="Content\froalaEditor\js\languages\et.js" />
+    <Content Include="Content\froalaEditor\js\languages\fa.js" />
+    <Content Include="Content\froalaEditor\js\languages\fi.js" />
+    <Content Include="Content\froalaEditor\js\languages\fr.js" />
+    <Content Include="Content\froalaEditor\js\languages\he.js" />
+    <Content Include="Content\froalaEditor\js\languages\hr.js" />
+    <Content Include="Content\froalaEditor\js\languages\hu.js" />
+    <Content Include="Content\froalaEditor\js\languages\id.js" />
+    <Content Include="Content\froalaEditor\js\languages\it.js" />
+    <Content Include="Content\froalaEditor\js\languages\ja.js" />
+    <Content Include="Content\froalaEditor\js\languages\ko.js" />
+    <Content Include="Content\froalaEditor\js\languages\me.js" />
+    <Content Include="Content\froalaEditor\js\languages\nb.js" />
+    <Content Include="Content\froalaEditor\js\languages\nl.js" />
+    <Content Include="Content\froalaEditor\js\languages\pl.js" />
+    <Content Include="Content\froalaEditor\js\languages\pt_br.js" />
+    <Content Include="Content\froalaEditor\js\languages\pt_pt.js" />
+    <Content Include="Content\froalaEditor\js\languages\ro.js" />
+    <Content Include="Content\froalaEditor\js\languages\ru.js" />
+    <Content Include="Content\froalaEditor\js\languages\sk.js" />
+    <Content Include="Content\froalaEditor\js\languages\sr.js" />
+    <Content Include="Content\froalaEditor\js\languages\sv.js" />
+    <Content Include="Content\froalaEditor\js\languages\th.js" />
+    <Content Include="Content\froalaEditor\js\languages\tr.js" />
+    <Content Include="Content\froalaEditor\js\languages\uk.js" />
+    <Content Include="Content\froalaEditor\js\languages\vi.js" />
+    <Content Include="Content\froalaEditor\js\languages\zh_cn.js" />
+    <Content Include="Content\froalaEditor\js\languages\zh_tw.js" />
+    <Content Include="Content\froalaEditor\js\plugins\align.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\char_counter.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\code_beautifier.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\code_view.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\colors.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\draggable.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\emoticons.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\entities.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\file.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\font_family.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\font_size.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\forms.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\fullscreen.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\help.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\image.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\image_manager.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\inline_style.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\line_breaker.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\link.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\lists.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\paragraph_format.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\paragraph_style.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\print.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\quick_insert.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\quote.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\save.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\special_characters.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\table.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\url.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\video.min.js" />
+    <Content Include="Content\froalaEditor\js\plugins\word_paste.min.js" />
+    <Content Include="Content\froalaEditor\js\third_party\embedly.min.js" />
+    <Content Include="Content\froalaEditor\js\third_party\image_aviary.min.js" />
+    <Content Include="Content\froalaEditor\js\third_party\spell_checker.min.js" />
+    <Content Include="Content\jquery-tags-input\example.html" />
+    <Content Include="Content\jquery-tags-input\jquery.tagsinput.css" />
+    <Content Include="Content\jquery-tags-input\jquery.tagsinput.js" />
+    <Content Include="Content\jquery-tags-input\jquery.tagsinput.min.js" />
+    <Content Include="Content\jquery-tags-input\test\fake_json_endpoint.html" />
+    <Content Include="Content\jquery-tags-input\test\fake_plaintext_endpoint.html" />
+    <Content Include="Content\layer\extend\layer.ext.js" />
+    <Content Include="Content\layer\jquery.layout.js" />
+    <Content Include="Content\layer\layer.min.js" />
+    <Content Include="Content\layer\skin\default\icon-ext.png" />
+    <Content Include="Content\layer\skin\default\icon.png" />
+    <Content Include="Content\layer\skin\default\loading-0.gif" />
+    <Content Include="Content\layer\skin\default\loading-1.gif" />
+    <Content Include="Content\layer\skin\default\loading-2.gif" />
+    <Content Include="Content\layer\skin\layer.css" />
+    <Content Include="Content\layer\skin\layer.ext.css" />
+    <Content Include="Content\Micropage\css\XHZcss.css" />
+    <Content Include="Content\Micropage\images\beijing.jpg" />
+    <Content Include="Content\Micropage\images\beijing1.jpg" />
+    <Content Include="Content\Micropage\images\beijing3.jpeg" />
+    <Content Include="Content\Micropage\images\beijing4.jpg" />
+    <Content Include="Content\Micropage\images\czwbk.png" />
+    <Content Include="Content\Micropage\images\czwbk1.png" />
+    <Content Include="Content\Micropage\images\huituibtn.png" />
+    <Content Include="Content\Micropage\images\lunbo1.jpg" />
+    <Content Include="Content\Micropage\images\lunbo2.jpg" />
+    <Content Include="Content\Micropage\images\lunbo3.jpg" />
+    <Content Include="Content\Micropage\images\lunbo4.jpg" />
+    <Content Include="Content\Micropage\images\shangyibu.jpg" />
+    <Content Include="Content\Micropage\images\shiliangtu.png" />
+    <Content Include="Content\Micropage\images\shiliangtu1.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Theme.min.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\Uploadify\cancel.png" />
+    <Content Include="Content\Uploadify\jquery-1.4.2.min.js" />
+    <Content Include="Content\Uploadify\jquery.uploadify.v2.1.4.js" />
+    <Content Include="Content\Uploadify\jquery.uploadify.v2.1.4.min.js" />
+    <Content Include="Content\Uploadify\jquery.uploadify.v3.2.js" />
+    <Content Include="Content\Uploadify\jquery.uploadify.v3.2.min.js" />
+    <Content Include="Content\Uploadify\swfobject.js" />
+    <Content Include="Content\Uploadify\uploadbutton.png" />
+    <Content Include="Content\Uploadify\uploadify.cn.swf" />
+    <Content Include="Content\Uploadify\uploadify.css" />
+    <Content Include="Content\Uploadify\uploadify.swf" />
+    <Content Include="Content\Uploadify\uploadify.v3.2.css" />
+    <Content Include="Content\Uploadify\uploadify.v3.2.swf" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Common\Views\Error\400.cshtml" />
+    <Content Include="Areas\Common\Views\Error\404.cshtml" />
+    <Content Include="Areas\Common\Views\Error\500.cshtml" />
+    <Content Include="Areas\Common\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_BreadCrumb.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_FormModal.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_HeaderMenu.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_SidebarMenu.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_TopSearch.cshtml" />
+    <Content Include="Areas\Common\Views\web.config" />
+    <Content Include="Areas\Common\Views\_ViewStart.cshtml" />
+    <Content Include="Content\admin\font-awesome\css\Descr.WD3" />
+    <Content Include="Content\admin\font-awesome\font\Descr.WD3" />
+    <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.eot%40" />
+    <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\admin\images\backgrounds\blank2" />
+    <Content Include="Content\admin\images\backgrounds\Descr.WD3" />
+    <Content Include="Content\admin\images\backgrounds\skype_3Asuniljoshi19%40call" />
+    <Content Include="Content\admin\img\Descr.WD3" />
+    <Content Include="Content\bootstrap\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" />
+    <Content Include="Content\bootstrap\fonts\EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Common\Views\Error\ErrorMessage.cshtml" />
+    <Content Include="Configs\system.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Common\Views\Shared\_FormModalMsg.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_UresrLayout.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configs\log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\jquery-tags-input\README.md" />
+    <Content Include="Content\Uploadify\uploadify.fla" />
+    <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
+    <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\flashupload.js" />
+    <Content Include="Scripts\focus.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery-ui-zh.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\WxCompany.js" />
+    <None Include="Service References\ServiceYF\CheckYFData.disco">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceYF\configuration91.svcinfo" />
+    <None Include="Service References\ServiceYF\configuration.svcinfo" />
+    <None Include="Service References\ServiceYF\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\XHZ.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <None Include="Service References\ServiceYF\CheckYFData.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Common\Controllers\Api\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceYF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Service\Core.Service.csproj">
+      <Project>{8d995397-38a2-4994-b1b8-8eb57255d48a}</Project>
+      <Name>Core.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Common\Framework.Common.csproj">
+      <Project>{3f48f990-aee4-499a-b0c7-0f6d53f30d96}</Project>
+      <Name>Framework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Tool\Framework.Tool.csproj">
+      <Project>{b23d0601-3d8c-4800-931e-95d94009ab8e}</Project>
+      <Name>Framework.Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Site\Domain.Site.csproj">
+      <Project>{d45e2f1e-cca9-443c-af35-4c816533a742}</Project>
+      <Name>Domain.Site</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11412</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15111/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

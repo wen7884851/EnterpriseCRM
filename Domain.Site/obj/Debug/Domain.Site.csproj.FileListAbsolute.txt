@@ -85,6 +85,7 @@ D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\System.ValueTuple.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Core.EFData.pdb
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Core.EFData.dll.config
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Core.Tool.pdb
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.Repository.pdb
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\EntityFramework.xml
@@ -97,7 +98,9 @@ D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\System.Web.WebPages.Deployment.x
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\System.Web.WebPages.Razor.xml
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Newtonsoft.Json.xml
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Core.Common.pdb
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.DB.pdb
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\Domain.DB.dll.config
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\ServiceStack.Redis.xml
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\ServiceStack.Interfaces.xml
@@ -113,6 +116,8 @@ D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.Razor.resourc
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csprojAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CoreCompileInputs.cache
+D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.pdb
