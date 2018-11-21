@@ -66,7 +66,6 @@ D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Memory.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.ValueTuple.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Helpers.dll
-D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Mvc.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Razor.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.WebPages.dll
@@ -84,18 +83,15 @@ D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Memory.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.ValueTuple.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Helpers.xml
-D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Mvc.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.Razor.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.WebPages.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\System.Web.WebPages.Razor.xml
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.Helpers.resources.dll
-D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csprojAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Core.Common.dll

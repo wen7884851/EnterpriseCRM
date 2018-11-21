@@ -16,13 +16,6 @@ namespace Domain.Site.Models.Authen.Module
             Enabled = true;
 			IsMenu = true;
 			Search = new SearchModel();
-            ParentModuleItems = new List<SelectListItem>() {
-                new SelectListItem { Text = "--- 请选择 ---", Value = "0"}, 
-            };
-            LayerItems = new List<SelectListItem>()
-            {
-                new SelectListItem { Text="--- 请选择 ---",Value="0" }
-            };
 		}
 
         public int Id { get; set; }
@@ -37,18 +30,14 @@ namespace Domain.Site.Models.Authen.Module
         [StringLength(50, MinimumLength = 2, ErrorMessage = "模块编号{2}～{1}个字符")]
         public string Code { get; set; }
         [Display(Name="菜单层级")]
-        [Remote("CheckLayer","Module", ErrorMessage = "请选择菜单层级")]
         public int Layer { get; set; }
-        public List<SelectListItem> LayerItems { get; set; }
         public string Area { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
-        [Remote("CheckParentId", "Module", ErrorMessage = "请选择父节点")]
         public int? ParentId { get; set; }
 
         [Display(Name = "上级模块")]
         public string ParentName { get; set; }
-        public List<SelectListItem> ParentModuleItems { get; set; }
 
         [Display(Name = "链接地址")]
 		[StringLength(50, MinimumLength = 2, ErrorMessage = "链接地址{2}～{1}个字符")]
@@ -114,25 +103,7 @@ namespace Domain.Site.Models.Authen.Module
 
 	public class SearchModel
 	{
-		public SearchModel()
-		{
-			EnabledItems = new List<SelectListItem> { 
-                new SelectListItem { Text = "--- 请选择 ---", Value = "-1", Selected = true }, 
-                new SelectListItem { Text = "是", Value = "1" }, 
-                new SelectListItem { Text = "否", Value = "0" }
-            };
-			ParentModuleItems = new List<SelectListItem>() {
-                new SelectListItem { Text = "--- 请选择 ---", Value = "0"}, 
-            };
-            SystemModuleItems = new List<SelectListItem>() {
-                new SelectListItem { Text = "--- 请选择 ---", Value = "0"},
-            };
-        }
-
 		public int? ParentId { get; set; }
-
-
-        public List<SelectListItem> SystemModuleItems { get; set; }
 
         [Display(Name = "模块名称")]
 		public string Name { get; set; }
@@ -142,7 +113,6 @@ namespace Domain.Site.Models.Authen.Module
 
 		[Display(Name = "上级模块")]
 		public string ParentName { get; set; }
-		public List<SelectListItem> ParentModuleItems { get; set; }
 
 		[Display(Name = "是否菜单")]
 		public bool IsMenu { get; set; }
@@ -154,6 +124,5 @@ namespace Domain.Site.Models.Authen.Module
 
         [Display(Name = "系统名称")]
         public string SystemName { get; set; }
-        public List<SelectListItem> EnabledItems { get; set; }
 	}
 }
