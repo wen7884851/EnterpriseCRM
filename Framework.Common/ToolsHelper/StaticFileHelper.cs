@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Web.Mvc;
 using System.Collections;
 using System.Web;
 using System.Web.Routing;
@@ -39,18 +38,18 @@ namespace Framework.Common.ToolsHelper
         /// <param name="helper"></param>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static string StaticFile(this UrlHelper helper, string path)
-        {
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                return "";
-            }
+        //public static string StaticFile(this UrlHelper helper, string path)
+        //{
+        //    if (string.IsNullOrWhiteSpace(path))
+        //    {
+        //        return "";
+        //    }
 
-            if (path.StartsWith("~"))
-                return helper.Content(path);
-            else
-                return GetStaticServiceUri() + path;
-        }
+        //    if (path.StartsWith("~"))
+        //        return helper.Content(path);
+        //    else
+        //        return GetStaticServiceUri() + path;
+        //}
 
         //public static string JsCssFile(this UrlHelper helper, string path)
         //{
@@ -70,19 +69,19 @@ namespace Framework.Common.ToolsHelper
         /// <param name="path"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        public static string ImageFile(this UrlHelper helper, string path, string size = null)
-        {
-            if (string.IsNullOrEmpty(path))
-                return helper.StaticFile(@"/content/images/no_picture.jpg"); 
+        //public static string ImageFile(this UrlHelper helper, string path, string size = null)
+        //{
+        //    if (string.IsNullOrEmpty(path))
+        //        return helper.StaticFile(@"/content/images/no_picture.jpg"); 
             
-            if (size == null)
-                return helper.StaticFile(path);
+        //    if (size == null)
+        //        return helper.StaticFile(path);
             
-            var ext = path.Substring(path.LastIndexOf('.'));
-            var head = path.Substring(0, path.LastIndexOf('.'));
-            var url = string.Format("{0}{1}_{2}{3}", GetStaticServiceUri(), head, size, ext);
-            return url;
-        }
+        //    var ext = path.Substring(path.LastIndexOf('.'));
+        //    var head = path.Substring(0, path.LastIndexOf('.'));
+        //    var url = string.Format("{0}{1}_{2}{3}", GetStaticServiceUri(), head, size, ext);
+        //    return url;
+        //}
 
         /// <summary>
         /// 得到图片文件，缩略图，根据参数(width:100,height:75)返回如：
@@ -113,9 +112,9 @@ namespace Framework.Common.ToolsHelper
         /// </summary>
         /// <param name="helper"></param>
         /// <returns></returns>
-        public static string StaticFile(this UrlHelper helper)
-        {
-            return GetStaticServiceUri();
-        }
+        //public static string StaticFile(this UrlHelper helper)
+        //{
+        //    return GetStaticServiceUri();
+        //}
     }
 }

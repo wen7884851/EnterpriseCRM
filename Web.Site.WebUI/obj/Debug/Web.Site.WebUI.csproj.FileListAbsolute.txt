@@ -332,5 +332,3 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CoreCom
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\ICSharpCode.SharpZipLib.dll
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\ICSharpCode.SharpZipLib.xml
