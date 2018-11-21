@@ -4,3 +4,6 @@
 
 *.dll
 *.pdb
+bin/:
+*.log
+*.cache
