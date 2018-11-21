@@ -95,6 +95,25 @@ namespace Domain.Site.Models.Authen.Wx.YFPerson
 
     public class SearchModel
     {
+        public SearchModel()
+        {
+            EnabledItems = new List<SelectListItem> {
+                new SelectListItem { Text = "--- 请选择 ---", Value = "-1", Selected = true },
+                new SelectListItem { Text = "是", Value = "1" },
+                new SelectListItem { Text = "否", Value = "0" }
+            };
+        }
+
+        public List<SelectListItem> EnabledItems { get; set; }
+
+        //[Display(Name = "用户的标识")]
+        //public string OpenId { get; set; }
+
+        //[Display(Name = "当前微信号")]
+        //public string Wx_UserName { get; set; }
+
+       
+
         [Display(Name = "是否认证")]
         public bool? IsCheck { get; set; }
 
@@ -104,6 +123,9 @@ namespace Domain.Site.Models.Authen.Wx.YFPerson
         [Display(Name = "身份证")]
         [StringLength(18, MinimumLength = 15, ErrorMessage = "身份证{2}～{1}个字符")]
         public string IDCard { get; set; }
+
+
+
 
     }
 

@@ -67,6 +67,18 @@ namespace Domain.Site.Models.Authen.FaceLiveness
     }
     public class Searchmodel
     {
+        public Searchmodel()
+        {
+            OrgItems = new List<SelectListItem>() {
+                new SelectListItem { Text = "--- 请选择 ---", Value = "0"},
+            };
+            StateItems = new List<SelectListItem>()
+            {
+                new SelectListItem { Text = "--- 请选择 ---", Value = "-1"},
+            };
+        }
+
+
         [Display(Name = "应用信息")]
         public int OrgId { get; set; }
 
@@ -76,6 +88,8 @@ namespace Domain.Site.Models.Authen.FaceLiveness
         public string RealName { get; set; }
         [Display(Name = "批次名称")]
         public string BatchGid { get; set; }
+        public List<SelectListItem> OrgItems { get; set; }
+        public List<SelectListItem> StateItems { get; set; }
         [Display(Name = "认证状态")]
         public int State { get; set; }
     }

@@ -314,6 +314,10 @@
       <Project>{3f48f990-aee4-499a-b0c7-0f6d53f30d96}</Project>
       <Name>Framework.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Framework.Logging\Framework.Logging.csproj">
+      <Project>{bed098c3-53b5-426b-9408-ddf4fa8b5449}</Project>
+      <Name>Framework.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Tool\Framework.Tool.csproj">
       <Project>{b23d0601-3d8c-4800-931e-95d94009ab8e}</Project>
       <Name>Framework.Tool</Name>

@@ -20,6 +20,8 @@ namespace Domain.Site.Models.Authen.User
             SystemList = new List<KeyValueModel>();
             SelectedSystemList = new List<int>();
             Enabled = true;
+            CityList = new List<SelectListItem>();
+            AreaList = new List<SelectListItem>();
         }
 
         public int Id { get; set; }
@@ -61,6 +63,8 @@ namespace Domain.Site.Models.Authen.User
         [Display(Name = "区县/城市")]
         public int AreaID { get; set; }
         public int CityID { get; set; }
+        public List<SelectListItem> CityList { get; set; }
+        public ICollection<SelectListItem> AreaList { get; set; }
 
     }
 }

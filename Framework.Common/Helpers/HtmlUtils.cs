@@ -10,12 +10,19 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Hosting;
+using System.Web.Mvc;
 
 namespace Framework.Common.Helpers
 {
+    /// <summary>
+    ///  创建人： 郭一文
+    ///  日  期： 2018-14-03
+    ///  描  述： 防止JS缓存
+    ///  调用实例:  <link rel="stylesheet" href="@HtmlUtils.CacheBreaker("~/Content/themes/styles.min.css")">
+    /// </summary>
     public static class HtmlUtils
     {
-      //  public static IHtmlString CacheBreaker(string path) => MvcHtmlString.Create(GetCacheBreakerUrl(path));
+        public static IHtmlString CacheBreaker(string path) => MvcHtmlString.Create(GetCacheBreakerUrl(path));
 
         /// <summary>
         /// Given the URL to a static file, returns the URL together with a cache breaker, i.e. ?v=123abc... appended.

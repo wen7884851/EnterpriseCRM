@@ -66,6 +66,7 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Repository.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Site.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Helpers.dll
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Mvc.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Razor.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.dll
@@ -92,6 +93,7 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Repository.pdb
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Site.pdb
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Site.dll.config
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Helpers.xml
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Mvc.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.Razor.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.Deployment.xml
@@ -108,6 +110,7 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.ValueTuple.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Buffers.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Helpers.resources.dll
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll

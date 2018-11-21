@@ -20,6 +20,8 @@ namespace Domain.Site.Models.Authen.User
             SystemList = new List<KeyValueModel>();
             SelectedSystemList = new List<int>();
 			Enabled = true;
+            CityList = new List<SelectListItem>();
+            AreaList = new List<SelectListItem>();
         }
 
         public SearchModel Search { get; set; }
@@ -30,6 +32,7 @@ namespace Domain.Site.Models.Authen.User
         [Display(Name = "用户名")]
         [Required(ErrorMessage = "用户名不能为空")]
         [StringLength(10, MinimumLength = 2, ErrorMessage = "用户名{2}～{1}个字符")]
+		[Remote("CheckLoginName", "User", ErrorMessage = "用户名已存在")]
         public string LoginName { get; set; }
 
         [Display(Name = "新密码")]
@@ -52,6 +55,8 @@ namespace Domain.Site.Models.Authen.User
         [Display(Name = "区县")]
         public int AreaID { get; set; }
         public int CityID { get; set; }
+        public List<SelectListItem> CityList { get; set; }
+        public ICollection<SelectListItem> AreaList { get; set; }
 
         [Display(Name = "是否市级单位")]
         public bool IsCity { get; set; }
@@ -105,6 +110,15 @@ namespace Domain.Site.Models.Authen.User
 
     public class SearchModel
     {
+        public SearchModel()
+        {
+            EnabledItems = new List<SelectListItem> { 
+                new SelectListItem { Text = "--- 请选择 ---", Value = "-1", Selected = true }, 
+                new SelectListItem { Text = "是", Value = "1" }, 
+                new SelectListItem { Text = "否", Value = "0" }
+            };
+        }
+
         [Display(Name = "用户名")]
         public string LoginName { get; set; }
 
@@ -133,5 +147,7 @@ namespace Domain.Site.Models.Authen.User
 
         [Display(Name = "注册结束日期")]
         public string RegisteredEnddate { get; set; }
+
+        public List<SelectListItem> EnabledItems { get; set; }
     }
 }

@@ -5,11 +5,20 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Domain.Site.Models.Authen.FaceLiveness
 {
     public class OrgModel: EntityCommon
     {
+        public OrgModel()
+        {
+            CityList = new List<SelectListItem>();
+            AreaList = new List<SelectListItem>();
+            TownList = new List<SelectListItem>();
+            Search = new SearchModel();
+            HspLevelList = new List<SelectListItem>();
+        }
         public int ID { get; set; }
         [Display(Name ="应用名")]
         public string OrgName { get; set; }
@@ -24,6 +33,11 @@ namespace Domain.Site.Models.Authen.FaceLiveness
         [Required(ErrorMessage = "认证次数不能为空")]
         [RegularExpression(@"^[1-9]\d*$", ErrorMessage = "次数必须大于0")]
         public int Ceiling { get; set; }
+        public ICollection<SelectListItem> CityList { get; set; }
+        public ICollection<SelectListItem> AreaList { get; set; }
+        public List<SelectListItem> HspLevelList { get; set; }
+        //乡镇
+        public List<SelectListItem> TownList { get; set; }
         public SearchModel Search { get; set; }
 
     }

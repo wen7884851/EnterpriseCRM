@@ -22,6 +22,11 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         // GET: /Common/Login/
 
         #region 属性
+        [Import]
+        public IUserService UserService { get; set; }
+
+        //[Import]
+        //public ILoginLogService LoginLogService { get; set; }
 
         #endregion
 

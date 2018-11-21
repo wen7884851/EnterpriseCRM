@@ -23,6 +23,7 @@ namespace Domain.Site.Models.Authen.User
 		[Required(ErrorMessage = "旧密码不能为空")]
 		[StringLength(15, MinimumLength = 6, ErrorMessage = "旧密码{2}～{1}个字符")]
 		[DataType(DataType.Password)]
+		[Remote("CheckPwd", "Profile", ErrorMessage = "旧密码不正确")]
 		public string OldLoginPwd { get; set; }
 
         [Display(Name = "新密码")]

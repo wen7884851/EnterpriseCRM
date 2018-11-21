@@ -6,10 +6,13 @@ using System.Collections.Generic;
 using Framework.Tool;
 using Domain.DB.Models.Authen;
 using Core.Repository.Authen;
+using Domain.Site.Models;
 using Domain.Site.Models.Authen.User;
 using Framework.Common.SecurityHelper;
 using Domain.Site.Common.Models;
+using Domain.DB.Models;
 using Framework.EFData.DBExtend;
+using System.Web.Mvc;
 using Framework.Common;
 using Domain.DB.Enum;
 

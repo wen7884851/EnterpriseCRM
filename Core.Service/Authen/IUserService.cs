@@ -1,9 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+
 using Framework.Tool;
 using Domain.DB.Models.Authen;
 using Domain.Site.Models.Authen.User;
 using Domain.Site.Common.Models;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Core.Service.Authen
 {
@@ -24,6 +27,14 @@ namespace Core.Service.Authen
         /// <returns></returns>
         List<KeyValueModel> GetKeyValueList(int SystemID);
         OperationResult Insert(UserModel model);
+
+        /// <summary>
+        ///  创建人： 谷文杰
+        ///  日 期： 2018-25-04
+        ///  描 述：认证后台添加人员
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>OperationResult.</returns>
         OperationResult CertifiedInsert(UserModel model);
         OperationResult Update(User model);
 
@@ -32,7 +43,19 @@ namespace Core.Service.Authen
         OperationResult Update(ChangePwdModel model);
         OperationResult UpdateUserInfo(UpdateUserModel model);
 
+        /// <summary>
+        /// 逻辑删除
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         OperationResult Delete(UserModel model);
+        /// <summary>
+        ///  创建人： 谷文杰
+        ///  日 期： 2018-25-04
+        ///  描 述：修改App密码
+        /// </summary>
+        /// <param name="Model">The model.</param>
+        /// <returns>OperationResult.</returns>
         OperationResult APPUpdate(User Model);
 
         #endregion
