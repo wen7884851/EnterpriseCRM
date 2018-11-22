@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Domain.DB.Models;
 using Framework.Tool.Entity;
 
-namespace Domain.DB.Models.Authen
+namespace Domain.DB.Models
 {
     public class UserRole : EntityBase<int>, ICreationAudited, IModificationAudited
     {

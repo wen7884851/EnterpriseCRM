@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "Framew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.WebUI", "Web.Site.WebUI\Web.Site.WebUI.csproj", "{F321A33C-A12D-42BD-B4F1-5FDD742076A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.CMS", "Web.Site.CMS\Web.Site.CMS.csproj", "{BB28921D-E74F-40D5-9D9C-F146E7F70A60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{F321A33C-A12D-42BD-B4F1-5FDD742076A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F321A33C-A12D-42BD-B4F1-5FDD742076A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F321A33C-A12D-42BD-B4F1-5FDD742076A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB28921D-E74F-40D5-9D9C-F146E7F70A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB28921D-E74F-40D5-9D9C-F146E7F70A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB28921D-E74F-40D5-9D9C-F146E7F70A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB28921D-E74F-40D5-9D9C-F146E7F70A60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{87F65E9E-02BB-4EFC-94E0-7AA91530C247} = {A7542DE7-B4D8-4ACC-9910-EB3098F2D9B6}
 		{BED098C3-53B5-426B-9408-DDF4FA8B5449} = {8634CCFB-8B4B-4274-9287-731DC4B534EC}
 		{F321A33C-A12D-42BD-B4F1-5FDD742076A0} = {59058874-9616-4983-8089-29CA120F85FF}
+		{BB28921D-E74F-40D5-9D9C-F146E7F70A60} = {59058874-9616-4983-8089-29CA120F85FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D101F40-5693-477C-B3B1-3543244726C4}

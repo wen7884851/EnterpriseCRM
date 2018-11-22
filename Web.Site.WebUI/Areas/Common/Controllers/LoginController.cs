@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 using Framework.Tool;
 using Core.Service.Authen;
-using Domain.Site.Models.Authen.User;
+using Domain.Site.Models;
 using Framework.Common.SecurityHelper;
 using Framework.Common.ToolsHelper.Net;
 using System.Configuration;
@@ -41,8 +41,12 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         //    return View();
         //}
         [HttpPost]
-        public ActionResult CheckLogin(LoginModel model)
+        public ActionResult CheckLogin(UserAccountModel model)
         {
+            if(string.IsNullOrEmpty(model.LoginName)&& string.IsNullOrEmpty(model.LoginPwd))
+            {
+
+            }
             return Json("s");
         }
 
