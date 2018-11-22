@@ -8,3 +8,4 @@ D:\File\myp\EnterpriseCRM\Domain.Log\bin\Debug\Domain.Log.pdb
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.dll
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.pdb
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csproj.CoreCompileInputs.cache
+D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csprojAssemblyReference.cache

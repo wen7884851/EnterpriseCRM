@@ -240,3 +240,5 @@ D:\File\myp\EnterpriseCRM\Web.Site.CMS\bin\zh-Hans\System.Web.WebPages.Razor.res
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CoreCompileInputs.cache
