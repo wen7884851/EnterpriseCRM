@@ -15,6 +15,8 @@ namespace Core.Service.Authen
         UserAccountModel GetAccountByLoginName(string LoginName);
 
         UserModel GetUserModelById(int userId);
+        UserModel GetUserModelByToken(string token);
+        ActionResultViewModel CheckLogin(UserAccountModel user);
         #endregion
     }
 }

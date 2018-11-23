@@ -17,7 +17,7 @@ namespace Framework.Tool.Operator
             get { return new OperatorProvider(); }
         }
 
-        private string LoginUserKey = "pubser_loginuserkey_2017";
+        private string LoginUserKey = "pubser_loginuserkey";
         private string LoginProvider = Configs.GetValue("LoginProvider");
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Framework.Tool.Operator
             {
                 SessionHelper.Add(LoginUserKey, DESProvider.EncryptString(operatorModel.ToJson()),60);
             }
-            CacheFactory.Cache().WriteCache(operatorModel.LoginToken, operatorModel.UserId.ToString(), operatorModel.LoginTime.Value.AddMinutes(60));
-            CookieHelper.SetCookie("pubser_mac", MD5Provider.Hash(Net.GetMacByNetworkInterface().ToJson()));
+            //CacheFactory.Cache().WriteCache(operatorModel.Token, operatorModel.UserId.ToString(), operatorModel.LoginTime.Value.AddMinutes(60));
+            //CookieHelper.SetCookie("pubser_mac", MD5Provider.Hash(Net.GetMacByNetworkInterface().ToJson()));
             //CookieHelper.SetCookie("nfine_licence", Licence.GetLicence());
         }
 
@@ -130,7 +130,7 @@ namespace Framework.Tool.Operator
             {
                 return -1;//过期
             }
-            if (operatorModel.LoginToken == token.ToString())
+            if (operatorModel.Token == token.ToString())
             {
                 return 1;//正常
             }

@@ -9,13 +9,15 @@ namespace Domain.Site.Models
 {
     public class UserAccountModel
     {
-        public int? userId { get; set; }
+        public int userId { get; set; }
         public string LoginName { get; set; }
         public string LoginPwd { get; set; }
         public string NewLoginPwd { get; set; }
         public string NewLoginPwdConfirm { get; set; }
         public string Email { get; set; }
-        public bool? Enabled { get; set; }
+        public bool Enabled { get; set; }
         public int? PwdErrorCount { get; set; }
+        public bool? IsRemeberUserName { get; set; }
+        public DateTime? LastLoginTime { get; set; }
     }
 }

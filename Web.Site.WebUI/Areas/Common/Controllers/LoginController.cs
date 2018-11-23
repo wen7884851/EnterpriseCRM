@@ -43,11 +43,8 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         [HttpPost]
         public ActionResult CheckLogin(UserAccountModel model)
         {
-            if(string.IsNullOrEmpty(model.LoginName)&& string.IsNullOrEmpty(model.LoginPwd))
-            {
-
-            }
-            return Json("s");
+            var result = UserService.CheckLogin(model);
+            return Json(result);
         }
 
         public ActionResult SignOut()
