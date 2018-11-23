@@ -243,14 +243,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
     <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
-    <Compile Include="Areas\Common\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Common\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Common\Controllers\Dashboardontroller.cs" />
+    <Compile Include="Areas\Common\Controllers\AccountController.cs" />
     <Compile Include="Common\AdminController.cs" />
     <Compile Include="Common\ConfigSettingHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extension\Filters\AdminLayoutAttribute.cs" />
-    <Compile Include="Extension\Filters\AdminOperateLogAttribute.cs" />
-    <Compile Include="Extension\Filters\AdminPermissionAttribute.cs" />
     <Compile Include="Extension\Filters\ElmahErrorAttribute.cs" />
     <Compile Include="Extension\Filters\HandlerErrorAttribute.cs" />
     <Compile Include="Extension\Filters\HandlerLoginAttribute.cs" />
@@ -553,8 +550,8 @@
     <Content Include="Areas\Common\Views\Error\400.cshtml" />
     <Content Include="Areas\Common\Views\Error\404.cshtml" />
     <Content Include="Areas\Common\Views\Error\500.cshtml" />
-    <Content Include="Areas\Common\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Common\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Account\Index.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_BreadCrumb.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_Footer.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_FormModal.cshtml" />
