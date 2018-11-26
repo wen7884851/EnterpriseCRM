@@ -58,13 +58,10 @@ D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ServiceStack.Common.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Memory.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.ValueTuple.dll
-D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\Core.Common.pdb
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\Newtonsoft.Json.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Web.Mvc.xml
-D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ServiceStack.Redis.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ServiceStack.Interfaces.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ServiceStack.Text.xml
@@ -75,8 +72,6 @@ D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\ServiceStack.Common.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Memory.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.ValueTuple.xml
-D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\System.Buffers.xml
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
@@ -87,3 +82,4 @@ D:\File\myp\EnterpriseCRM\Framework.Tool\obj\Debug\Framework.Tool.csproj.CoreCom
 D:\File\myp\EnterpriseCRM\Framework.Tool\obj\Debug\Framework.Tool.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Framework.Tool\obj\Debug\Core.Tool.dll
 D:\File\myp\EnterpriseCRM\Framework.Tool\obj\Debug\Core.Tool.pdb
+D:\File\myp\EnterpriseCRM\Framework.Tool\bin\Debug\Core.Tool.dll.config

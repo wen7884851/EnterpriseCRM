@@ -80,8 +80,6 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\EntityFramework.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ServiceStack.Common.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Memory.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.ValueTuple.dll
-D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Core.Common.pdb
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Core.EFData.pdb
@@ -99,7 +97,6 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Web.WebPages.Razor.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Newtonsoft.Json.xml
-D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ServiceStack.Redis.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ServiceStack.Interfaces.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ServiceStack.Text.xml
@@ -107,8 +104,6 @@ D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\EntityFramework.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\ServiceStack.Common.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Memory.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.ValueTuple.xml
-D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\System.Buffers.xml
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Helpers.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\System.Web.Razor.resources.dll
@@ -123,3 +118,6 @@ D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Business.Service.pdb
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.dll
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.pdb
 D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.xml
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Business.Service.dll.config
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Core.Tool.dll.config
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\Domain.Repository.dll.config

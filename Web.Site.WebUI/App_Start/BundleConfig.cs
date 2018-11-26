@@ -20,11 +20,6 @@ namespace Web.Site.WebUI
 
             var JsLogin = new ScriptBundle("~/scripts/loginJs").Include("~/Scripts/app/account/login.js",
                "~/Scripts/app/common/cookie.js");
-<<<<<<< HEAD
-
-            bundles.Add(JsBase);
-            bundles.Add(JsLogin);
-=======
             var JsMain = new ScriptBundle("~/scripts/mainJs").Include("~/Content/admin/js/bootstrap.min.js",
                      "~/Content/admin/js/bootbox.min.js", "~/Content/admin/js/jquery.dataTables.min.js",
                       "~/Content/admin/js/jquery.dataTables.AjaxSource.min.js", "~/Content/admin/js/select2.min.js",
@@ -33,7 +28,6 @@ namespace Web.Site.WebUI
             bundles.Add(JsBase);
             bundles.Add(JsLogin);
             bundles.Add(JsMain);
->>>>>>> featrue.LoginTest
         }
 
         public static void RegisterCssBundles(BundleCollection bundles)
@@ -45,9 +39,6 @@ namespace Web.Site.WebUI
             var CssLogin = new ScriptBundle("~/scripts/loginJs").Include("~/Content/admin/font-awesome/css/font-awesome.css",
                "~/Content/admin/css/font.css",
                "~/Content/admin/css/matrix-login.css");
-<<<<<<< HEAD
-
-=======
             bundles.Add(new StyleBundle("~/bundles/css/bootstrap2").Include(
                     "~/Content/admin/css/bootstrap.min.css",
                     "~/Content/admin/css/bootstrap-responsive.min.css",
@@ -62,7 +53,6 @@ namespace Web.Site.WebUI
                       "~/Content/admin/font-awesome/css/font-awesome.css",
                       "~/Content/layer/skin/layer.css"
                       ));
->>>>>>> featrue.LoginTest
             bundles.Add(CssBase);
             bundles.Add(CssLogin);
         }

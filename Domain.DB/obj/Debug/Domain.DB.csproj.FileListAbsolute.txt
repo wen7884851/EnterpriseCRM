@@ -67,8 +67,6 @@ D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Common.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Memory.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.ValueTuple.dll
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.EFData.pdb
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.EFData.dll.config
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.Tool.pdb
@@ -78,7 +76,6 @@ D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Newtonsoft.Json.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.Common.pdb
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Web.Mvc.xml
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Redis.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Interfaces.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Text.xml
@@ -89,8 +86,6 @@ D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Common.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Memory.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.ValueTuple.xml
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Buffers.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
@@ -101,3 +96,4 @@ D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CoreCompileInputs
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb
+D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\Core.Tool.dll.config

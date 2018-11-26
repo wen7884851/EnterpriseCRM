@@ -26,13 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
->>>>>>> featrue.LoginTest
-=======
->>>>>>> featrue.LoginTest
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
