@@ -9,3 +9,8 @@ D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csprojAssemblyReferenc
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.dll
 D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.pdb
+<<<<<<< HEAD
+=======
+D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csproj.CoreCompileInputs.cache
+D:\File\myp\EnterpriseCRM\Domain.Log\obj\Debug\Domain.Log.csprojAssemblyReference.cache
+>>>>>>> featrue.LoginTest

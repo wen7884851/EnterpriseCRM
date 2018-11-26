@@ -6,7 +6,6 @@ namespace Framework.Tool.Operator
     {
         public int UserId { get; set; }
         public string LoginName { get; set; }
-        public string LoginPwd { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
@@ -16,10 +15,10 @@ namespace Framework.Tool.Operator
         public int LoginCount { get; set; }
         public DateTime? RegisterTime { get; set; }
         public DateTime? LastLoginTime { get; set; }
-
+        public bool? IsRemeberUserName { get; set; }
         public string LoginIPAddress { get; set; }
         public string LoginIPAddressName { get; set; }
-        public string LoginToken { get; set; }
+        public string Token { get; set; }
         /// <summary>
         /// 通讯SessionID
         /// </summary>

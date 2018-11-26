@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -45,6 +48,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -99,8 +106,9 @@
     <Compile Include="Models\Authen\Resources\RoleSelectedModuleModel.cs" />
     <Compile Include="Models\Authen\Resources\RoleSelectedPermissionModel.cs" />
     <Compile Include="Models\Authen\SystemSite\SystemSiteModel.cs" />
+    <Compile Include="Models\Authen\User\ActionResultViewModel.cs" />
     <Compile Include="Models\Authen\User\ChangePwdModel.cs" />
-    <Compile Include="Models\Authen\User\LoginModel.cs" />
+    <Compile Include="Models\Authen\User\UserAccountModel.cs" />
     <Compile Include="Models\Authen\User\UpdateUserModel.cs" />
     <Compile Include="Models\Authen\User\UserModel.cs" />
     <Compile Include="Models\Authen\Wx\AllEnum.cs" />
@@ -129,6 +137,10 @@
     <Folder Include="Mapping\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain.DB\Domain.DB.csproj">
+      <Project>{67500284-8aae-4d6d-a639-7c675f4aaadc}</Project>
+      <Name>Domain.DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.EFData\Framework.EFData.csproj">
       <Project>{5fe41d5d-1367-462d-ae95-bbd1b7217592}</Project>
       <Name>Framework.EFData</Name>

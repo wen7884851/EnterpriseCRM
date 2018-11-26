@@ -5,7 +5,7 @@ using System.Text;
 
 using Framework.Tool.Entity;
 
-namespace Domain.DB.Models.Authen
+namespace Domain.DB.Models
 {
     public class Role : EntityBase<int>, ICreationAudited, IModificationAudited
     {

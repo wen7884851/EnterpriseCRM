@@ -165,6 +165,11 @@ D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.C
 D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\PubSerRMS.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb
+<<<<<<< HEAD
+=======
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb
+>>>>>>> featrue.LoginTest
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\ApplicationInsights.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\csc.exe
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -327,8 +332,19 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\zh-Hans\System.Web.WebPages.Razor.r
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\zh-Hans\System.Web.Optimization.resources.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\zh-Hans\Microsoft.AspNet.Identity.Core.resources.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\zh-Hans\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+<<<<<<< HEAD
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csprojAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb
+=======
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.Common.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.Site.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.EntityFramework6.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.EFData.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.DB.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csprojAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CoreCompileInputs.cache
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CopyComplete
+>>>>>>> featrue.LoginTest

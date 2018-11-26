@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Enum\OrderEnum.cs" />
     <Compile Include="Enum\ProjectEnum.cs" />
-    <Compile Include="Enum\SystemEnum.cs" />
+    <Compile Include="Enum\Resources.cs" />
     <Compile Include="Mapping\Authen\AddressMap.cs" />
     <Compile Include="Mapping\Authen\AreaMap.cs" />
     <Compile Include="Mapping\Authen\CityMap.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Models\Authen\Role.cs" />
     <Compile Include="Models\Authen\SystemSite.cs" />
     <Compile Include="Models\Authen\User.cs" />
+    <Compile Include="Models\Authen\UserProfile.cs" />
     <Compile Include="Models\Authen\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

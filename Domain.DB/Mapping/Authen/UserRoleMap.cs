@@ -40,7 +40,7 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
 
             // Relation
-            this.HasRequired(t => t.User).WithMany(d => d.UserRole).HasForeignKey(f => f.UserId).WillCascadeOnDelete(true);
+            this.HasRequired(t => t.User).WithMany(d => d.UserRole).HasForeignKey(f => f.RoleId).WillCascadeOnDelete(true);
             this.HasRequired(t => t.Role).WithMany(d => d.UserRole).HasForeignKey(f => f.RoleId).WillCascadeOnDelete(true);
         }
     }

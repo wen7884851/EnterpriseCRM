@@ -244,3 +244,9 @@ D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CoreCompile
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.dll
 D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.pdb
+<<<<<<< HEAD
+=======
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojResolveAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csprojAssemblyReference.cache
+D:\File\myp\EnterpriseCRM\Web.Site.CMS\obj\Debug\Web.Site.CMS.csproj.CoreCompileInputs.cache
+>>>>>>> featrue.LoginTest

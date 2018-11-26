@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+<<<<<<< HEAD
+=======
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+>>>>>>> featrue.LoginTest
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -241,14 +246,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
     <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
-    <Compile Include="Areas\Common\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Common\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Common\Controllers\Dashboardontroller.cs" />
+    <Compile Include="Areas\Common\Controllers\AccountController.cs" />
     <Compile Include="Common\AdminController.cs" />
     <Compile Include="Common\ConfigSettingHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extension\Filters\AdminLayoutAttribute.cs" />
-    <Compile Include="Extension\Filters\AdminOperateLogAttribute.cs" />
-    <Compile Include="Extension\Filters\AdminPermissionAttribute.cs" />
     <Compile Include="Extension\Filters\ElmahErrorAttribute.cs" />
     <Compile Include="Extension\Filters\HandlerErrorAttribute.cs" />
     <Compile Include="Extension\Filters\HandlerLoginAttribute.cs" />
@@ -445,7 +447,6 @@
     <Content Include="Content\jquery-tags-input\test\fake_json_endpoint.html" />
     <Content Include="Content\jquery-tags-input\test\fake_plaintext_endpoint.html" />
     <Content Include="Content\layer\extend\layer.ext.js" />
-    <Content Include="Content\layer\jquery.layout.js" />
     <Content Include="Content\layer\layer.min.js" />
     <Content Include="Content\layer\skin\default\icon-ext.png" />
     <Content Include="Content\layer\skin\default\icon.png" />
@@ -552,8 +553,8 @@
     <Content Include="Areas\Common\Views\Error\400.cshtml" />
     <Content Include="Areas\Common\Views\Error\404.cshtml" />
     <Content Include="Areas\Common\Views\Error\500.cshtml" />
-    <Content Include="Areas\Common\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Common\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Account\Index.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_BreadCrumb.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_Footer.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_FormModal.cshtml" />
@@ -614,9 +615,25 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\axios.js" />
+    <Content Include="Scripts\lib\axios.min.js" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.min.js" />
+    <None Include="Scripts\lib\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\lib\jquery\jquery-1.10.2.js" />
+    <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\lib\ko\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\lib\ko\knockout-3.4.2.js" />
+    <Content Include="Scripts\lib\ko\knockout-jqAutocomplete.js" />
+    <Content Include="Scripts\lib\ko\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\lib\ko\knockout.mapping-latest.js" />
+    <Content Include="Scripts\lib\modernizr-2.6.2.js" />
+    <Content Include="Scripts\lib\vue.js" />
+    <Content Include="Scripts\lib\vue.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\WxCompany.js" />
     <None Include="Service References\ServiceYF\CheckYFData.disco">
@@ -681,11 +698,29 @@
       <Name>Domain.Site</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\app\account\login.ts" />
+    <TypeScriptCompile Include="Scripts\app\common\cookie.ts" />
+    <TypeScriptCompile Include="Scripts\lib\ko\ko_observableArray_fn.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\es6-promise.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\jquery\jqthumb.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\jquery\jquery.hash.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\jquery\jquery.raty.d.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\knockout.mapping\knockout.mapping.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\ko\knockout.ts" />
+    <TypeScriptCompile Include="Scripts\_typings\lodash.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
