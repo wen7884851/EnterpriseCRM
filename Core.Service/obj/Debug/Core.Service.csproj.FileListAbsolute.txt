@@ -120,3 +120,6 @@ D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.csproj.CoreCompile
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Business.Service.dll
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Business.Service.pdb
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.dll
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.pdb
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\AutoMapper.xml

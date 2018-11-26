@@ -32,9 +32,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Log", "Domain.Log\Domain.Log.csproj", "{87F65E9E-02BB-4EFC-94E0-7AA91530C247}"
 EndProject
 <<<<<<< HEAD
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.CMS", "Web.Site.CMS\Web.Site.CMS.csproj", "{BB28921D-E74F-40D5-9D9C-F146E7F70A60}"
 =======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "Framework.Logging\Framework.Logging.csproj", "{BED098C3-53B5-426B-9408-DDF4FA8B5449}"
+>>>>>>> featrue.LoginTest
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.CMS", "Web.Site.CMS\Web.Site.CMS.csproj", "{BB28921D-E74F-40D5-9D9C-F146E7F70A60}"
 >>>>>>> featrue.LoginTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site.WebUI", "Web.Site.WebUI\Web.Site.WebUI.csproj", "{F321A33C-A12D-42BD-B4F1-5FDD742076A0}"

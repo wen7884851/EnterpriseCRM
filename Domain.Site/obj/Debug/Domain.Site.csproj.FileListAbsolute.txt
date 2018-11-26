@@ -121,3 +121,6 @@ D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CoreCompileIn
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.dll
 D:\File\myp\EnterpriseCRM\Domain.Site\obj\Debug\Domain.Site.pdb
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\AutoMapper.dll
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\AutoMapper.pdb
+D:\File\myp\EnterpriseCRM\Domain.Site\bin\Debug\AutoMapper.xml
