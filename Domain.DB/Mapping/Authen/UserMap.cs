@@ -26,9 +26,6 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.LoginPwd)
                 .HasMaxLength(50);
 
-            this.Property(t => t.FullName)
-                .HasMaxLength(50);
-
             this.Property(t => t.Email)
                 .HasMaxLength(100);
 
@@ -48,7 +45,6 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.LoginName).HasColumnName("LoginName");
             this.Property(t => t.LoginPwd).HasColumnName("LoginPwd");
             this.Property(t => t.Token).HasColumnName("Token");
-            this.Property(t => t.FullName).HasColumnName("FullName");
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.Phone).HasColumnName("Phone");
             this.Property(t => t.PwdErrorCount).HasColumnName("PwdErrorCount");

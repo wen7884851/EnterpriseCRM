@@ -23,7 +23,7 @@ namespace Domain.DB.Enum
 
     }
 
-    public enum Resources
+    public enum ResourcesEnum
     {
         // Menu
         Dashboard = 1,

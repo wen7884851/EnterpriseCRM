@@ -35,20 +35,6 @@ namespace Core.Service.Authen.Impl
 	{
 		#region 属性
 
-		[Import]
-        public IUserRoleRepository UserRoleRepository { get; set; }
-
-        public IQueryable<UserRole> UserRoles
-        {
-            get { return UserRoleRepository.Entities; }
-		}
-
-        public IEnumerable<UserRole> GetUserRoleList()
-        {
-            return UserRoles.Where(t => t.IsDeleted == false).ToList<UserRole>();
-        }
-       
-
         #endregion
     }
 }

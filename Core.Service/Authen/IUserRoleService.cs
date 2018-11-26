@@ -31,10 +31,6 @@ namespace Core.Service.Authen
     public interface IUserRoleService
     {
         #region 属性
-
-        IQueryable<UserRole> UserRoles { get; }
-
-        IEnumerable<UserRole> GetUserRoleList();
         #endregion
 
         #region 公共方法

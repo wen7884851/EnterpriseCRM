@@ -52,19 +52,19 @@ namespace Web.Site.WebUI.Common
                     {
                         if (member.ReturnType.Name == "ActionResult")
                         {
-                            object[] attrs = member.GetCustomAttributes(typeof(AdminLayoutAttribute), true);
-                            if (attrs.Length > 0)
-                            {
-                                var moduleModel = new MVCModuleModel();
+                            //object[] attrs = member.GetCustomAttributes(typeof(AdminLayoutAttribute), true);
+                            //if (attrs.Length > 0)
+                            //{
+                            //    var moduleModel = new MVCModuleModel();
 
-                                var fullNameArray = member.DeclaringType.FullName.Split('.');
-                                string areaName = fullNameArray[fullNameArray.Length - 3];
-                                string controllerName = member.DeclaringType.Name.Substring(0, member.DeclaringType.Name.Length - 10);
-                                string actionName = member.Name;
-                                moduleModel.LinkUrl = string.Format("{0}/{1}/{2}", areaName, controllerName, actionName);
+                            //    var fullNameArray = member.DeclaringType.FullName.Split('.');
+                            //    string areaName = fullNameArray[fullNameArray.Length - 3];
+                            //    string controllerName = member.DeclaringType.Name.Substring(0, member.DeclaringType.Name.Length - 10);
+                            //    string actionName = member.Name;
+                            //    moduleModel.LinkUrl = string.Format("{0}/{1}/{2}", areaName, controllerName, actionName);
                                 
-                                model.Add(moduleModel);
-                            }
+                            //    model.Add(moduleModel);
+                            //}
                         }
                     }
                 }
