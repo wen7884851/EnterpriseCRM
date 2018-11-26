@@ -98,4 +98,3 @@ D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.Cor
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Core.Common.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Core.Common.pdb
-D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csprojAssemblyReference.cache
