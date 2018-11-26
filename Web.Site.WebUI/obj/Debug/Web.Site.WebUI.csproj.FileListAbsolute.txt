@@ -239,8 +239,10 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\System.Runtime.CompilerServices.Uns
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\System.Buffers.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Business.Service.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.Common.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.Common.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.Tool.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.Site.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.Site.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\EntityFramework.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\EntityFramework.SqlServer.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Microsoft.AI.DependencyCollector.xml
@@ -256,6 +258,7 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.EntityFramework6.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.EntityFramework6.xml
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.EntityFramework6.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MiniProfiler.Mvc.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Newtonsoft.Json.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\System.Diagnostics.DiagnosticSource.xml
@@ -274,7 +277,9 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Antlr3.Runtime.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Microsoft.AspNet.Identity.Core.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.EFData.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.EFData.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.DB.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.DB.dll.config
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.Repository.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\ServiceStack.Redis.xml
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\ServiceStack.Interfaces.xml
