@@ -74,6 +74,8 @@
     <Compile Include="Mapping\Authen\SystemSiteMap.cs" />
     <Compile Include="Mapping\Authen\UserMap.cs" />
     <Compile Include="Mapping\Authen\UserRoleMap.cs" />
+    <Compile Include="Mapping\ProjectManager\Configuration\ProjectMap.generated.cs" />
+    <Compile Include="Mapping\ProjectManager\ProjectMap.cs" />
     <Compile Include="Models\Authen\Address.cs" />
     <Compile Include="Models\Authen\Area.cs" />
     <Compile Include="Models\Authen\City.cs" />
@@ -86,6 +88,10 @@
     <Compile Include="Models\Authen\User.cs" />
     <Compile Include="Models\Authen\UserProfile.cs" />
     <Compile Include="Models\Authen\UserRole.cs" />
+    <Compile Include="Models\ProjectManager\Project.cs" />
+    <Compile Include="Models\ProjectManager\ProjectPoint.cs" />
+    <Compile Include="Models\ProjectManager\ProjectPointLog.cs" />
+    <Compile Include="Models\ProjectManager\ProjectUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
