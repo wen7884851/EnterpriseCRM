@@ -23,11 +23,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #region 属性
         [Import]
-        public IUserService UserService { get; set; }
-
-        //[Import]
-        //public ILoginLogService LoginLogService { get; set; }
-
+        private readonly IUserService _userService;
         #endregion
 
         public ActionResult Index()
@@ -37,7 +33,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         [HttpPost]
         public ActionResult CheckLogin(UserAccountModel model)
         {
-            var result = UserService.CheckLogin(model);
+            var result = _userService.CheckLogin(model);
             return Json(result);
         }
 
@@ -46,7 +42,6 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             OperatorProvider.Provider.RemoveCurrent();
             return RedirectToAction("Index");
         }
-
         [HttpPost]
         public ActionResult ForgetPwd()
         {

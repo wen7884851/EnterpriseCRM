@@ -43,10 +43,10 @@ namespace Core.Service.Authen.Impl
         }
         public UserAccountModel GetAccountByLoginName(string LoginName)
         {
-            var user = Users.FirstOrDefault(t => t.LoginName == LoginName || t.Email == LoginName || t.Phone == LoginName);
+            var user =Users.FirstOrDefault(t => t.LoginName == LoginName || t.Email == LoginName || t.Phone == LoginName);
             if(user!=null)
             {
-                return (new UserAccountModel()
+                return new UserAccountModel()
                 {
                     userId=user.Id,
                     LoginName=user.LoginName,
@@ -54,7 +54,7 @@ namespace Core.Service.Authen.Impl
                     PwdErrorCount=user.PwdErrorCount,
                     Enabled=user.Enabled,
                     LastLoginTime=user.LastLoginTime
-                });
+                };
             }
             return null;
         }
