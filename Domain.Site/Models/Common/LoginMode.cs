@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Site.Common.Models
+namespace Domain.Site.Models.Common
 {
     public enum LoginMode
     {

@@ -8,7 +8,8 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using Domain.Site.Common.Models;
+using Domain.Site.Models;
+using Domain.Site.Models.Common;
 
 
 namespace Web.Site.WebUI

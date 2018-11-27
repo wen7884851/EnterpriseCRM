@@ -1,22 +1,11 @@
-﻿
-using Framework.Common.ToolsHelper;
-using Framework.Tool.Operator;
-using Domain.Site.Common.Models;
-using Domain.Site.Models.AdminCommon;
-using Domain.Site.Models.Authen.Module;
-using Web.Site.WebUI.Extension.Filters;
+﻿using Framework.Tool.Operator;
+using Domain.Site.Models.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 
 namespace Web.Site.WebUI.Common
 {
-	//[AdminPermission(PermissionCustomMode.Enforce)]
+    //[AdminPermission(PermissionCustomMode.Enforce)]
     public class AdminController : Controller
     {
 		public AdminController()

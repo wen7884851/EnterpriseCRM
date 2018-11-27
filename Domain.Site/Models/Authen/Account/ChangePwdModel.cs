@@ -1,4 +1,4 @@
-﻿using Domain.Site.Common.Models;
+﻿using Domain.Site.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Domain.Site.Models.Authen.User
+namespace Domain.Site.Models
 {
     public class ChangePwdModel : EntityCommon
     {

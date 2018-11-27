@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Web.Mvc;
+using Domain.Site.Models.Common;
 using Framework.Tool.Entity;
-using Domain.Site.Common.Models;
 
 namespace Domain.Site.Models.Authen.User
 {

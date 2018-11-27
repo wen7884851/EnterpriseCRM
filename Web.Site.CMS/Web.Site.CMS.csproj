@@ -322,9 +322,9 @@
       <Project>{b23d0601-3d8c-4800-931e-95d94009ab8e}</Project>
       <Name>Framework.Tool</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Site\Domain.Site.csproj">
+    <ProjectReference Include="..\Domain.Site\Domain.Site.Model.csproj">
       <Project>{d45e2f1e-cca9-443c-af35-4c816533a742}</Project>
-      <Name>Domain.Site</Name>
+      <Name>Domain.Site.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

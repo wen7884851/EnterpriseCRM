@@ -76,21 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authen\IModulePermissionService.cs" />
-    <Compile Include="Authen\IModuleService.cs" />
-    <Compile Include="Authen\Impl\ModulePermissionService.cs" />
-    <Compile Include="Authen\Impl\ModuleService.cs" />
-    <Compile Include="Authen\Impl\PermissionService.cs" />
-    <Compile Include="Authen\Impl\ResourcesService.cs" />
-    <Compile Include="Authen\Impl\RoleService.cs" />
-    <Compile Include="Authen\Impl\SystemSiteService..cs" />
-    <Compile Include="Authen\Impl\UserRoleService.cs" />
     <Compile Include="Authen\Impl\UserService.cs" />
-    <Compile Include="Authen\IPermissionService.cs" />
-    <Compile Include="Authen\IResourcesService.cs" />
-    <Compile Include="Authen\IRoleService.cs" />
-    <Compile Include="Authen\ISystemSiteService.cs" />
-    <Compile Include="Authen\IUserRoleService.cs" />
     <Compile Include="Authen\IUserService.cs" />
     <Compile Include="CoreServiceBase.cs" />
     <Compile Include="ProjectManager\Impl\ProjectManager.cs" />
@@ -124,9 +110,9 @@
       <Project>{f8f9f307-b0d5-4b45-8807-468cf0e85ca0}</Project>
       <Name>Core.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Site\Domain.Site.csproj">
+    <ProjectReference Include="..\Domain.Site\Domain.Site.Model.csproj">
       <Project>{d45e2f1e-cca9-443c-af35-4c816533a742}</Project>
-      <Name>Domain.Site</Name>
+      <Name>Domain.Site.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Core", "03 Core", "{97F5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.DB", "Domain.DB\Domain.DB.csproj", "{67500284-8AAE-4D6D-A639-7C675F4AAADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Site", "Domain.Site\Domain.Site.csproj", "{D45E2F1E-CCA9-443C-AF35-4C816533A742}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Site.Model", "Domain.Site\Domain.Site.Model.csproj", "{D45E2F1E-CCA9-443C-AF35-4C816533A742}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Repository", "Core.Repository\Core.Repository.csproj", "{F8F9F307-B0D5-4B45-8807-468CF0E85CA0}"
 EndProject

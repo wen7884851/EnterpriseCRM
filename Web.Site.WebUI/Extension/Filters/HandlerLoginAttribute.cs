@@ -1,7 +1,7 @@
 ﻿
 using Framework.Common.ToolsHelper;
 using Framework.Tool.Operator;
-using Domain.Site.Common.Models;
+using Domain.Site.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

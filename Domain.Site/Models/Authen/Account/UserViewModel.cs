@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using Domain.Site.Common.Models;
+using Domain.Site.Models.Common;
 using Domain.DB.Models;
 
 namespace Domain.Site.Models

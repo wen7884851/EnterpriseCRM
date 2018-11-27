@@ -8,8 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.ComponentModel;
-using Domain.Site.Common.Models;
-
+using Domain.Site.Models.Common;
+using Domain.Site.Models;
 
 namespace Web.Site.WebUI
 {
@@ -24,11 +24,11 @@ namespace Web.Site.WebUI
             string radioPropertyName;
             string displayPropertyName;
 
-            MemberExpression nameExpr = (MemberExpression)expression.Body;
+            var nameExpr = (MemberExpression)expression.Body;
             radioPropertyName = nameExpr.Member.Name;
             // 获取特性
-            PropertyInfo property = typeof(TModel).GetProperty(radioPropertyName);
-            KeyValueAttribute attribute = (KeyValueAttribute)property.GetCustomAttributes(typeof(KeyValueAttribute), false)[0];
+            var property = typeof(TModel).GetProperty(radioPropertyName);
+            var attribute = (KeyValueAttribute)property.GetCustomAttributes(typeof(KeyValueAttribute), false)[0];
 
             if (attribute == null)
             {
@@ -36,11 +36,11 @@ namespace Web.Site.WebUI
             }
             displayPropertyName = attribute.DisplayProperty;
             //获取显示列表 和选择值
-            IEnumerable radioList = (IEnumerable)htmlHelper.ViewData.Eval(displayPropertyName);
+            var radioList = (IEnumerable)htmlHelper.ViewData.Eval(displayPropertyName);
             var isChecked = htmlHelper.ViewData.Eval(radioPropertyName);
             // 转换objectHtmlAttrbute
-            IDictionary<string, object> wrapKeyValue = HtmlHelper.AnonymousObjectToHtmlAttributes(warpHtmlAttribute);
-            IDictionary<string, object> itemKeyValue = HtmlHelper.AnonymousObjectToHtmlAttributes(itemHtmlAttribute);
+            var wrapKeyValue = HtmlHelper.AnonymousObjectToHtmlAttributes(warpHtmlAttribute);
+            var itemKeyValue = HtmlHelper.AnonymousObjectToHtmlAttributes(itemHtmlAttribute);
 
             // 生成Html
             if (wrapKeyValue.Count > 0) // wrapClassStr
@@ -50,13 +50,6 @@ namespace Web.Site.WebUI
                     tableClassStr += keyValue.Key + "=" + keyValue.Value.ToString();
                 }
             }
-            //if (itemKeyValue.Count > 0)
-            //{
-            //    foreach (KeyValuePair<string, object> keyValue in itemKeyValue)
-            //    {
-            //        tdClassStr += keyValue.Key + "='" + keyValue.Value.ToString() + "'";
-            //    }
-            //}
 
             int index = 0;
             result += "<table " + tableClassStr + ">";
@@ -67,7 +60,7 @@ namespace Web.Site.WebUI
                     result += "<tr>";
                 }
 
-                KeyValueModel radioModel = (KeyValueModel)radio;
+                var radioModel = (KeyValueModel)radio;
                 bool isCheck = isChecked == null ? false : isChecked.ToString() == radioModel.Value;
 
                 result += "<td>"; //"<td " + tdClassStr + ">";

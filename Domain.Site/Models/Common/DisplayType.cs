@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Domain.Site.Common.Models
+namespace Domain.Site.Models.Common
 {
     public enum DisplayType
     {
