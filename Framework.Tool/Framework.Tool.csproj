@@ -7,8 +7,8 @@
     <ProjectGuid>{B23D0601-3D8C-4800-931E-95D94009AB8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Tool</RootNamespace>
-    <AssemblyName>Core.Tool</AssemblyName>
+    <RootNamespace>Framework.Tool</RootNamespace>
+    <AssemblyName>Framework.Tool</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

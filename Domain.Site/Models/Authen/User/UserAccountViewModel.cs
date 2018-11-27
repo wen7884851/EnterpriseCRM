@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Site.Models
 {
-    public class UserAccountModel
+    public class UserAccountViewModel
     {
         public int userId { get; set; }
         public string LoginName { get; set; }

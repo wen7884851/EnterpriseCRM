@@ -12,11 +12,11 @@ namespace Core.Service.Authen
         #endregion
 
         #region 公共方法
-        UserAccountModel GetAccountByLoginName(string LoginName);
+        UserAccountViewModel GetAccountByLoginName(string LoginName);
 
-        UserModel GetUserModelById(int userId);
-        UserModel GetUserModelByToken(string token);
-        ActionResultViewModel CheckLogin(UserAccountModel user);
+        UserViewModel GetUserModelById(int userId);
+        UserViewModel GetUserModelByToken(string token);
+        ActionResultViewModel CheckLogin(UserAccountViewModel user);
         #endregion
     }
 }

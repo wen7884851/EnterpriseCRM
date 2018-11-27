@@ -7,8 +7,8 @@
     <ProjectGuid>{8D995397-38A2-4994-B1B8-8EB57255D48A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business.Service</RootNamespace>
-    <AssemblyName>Business.Service</AssemblyName>
+    <RootNamespace>Core.Service</RootNamespace>
+    <AssemblyName>Core.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -93,6 +93,14 @@
     <Compile Include="Authen\IUserRoleService.cs" />
     <Compile Include="Authen\IUserService.cs" />
     <Compile Include="CoreServiceBase.cs" />
+    <Compile Include="ProjectManager\Impl\ProjectManager.cs" />
+    <Compile Include="ProjectManager\Impl\ProjectPointManager.cs" />
+    <Compile Include="ProjectManager\Impl\ProjectUserStoreManager.cs" />
+    <Compile Include="ProjectManager\IProjectManager.cs" />
+    <Compile Include="ProjectManager\IProjectPointLogManager.cs" />
+    <Compile Include="ProjectManager\IProjectPointManager.cs" />
+    <Compile Include="ProjectManager\Impl\ProjectPointLogManager.cs" />
+    <Compile Include="ProjectManager\IProjectUserStoreManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

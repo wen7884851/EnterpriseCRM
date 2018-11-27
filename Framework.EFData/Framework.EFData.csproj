@@ -7,8 +7,8 @@
     <ProjectGuid>{5FE41D5D-1367-462D-AE95-BBD1B7217592}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.EFData</RootNamespace>
-    <AssemblyName>Core.EFData</AssemblyName>
+    <RootNamespace>Framework.EFData</RootNamespace>
+    <AssemblyName>Framework.EFData</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

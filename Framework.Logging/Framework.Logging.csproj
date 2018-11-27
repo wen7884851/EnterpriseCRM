@@ -7,8 +7,8 @@
     <ProjectGuid>{BED098C3-53B5-426B-9408-DDF4FA8B5449}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Log</RootNamespace>
-    <AssemblyName>Core.Log</AssemblyName>
+    <RootNamespace>Framework.Logging</RootNamespace>
+    <AssemblyName>Framework.Logging</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

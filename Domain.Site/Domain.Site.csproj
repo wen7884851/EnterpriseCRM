@@ -108,9 +108,9 @@
     <Compile Include="Models\Authen\SystemSite\SystemSiteModel.cs" />
     <Compile Include="Models\Authen\User\ActionResultViewModel.cs" />
     <Compile Include="Models\Authen\User\ChangePwdModel.cs" />
-    <Compile Include="Models\Authen\User\UserAccountModel.cs" />
+    <Compile Include="Models\Authen\User\UserAccountViewModel.cs" />
     <Compile Include="Models\Authen\User\UpdateUserModel.cs" />
-    <Compile Include="Models\Authen\User\UserModel.cs" />
+    <Compile Include="Models\Authen\User\UserViewModel.cs" />
     <Compile Include="Models\Authen\Wx\AllEnum.cs" />
     <Compile Include="Models\Authen\Wx\Consumer\ConsumerModel.cs" />
     <Compile Include="Models\Authen\Wx\Consumer\MessageModel.cs" />
@@ -129,6 +129,10 @@
     <Compile Include="Models\Common\LoginMode.cs" />
     <Compile Include="Models\Common\MVCModuleModel.cs" />
     <Compile Include="Models\Common\PermissionCustomMode.cs" />
+    <Compile Include="Models\Project\ProjectPointLogViewModel.cs" />
+    <Compile Include="Models\Project\ProjectPointViewModel.cs" />
+    <Compile Include="Models\Project\ProjectUserStoreViewModel.cs" />
+    <Compile Include="Models\Project\ProjectViewModel.cs" />
     <Compile Include="Models\SSO\LoginResult.cs" />
     <Compile Include="Models\SSO\PassportLoginRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

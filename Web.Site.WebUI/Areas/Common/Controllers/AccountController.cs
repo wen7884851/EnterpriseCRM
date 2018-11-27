@@ -31,7 +31,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CheckLogin(UserAccountModel model)
+        public ActionResult CheckLogin(UserAccountViewModel model)
         {
             var result = _userService.CheckLogin(model);
             return Json(result);

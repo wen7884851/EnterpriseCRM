@@ -5,7 +5,7 @@ using Domain.DB.Models;
 
 namespace Domain.Site.Models
 {
-    public class UserModel : EntityCommon
+    public class UserViewModel : EntityCommon
     {
         public int Id { get; set; }
         public string LoginName { get; set; }
@@ -16,7 +16,7 @@ namespace Domain.Site.Models
         public DateTime? LastLoginTime { get; set; }
     }
 
-    public class SearchModel
+    public class SearchViewModel
     {
         public string LoginName { get; set; }
         public string FullName { get; set; }

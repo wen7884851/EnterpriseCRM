@@ -27,26 +27,26 @@ namespace Core.Service.Authen.Impl
       
         public IQueryable<User> Users
         {
-            get { return UserRepository.Entities; }
+            get { return UserRepository.NoCahecEntities; }
         }
         #endregion
 
         #region 公共方法
-        public UserModel GetUserModelByToken(string token)
+        public UserViewModel GetUserModelByToken(string token)
         {
             var user = Users.FirstOrDefault(t => t.Token == token);
             if (user != null)
             {
-                return Mapper.Map<UserModel>(user);
+                return Mapper.Map<UserViewModel>(user);
             }
             return null;
         }
-        public UserAccountModel GetAccountByLoginName(string LoginName)
+        public UserAccountViewModel GetAccountByLoginName(string LoginName)
         {
             var user =Users.FirstOrDefault(t => t.LoginName == LoginName || t.Email == LoginName || t.Phone == LoginName);
             if(user!=null)
             {
-                return new UserAccountModel()
+                return new UserAccountViewModel()
                 {
                     userId=user.Id,
                     LoginName=user.LoginName,
@@ -58,18 +58,18 @@ namespace Core.Service.Authen.Impl
             }
             return null;
         }
-        public UserModel GetUserModelById(int userId)
+        public UserViewModel GetUserModelById(int userId)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
             if (user != null)
             {
-               return  Mapper.Map<UserModel>(user);
+               return  Mapper.Map<UserViewModel>(user);
             }
             return null;
         }
 
 
-        public ActionResultViewModel CheckLogin(UserAccountModel user)
+        public ActionResultViewModel CheckLogin(UserAccountViewModel user)
         {
             var result = new ActionResultViewModel()
             {
