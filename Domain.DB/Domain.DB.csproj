@@ -68,6 +68,7 @@
     <Compile Include="Mapping\Authen\Configuration\RoleMap.generated.cs" />
     <Compile Include="Mapping\Authen\Configuration\SystemSiteMap.generated.cs" />
     <Compile Include="Mapping\Authen\Configuration\UserMap.generated.cs" />
+    <Compile Include="Mapping\Authen\Configuration\UserProfileMap.generated.cs" />
     <Compile Include="Mapping\Authen\Configuration\UserRoleMap.generated.cs" />
     <Compile Include="Mapping\Authen\ModuleMap.cs" />
     <Compile Include="Mapping\Authen\ModulePermissionMap.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Mapping\Authen\RoleMap.cs" />
     <Compile Include="Mapping\Authen\SystemSiteMap.cs" />
     <Compile Include="Mapping\Authen\UserMap.cs" />
+    <Compile Include="Mapping\Authen\UserProfileMap.cs" />
     <Compile Include="Mapping\Authen\UserRoleMap.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectPointLogMap.generated.cs" />

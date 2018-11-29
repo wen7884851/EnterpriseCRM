@@ -11,9 +11,6 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\System.Reflection.Metadata.d
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\vbc.exe
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\VBCSCompiler.exe
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\roslyn\VBCSCompiler.exe.config
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\PubSerRMS.Site.WebUI.dll.config
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\PubSerRMS.Site.WebUI.dll
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\PubSerRMS.Site.WebUI.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Antlr3.Runtime.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Core.Service.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Domain.Site.dll
@@ -170,5 +167,8 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\zh-Hans\Microsoft.AspNet.Identity.E
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csprojAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.csproj.CopyComplete
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.dll
-D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\PubSerRMS.Site.WebUI.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.dll.config
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.pdb

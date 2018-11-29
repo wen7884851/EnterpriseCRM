@@ -8,11 +8,6 @@ namespace Domain.DB.Models
 {
     public class User : EntityBase<int>, ICreationAudited, IModificationAudited
     {
-        public User()
-        {
-			this.UserRole = new List<UserRole>();
-        }
-
         public int AddressId { get; set; }
         public string LoginName { get; set; }
         public string LoginPwd { get; set; }
@@ -31,6 +26,5 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
-        public virtual ICollection<UserRole> UserRole { get; set; }
     }
 }

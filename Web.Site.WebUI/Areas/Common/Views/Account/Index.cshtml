@@ -8,7 +8,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     @Styles.Render("~/bundles/css/cssBase")
-    @Styles.Render("~/scripts/loginJs")
+    @Scripts.Render("~/scripts/jsBase");
+    <script src="~/Scripts/app/account/login.js"></script>
+    <link href="~/Content/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/font.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/matrix-login.css" rel="stylesheet" />
     <!-- FAVICONS -->
 </head>
 <body onkeydown="if (event.keyCode == 13) document.getElementById('btnLogin').click();">
@@ -16,7 +20,7 @@
         <div class="control-group normal_text">
             <h3>公众服务平台登录</h3>
         </div>
-        <form id="loginform" class="form-vertical" data-bind="checkAndSubmit: login" method="post">
+        <form id="loginform" class="form-vertical" data-bind="submit : checkLogin" >
 
             <div class="control-group">
                 <div class="controls">
@@ -59,9 +63,45 @@
                 </div>
             </form>*@
     </div>
-</body>
-</html>
+    <script type="text/javascript">
+        function loginModel() {
+            var _this = this;
+            function loginContent() {
+                var _this = this;
+                _this.userName = ko.observable();
+                _this.password = ko.observable();
+                _this.errorMessage = ko.observable();
+                _this.progress = false;
+                _this.canLogin = true;
+            }
+            _this.loginContext = new loginContext();
+            _this.checkLogin = function () {
+                let self = this;
+                self.canLogin(false);
+                if (self.userName.toString() == "" || self.password.toString() == "") {
+                    self.errorMessage("用户名和密码不能为空");
+                }
+                else {
+                    let user = {
+                        userName: self.userName,
+                        password: self.password,
+                        isMoble: self.isMoble
+                    };
+                    self.progress(true);
+                    $.post('/login/checklogin', user).then((data) => {
+                        if (!data.isSuccess) {
+                            self.errorMessage("用户名和密码错误,请重新输入");
+                        }
+                        else {
+                            
+                        }
+                    }).always(function () { self.progress(false); self.canLogin(true); })
+                }
+            }
+        }
+    </script>
+</body >
+</html >
 
-@Scripts.Render("~/scripts/jsBase")
-@Scripts.Render("~/scripts/loginJs")
+
 

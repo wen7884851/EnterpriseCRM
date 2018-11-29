@@ -24,7 +24,7 @@ namespace Domain.DB.Mapping
             Property(t => t.ModifyBy).HasColumnName("ModifyBy");
             Property(t => t.ModifyTime).HasColumnName("ModifyTime");
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
-            ToTable("Project_Point");
+            ToTable("Cms_Project_Point");
         }
     }
 }

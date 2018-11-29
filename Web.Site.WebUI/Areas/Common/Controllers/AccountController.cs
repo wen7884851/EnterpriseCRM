@@ -23,7 +23,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #region 属性
         [Import]
-        private readonly IUserService _userService;
+        private IUserService userService;
         #endregion
 
         public ActionResult Index()
@@ -33,7 +33,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         [HttpPost]
         public ActionResult CheckLogin(UserAccountViewModel model)
         {
-            var result = _userService.CheckLogin(model);
+            var result = userService.CheckLogin(model);
             return Json(result);
         }
 

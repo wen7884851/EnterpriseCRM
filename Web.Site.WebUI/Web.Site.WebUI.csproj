@@ -14,8 +14,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PubSerRMS.Site.WebUI</RootNamespace>
-    <AssemblyName>PubSerRMS.Site.WebUI</AssemblyName>
+    <RootNamespace>Web.Site.WebUI</RootNamespace>
+    <AssemblyName>Web.Site.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -593,22 +593,29 @@
     <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.woff2" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <None Include="Scripts\lib\jquery-3.3.1.intellisense.js" />
+    <None Include="Scripts\lib\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\lib\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery.validate.min.js" />
+    <Content Include="Scripts\lib\jquery-3.3.1.js" />
+    <Content Include="Scripts\lib\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\lib\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\lib\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\lib\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\lib\jquery-3.3.1.min.map" />
+    <None Include="Scripts\lib\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\flashupload.js" />
     <Content Include="Scripts\focus.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.4.js" />
-    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
-    <Content Include="Scripts\jquery-ui-zh.js" />
+    <Content Include="Scripts\lib\jquery-1.9.1.js" />
+    <Content Include="Scripts\lib\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\lib\jquery-ui-zh.js" />
     <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lib\axios.js" />
     <Content Include="Scripts\lib\axios.min.js" />
     <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
@@ -666,7 +673,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\lib\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

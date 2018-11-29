@@ -19,7 +19,7 @@ namespace Domain.DB.Mapping
             Property(t => t.CreateBy).HasColumnName("CreateBy");
             Property(t => t.CreateTime).HasColumnName("CreateTime");
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
-            ToTable("Project_Log");
+            ToTable("Cms_Project_PointLog");
         }
     }
 }
