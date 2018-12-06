@@ -172,3 +172,4 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Newtonsoft.Json.pdb

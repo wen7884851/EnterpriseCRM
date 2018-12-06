@@ -16,12 +16,7 @@ namespace Web.Site.WebUI
             var JsBase = new ScriptBundle("~/scripts/jsBase").Include("~/Scripts/lib/jquery-3.3.1.min.js",
                 "~/Scripts/lib/jquery-ui-1.10.4.min.js",
                 "~/Scripts/lib/jquery.validate.js",
-                "~/Scripts/lib/bootstrap/bootstrap.min.js",
-                "~/Scripts/lib/jquery/jquery-1.10.2.min.js",
-                "~/Scripts/lib/ko/knockout-3.4.2.js",
-                "~/scripts/lib/ko/knockout.mapping-latest.js",
-                "~/Scripts/lib/ko/knockout-jqAutocomplete.js",
-                "~/Scripts/lib/ko/ko_observableArray_fn.js");
+                "~/Scripts/lib/bootstrap/bootstrap.min.js", "~/Scripts/lib/vue/vue.min.js", "~/Scripts/lib/vue/vue-resource.min.js");
 
             var JsLogin = new ScriptBundle("~/scripts/loginJs").Include("~/Scripts/app/account/login.js",
                "~/Scripts/app/common/cookie.js");

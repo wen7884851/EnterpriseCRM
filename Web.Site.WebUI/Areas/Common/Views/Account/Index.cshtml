@@ -9,98 +9,19 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     @Styles.Render("~/bundles/css/cssBase")
     @Scripts.Render("~/scripts/jsBase");
-    <script src="~/Scripts/app/account/login.js"></script>
-    <link href="~/Content/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="~/Content/admin/css/font.css" rel="stylesheet" />
     <link href="~/Content/admin/css/matrix-login.css" rel="stylesheet" />
     <!-- FAVICONS -->
 </head>
 <body onkeydown="if (event.keyCode == 13) document.getElementById('btnLogin').click();">
+
     <div id="loginbox">
         <div class="control-group normal_text">
-            <h3>公众服务平台登录</h3>
+            <h3>智汇办公服务平台登录</h3>
         </div>
-        <form id="loginform" class="form-vertical" data-bind="submit : checkLogin" >
-
-            <div class="control-group">
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_lg"><i class="icon-user"></i></span>
-                        <input type="text" name="UserName" required data-bind="value: loginContext.userName" id="userName">
-                    </div>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                        <input type="password" required autocomplete="off" name="Password" data-bind="value: loginContext.password" id="password">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-actions">
-                <span class="pull-right">
-                    <input type="submit" class="btn btn-success btn-login" value="登录" id="btnLogin" data-bind="enable: canSignIn" />
-                </span>
-            </div>
-        </form>
-
-        @*<form id="recoverform" class="form-vertical">
-                <p class="normal_text">输入您注册的email地址，我们将给您发送一封邮件说明如何重置密码。</p>
-
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_lo"><i class="icon-envelope"></i></span>
-                        <input type="text" placeholder="电子邮件" />
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; 回到登录</a></span>
-                    <span class="pull-right"><a class="btn btn-info">发送</a></span>
-                </div>
-            </form>*@
+        <div id="login" />
     </div>
-    <script type="text/javascript">
-        function loginModel() {
-            var _this = this;
-            function loginContent() {
-                var _this = this;
-                _this.userName = ko.observable();
-                _this.password = ko.observable();
-                _this.errorMessage = ko.observable();
-                _this.progress = false;
-                _this.canLogin = true;
-            }
-            _this.loginContext = new loginContext();
-            _this.checkLogin = function () {
-                let self = this;
-                self.canLogin(false);
-                if (self.userName.toString() == "" || self.password.toString() == "") {
-                    self.errorMessage("用户名和密码不能为空");
-                }
-                else {
-                    let user = {
-                        userName: self.userName,
-                        password: self.password,
-                        isMoble: self.isMoble
-                    };
-                    self.progress(true);
-                    $.post('/login/checklogin', user).then((data) => {
-                        if (!data.isSuccess) {
-                            self.errorMessage("用户名和密码错误,请重新输入");
-                        }
-                        else {
-                            
-                        }
-                    }).always(function () { self.progress(false); self.canLogin(true); })
-                }
-            }
-        }
-    </script>
-</body >
+    <script src="~/Scripts/app/account/login.js"></script>
+</body>
 </html >
 
 
