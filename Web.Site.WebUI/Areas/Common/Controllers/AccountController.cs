@@ -24,6 +24,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         #region 属性
         [Import]
         private IUserService userService;
+
         #endregion
 
         public ActionResult Index()

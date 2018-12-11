@@ -16,7 +16,7 @@ namespace Web.Site.WebUI.Areas.Common
         {
             context.MapRoute(
                 "Common_default",
-                "Admin/{controller}/{action}/{id}",
+                "Common/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
                 new string[] { "Web.Site.WebUI.Areas.Common.Controllers" }
             );
