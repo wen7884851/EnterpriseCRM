@@ -87,12 +87,12 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户名不存在，请确定后重新输入！";
                 return result;
             }
-            if (userAccount.PwdErrorCount > 5 && userAccount.LastLoginTime < System.DateTime.Now.AddMinutes(-5))
+            if (userAccount.PwdErrorCount > 5 && userAccount.LastLoginTime < System.DateTime.Now.AddMinutes(5))
             {
-                result.Result = "用户名输入密码错误次数超过5次，请5分钟后再登陆！";
+                result.Result = "用户名输入密码错误次数超过5次，请5分钟后再登录！";
                 return result;
             }
-            if (userAccount.LoginPwd != MD5Provider.GetMD5String(user.LoginPwd))
+            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd).ToLower())
             {
                 result.Result = "密码错误，请确定后重新输入！";
                 UpdateUserLoginError(userAccount.userId);
@@ -103,7 +103,7 @@ namespace Core.Service.Authen.Impl
                 result.Result = "该用户已禁用！";
                 return result;
             }
-            Login(userAccount.userId);
+            result=Login(userAccount.userId);
             return result;
         }
         #endregion
@@ -112,7 +112,12 @@ namespace Core.Service.Authen.Impl
         private void UpdateUserLoginError(int userId)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
-            if (user.PwdErrorCount<=5)
+            if(user.PwdErrorCount==0)
+            {
+                user.PwdErrorCount++;
+                user.LastLoginTime = System.DateTime.Now;
+            }
+            else if (user.PwdErrorCount<=5)
             {
                 user.PwdErrorCount++;
             }
@@ -127,16 +132,33 @@ namespace Core.Service.Authen.Impl
             UserRepository.Update(user);
         }
 
-        private void Login(int userId,bool isRemeberUserName=false)
+        private ActionResultViewModel Login(int userId,bool isRemeberUserName=false)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
             user.IsRemeberUserName = isRemeberUserName;
-            user.Token = Guid.NewGuid().ToString();
-            var result = Mapper.Map<OperatorModel>(user);
+            user.Token = Guid.NewGuid().ToString("N");
+            user.RegisterTime = DateTime.Now;
+            var result = new OperatorModel()
+            {
+                UserId= user.Id,
+                LoginName=user.LoginName,
+                Email = user.Email,
+                Phone = user.Phone,
+                PwdErrorCount= user.PwdErrorCount,
+                LoginCount= user.LoginCount,
+                RegisterTime= user.RegisterTime,
+                Token = user.Token,
+            };
             result.LoginIPAddress = Net.Ip;
             result.LoginIPAddressName = Net.Host;
             OperatorProvider.Provider.AddCurrent(result);
             UserRepository.Update(user);
+            return new ActionResultViewModel()
+            {
+                IsSuccess = true,
+                Token = user.Token,
+                Result = "/Common/Dashboard/Index"
+            };
         }
         #endregion
     }

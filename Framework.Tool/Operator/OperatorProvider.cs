@@ -26,7 +26,7 @@ namespace Framework.Tool.Operator
         /// <returns></returns>
         public OperatorModel GetCurrent()
         {
-            OperatorModel operatorModel = new OperatorModel();
+            var operatorModel = new OperatorModel();
             if (LoginProvider == "Cookie")
             {
                 operatorModel = DESProvider.DecryptString(CookieHelper.GetCookieValue(LoginUserKey).ToString()).ToObject<OperatorModel>();
@@ -46,7 +46,7 @@ namespace Framework.Tool.Operator
         {
             if (LoginProvider == "Cookie")
             {
-                CookieHelper.SetCookie(LoginUserKey, DESProvider.EncryptString(operatorModel.ToJson()), DateTime.Now.AddMinutes(60));
+                CookieHelper.SetCookie(LoginUserKey, operatorModel.ToJson(), DateTime.Now.AddMinutes(60));
             }
             else
             {

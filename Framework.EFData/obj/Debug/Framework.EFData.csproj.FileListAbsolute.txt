@@ -97,3 +97,5 @@ D:\File\myp\EnterpriseCRM\Framework.EFData\obj\Debug\Framework.EFData.csproj.Cor
 D:\File\myp\EnterpriseCRM\Framework.EFData\obj\Debug\Framework.EFData.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Framework.EFData\obj\Debug\Framework.EFData.dll
 D:\File\myp\EnterpriseCRM\Framework.EFData\obj\Debug\Framework.EFData.pdb
+D:\File\myp\EnterpriseCRM\Framework.EFData\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\File\myp\EnterpriseCRM\Framework.EFData\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

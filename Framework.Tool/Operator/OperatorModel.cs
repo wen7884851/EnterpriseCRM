@@ -11,8 +11,8 @@ namespace Framework.Tool.Operator
         public string Phone { get; set; }
         public bool Enabled { get; set; }
         public string AppKey { get; set; }
-        public int PwdErrorCount { get; set; }
-        public int LoginCount { get; set; }
+        public int? PwdErrorCount { get; set; }
+        public int? LoginCount { get; set; }
         public DateTime? RegisterTime { get; set; }
         public DateTime? LastLoginTime { get; set; }
         public bool? IsRemeberUserName { get; set; }

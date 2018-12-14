@@ -173,3 +173,9 @@ D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Web.Site.WebUI.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.dll
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\obj\Debug\Web.Site.WebUI.pdb
 D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Newtonsoft.Json.pdb
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Google.Protobuf.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MySql.Data.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\Google.Protobuf.xml
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MySql.Data.xml
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MySql.Data.Entity.EF6.dll
+D:\File\myp\EnterpriseCRM\Web.Site.WebUI\bin\MySql.Data.Entity.EF6.xml

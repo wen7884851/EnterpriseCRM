@@ -97,3 +97,5 @@ D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CoreCompileInputs
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb
+D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

@@ -121,3 +121,4 @@ D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.csproj.CoreCompile
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.dll
 D:\File\myp\EnterpriseCRM\Core.Service\obj\Debug\Core.Service.pdb
+D:\File\myp\EnterpriseCRM\Core.Service\bin\Debug\zh-Hans\EntityFramework.resources.dll

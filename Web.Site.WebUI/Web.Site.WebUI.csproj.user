@@ -10,7 +10,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
