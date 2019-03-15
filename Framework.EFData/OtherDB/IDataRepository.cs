@@ -6,6 +6,7 @@
 //*Effect:
 //**********************************
 
+using Framework.Tool;
 using System;
 using System.Collections.Generic;
 using System.Linq;

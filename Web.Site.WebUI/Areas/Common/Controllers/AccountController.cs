@@ -11,6 +11,7 @@ using Framework.Common.ToolsHelper.Net;
 using System.Configuration;
 using Newtonsoft.Json;
 using Framework.Tool.Operator;
+using System.Threading.Tasks;
 
 namespace Web.Site.WebUI.Areas.Common.Controllers
 {
@@ -23,7 +24,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #region 属性
         [Import]
-        private IUserService userService;
+        private IUserService _userService;
 
         #endregion
 
@@ -34,7 +35,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         [HttpPost]
         public ActionResult CheckLogin(UserAccountViewModel model)
         {
-            var result = userService.CheckLogin(model);
+            var result = _userService.CheckLogin(model);
             return Json(result);
         }
 
@@ -47,6 +48,18 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         public ActionResult ForgetPwd()
         {
             return PartialView();
+        }
+
+        [HttpGet]
+        public ActionResult GetUserList()
+        {
+            var userList = _userService.GetAllUser().Select(t => new OptionViewMode
+            {
+                key = t.Id,
+                text = t.LoginName,
+                value = t.Id
+            }).ToList();
+            return Json(userList, JsonRequestBehavior.AllowGet);
         }
     }
 }

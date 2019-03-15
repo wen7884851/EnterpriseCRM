@@ -13,4 +13,6 @@ namespace Domain.Site.Models
         public int LogType { get; set; }
         public string Content { get; set; }
     }
+
+
 }

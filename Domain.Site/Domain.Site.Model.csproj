@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -86,6 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\LoginEnum.cs" />
+    <Compile Include="Enum\ProjectEnum.cs" />
+    <Compile Include="Mapping\IHaveMapping.cs" />
     <Compile Include="Models\AdminCommon\BreadCrumbModel.cs" />
     <Compile Include="Models\AdminCommon\ButtonModel.cs" />
     <Compile Include="Models\AdminCommon\ProfileModel.cs" />
@@ -99,11 +101,19 @@
     <Compile Include="Models\Common\DisplayDirection.cs" />
     <Compile Include="Models\Common\DisplayType.cs" />
     <Compile Include="Models\Common\EntityCommon.cs" />
+    <Compile Include="Models\Common\IDataTableParameter.cs" />
+    <Compile Include="Models\Common\IPagedItemsResult.cs" />
+    <Compile Include="Models\Common\IPageQuery.cs" />
     <Compile Include="Models\Common\KeyValueAttribute.cs" />
     <Compile Include="Models\Common\KeyValueModel.cs" />
     <Compile Include="Models\Common\LoginMode.cs" />
     <Compile Include="Models\Common\MVCModuleModel.cs" />
+    <Compile Include="Models\Common\OptionViewMode.cs" />
+    <Compile Include="Models\Common\PageQuery.cs" />
+    <Compile Include="Models\Common\PageResult.cs" />
     <Compile Include="Models\Common\PermissionCustomMode.cs" />
+    <Compile Include="Models\Formula\FormulaItemViewModel.cs" />
+    <Compile Include="Models\Project\ProjectCalculationViewModel.cs" />
     <Compile Include="Models\Project\ProjectPointLogViewModel.cs" />
     <Compile Include="Models\Project\ProjectPointViewModel.cs" />
     <Compile Include="Models\Project\ProjectUserStoreViewModel.cs" />
@@ -112,9 +122,7 @@
     <Compile Include="Models\SSO\PassportLoginRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Domain.DB\Domain.DB.csproj">
       <Project>{67500284-8aae-4d6d-a639-7c675f4aaadc}</Project>

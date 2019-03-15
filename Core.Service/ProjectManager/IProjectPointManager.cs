@@ -1,12 +1,10 @@
 ﻿using Domain.DB.Models;
 using Domain.Site.Models;
-using System;
+using Framework.Tool;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Business.Service
+namespace Core.Service
 {
     public interface IProjectPointManager
     {
@@ -15,9 +13,13 @@ namespace Business.Service
         #endregion
 
         #region 方法
+        PageResult<ProjectPointViewModel> GetProjectPointListByQuery(ProjectPointQueryModel queryModel);
         int[] GetUserIdsByProjectId(int projectId);
+        ProjectPointViewModel GetPointById(int pointId);
+        decimal getPointSurplusMoney(int pointId);
+        int[] GetPointUserId(int pointId);
         IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId);
-        int CreateProjectPoint(ProjectPointViewModel point);
+        ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point);
         #endregion
     }
 }

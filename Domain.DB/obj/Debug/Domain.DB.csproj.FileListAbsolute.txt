@@ -87,6 +87,8 @@ D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\ServiceStack.Common.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Memory.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\System.ValueTuple.xml
+D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
@@ -97,5 +99,3 @@ D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CoreCompileInputs
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.dll
 D:\File\myp\EnterpriseCRM\Domain.DB\obj\Debug\Domain.DB.pdb
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.resources.dll
-D:\File\myp\EnterpriseCRM\Domain.DB\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

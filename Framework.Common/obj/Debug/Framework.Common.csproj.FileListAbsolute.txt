@@ -94,8 +94,8 @@ D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.Razor.re
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
+D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csprojAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csproj.CopyComplete
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.dll
 D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.pdb
-D:\File\myp\EnterpriseCRM\Framework.Common\obj\Debug\Framework.Common.csprojAssemblyReference.cache

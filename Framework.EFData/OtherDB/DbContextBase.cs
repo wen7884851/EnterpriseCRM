@@ -6,13 +6,13 @@
 //*Effect:
 //**********************************
 
+using Framework.Tool;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Framework.EFData.OtherDB

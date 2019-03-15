@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
@@ -137,6 +140,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.5.154\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.5.154\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
@@ -244,6 +253,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\MefConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -251,6 +261,11 @@
     <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Common\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Common\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectCalculationController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectManagerController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectPointManagerController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectUserStoreController.cs" />
+    <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
     <Compile Include="Common\AdminController.cs" />
     <Compile Include="Common\ConfigSettingHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -296,7 +311,7 @@
     <Content Include="Content\admin\images\icon\sort_desc.png" />
     <Content Include="Content\admin\images\icon\sort_desc_disabled.png" />
     <Content Include="Content\admin\img\breadcrumb.png" />
-    <Content Include="Content\admin\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\admin\img\glyphicons-halflings.png" />
     <Content Include="Content\admin\img\gritter.png" />
     <Content Include="Content\admin\img\hue.png" />
     <Content Include="Content\admin\img\larrow.png" />
@@ -553,9 +568,8 @@
     <Content Include="Content\Uploadify\uploadify.v3.2.swf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Common\Views\Error\400.cshtml" />
-    <Content Include="Areas\Common\Views\Error\404.cshtml" />
-    <Content Include="Areas\Common\Views\Error\500.cshtml" />
+    <Content Include="Areas\Common\Views\Error\Page404.cshtml" />
+    <Content Include="Areas\Common\Views\Error\Page500.cshtml" />
     <Content Include="Areas\Common\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Common\Views\Account\Index.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_BreadCrumb.cshtml" />
@@ -589,6 +603,11 @@
     <Content Include="Resource\font\icons.svg" />
     <Content Include="Resource\font\outline-icons.svg" />
     <Content Include="Scripts\app\account\login.js" />
+    <Content Include="Scripts\app\common\headerMenu.js" />
+    <Content Include="Scripts\app\common\leftMenu.js" />
+    <Content Include="Scripts\app\project\EditProjectPonit.js" />
+    <Content Include="Scripts\app\project\project.js" />
+    <Content Include="Scripts\app\project\projectPointManager.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Common\Views\Error\ErrorMessage.cshtml" />
@@ -606,6 +625,12 @@
     <Content Include="Content\jquery-tags-input\README.md" />
     <Content Include="Content\Uploadify\uploadify.fla" />
     <Content Include="Content\admin\font-awesome\font\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Project\Views\ProjectManager\Index.cshtml" />
+    <Content Include="Areas\Project\Views\web.config" />
+    <Content Include="Areas\Project\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Common\Views\Error\Page400.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectManager\ProjectProfile.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectManager\EditProjectPonit.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
@@ -697,6 +722,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Common\Controllers\Api\" />
+    <Folder Include="Areas\Project\Views\ProjectCalculation\" />
+    <Folder Include="Areas\Project\Views\ProjectPointManager\" />
+    <Folder Include="Areas\Project\Views\ProjectUserStore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -717,6 +745,10 @@
     <ProjectReference Include="..\Core.Service\Core.Service.csproj">
       <Project>{8d995397-38a2-4994-b1b8-8eb57255d48a}</Project>
       <Name>Core.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.DB\Domain.DB.csproj">
+      <Project>{67500284-8aae-4d6d-a639-7c675f4aaadc}</Project>
+      <Name>Domain.DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Common\Framework.Common.csproj">
       <Project>{3f48f990-aee4-499a-b0c7-0f6d53f30d96}</Project>

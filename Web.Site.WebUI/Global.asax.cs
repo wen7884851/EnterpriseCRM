@@ -7,13 +7,16 @@ using Web.Site.WebUI.Extension.ModelBinder;
 using System.Web.Http;
 using System;
 using Framework.Tool.Operator;
+using Domain.DB;
+using StructureMap;
 
 namespace Web.Site.WebUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        private const string errorCode404 = "404";
-        private const string errorCode500 = "500";
+        private const string errorCode404 = "page404";
+        private const string errorCode500 = "page500";
+        public Container container { get; private set; }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -36,11 +39,13 @@ namespace Web.Site.WebUI
             //设置MEF依赖注入容器
             MefConfig.RegisterMef();
 
-           //初始化EF6的性能监控
-             // MiniProfilerEF6.Initialize();
+            MappingConfig.MappingRegister();
+
+            //初始化EF6的性能监控
+            // MiniProfilerEF6.Initialize();
 
             //初始化DB
-            //DatabaseInitializer.Initialize();
+            DatabaseInitializer.Initialize();
         }
 
         protected void Application_BeginRequest()
@@ -74,7 +79,7 @@ namespace Web.Site.WebUI
         //could not be found
         protected void Application_Error()
         {
-            Exception ex = Server.GetLastError();
+            var ex = Server.GetLastError();
             if (ex.Message.Contains("could not be found"))
             {
                 Server.ClearError();//在Global.asax中调用Server.ClearError方法相当于是告诉Asp.Net系统抛出的异常已经被处理过了，
@@ -84,7 +89,15 @@ namespace Web.Site.WebUI
                 RedirectOnError(this, ex);
                // Response.Redirect("~/Common/Login", true);//调用Server.ClearError方法后再调用Response.Redirect就可以成功跳转到自定义错误页面了
             }
-
+            else if (ex.Message == "用户过期需要重新登录")
+            {
+                Server.ClearError();
+                Response.TrySkipIisCustomErrors = true;
+                Response.Clear();
+                string loginurl = "/Common/Account";
+                string url = $"/error/{errorCode404}?refer={loginurl}";
+                Response.Redirect(url);
+            }
         }
 
         private static void RedirectOnError(HttpApplication application, Exception ex)

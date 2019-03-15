@@ -113,6 +113,7 @@
     <Compile Include="CacheHelper\Cache.Redis\RedisConfigInfo.cs" />
     <Compile Include="CacheHelper\Cache\Cache.cs" />
     <Compile Include="CacheHelper\Cache\ICache.cs" />
+    <Compile Include="CalculateFormula.cs" />
     <Compile Include="FileHelper\DirFile.cs" />
     <Compile Include="FileHelper\FileOperate.cs" />
     <Compile Include="FileHelper\ImageThumbnailMake.cs" />

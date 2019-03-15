@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -78,10 +78,15 @@
   <ItemGroup>
     <Compile Include="Authen\Impl\UserService.cs" />
     <Compile Include="Authen\IUserService.cs" />
+    <Compile Include="Common\DynamicLambda.cs" />
     <Compile Include="CoreServiceBase.cs" />
+    <Compile Include="ProjectManager\IFormulaManager.cs" />
+    <Compile Include="ProjectManager\Impl\FormulaManager.cs" />
+    <Compile Include="ProjectManager\Impl\ProjectCalculationFormula.cs" />
     <Compile Include="ProjectManager\Impl\ProjectManager.cs" />
     <Compile Include="ProjectManager\Impl\ProjectPointManager.cs" />
     <Compile Include="ProjectManager\Impl\ProjectUserStoreManager.cs" />
+    <Compile Include="ProjectManager\IProjectCalculationFormula.cs" />
     <Compile Include="ProjectManager\IProjectManager.cs" />
     <Compile Include="ProjectManager\IProjectPointLogManager.cs" />
     <Compile Include="ProjectManager\IProjectPointManager.cs" />
@@ -119,6 +124,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

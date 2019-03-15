@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.DB.Models;
+using Domain.Repository;
 using Domain.Site.Models;
 
-namespace Business.Service
+namespace Core.Service.ProjectManager.Impl
 {
+    [Export(typeof(IProjectPointLogManager))]
     public class ProjectPointLogManager : IProjectPointLogManager
     {
-        public IQueryable<ProjectPoint> projectPoints => throw new NotImplementedException();
-
-        public IQueryable<PointLog> pointLogs => throw new NotImplementedException();
-
-        public int CreateProjectPoint(ProjectPointViewModel point)
+        [Import]
+        private IProjectPointLogRepository _projectPointLogRepository { get; set; }
+        public IQueryable<PointLog> pointLogs
         {
-            throw new NotImplementedException();
+            get { return _projectPointLogRepository.Entities; }
         }
 
         public int CreateProjectPoint(ProjectPointLogViewModel pointLog)
@@ -29,17 +30,7 @@ namespace Business.Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int[] GetUserIdsByProjectId(int projectId)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<PointLog> IProjectPointLogManager.GetPointListByProjectId(int projectId)
+        public IEnumerable<PointLog> GetPointListByProjectId(int projectId)
         {
             throw new NotImplementedException();
         }

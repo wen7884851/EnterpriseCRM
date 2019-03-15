@@ -43,9 +43,10 @@ D:\File\myp\EnterpriseCRM\Core.Log\bin\Debug\zh-Hans\System.Web.WebPages.Deploym
 D:\File\myp\EnterpriseCRM\Core.Log\obj\Debug\Framework.Logging.csprojResolveAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Core.Log\obj\Debug\Core.Log.dll
 D:\File\myp\EnterpriseCRM\Core.Log\obj\Debug\Core.Log.pdb
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Log.dll
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Log.pdb
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Common.dll
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Logging.dll.config
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Logging.dll
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Logging.pdb
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Common.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\log4net.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\System.Web.Mvc.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Newtonsoft.Json.dll
@@ -61,8 +62,8 @@ D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\ServiceStack.Common.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\System.Memory.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\System.ValueTuple.dll
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Common.pdb
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Common.dll.config
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Common.pdb
+D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Framework.Common.dll.config
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\log4net.xml
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\System.Web.Mvc.xml
 D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Newtonsoft.Json.xml
@@ -84,6 +85,5 @@ D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\zh-Hans\System.Web.WebPage
 D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Framework.Logging.csprojAssemblyReference.cache
 D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Framework.Logging.csproj.CoreCompileInputs.cache
 D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Framework.Logging.csproj.CopyComplete
-D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Core.Log.dll
-D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Core.Log.pdb
-D:\File\myp\EnterpriseCRM\Framework.Logging\bin\Debug\Core.Log.dll.config
+D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Framework.Logging.dll
+D:\File\myp\EnterpriseCRM\Framework.Logging\obj\Debug\Framework.Logging.pdb
