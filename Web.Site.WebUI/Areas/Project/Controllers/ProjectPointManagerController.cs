@@ -35,6 +35,18 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         }
 
         [HttpPost]
+        public ActionResult CreateProjectPoint(ProjectPointViewModel model)
+        {
+            return Json(_projectPointManager.CreateProjectPoint(model));
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProjectPoint(ProjectPointViewModel model)
+        {
+            return Json(_projectPointManager.UpdateProjectPoint(model));
+        }
+
+        [HttpPost]
         public ActionResult GetPointSurplusFund(int pointId)
         {
             return Json(_projectPointManager.getPointSurplusMoney(pointId));

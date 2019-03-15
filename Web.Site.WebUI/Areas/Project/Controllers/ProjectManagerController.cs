@@ -72,12 +72,6 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateProjectPoint(ProjectPointViewModel model)
-        {
-            return Json(_projectPointManager.CreateProjectPoint(model), JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
         public ActionResult UpdateProject(ProjectViewModel model)
         {
             var result = CheckProjectViewModel(model);

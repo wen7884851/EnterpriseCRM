@@ -95,9 +95,50 @@ namespace Core.Service.ProjectManager.Impl
             return result;
         }
 
-        public int UpdateProjectPoint(ProjectPointViewModel point)
+        public ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point)
         {
-            return 0;
+            var result = CheckUpdatePoint(point);
+            if (result.IsSuccess)
+            {
+                var pointDTO = projectPoints.FirstOrDefault(t => t.Id == point.Id);
+                UpdateItemMap(point, pointDTO);
+                using (UnitOfWork tran = new UnitOfWork())
+                {
+                    _projectPointsRepository.Update(pointDTO);
+                }
+            }
+            return result;
+        }
+
+        private void UpdateItemMap(ProjectPointViewModel pointViewModel, ProjectPoint pointDTO)
+        {
+            pointDTO.ProjectTypeId = pointViewModel.ProjectTypeId?? pointDTO.ProjectTypeId;
+            pointDTO.ProfessionalType = pointViewModel.ProfessionalType ?? pointViewModel.ProfessionalType;
+            pointDTO.PointName = pointViewModel.PointName ?? pointDTO.PointName;
+            pointDTO.PointFund = pointViewModel.PointFund?? pointDTO.PointFund;
+            pointDTO.PonitContent = pointViewModel.PonitContent?? pointDTO.PonitContent;
+            pointDTO.Budget = pointViewModel.Budget?? pointDTO.Budget;
+            pointDTO.PointLeader = pointViewModel.PointLeader?? pointDTO.PointLeader;
+            pointDTO.Commission = pointViewModel.Commission?? pointDTO.Commission;
+            pointDTO.ManagementProportion = pointViewModel.ManagementProportion?? pointDTO.ManagementProportion;
+            pointDTO.AuditProportion = pointViewModel.AuditProportion?? pointDTO.AuditProportion;
+            pointDTO.JudgementProportion = pointViewModel.JudgementProportion?? pointDTO.JudgementProportion;
+            pointDTO.PointProportion = pointViewModel.PointProportion?? pointDTO.PointProportion;
+            pointDTO.Modify();
+        }
+
+        private ActionResultViewModel CheckUpdatePoint(ProjectPointViewModel point)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = true
+            };
+            if(point.Id==0)
+            {
+                result.IsSuccess = false;
+                result.Result = "PointId is Null Or Empty";
+            }
+            return result;
         }
 
         public IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId)

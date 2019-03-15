@@ -20,6 +20,7 @@ namespace Core.Service
         int[] GetPointUserId(int pointId);
         IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId);
         ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point);
+        ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point);
         #endregion
     }
 }
