@@ -16,22 +16,27 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
     {
         [Import]
         private IProjectPointManager _projectPointManager;
-
+        [Import]
+        private IProjectUserStoreManager _projectUserStoreManager;
         [Import]
         private IUserService _userService;
 
         [HttpPost]
         public ActionResult GetUserIdAndExceptPointUser(int pointId)
         {
-           var userExcept = _projectPointManager.GetPointUserId(pointId);
-           var userResult = _userService.Users.Where(t=>!userExcept.Contains(t.Id))
+           var userExcept = _projectUserStoreManager.GetUserStoreUserIdsByPointId(pointId);
+           var userResult = _userService.Users
            .Select(t => new OptionViewMode
            {
                key = t.Id,
                text = t.LoginName,
                value = t.Id
-           }).ToList();
-            return Json(userResult);
+           });
+            if(userExcept!=null)
+            {
+                userResult = userResult.Where(t => !userExcept.Contains(t.key));
+            }
+            return Json(userResult.ToList());
         }
 
         [HttpPost]

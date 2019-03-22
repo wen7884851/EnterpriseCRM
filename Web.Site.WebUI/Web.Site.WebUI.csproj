@@ -566,6 +566,7 @@
     <Content Include="Content\Uploadify\uploadify.swf" />
     <Content Include="Content\Uploadify\uploadify.v3.2.css" />
     <Content Include="Content\Uploadify\uploadify.v3.2.swf" />
+    <EmbeddedResource Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Common\Views\Error\Page404.cshtml" />
@@ -605,7 +606,7 @@
     <Content Include="Scripts\app\account\login.js" />
     <Content Include="Scripts\app\common\headerMenu.js" />
     <Content Include="Scripts\app\common\leftMenu.js" />
-    <Content Include="Scripts\app\project\EditProjectPonit.js" />
+    <Content Include="Scripts\app\project\EditProjectPoint.js" />
     <Content Include="Scripts\app\project\project.js" />
     <Content Include="Scripts\app\project\projectPointManager.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -630,7 +631,7 @@
     <Content Include="Areas\Project\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Common\Views\Error\Page400.cshtml" />
     <Content Include="Areas\Project\Views\ProjectManager\ProjectProfile.cshtml" />
-    <Content Include="Areas\Project\Views\ProjectManager\EditProjectPonit.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectManager\EditProjectPoint.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />

@@ -11,8 +11,9 @@ namespace Core.Service
     public interface IProjectUserStoreManager
     {
         IQueryable<ProjectPointUserStore> projectPointUserStores { get; }
-
+        int[] GetUserStoreUserIdsByPointId(int pointId);
         int CreateProjectUserStore(ProjectUserStoreViewModel model);
+        decimal GetPointOccupiedFundByPointId(int pointId);
         int UpdateProjectUserStore(ProjectUserStoreViewModel model);
         PageResult<ProjectUserStoreViewModel> GetUserStoreListByQuery(ProjectUserStoreQueryModel queryModel);
     }

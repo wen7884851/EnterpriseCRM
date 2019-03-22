@@ -8,13 +8,9 @@ namespace Domain.DB.Models
 {
     public class ProjectFragment : EntityBase<int>, ICreationAudited, IModificationAudited
     {
-        public ProjectFragment()
-        {
-            this.projectType = new ProjectType();
-        }
         public decimal FragmentFund { get; set; }
         public decimal FragmentProportion { get; set; }
-        public ProjectType projectType { get; set; }
+        public virtual ProjectType projectType { get; set; }
         public int? ProjectTypeId { get; set; }
 
         public int? CreateId { get; set; }

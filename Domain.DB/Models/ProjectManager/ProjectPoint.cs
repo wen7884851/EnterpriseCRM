@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using Framework.Tool.Entity;
@@ -11,7 +12,6 @@ namespace Domain.DB.Models
         public ProjectPoint()
         {
             this.logs = new List<PointLog>();
-            this.projectType = new ProjectType();
             this.projectPointUserStores = new List<ProjectPointUserStore>();
         }
         public int? ProjectTypeId { get; set; }
@@ -37,9 +37,9 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
-        public Project project { get; set; }
-        public ProjectType projectType { get; set; }
-        public  ICollection<ProjectPointUserStore> projectPointUserStores { get; set; }
-        public ICollection<PointLog> logs { get; set; }
+        public virtual Project project { get; set; }
+        public virtual ProjectType projectType { get; set; }
+        public virtual ICollection<ProjectPointUserStore> projectPointUserStores { get; set; }
+        public virtual ICollection<PointLog> logs { get; set; }
     }
 }

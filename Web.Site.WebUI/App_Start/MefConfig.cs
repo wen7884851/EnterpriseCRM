@@ -26,9 +26,8 @@ namespace Web.Site.WebUI
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
         }
 
-        private static CompositionContainer ConfigureContainer()
+        public static CompositionContainer ConfigureContainer()
         {
-            var ss = new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);
             var catalog = new AggregateCatalog(new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath));
             var container = new CompositionContainer(catalog, CompositionOptions.DisableSilentRejection);
             HttpContext.Current.Application["Container"] = container;
@@ -85,7 +84,14 @@ namespace Web.Site.WebUI
 
         public MefControllerFactory(CompositionContainer compositionContainer)
         {
-            _compositionContainer = compositionContainer;
+            if ((compositionContainer == null) || compositionContainer.Providers.Count == 0)
+            {
+                _compositionContainer = MefConfig.ConfigureContainer();
+            }
+            else
+            {
+                _compositionContainer = compositionContainer;
+            }
         }
          
        
@@ -100,7 +106,7 @@ namespace Web.Site.WebUI
             if (controllerType != null)
             {
                 var export = _compositionContainer.GetExports(controllerType, null, null).SingleOrDefault();
-
+                
                 IController result;
 
                 if (null != export)
@@ -115,16 +121,7 @@ namespace Web.Site.WebUI
 
                 return result;
             }
-            else
-            {
-                throw new HttpException((Int32)HttpStatusCode.NotFound,
-                String.Format(
-                    "The controller for path '{0}' could not be found or it does not implement IController.",
-                    requestContext.HttpContext.Request.Path
-                )
-                );
-
-            }
+            return null;
         }
     }
 }

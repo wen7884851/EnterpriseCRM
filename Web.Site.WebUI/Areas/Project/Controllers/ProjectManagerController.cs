@@ -31,7 +31,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             return View();
         }
 
-        public ActionResult EditProjectPonit()
+        public ActionResult EditProjectPoint()
         {
             return View();
         }

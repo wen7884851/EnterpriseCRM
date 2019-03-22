@@ -21,6 +21,10 @@ namespace Core.Service.ProjectManager.Impl
         [Import]
         private IProjectUserStoreRepository _projectUserStoreRepository { get; set; }
         [Import]
+        private IProjectPointRepository _projectPointRepository { get; set; }
+        [Import]
+        private IProjectCalculationFormula _projectCalculationFormula { get; set; }
+        [Import]
         private IUserService _userService { get; set; }
 
         public IQueryable<ProjectPointUserStore> projectPointUserStores
@@ -29,6 +33,22 @@ namespace Core.Service.ProjectManager.Impl
         }
         #endregion
 
+        public int[] GetUserStoreUserIdsByPointId(int pointId)
+        {
+            var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId && t.IsDeleted == false && t.UserId != null);
+            if ((userStoreList != null) && userStoreList.Any())
+            {
+                return userStoreList.Select(t => t.UserId.Value).AsEnumerable().ToArray();
+            }
+            return null;
+        }
+
+        public decimal GetPointOccupiedFundByPointId(int pointId)
+        {
+            var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId && t.IsDeleted == false);
+            return userStoreList.Sum(t => t.StoreFund) ?? 0;
+        }
+
         public int CreateProjectUserStore(ProjectUserStoreViewModel model)
         {
             var projectUserStoreDTO = Mapper.Map<ProjectPointUserStore>(model);
@@ -36,8 +56,10 @@ namespace Core.Service.ProjectManager.Impl
             int storeId = 0;
             using (UnitOfWork tran = new UnitOfWork())
             {
-               storeId = _projectUserStoreRepository.Insert(projectUserStoreDTO);
+                _projectUserStoreRepository.Insert(projectUserStoreDTO);
+               tran.Commit();
             }
+            storeId = projectUserStoreDTO.Id;
             return storeId;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Domain.DB.Mapping
         partial void ProjectFragmentMapAppend()
         {
             // Primary Key
-            this.Property(t => t.Id).HasColumnName("Id");
+            this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.FragmentFund).HasColumnName("FragmentFund");
             Property(t => t.FragmentProportion).HasColumnName("FragmentProportion");
             Property(t => t.ProjectTypeId).HasColumnName("ProjectTypeId");
@@ -24,7 +25,7 @@ namespace Domain.DB.Mapping
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
             ToTable("Cms_Project_Fragment");
             //表的引用关系映射
-            this.HasOptional(t => t.projectType).WithMany(t => t.projectFragments).HasForeignKey(d => d.ProjectTypeId);
+            this.HasRequired(t => t.projectType).WithMany(t => t.projectFragments).HasForeignKey(d => d.ProjectTypeId);
         }
     }
 }

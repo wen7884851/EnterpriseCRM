@@ -30,6 +30,8 @@ namespace Core.Service.ProjectManager.Impl
         [Import]
         private IFormulaManager _formulaManager { get; set; }
         [Import]
+        private IProjectUserStoreManager _projectUserStoreManager { get; set; }
+        [Import]
         private IProjectCalculationFormula _projectCalculationFormula { get; set; }
 
         private IQueryable<ProjectPoint> GetCurrentUserProjectPoint()
@@ -70,7 +72,7 @@ namespace Core.Service.ProjectManager.Impl
             {
                 IsSuccess=false
             };
-            if(projectPointDTO!=null&& projectPointDTO.ProjectId!=null)
+            if((projectPointDTO!=null)&& projectPointDTO.ProjectId!=null)
             {
                 try
                 {
@@ -80,8 +82,9 @@ namespace Core.Service.ProjectManager.Impl
                     using (UnitOfWork tran = new UnitOfWork())
                     {
                         projectPointDTO.Create();
-                        result.Result = _projectPointsRepository.Insert(projectPointDTO);
+                        _projectPointsRepository.Insert(projectPointDTO);
                         tran.Commit();
+                        result.Result = projectPointDTO.Id;
                         result.IsSuccess = true;
                     }
                 }
@@ -133,7 +136,7 @@ namespace Core.Service.ProjectManager.Impl
             {
                 IsSuccess = true
             };
-            if(point.Id==0)
+            if(point.Id==null|| point.Id == 0)
             {
                 result.IsSuccess = false;
                 result.Result = "PointId is Null Or Empty";
@@ -168,11 +171,7 @@ namespace Core.Service.ProjectManager.Impl
             var point = projectPoints.FirstOrDefault(t => t.Id == pointId);
             if (point != null)
             {
-                decimal occupiedFund = 0;
-                foreach(var userItem in point.projectPointUserStores)
-                {
-                    occupiedFund += userItem.StoreFund.Value;
-                }
+                decimal occupiedFund = _projectUserStoreManager.GetPointOccupiedFundByPointId(pointId);
                 return (point.PointFund.Value-occupiedFund);
             }
             return 0;
