@@ -108,6 +108,7 @@ namespace Core.Service.ProjectManager.Impl
                 using (UnitOfWork tran = new UnitOfWork())
                 {
                     _projectPointsRepository.Update(pointDTO);
+                    tran.Commit();
                 }
             }
             return result;
@@ -122,11 +123,18 @@ namespace Core.Service.ProjectManager.Impl
             pointDTO.PonitContent = pointViewModel.PonitContent?? pointDTO.PonitContent;
             pointDTO.Budget = pointViewModel.Budget?? pointDTO.Budget;
             pointDTO.PointLeader = pointViewModel.PointLeader?? pointDTO.PointLeader;
-            pointDTO.Commission = pointViewModel.Commission?? pointDTO.Commission;
             pointDTO.ManagementProportion = pointViewModel.ManagementProportion?? pointDTO.ManagementProportion;
             pointDTO.AuditProportion = pointViewModel.AuditProportion?? pointDTO.AuditProportion;
             pointDTO.JudgementProportion = pointViewModel.JudgementProportion?? pointDTO.JudgementProportion;
             pointDTO.PointProportion = pointViewModel.PointProportion?? pointDTO.PointProportion;
+            var calculation = new ProjectCalculationViewModel()
+            {
+                PointFund = pointDTO.PointFund.Value,
+                ProfessionalTypeId = pointDTO.ProfessionalType.Value,
+                ProjectTypeId = pointDTO.ProjectTypeId.Value
+            };
+            pointDTO.Commission = _projectCalculationFormula.CommonCalculationCommission(calculation);
+
             pointDTO.Modify();
         }
 
@@ -136,10 +144,34 @@ namespace Core.Service.ProjectManager.Impl
             {
                 IsSuccess = true
             };
-            if(point.Id==null|| point.Id == 0)
+            if((point.Id==null)|| point.Id == 0)
             {
                 result.IsSuccess = false;
                 result.Result = "PointId is Null Or Empty";
+            }
+            return result;
+        }
+
+        public ActionResultViewModel DeleteProjectPointById(int pointId)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = true
+            };
+            try
+            {
+                var point = _projectPointsRepository.Entities.FirstOrDefault(t => t.Id == pointId);
+                point.IsDeleted = true;
+                using (UnitOfWork tran = new UnitOfWork())
+                {
+                    _projectPointsRepository.Update(point);
+                    tran.Commit();
+                }
+            }
+            catch(Exception e)
+            {
+                result.IsSuccess = false;
+                result.Result = e.Message;
             }
             return result;
         }
