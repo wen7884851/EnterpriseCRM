@@ -109,7 +109,7 @@ namespace Web.Site.WebUI
                 
                 IController result;
 
-                if (null != export)
+                if ((export !=null )&& null != export.Value)
                 {
                     result = export.Value as IController;
                 }

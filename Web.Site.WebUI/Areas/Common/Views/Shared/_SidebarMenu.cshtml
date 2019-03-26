@@ -1,4 +1,60 @@
-﻿
+﻿<aside class="lyear-layout-sidebar">
+    <div id="logo" class="sidebar-header">
+        <a href="@Url.Action("Index", "Dashboard", new { Area = "Common" })"><img src="~/image/main/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+    </div>
+    <div class="lyear-layout-sidebar-scroll">
+        <nav class="sidebar-main">
+            <ul class="nav nav-drawer">
+                <li class="nav-item active"> <a href="@Url.Action("Index", "Dashboard", new { Area = "Common" })"><i class="mdi mdi-home"></i> 首页</a> </li>
+                @* 后期重构可配置化 *@
+                <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-widgets"></i>系统模块</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="lyear_ui_buttons.html">模块管理</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">角色管理</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">用户管理</a> </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-widgets"></i>项目模块</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="@Url.Action("Index", "ProjectManager", new { Area = "Project" })">项目管理</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">系数配置</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">公式配置</a> </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-widgets"></i>申报模块</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="lyear_ui_buttons.html">考勤记录</a></li>
+                        <li> <a href="lyear_ui_buttons.html">请假申请</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">加班申请</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">物资申请</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">差旅申请</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">项目申报</a> </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-subnav">
+                    <a href="javascript:void(0)"><i class="mdi mdi-widgets"></i>财务模块</a>
+                    <ul class="nav nav-subnav">
+                        <li> <a href="lyear_ui_buttons.html">物资列表</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">个人支出列表</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">个人提成列表</a> </li>
+                        <li> <a href="lyear_ui_buttons.html">项目财报</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="lyear_ui_buttons.html"><i class="mdi mdi-widgets"></i>报表模块</a>
+                </li>
+                <li>
+                    <a href="lyear_ui_buttons.html"><i class="mdi mdi-widgets"></i>消息模块</a>
+                </li>
+                @* end menu *@
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p class="copyright">Copyright &copy; 2019. wen.wen All rights reserved.</p>
+        </div>
+    </div>
 
-<div id="menu" style="width:13%;float:left;"  ></div>
-<script src="~/Scripts/app/common/leftMenu.js"></script>
+</aside>

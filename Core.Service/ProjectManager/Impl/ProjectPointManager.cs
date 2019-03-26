@@ -52,7 +52,7 @@ namespace Core.Service.ProjectManager.Impl
                 Budget = t.Budget,
                 FormulaId = t.FormulaId,
                 PointFund = t.PointFund,
-                PonitContent = t.PonitContent,
+                PointContent = t.PonitContent,
                 LeaderName = _userService.Users.FirstOrDefault(u => u.Id == t.PointLeader).LoginName,
                 Commission = t.Commission,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
@@ -120,7 +120,7 @@ namespace Core.Service.ProjectManager.Impl
             pointDTO.ProfessionalType = pointViewModel.ProfessionalType ?? pointViewModel.ProfessionalType;
             pointDTO.PointName = pointViewModel.PointName ?? pointDTO.PointName;
             pointDTO.PointFund = pointViewModel.PointFund?? pointDTO.PointFund;
-            pointDTO.PonitContent = pointViewModel.PonitContent?? pointDTO.PonitContent;
+            pointDTO.PonitContent = pointViewModel.PointContent?? pointDTO.PonitContent;
             pointDTO.Budget = pointViewModel.Budget?? pointDTO.Budget;
             pointDTO.PointLeader = pointViewModel.PointLeader?? pointDTO.PointLeader;
             pointDTO.ManagementProportion = pointViewModel.ManagementProportion?? pointDTO.ManagementProportion;
