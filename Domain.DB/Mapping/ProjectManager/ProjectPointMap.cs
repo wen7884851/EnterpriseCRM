@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Domain.DB.Mapping
         partial void ProjectPointMapAppend()
         {
             // Primary Key
-            this.Property(t => t.Id).HasColumnName("Id");
+            this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.ProjectTypeId).HasColumnName("ProjectTypeId");
             Property(t => t.FormulaId).HasColumnName("FormulaId");
             Property(t => t.ProjectId).HasColumnName("ProjectId");
@@ -36,8 +37,8 @@ namespace Domain.DB.Mapping
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
             ToTable("Cms_Project_Point");
             //表的引用关系映射
-            this.HasOptional(t => t.project).WithMany(t => t.points).HasForeignKey(d => d.ProjectId);
-            this.HasOptional(t => t.projectType).WithMany(t => t.points).HasForeignKey(d => d.ProjectTypeId);
+            this.HasRequired(t => t.project).WithMany(t => t.points).HasForeignKey(d => d.ProjectId);
+            this.HasRequired(t => t.projectType).WithMany(t => t.points).HasForeignKey(d => d.ProjectTypeId);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         [HttpPost]
         public ActionResult GetUserStoreById(int storeId)
         {
-            var store = _projectUserStoreManager.projectPointUserStores.FirstOrDefault(t => t.Id == storeId);
+            var store = _projectUserStoreManager.GetUserStoreById(storeId);
             return Json(store);
         }
 
@@ -38,6 +38,12 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         public ActionResult UpdateUserStore(ProjectUserStoreViewModel store)
         {
             return Json(_projectUserStoreManager.UpdateProjectUserStore(store));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteUserStore(int storeId)
+        {
+            return Json(_projectUserStoreManager.DeleteUserStoreById(storeId));
         }
 
         [HttpPost]

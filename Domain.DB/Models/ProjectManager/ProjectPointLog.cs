@@ -14,6 +14,6 @@ namespace Domain.DB.Models
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateTime { get; set; }
-        public ProjectPoint point { get; set; }
+        public virtual ProjectPoint point { get; set; }
     }
 }

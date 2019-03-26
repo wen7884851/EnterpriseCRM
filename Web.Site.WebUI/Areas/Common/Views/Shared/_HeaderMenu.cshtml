@@ -1,34 +1,67 @@
-﻿@*<div id="user-nav" class="navbar navbar-inverse">
-    <ul class="nav">
-        <li class="dropdown" id="profile-messages">
-            <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text"> @ViewBag.LoginName </span><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="@Url.Action("Index", "Profile", new { Area = "Common" })"><i class="icon-user"></i>个人资料</a></li>
-                <li class="divider"></li>
-                <li><a href="@Url.Action("ChangePwd", "Profile", new { Area = "Common" })"><i class="icon-check"></i>修改密码</a></li>
-                <li class="divider"></li>
-                @*<li><a href="@Url.Action("SignOut", "Login", new { Area = "Common" })"><i class="icon-key"></i>退出</a></li>*@
-            </ul>
-        </li>
-        @*<li class="dropdown" id="menu-messages">
-            <a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">信息</span> <span class="label label-important">4</span> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i>新的信息</a></li>
-                <li class="divider"></li>
-                <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i>收件箱</a></li>
-                <li class="divider"></li>
-                <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i>发件箱</a></li>
-                <li class="divider"></li>
-                <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i>垃圾箱</a></li>
-            </ul>
-        </li>
-        <li class=""><a title="消息" href="@Url.Action("SignOut", "Login", new { Area = "Common" })"><i class="icon icon-share-alt"></i>
-            <span class="text">消息</span>
-            <span class="label label-important">10</span></a></li>
-        <li class=""><a title="退出" href="@Url.Action("SignOut", "Login", new { Area = "Common" })"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
-    </ul>
-</div>*@
+﻿<header class="lyear-layout-header">
+    <nav class="navbar navbar-default">
+        <div class="topbar">
 
-        <div id="header" ></div>
+            <div class="topbar-left">
+                <div class="lyear-aside-toggler">
+                    <span class="lyear-toggler-bar"></span>
+                    <span class="lyear-toggler-bar"></span>
+                    <span class="lyear-toggler-bar"></span>
+                </div>
+                <span class="navbar-page-title" id="clock" />
+            </div>
 
-        <script src="~/Scripts/app/common/headerMenu.js"></script>
+            <ul class="topbar-right">
+                <li class="dropdown dropdown-profile">
+                    <a href="javascript:void(0)" data-toggle="dropdown">
+                        <img class="img-avatar img-avatar-48 m-r-10" id="header-userName-alt" src="~/image/main/userProfile.jpg"/>
+                        <span id="header-userName"> </span></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li> <a href="@Url.Action("Index", "Profile", new { Area = "Common" })"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                        <li> <a href="@Url.Action("ChangePwd", "Profile", new { Area = "Common" })"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                        <li class="divider"></li>
+                        <li> <a href="@Url.Action("SignOut", "Login", new { Area = "Common" })"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+</header>
+
+<script>
+    var attime;
+    function clock() {
+        var time = new Date();
+        attime = time.toLocaleString();
+        document.getElementById("clock").innerText = attime;
+    }
+    setInterval(clock, 1000);
+
+    function getUserName() {
+        var userName = getCookiesByName('LoginName');
+        if (userName && userName != "") {
+            document.getElementById("header-userName").innerHTML = userName + '<span class="caret">';
+            document.getElementById("header-userName-alt").innerText = userName;
+        }
+        else {
+            window.location.href = "@Url.Action("index", "Account", new { Area = "Common" })";
+        }
+    }
+
+    function getCookiesByName(name) {
+        var arr;
+        if (arr = document.cookie.match("pubser_loginuserkey")) {
+            var obj = arr['input'];
+            var index = obj.lastIndexOf("=");
+            obj = obj.substring(index + 1, obj.length);
+            var cookies = JSON.parse(obj);
+            return cookies[name];
+        }
+        return null;
+    }
+    getUserName();
+    setInterval(getUserName, 60*1000);
+</script>

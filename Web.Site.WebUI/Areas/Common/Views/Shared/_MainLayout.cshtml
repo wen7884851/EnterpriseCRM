@@ -6,36 +6,37 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-
-    <title>办公服务平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>智慧项目管理</title>
+    <link rel="icon" href="~/image/main/logo-mini.ico" type="image/ico">
+    <meta name="keywords" content="智慧项目管理">
+    <meta name="description" content="智慧项目管理">
+    <meta name="author" content="wen.wen">
+    @Styles.Render("~/bundles/css/cssBase")
 </head>
 <body>
+    @Scripts.Render("~/bundles/scripts/jsBase")
+    @Scripts.Render("~/bundles/scripts/jsNotify")
     <div style="background:#FCFCFC;width:100%;height:100%">
         <!--Header-Part-->
-        <div id="header"></div>
+        @*@Html.Partial("_HeaderMenu")*@
+        @Html.Partial("_HeaderMenu")
         <!--Header-Part-->
 
 
-        <div id="menu" style="float:left;" ></div>
+        @Html.Partial("_SidebarMenu")
         <!--main-container-part-->
-
-        <div id="content" style="width:90%;height:85%;padding-left:120px;padding-top:30px;float:left;">
-            <!--BreadCrumbs-->
-            @*@Html.Partial("_BreadCrumb", breadCrumbNavData)*@
-            <!--BreadCrumbs-->
-            <!--Body-->
-            @RenderBody()
-            <!--Body-->
-        </div>
+        <main class="lyear-layout-content">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </main>
         <!--end-main-container-part-->
-        <!--Footer-part-->
-        <div id="footer" style="position:absolute;bottom:0;width:100%;height:30px;background-color: black;text-align:center;color:white"> 2018 &copy; Develop by wen.wen </div>
-        <!--end-Footer-part-->
     </div>
-    
-    <script src="~/Scripts/app/common/leftMenu.js"></script>
-    <script src="~/Scripts/app/common/headerMenu.js"></script>
+
+
+
     @RenderSection("scripts", required: false)
     @Html.RenderScriptBlocks()
 </body>

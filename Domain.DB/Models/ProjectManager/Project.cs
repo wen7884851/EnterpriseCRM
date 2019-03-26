@@ -25,6 +25,6 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
-        public ICollection<ProjectPoint> points { get; set; }
+        public virtual ICollection<ProjectPoint> points { get; set; }
     }
 }

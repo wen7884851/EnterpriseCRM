@@ -13,8 +13,8 @@ namespace Domain.DB.Models
             this.projectFragments = new List<ProjectFragment>();
             this.points=new List<ProjectPoint>();
         }
-        public ICollection<ProjectFragment> projectFragments { get; set; }
-        public ICollection<ProjectPoint> points { get; set; }
+        public virtual ICollection<ProjectFragment> projectFragments { get; set; }
+        public virtual ICollection<ProjectPoint> points { get; set; }
         public string TypeName { get; set; }
         public decimal CivilProportion { get; set; }
         public decimal SetupProportion { get; set; }

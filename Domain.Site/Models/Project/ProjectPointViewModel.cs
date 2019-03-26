@@ -17,7 +17,7 @@ namespace Domain.Site.Models
         public string PointName { get; set; }
         public int? Status { get; set; }
         public decimal? PointFund { get; set; }
-        public string PonitContent { get; set; }
+        public string PointContent { get; set; }
         // public ProjectPointStatus Status { get; set; }
         public string LeaderName { get; set; }
         public decimal? Budget { get; set; }

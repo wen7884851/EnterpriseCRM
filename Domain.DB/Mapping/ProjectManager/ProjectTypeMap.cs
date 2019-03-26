@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Domain.DB.Mapping
         partial void ProjectTypeMapAppend()
         {
             // Primary Key
-            this.Property(t => t.Id).HasColumnName("Id");
+            this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.TypeName).HasColumnName("TypeName");
             Property(t => t.CivilProportion).HasColumnName("CivilProportion");
             Property(t => t.SetupProportion).HasColumnName("SetupProportion");

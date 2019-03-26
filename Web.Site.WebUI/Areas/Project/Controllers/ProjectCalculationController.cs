@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace Web.Site.WebUI.Areas.Project.Controllers
 {
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class ProjectCalculationController : Controller
     {
         #region 属性
@@ -17,13 +19,12 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
 
         #endregion
 
-        // GET: Project/ProjectCalculation
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult GetProjectType()
         {
             var projectType = _projectCalculationFormula.projectTypes.Select(t => new OptionViewMode
@@ -32,7 +33,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
                 text = t.TypeName,
                 value = t.Id
             }).ToList();
-            return Json(projectType, JsonRequestBehavior.AllowGet);
+            return Json(projectType);
         }
 
         [HttpPost]

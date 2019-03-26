@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Domain.DB.Mapping
         partial void ProjectPointUserStoreMapAppend()
         {
             // Primary Key
-            this.Property(t => t.Id).HasColumnName("Id");
+            this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.UserId).HasColumnName("UserId");
             Property(t => t.StoreContent).HasColumnName("StoreContent");
             Property(t => t.StoreFund).HasColumnName("StoreFund");
@@ -26,7 +27,7 @@ namespace Domain.DB.Mapping
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
             ToTable("Cms_Project_UserStore");
             //表的引用关系映射
-            this.HasOptional(t => t.projectPoint).WithMany(t => t.projectPointUserStores).HasForeignKey(d => d.ProjectPointId);
+            this.HasRequired(t => t.projectPoint).WithMany(t => t.projectPointUserStores).HasForeignKey(d => d.ProjectPointId);
         }
     }
 }

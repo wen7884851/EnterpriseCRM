@@ -30,6 +30,8 @@ namespace Core.Service.ProjectManager.Impl
         [Import]
         private IFormulaManager _formulaManager { get; set; }
         [Import]
+        private IProjectUserStoreManager _projectUserStoreManager { get; set; }
+        [Import]
         private IProjectCalculationFormula _projectCalculationFormula { get; set; }
 
         private IQueryable<ProjectPoint> GetCurrentUserProjectPoint()
@@ -50,7 +52,7 @@ namespace Core.Service.ProjectManager.Impl
                 Budget = t.Budget,
                 FormulaId = t.FormulaId,
                 PointFund = t.PointFund,
-                PonitContent = t.PonitContent,
+                PointContent = t.PonitContent,
                 LeaderName = _userService.Users.FirstOrDefault(u => u.Id == t.PointLeader).LoginName,
                 Commission = t.Commission,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
@@ -70,7 +72,7 @@ namespace Core.Service.ProjectManager.Impl
             {
                 IsSuccess=false
             };
-            if(projectPointDTO!=null&& projectPointDTO.ProjectId!=null)
+            if((projectPointDTO!=null)&& projectPointDTO.ProjectId!=null)
             {
                 try
                 {
@@ -80,8 +82,9 @@ namespace Core.Service.ProjectManager.Impl
                     using (UnitOfWork tran = new UnitOfWork())
                     {
                         projectPointDTO.Create();
-                        result.Result = _projectPointsRepository.Insert(projectPointDTO);
+                        _projectPointsRepository.Insert(projectPointDTO);
                         tran.Commit();
+                        result.Result = projectPointDTO.Id;
                         result.IsSuccess = true;
                     }
                 }
@@ -105,6 +108,7 @@ namespace Core.Service.ProjectManager.Impl
                 using (UnitOfWork tran = new UnitOfWork())
                 {
                     _projectPointsRepository.Update(pointDTO);
+                    tran.Commit();
                 }
             }
             return result;
@@ -116,14 +120,21 @@ namespace Core.Service.ProjectManager.Impl
             pointDTO.ProfessionalType = pointViewModel.ProfessionalType ?? pointViewModel.ProfessionalType;
             pointDTO.PointName = pointViewModel.PointName ?? pointDTO.PointName;
             pointDTO.PointFund = pointViewModel.PointFund?? pointDTO.PointFund;
-            pointDTO.PonitContent = pointViewModel.PonitContent?? pointDTO.PonitContent;
+            pointDTO.PonitContent = pointViewModel.PointContent?? pointDTO.PonitContent;
             pointDTO.Budget = pointViewModel.Budget?? pointDTO.Budget;
             pointDTO.PointLeader = pointViewModel.PointLeader?? pointDTO.PointLeader;
-            pointDTO.Commission = pointViewModel.Commission?? pointDTO.Commission;
             pointDTO.ManagementProportion = pointViewModel.ManagementProportion?? pointDTO.ManagementProportion;
             pointDTO.AuditProportion = pointViewModel.AuditProportion?? pointDTO.AuditProportion;
             pointDTO.JudgementProportion = pointViewModel.JudgementProportion?? pointDTO.JudgementProportion;
             pointDTO.PointProportion = pointViewModel.PointProportion?? pointDTO.PointProportion;
+            var calculation = new ProjectCalculationViewModel()
+            {
+                PointFund = pointDTO.PointFund.Value,
+                ProfessionalTypeId = pointDTO.ProfessionalType.Value,
+                ProjectTypeId = pointDTO.ProjectTypeId.Value
+            };
+            pointDTO.Commission = _projectCalculationFormula.CommonCalculationCommission(calculation);
+
             pointDTO.Modify();
         }
 
@@ -133,10 +144,34 @@ namespace Core.Service.ProjectManager.Impl
             {
                 IsSuccess = true
             };
-            if(point.Id==0)
+            if((point.Id==null)|| point.Id == 0)
             {
                 result.IsSuccess = false;
                 result.Result = "PointId is Null Or Empty";
+            }
+            return result;
+        }
+
+        public ActionResultViewModel DeleteProjectPointById(int pointId)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = true
+            };
+            try
+            {
+                var point = _projectPointsRepository.Entities.FirstOrDefault(t => t.Id == pointId);
+                point.IsDeleted = true;
+                using (UnitOfWork tran = new UnitOfWork())
+                {
+                    _projectPointsRepository.Update(point);
+                    tran.Commit();
+                }
+            }
+            catch(Exception e)
+            {
+                result.IsSuccess = false;
+                result.Result = e.Message;
             }
             return result;
         }
@@ -168,11 +203,7 @@ namespace Core.Service.ProjectManager.Impl
             var point = projectPoints.FirstOrDefault(t => t.Id == pointId);
             if (point != null)
             {
-                decimal occupiedFund = 0;
-                foreach(var userItem in point.projectPointUserStores)
-                {
-                    occupiedFund += userItem.StoreFund.Value;
-                }
+                decimal occupiedFund = _projectUserStoreManager.GetPointOccupiedFundByPointId(pointId);
                 return (point.PointFund.Value-occupiedFund);
             }
             return 0;

@@ -31,12 +31,12 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             return View();
         }
 
-        public ActionResult EditProjectPonit()
+        public ActionResult EditProjectPoint()
         {
             return View();
         }
 
-        public ActionResult GetProjectPonitById(int pointId)
+        public ActionResult GetProjectPointById(int pointId)
         {
             return Json(_projectPointManager.GetPointById(pointId), JsonRequestBehavior.AllowGet);
         }
@@ -46,7 +46,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             return Json( _projectService.GetCurrentUserProjectViewModel(query), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetProjectPonitList(ProjectPointQueryModel queryModel)
+        public ActionResult GetProjectPointList(ProjectPointQueryModel queryModel)
         {
            // queryModel.UserId = 3;// OperatorProvider.Provider.GetCurrent().UserId;
             //如果是负责人这个UserId不需要赋值
