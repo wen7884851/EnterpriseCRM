@@ -61,7 +61,7 @@
         <div class="lyear-login">
             <div class="login-center">
                 <div class="login-header text-center">
-                    <a href="index.html"> <h2>OA管理系统</h2> </a>
+                    <a href="@Url.Action("Index", "Account", new { Area = "Common" })"> <img src="~/image/main/logo-sidebar.png" title="智慧" alt="智慧" /> </a>
                 </div>
                 <form action="#!" method="post">
                     <div class="form-group has-feedback feedback-left">
@@ -107,6 +107,8 @@
                             location.href = "@Url.Action("Index", "Dashboard", new { Area = "Common" })";
                         } else {
                             setTimeout(function () { lightyear.loading('hide'); lightyear.notify(result.Result, 'danger'); }, 1e3);
+                            $("#username").val('');
+                            $("#password").val('')
                         }
                     }
                 });

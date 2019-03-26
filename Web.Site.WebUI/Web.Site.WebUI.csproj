@@ -882,7 +882,7 @@
     <Content Include="Scripts\new\main.min.js" />
     <Content Include="Scripts\new\md5.js" />
     <Content Include="Scripts\new\perfect-scrollbar.min.js" />
-    <Content Include="Scripts\new\project\projectmanager.js" />
+    <Content Include="Scripts\new\tablequery\projectmanager.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.map" />
