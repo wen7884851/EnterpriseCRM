@@ -15,8 +15,8 @@
                     </div>
                 </form>
                 <div class="toolbar-btn-action" style="float:right">
-                    <a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-magnify"></i> 查询</a>
-                    <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>
+                    <a class="btn btn-success m-r-5" href="#!" onclick=""><i class="mdi mdi-magnify"></i> 查询</a>
+                    <a class="btn btn-primary m-r-5" href="#!" onclick=""><i class="mdi mdi-plus"></i> 新增</a>
                 </div>
             </div>
         </div>
@@ -65,3 +65,9 @@
 </div>
 
 <script src="~/Scripts/new/project/projectmanager.js"></script>
+<script type="text/javascript">
+    var oTable = null;
+    $(function () {
+        var actionUrl = "@Url.Action("ProjectList", "projectmanager", new { Area = "Project" })";
+    });
+</script>
