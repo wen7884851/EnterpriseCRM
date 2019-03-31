@@ -1,0 +1,44 @@
+﻿<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" id="createModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="createModalLabel">创建项目</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data" onsubmit="CreateProject()">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-text-input">项目名称</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="ProjectName" placeholder="项目名称..">
+                                    <div class="help-block" id="projectErrorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="col-xs-12" for="example-select">项目负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="ProjectLeader" size="1" multiple="multiple">
+                                    <option value="0">请选择</option>
+                                    <option>Hot Dog</option>
+                                    <option>Fries</option>
+                                    <option>Soda</option>
+                                    <option>Burger</option>
+                                    <option>Shake</option>
+                                    <option>Smile</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">点击保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
