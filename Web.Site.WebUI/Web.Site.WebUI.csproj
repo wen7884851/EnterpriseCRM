@@ -883,6 +883,7 @@
     <Content Include="Scripts\new\main.min.js" />
     <Content Include="Scripts\new\md5.js" />
     <Content Include="Scripts\new\perfect-scrollbar.min.js" />
+    <Content Include="Scripts\new\project\project.js" />
     <Content Include="Scripts\new\tablequery\tableList.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
