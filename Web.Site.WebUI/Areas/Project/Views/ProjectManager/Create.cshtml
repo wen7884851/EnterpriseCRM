@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data" onsubmit="CreateProject()">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-xs-12" for="example-text-input">项目名称</label>
                                 <div class="col-xs-12">
@@ -17,18 +17,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="col-xs-12" for="example-select">项目负责人</label>
                             <div class="col-xs-12">
-                                <select class="form-control" id="ProjectLeader" size="1" multiple="multiple">
-                                    <option value="0">请选择</option>
-                                    <option>Hot Dog</option>
-                                    <option>Fries</option>
-                                    <option>Soda</option>
-                                    <option>Burger</option>
-                                    <option>Shake</option>
-                                    <option>Smile</option>
-                                </select>
+                                <select class="form-control" id="ProjectLeader" size="1"></select>
+                                <div class="help-block" id="projectErrorMsg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-text-input">项目联系人</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="LinkPerson" placeholder="项目联系人..">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-text-input">联系电话</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="LinkPhoneNo" placeholder="联系电话..">
+                                    <div class="help-block" id="projectErrorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-text-input">项目总造价</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="LinkPerson" placeholder="项目总造价..">
+                                    <div class="help-block" id="projectErrorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="example-text-input">项目合同金额</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="LinkPhoneNo" placeholder="项目合同金额..">
+                                    <div class="help-block" id="projectErrorMsg"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

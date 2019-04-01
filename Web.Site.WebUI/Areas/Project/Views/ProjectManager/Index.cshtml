@@ -1,8 +1,6 @@
 ﻿@{
     ViewBag.Title = "项目管理";
 }
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -16,7 +14,7 @@
                 </form>
                 <div class="toolbar-btn-action" style="float:right">
                     <a class="btn btn-success m-r-5" href="#!" onclick="Search(1)"><i class="mdi mdi-magnify"></i> 查询</a>
-                    <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" data-target="#createModal">
+                    <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" onclick="OpenCreateProjectModal();">
                     <i class="mdi mdi-plus"></i>新增
                     </button>
                     @Html.Partial("Create")
@@ -51,22 +49,18 @@
         </div>
     </div>
 </div>
+
 <script src="~/Scripts/new/tablequery/tableList.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.form-control').select2();
-    });
-
+<script>
     var query = {};
-    var actionUrl = "@Url.Action("ProjectList", "projectmanager", new { Area = "Project" })";
+    var actionUrl = { ProjectList: "/Project/projectmanager/ProjectList", GetUserList: "/Common/Account/GetUserList" };
     var aoColumns = [
-        { "sName": "Id"},
+        { "sName": "Id" },
         { "sName": "ProjectName" },
-        { "sName": "LeaderName"},
-        { "sName": "Content"},
-        { "sName": "LinkPerson"},
-        { "sName": "LinkPhoneNo"},
+        { "sName": "LeaderName" },
+        { "sName": "Content" },
+        { "sName": "LinkPerson" },
+        { "sName": "LinkPhoneNo" },
         {
             "sName": "Id",
             "fnRender": function (oObj) {
@@ -85,7 +79,7 @@
         }
         query['PageIndex'] = index;
         query['projectName'] = $("#projectName").val() ? $("#projectName").val() : '';
-        tablelist.SearchDataTables($("#tablelist tbody"),$("#filter"), actionUrl, aoColumns, query);
+        tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.ProjectList, aoColumns, query);
     }
 
     function CreateProject() {
@@ -96,5 +90,28 @@
 
     function CheckItem() {
 
+    }
+
+    function OpenCreateProjectModal() {
+        lightyear.loading('show');
+        $.ajax({
+            type: 'post',
+            url: actionUrl.GetUserList,
+            async: false,
+            success: function (result) {
+                if (result && result.length > 0) {
+                    let userHtml = '<option value="0">请选择</option>';
+                    result.forEach(i => {
+                        userHtml += '<option value="' + i.value + '">' + i.text + '</option>';
+                        $('#createModal').modal('show');
+                    })
+                    $("#ProjectLeader").html(userHtml);
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            }
+        })
     }
 </script>

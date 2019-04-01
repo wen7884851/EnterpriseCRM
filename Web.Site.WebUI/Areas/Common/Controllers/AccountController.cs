@@ -50,7 +50,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             return PartialView();
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult GetUserList()
         {
             var userList = _userService.GetAllUser().Select(t => new OptionViewMode
