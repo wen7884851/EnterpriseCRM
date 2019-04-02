@@ -19,7 +19,15 @@ namespace Domain.DB.Mapping
             Property(t => t.Address).HasColumnName("Address");
             Property(t => t.Note).HasColumnName("Note");
             Property(t => t.LinkPerson).HasColumnName("LinkPerson");
-            Property(t => t.LinkPhoneNo).HasColumnName("LinkPhoneNo");
+            Property(t => t.TotalCost).HasColumnName("TotalCost");
+            Property(t => t.ContractMoney).HasColumnName("ContractMoney");
+            Property(t => t.ManagementProportion).HasColumnName("ManagementProportion");
+            Property(t => t.Managementer).HasColumnName("Managementer");
+            Property(t => t.AuditProportion).HasColumnName("AuditProportion");
+            Property(t => t.Auditer).HasColumnName("Auditer");
+            Property(t => t.JudgementProportion).HasColumnName("JudgementProportion");
+            Property(t => t.Judgementer).HasColumnName("Judgementer");
+            Property(t => t.CommissionProportion).HasColumnName("CommissionProportion");
             Property(t => t.CreateId).HasColumnName("CreateId");
             Property(t => t.CreateBy).HasColumnName("CreateBy");
             Property(t => t.CreateTime).HasColumnName("CreateTime");

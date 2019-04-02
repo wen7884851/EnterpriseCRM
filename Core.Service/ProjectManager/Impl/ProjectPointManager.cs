@@ -24,21 +24,13 @@ namespace Core.Service.ProjectManager.Impl
             get { return _projectPointsRepository.NoCahecEntities; }
         }
         [Import]
-        private IProjectTypeRepository _projectTypeRepository { get; set; }
+        private IPointProfessionalTypeRepository _pointProfessionalTypeRepository { get; set; }
         [Import]
         private IUserService _userService { get; set; }
         [Import]
         private IFormulaManager _formulaManager { get; set; }
         [Import]
         private IProjectUserStoreManager _projectUserStoreManager { get; set; }
-        [Import]
-        private IProjectCalculationFormula _projectCalculationFormula { get; set; }
-
-        private IQueryable<ProjectPoint> GetCurrentUserProjectPoint()
-        {
-            var user = OperatorProvider.Provider.GetCurrent();
-            return projectPoints.Where(t => t.PointLeader == user.UserId);
-        }
 
         public PageResult<ProjectPointViewModel> GetProjectPointListByQuery(ProjectPointQueryModel queryModel)
         {
@@ -49,12 +41,9 @@ namespace Core.Service.ProjectManager.Impl
                 Id = t.Id,
                 ProjectId = t.ProjectId,
                 PointName = t.PointName,
-                Budget = t.Budget,
-                FormulaId = t.FormulaId,
-                PointFund = t.PointFund,
+                PointCommission = t.PointCommission,
+                PointProportion = t.PointProportion,
                 PointContent = t.PonitContent,
-                LeaderName = _userService.Users.FirstOrDefault(u => u.Id == t.PointLeader).LoginName,
-                Commission = t.Commission,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
             }).OrderByDescending(t=>t.CreateTime).ToList();
             var result = new PageResult<ProjectPointViewModel>()
@@ -77,8 +66,6 @@ namespace Core.Service.ProjectManager.Impl
                 try
                 {
                     var calculation = Mapper.Map<ProjectCalculationViewModel>(point);
-                    projectPointDTO.Commission = _projectCalculationFormula.CommonCalculationCommission(calculation);
-                    projectPointDTO.projectType = _projectTypeRepository.GetByKey(point.ProjectTypeId.Value);
                     using (UnitOfWork tran = new UnitOfWork())
                     {
                         projectPointDTO.Create();
@@ -104,7 +91,7 @@ namespace Core.Service.ProjectManager.Impl
             if (result.IsSuccess)
             {
                 var pointDTO = projectPoints.FirstOrDefault(t => t.Id == point.Id);
-                UpdateItemMap(point, pointDTO);
+                
                 using (UnitOfWork tran = new UnitOfWork())
                 {
                     _projectPointsRepository.Update(pointDTO);
@@ -114,28 +101,19 @@ namespace Core.Service.ProjectManager.Impl
             return result;
         }
 
-        private void UpdateItemMap(ProjectPointViewModel pointViewModel, ProjectPoint pointDTO)
+        public void InitProjectPointCommission(int projectId)
         {
-            pointDTO.ProjectTypeId = pointViewModel.ProjectTypeId?? pointDTO.ProjectTypeId;
-            pointDTO.ProfessionalType = pointViewModel.ProfessionalType ?? pointViewModel.ProfessionalType;
-            pointDTO.PointName = pointViewModel.PointName ?? pointDTO.PointName;
-            pointDTO.PointFund = pointViewModel.PointFund?? pointDTO.PointFund;
-            pointDTO.PonitContent = pointViewModel.PointContent?? pointDTO.PonitContent;
-            pointDTO.Budget = pointViewModel.Budget?? pointDTO.Budget;
-            pointDTO.PointLeader = pointViewModel.PointLeader?? pointDTO.PointLeader;
-            pointDTO.ManagementProportion = pointViewModel.ManagementProportion?? pointDTO.ManagementProportion;
-            pointDTO.AuditProportion = pointViewModel.AuditProportion?? pointDTO.AuditProportion;
-            pointDTO.JudgementProportion = pointViewModel.JudgementProportion?? pointDTO.JudgementProportion;
-            pointDTO.PointProportion = pointViewModel.PointProportion?? pointDTO.PointProportion;
-            var calculation = new ProjectCalculationViewModel()
+            var pointList = projectPoints.Where(t => t.ProjectId == projectId);
+            using (UnitOfWork tran = new UnitOfWork())
             {
-                PointFund = pointDTO.PointFund.Value,
-                ProfessionalTypeId = pointDTO.ProfessionalType.Value,
-                ProjectTypeId = pointDTO.ProjectTypeId.Value
-            };
-            pointDTO.Commission = _projectCalculationFormula.CommonCalculationCommission(calculation);
-
-            pointDTO.Modify();
+                foreach (var point in pointList)
+                {
+                    point.PointProportion = 0;
+                    point.PointCommission = 0;
+                    _projectPointsRepository.Update(point);
+                }
+                tran.Commit();
+            }
         }
 
         private ActionResultViewModel CheckUpdatePoint(ProjectPointViewModel point)
@@ -198,17 +176,6 @@ namespace Core.Service.ProjectManager.Impl
             return null;
         }
 
-        public decimal getPointSurplusMoney(int pointId)
-        {
-            var point = projectPoints.FirstOrDefault(t => t.Id == pointId);
-            if (point != null)
-            {
-                decimal occupiedFund = _projectUserStoreManager.GetPointOccupiedFundByPointId(pointId);
-                return (point.PointFund.Value-occupiedFund);
-            }
-            return 0;
-        }
-
         public int[] GetUserIdsByProjectId(int projectId)
         {
             throw new NotImplementedException();
@@ -227,17 +194,6 @@ namespace Core.Service.ProjectManager.Impl
             if (!string.IsNullOrEmpty(model.PointName))
             {
                 tmp = t => t.PointName == model.PointName;
-                expr = bulider.BuildQueryAnd(expr, tmp);
-            }
-            if (model.UserId.HasValue)
-            {
-                tmp = t => t.PointLeader == model.UserId;
-                expr = bulider.BuildQueryAnd(expr, tmp);
-            }
-            if (!string.IsNullOrEmpty(model.UserName))
-            {
-                int userId = _userService.Users.FirstOrDefault(t => t.LoginName == model.UserName).Id;
-                tmp = t => t.PointLeader == userId;
                 expr = bulider.BuildQueryAnd(expr, tmp);
             }
             if(model.StartTime!=null)

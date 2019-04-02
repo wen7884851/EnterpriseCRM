@@ -13,21 +13,13 @@ namespace Domain.DB.Mapping
         {
             // Primary Key
             this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(t => t.ProjectTypeId).HasColumnName("ProjectTypeId");
-            Property(t => t.FormulaId).HasColumnName("FormulaId");
+            Property(t => t.ProfessionalTypeId).HasColumnName("ProfessionalTypeId");
             Property(t => t.ProjectId).HasColumnName("ProjectId");
             Property(t => t.PointName).HasColumnName("PointName");
             Property(t => t.Status).HasColumnName("Status");
-            Property(t => t.PointFund).HasColumnName("PointFund");
-            Property(t => t.Budget).HasColumnName("Budget");
+            Property(t => t.PointCommission).HasColumnName("PointCommission");
             Property(t => t.PonitContent).HasColumnName("PonitContent");
-            Property(t => t.FormulaId).HasColumnName("FormulaId");
-            Property(t => t.PointLeader).HasColumnName("PointLeader");
-            Property(t => t.ManagementProportion).HasColumnName("ManagementProportion");
-            Property(t => t.AuditProportion).HasColumnName("AuditProportion");
-            Property(t => t.JudgementProportion).HasColumnName("JudgementProportion");
             Property(t => t.PointProportion).HasColumnName("PointProportion");
-            Property(t => t.Commission).HasColumnName("Commission");
             Property(t => t.CreateId).HasColumnName("CreateId");
             Property(t => t.CreateBy).HasColumnName("CreateBy");
             Property(t => t.CreateTime).HasColumnName("CreateTime");
@@ -38,7 +30,7 @@ namespace Domain.DB.Mapping
             ToTable("Cms_Project_Point");
             //表的引用关系映射
             this.HasRequired(t => t.project).WithMany(t => t.points).HasForeignKey(d => d.ProjectId);
-            this.HasRequired(t => t.projectType).WithMany(t => t.points).HasForeignKey(d => d.ProjectTypeId);
+            this.HasRequired(t => t.professionalType).WithMany(t => t.points).HasForeignKey(d => d.ProfessionalTypeId);
         }
     }
 }

@@ -10,22 +10,16 @@ namespace Domain.Site.Models
     public class ProjectPointViewModel
     {
         public int? Id { get; set; }
-        public int? ProjectTypeId { get; set; }
-        public int? FormulaId { get; set; }
         public int? ProjectId { get; set; }
-        public int? ProfessionalType { get; set; }
+        public int? ProfessionalTypeId { get; set; }
         public string PointName { get; set; }
         public int? Status { get; set; }
         public decimal? PointFund { get; set; }
         public string PointContent { get; set; }
         // public ProjectPointStatus Status { get; set; }
         public string LeaderName { get; set; }
-        public decimal? Budget { get; set; }
         public int? PointLeader { get; set; }
-        public decimal? Commission { get; set; }
-        public decimal? ManagementProportion { get; set; }
-        public decimal? AuditProportion { get; set; }
-        public decimal? JudgementProportion { get; set; }
+        public decimal? PointCommission { get; set; }
         public decimal? PointProportion { get; set; }
         public string CreateTime { get; set; }
     }

@@ -19,6 +19,15 @@ namespace Domain.DB.Models
         public string Note { get; set; }
         public string LinkPerson { get; set; }
         public string LinkPhoneNo { get; set; }
+        public decimal TotalCost { get; set; }
+        public decimal ContractMoney { get; set; }
+        public decimal? ManagementProportion { get; set; }
+        public int? Managementer { get; set; }
+        public decimal? AuditProportion { get; set; }
+        public int? Auditer { get; set; }
+        public decimal? JudgementProportion { get; set; }
+        public int? Judgementer { get; set; }
+        public decimal? CommissionProportion { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateTime { get; set; }

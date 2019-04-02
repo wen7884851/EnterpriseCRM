@@ -6,13 +6,13 @@ using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace Domain.DB.Mapping
 {
-    internal partial class ProjectFragmentMap : EntityTypeConfiguration<ProjectFragment>, IEntityMapper
+    internal partial class PointProfessionalTypeMap : EntityTypeConfiguration<PointProfessionalType>, IEntityMapper
     {
-        public ProjectFragmentMap()
+        public PointProfessionalTypeMap()
         {
-            ProjectFragmentMapAppend();
+            PointProfessionalTypeMapAppend();
         }
-        partial void ProjectFragmentMapAppend();
+        partial void PointProfessionalTypeMapAppend();
 
         public void RegistTo(ConfigurationRegistrar configurations)
         {

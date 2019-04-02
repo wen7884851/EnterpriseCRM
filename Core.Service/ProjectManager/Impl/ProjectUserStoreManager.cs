@@ -23,8 +23,6 @@ namespace Core.Service.ProjectManager.Impl
         [Import]
         private IProjectPointRepository _projectPointRepository { get; set; }
         [Import]
-        private IProjectCalculationFormula _projectCalculationFormula { get; set; }
-        [Import]
         private IUserService _userService { get; set; }
 
         public IQueryable<ProjectPointUserStore> projectPointUserStores
@@ -46,7 +44,7 @@ namespace Core.Service.ProjectManager.Impl
         public decimal GetPointOccupiedFundByPointId(int pointId)
         {
             var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId && t.IsDeleted == false);
-            return userStoreList.Sum(t => t.StoreFund) ?? 0;
+            return userStoreList.Sum(t => t.UserFund) ?? 0;
         }
 
         public int CreateProjectUserStore(ProjectUserStoreViewModel model)
@@ -120,8 +118,8 @@ namespace Core.Service.ProjectManager.Impl
         private void UpdateStoreModel(ProjectUserStoreViewModel model, ProjectPointUserStore entity)
         {
             entity.StoreContent = model.StoreContent;
-            entity.ProjectPointProportion = model.ProjectPointProportion;
-            entity.StoreFund = model.StoreFund;
+            entity.UserProportion = model.ProjectPointProportion;
+            entity.UserFund = model.StoreFund;
             if((model.UserId!=null)&&model.UserId>0)
             {
                 entity.UserId = model.UserId;
@@ -153,8 +151,8 @@ namespace Core.Service.ProjectManager.Impl
                 UserId=t.UserId,
                 UserName= _userService.Users.FirstOrDefault(m=>m.Id==t.UserId).LoginName,
                 StoreContent=t.StoreContent,
-                StoreFund=t.StoreFund,
-                ProjectPointProportion=t.ProjectPointProportion,
+                StoreFund=t.UserFund,
+                ProjectPointProportion=t.UserProportion,
                 DeleteItem=true,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
             }).OrderByDescending(t => t.CreateTime).Skip((queryModel.PageIndex-1)*queryModel.PageSize).Take(queryModel.PageSize).ToList();

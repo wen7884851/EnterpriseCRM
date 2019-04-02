@@ -62,18 +62,16 @@
     <Compile Include="Mapping\Formula\Configuration\FormulaMap.generated.cs" />
     <Compile Include="Mapping\Formula\FormulaItemMap.cs" />
     <Compile Include="Mapping\Formula\FormulaMap.cs" />
-    <Compile Include="Mapping\ProjectManager\Configuration\ProjectFragmentMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectPointLogMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectPointMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\Configuration\ProjectPointUserStoreMap.generated.cs" />
-    <Compile Include="Mapping\ProjectManager\Configuration\ProjectTypeMap.generated.cs" />
-    <Compile Include="Mapping\ProjectManager\ProjectFragmentMap.cs" />
+    <Compile Include="Mapping\ProjectManager\Configuration\PointProfessionalTypeMap.generated.cs" />
     <Compile Include="Mapping\ProjectManager\ProjectMap.cs" />
     <Compile Include="Mapping\ProjectManager\ProjectPointLogMap.cs" />
     <Compile Include="Mapping\ProjectManager\ProjectPointMap.cs" />
     <Compile Include="Mapping\ProjectManager\ProjectPointUserStoreMap.cs" />
-    <Compile Include="Mapping\ProjectManager\ProjectTypeMap.cs" />
+    <Compile Include="Mapping\ProjectManager\PointProfessionalTypeMap.cs" />
     <Compile Include="Models\Authen\Address.cs" />
     <Compile Include="Models\Authen\Area.cs" />
     <Compile Include="Models\Authen\City.cs" />
@@ -89,11 +87,10 @@
     <Compile Include="Models\Formula\Formula.cs" />
     <Compile Include="Models\Formula\FormulaItem.cs" />
     <Compile Include="Models\ProjectManager\Project.cs" />
-    <Compile Include="Models\ProjectManager\ProjectFragment.cs" />
     <Compile Include="Models\ProjectManager\ProjectPoint.cs" />
     <Compile Include="Models\ProjectManager\ProjectPointLog.cs" />
     <Compile Include="Models\ProjectManager\ProjectPointUserStore.cs" />
-    <Compile Include="Models\ProjectManager\ProjectType.cs" />
+    <Compile Include="Models\ProjectManager\PointProfessionalType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -85,34 +85,6 @@ namespace Core.Service
             return ExtractFormulaItems(calculateFormula);
         }
 
-        
-
-        public decimal CalculateCommission(List<FormulaItemViewModel> formulaItemList)
-        {
-            decimal result = 0;
-            if (formulaItemList.Any())
-            {
-                var formulaId = _projectPointManager.projectPoints.FirstOrDefault(t => t.Id == formulaItemList[0].ProjectPointId).FormulaId;
-                var calculateFormula = formulas.FirstOrDefault(t => t.Id == formulaId).FormulaContent;
-                var FormulaContentItems = GetFormulaItems(formulaId.Value);
-                var itemsExcept = formulaItemList.Select(t => t.ItemName).Except(FormulaContentItems);
-                if(itemsExcept.Any())
-                {
-                    foreach(var item in itemsExcept)
-                    {
-                        formulaItemList.Add(new FormulaItemViewModel()
-                        {
-                            ItemName= item,
-                            Value=0
-                        });
-                    }
-                }
-                string finallyCalculateFormula = ReplaceFormulaContent(formulaItemList, calculateFormula);
-                result = CalculateFormula.Calculate(finallyCalculateFormula,out bool isSuccess);
-            }
-            return result;
-        }
-
         private List<string> ExtractFormulaItems(string formulaContent)
         {
             var result = new List<string>();

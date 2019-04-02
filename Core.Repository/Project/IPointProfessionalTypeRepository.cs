@@ -4,7 +4,7 @@ using System;
 
 namespace Domain.Repository
 {
-    public interface IProjectFragmentRepository : IRepository<ProjectFragment, int>
+    public interface IPointProfessionalTypeRepository : IRepository<PointProfessionalType, int>
     {
     }
 }

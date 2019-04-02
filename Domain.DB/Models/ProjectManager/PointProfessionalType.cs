@@ -6,13 +6,14 @@ using Framework.Tool.Entity;
 
 namespace Domain.DB.Models
 {
-    public class ProjectFragment : EntityBase<int>, ICreationAudited, IModificationAudited
+    public class PointProfessionalType : EntityBase<int>, ICreationAudited, IModificationAudited
     {
-        public decimal FragmentFund { get; set; }
-        public decimal FragmentProportion { get; set; }
-        public virtual ProjectType projectType { get; set; }
-        public int? ProjectTypeId { get; set; }
-
+        public PointProfessionalType()
+        {
+            this.points=new List<ProjectPoint>();
+        }
+        public virtual ICollection<ProjectPoint> points { get; set; }
+        public string TypeName { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateTime { get; set; }

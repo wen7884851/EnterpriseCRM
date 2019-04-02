@@ -16,11 +16,11 @@ namespace Core.Service
         PageResult<ProjectPointViewModel> GetProjectPointListByQuery(ProjectPointQueryModel queryModel);
         int[] GetUserIdsByProjectId(int projectId);
         ProjectPointViewModel GetPointById(int pointId);
-        decimal getPointSurplusMoney(int pointId);
         int[] GetPointUserId(int pointId);
         IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId);
         ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point);
         ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point);
+        void InitProjectPointCommission(int projectId);
         #endregion
     }
 }

@@ -82,11 +82,9 @@
     <Compile Include="CoreServiceBase.cs" />
     <Compile Include="ProjectManager\IFormulaManager.cs" />
     <Compile Include="ProjectManager\Impl\FormulaManager.cs" />
-    <Compile Include="ProjectManager\Impl\ProjectCalculationFormula.cs" />
     <Compile Include="ProjectManager\Impl\ProjectManager.cs" />
     <Compile Include="ProjectManager\Impl\ProjectPointManager.cs" />
     <Compile Include="ProjectManager\Impl\ProjectUserStoreManager.cs" />
-    <Compile Include="ProjectManager\IProjectCalculationFormula.cs" />
     <Compile Include="ProjectManager\IProjectManager.cs" />
     <Compile Include="ProjectManager\IProjectPointLogManager.cs" />
     <Compile Include="ProjectManager\IProjectPointManager.cs" />

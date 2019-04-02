@@ -14,6 +14,5 @@ namespace Core.Service
         int CreateFormula(Formula formulaDTO);
         int CreateFormulaItem(FormulaItemViewModel formulaItem);
         int UpdateFormula(Formula formulaDTO);
-        decimal CalculateCommission(List<FormulaItemViewModel> formulaItemList);
     }
 }

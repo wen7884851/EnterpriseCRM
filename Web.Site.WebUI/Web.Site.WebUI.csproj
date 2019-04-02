@@ -261,7 +261,6 @@
     <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Common\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Common\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Project\Controllers\ProjectCalculationController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectManagerController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectPointManagerController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectUserStoreController.cs" />
@@ -638,8 +637,6 @@
     <Content Include="Areas\Project\Views\web.config" />
     <Content Include="Areas\Project\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Common\Views\Error\Page400.cshtml" />
-    <Content Include="Areas\Project\Views\ProjectManager\ProjectProfile.cshtml" />
-    <Content Include="Areas\Project\Views\ProjectManager\EditProjectPoint.cshtml" />
     <Content Include="Content\fonts\materialdesignicons.eot" />
     <Content Include="Content\fonts\materialdesignicons.ttf" />
     <Content Include="Content\fonts\materialdesignicons.woff" />

@@ -50,11 +50,5 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         {
             return Json(_projectPointManager.UpdateProjectPoint(model));
         }
-
-        [HttpPost]
-        public ActionResult GetPointSurplusFund(int pointId)
-        {
-            return Json(_projectPointManager.getPointSurplusMoney(pointId));
-        }
     }
 }

@@ -33,7 +33,7 @@ namespace Core.Service.ProjectManager.Impl
         {
             var user = OperatorProvider.Provider.GetCurrent();   //OperatorProvider.Provider.GetCurrent();
             var userStoreProject = _projectPointManager.projectPoints
-                .Where(t => (t.PointLeader == user.UserId)&&t.IsDeleted==false)
+                .Where(t => (t.projectPointUserStores.Select(x=>x.Id).Contains(user.UserId))&&t.IsDeleted==false)
                 .Select(t=>t.project);
             var projectList =projects.Where(p => p.ProjectLeader == user.UserId);
             projectList.Concat(userStoreProject);
@@ -83,7 +83,8 @@ namespace Core.Service.ProjectManager.Impl
                 Content = project.Content,
                 Address = project.Address,
                 LinkPerson = project.LinkPerson,
-                LinkPhoneNo = project.LinkPhoneNo
+                LinkPhoneNo = project.LinkPhoneNo,
+                CommissionProportion= project.CommissionProportion??25
             };
             projectDTO.Create();
             using (UnitOfWork tran = new UnitOfWork())
@@ -92,6 +93,37 @@ namespace Core.Service.ProjectManager.Impl
                 tran.Commit();
             }
             return projectDTO.Id;
+        }
+
+        public void SetProjectCoefficient(ProjectViewModel projectViewModel)
+        {
+            var projectDTO = projects.FirstOrDefault(t => t.Id == projectViewModel.Id);
+            if (projectDTO != null)
+            {
+                projectDTO.ManagementProportion = projectViewModel.ManagementProportion ?? projectDTO.ManagementProportion;
+                projectDTO.Managementer = projectViewModel.Managementer ?? projectDTO.Managementer;
+                projectDTO.AuditProportion = projectViewModel.AuditProportion ?? projectDTO.AuditProportion;
+                projectDTO.Auditer = projectViewModel.Auditer ?? projectDTO.Auditer;
+                projectDTO.JudgementProportion = projectViewModel.JudgementProportion ?? projectDTO.JudgementProportion;
+                projectDTO.Judgementer = projectViewModel.Judgementer ?? projectDTO.Judgementer;
+                if(projectViewModel.CommissionProportion!=null)
+                {
+                    if(projectDTO.CommissionProportion!=null)
+                    {
+                        _projectPointManager.InitProjectPointCommission(projectDTO.Id);
+                    }
+                    else
+                    {
+                        projectDTO.CommissionProportion = projectViewModel.CommissionProportion;
+                    }
+                }
+                projectDTO.Modify();
+                using (UnitOfWork tran = new UnitOfWork())
+                {
+                    _projectRepository.Update(projectDTO);
+                    tran.Commit();
+                }
+            }
         }
 
         public PageResult<ProjectViewModel> GetCurrentUserProjectViewModel(ProjectSerchModel model)
@@ -112,7 +144,6 @@ namespace Core.Service.ProjectManager.Impl
                     LinkPhoneNo = t.LinkPhoneNo,
                     Content = t.Content,
                     Address = t.Address,
-                    Note = t.Note,
                     CreateTime = t.CreateTime.HasValue ? t.CreateTime.Value.ToString("yyyy-MM-dd HH:mm:ss:ms") : ""
                 }).ToList(),
                 TotalItemsCount = projectDTO.Count()

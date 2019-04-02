@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace Domain.DB.Mapping
 {
-    partial class ProjectFragmentMap
+    partial class PointProfessionalTypeMap
     {
-        partial void ProjectFragmentMapAppend()
+        partial void PointProfessionalTypeMapAppend()
         {
             // Primary Key
             this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(t => t.FragmentFund).HasColumnName("FragmentFund");
-            Property(t => t.FragmentProportion).HasColumnName("FragmentProportion");
-            Property(t => t.ProjectTypeId).HasColumnName("ProjectTypeId");
+            Property(t => t.TypeName).HasColumnName("TypeName");
             Property(t => t.CreateId).HasColumnName("CreateId");
             Property(t => t.CreateBy).HasColumnName("CreateBy");
             Property(t => t.CreateTime).HasColumnName("CreateTime");
@@ -23,9 +21,7 @@ namespace Domain.DB.Mapping
             Property(t => t.ModifyBy).HasColumnName("ModifyBy");
             Property(t => t.ModifyTime).HasColumnName("ModifyTime");
             Property(t => t.IsDeleted).HasColumnName("IsDeleted");
-            ToTable("Cms_Project_Fragment");
-            //表的引用关系映射
-            this.HasRequired(t => t.projectType).WithMany(t => t.projectFragments).HasForeignKey(d => d.ProjectTypeId);
+            ToTable("Cms_Project_Type");
         }
     }
 }
