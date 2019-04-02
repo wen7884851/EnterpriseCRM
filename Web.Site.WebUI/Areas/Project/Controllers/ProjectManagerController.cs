@@ -40,17 +40,18 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         {
             return Json(_projectPointManager.GetPointById(pointId), JsonRequestBehavior.AllowGet);
         }
-
+        [HttpPost]
         public ActionResult ProjectList(ProjectSerchModel query)
         {
-            return Json( _projectService.GetCurrentUserProjectViewModel(query), JsonRequestBehavior.AllowGet);
+            return Json( _projectService.GetCurrentUserProjectViewModel(query));
         }
 
+        [HttpPost]
         public ActionResult GetProjectPointList(ProjectPointQueryModel queryModel)
         {
            // queryModel.UserId = 3;// OperatorProvider.Provider.GetCurrent().UserId;
             //如果是负责人这个UserId不需要赋值
-            return Json(_projectPointManager.GetProjectPointListByQuery(queryModel), JsonRequestBehavior.AllowGet);
+            return Json(_projectPointManager.GetProjectPointListByQuery(queryModel));
         }
 
         [HttpPost]
@@ -68,7 +69,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         public ActionResult DeleteProject(int projectId)
         {
             _projectService.DeleteProject(projectId);
-            return Json(1, JsonRequestBehavior.AllowGet);
+            return Json(true);
         }
 
         [HttpPost]

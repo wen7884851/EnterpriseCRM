@@ -13,6 +13,7 @@ namespace Domain.Site.Models
         public string LinkPerson { get; set; }
         public string LinkPhoneNo { get; set; }
         public string Address { get; set; }
+        public decimal ContractMoney { get; set; }
         public decimal? ManagementProportion { get; set; }
         public int? Managementer { get; set; }
         public decimal? AuditProportion { get; set; }

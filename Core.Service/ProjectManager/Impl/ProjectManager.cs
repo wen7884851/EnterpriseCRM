@@ -78,6 +78,7 @@ namespace Core.Service.ProjectManager.Impl
         {
             var projectDTO = new Project()
             {
+                ContractMoney=project.ContractMoney,
                 ProjectName = project.ProjectName,
                 ProjectLeader = project.ProjectLeader,
                 Content = project.Content,

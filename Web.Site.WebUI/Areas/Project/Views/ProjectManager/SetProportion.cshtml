@@ -1,0 +1,141 @@
+﻿<div class="modal fade bs-example-modal-lg" id="setProportionModal" tabindex="-1" role="dialog" aria-labelledby="SetProportionModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="SetProportionModalLabel">设置项目系数</h4>
+            </div>
+            <label hidden id="StateContractMoney"></label>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="CommissionProportion">项目提成系数</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="CommissionProportion" placeholder="管理系数.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <div class="help-block" id="CommissionProportionErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12">提成金额(元)</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="CommissionFund"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12">项目组成员数(个)</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="UserStoreCount"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Managementer">管理负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="Managementer" size="1"></select>
+                                <div class="help-block" id="ManagementerErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ManagementProportion">管理系数</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="ManagementProportion" placeholder="管理系数.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <div class="help-block" id="ManagementProportionErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12">管理负责人提成(元)</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="ManagementFund"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Auditer">审核负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="Auditer" size="1"></select>
+                                <div class="help-block" id="AuditerErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="AuditProportion">审核系数</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="AuditProportion" placeholder="审核系数.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <div class="help-block" id="AuditProportionErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12">审核负责人提成(元)</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="AuditFund"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Judgementer">审定负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="Judgementer" size="1"></select>
+                                <div class="help-block" id="JudgementerErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="JudgementProportion">审定系数</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="JudgementProportion" placeholder="审定系数.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <div class="help-block" id="JudgementProportionErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-xs-12">审定负责人提成(元)</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="JudgementFund"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">点击保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+

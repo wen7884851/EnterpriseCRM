@@ -642,6 +642,8 @@
     <Content Include="Content\fonts\materialdesignicons.woff" />
     <Content Include="Content\fonts\materialdesignicons.woff2" />
     <Content Include="Areas\Project\Views\ProjectManager\Create.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectManager\SetProportion.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectManager\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />

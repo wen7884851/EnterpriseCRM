@@ -1,7 +1,8 @@
 ﻿var query = {};
 var actionUrl = {
     ProjectList: "/Project/projectmanager/ProjectList", GetUserList: "/Common/Account/GetUserList",
-    CreateProject: "/Project/projectmanager/CreateProject"};
+    CreateProject: "/Project/projectmanager/CreateProject", GetProjectList: "/Project/projectmanager/ProjectList",
+    DeleteProject:"/Project/projectmanager/DeleteProject"};
 var aoColumns = [
     { "sName": "Id" },
     { "sName": "ProjectName" },
@@ -12,7 +13,7 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="编辑" onclick="SetProportionModal(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>';
+            var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" onclick="SetProportionModal(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-settings"></i></a>';
             btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" onclick="EditProjectModal(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>';
             btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除"  onclick="Delete(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>';
             return btnArray;
@@ -32,7 +33,7 @@ function Search(index) {
 }
 
 function CreateProject() {
-    if (CheckItem()) {
+    if (CheckCreateProjectItem()) {
         initCreateProjectErrorMsg();
         lightyear.loading('show');
         let project = GetProjectHtmlValue();
@@ -45,7 +46,7 @@ function CreateProject() {
                 if (result ) {
                     if (result.IsSuccess) {
                         setTimeout(function () { lightyear.notify('创建成功,请设置提成系数，默认可分配系数为25%', 'success'); }, 1e3);
-                        closeModal();
+                        closeCreateProjectModal();
                         $('#searchBtn').click();
                     }
                     else {
@@ -88,7 +89,7 @@ function OpenCreateProjectModal() {
     });
 }
 
-function closeModal() {
+function closeCreateProjectModal() {
     initCreateProjectErrorMsg();
     initCreateProjectModal();
     $('#projectModal').modal('hide');
@@ -100,7 +101,7 @@ function GetProjectHtmlValue() {
         Content: $("#Content").val(), LinkPerson: $("#LinkPerson").val(), LinkPhoneNo: $("#LinkPhoneNo").val(), Address: $("#Address").val()};
 }
 
-function CheckItem() {
+function CheckCreateProjectItem() {
     initCreateProjectErrorMsg();
     let isCheck = true;
     let projectName = $("#ProjectName").val();
@@ -142,6 +143,126 @@ function initCreateProjectModal() {
     $("#ContractMoney").val('');
     $("#Address").val('');
     $("#Content").val('');
+}
+
+function OpenSetProportionModal(projectId) {
+    lightyear.loading('show');
+    initSetProportionErrorMsg();
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetProjectList,
+        data: { projectId: projectId },
+        async: false,
+        success: function (result) {
+            if (result && result.Items.length > 0) {
+                let project = result.Items[0];
+                initSetProportionHtmlValue(project);
+                $('#setProportionModal').modal('show');
+            }
+            else {
+                setTimeout(function () { lightyear.notify('无项目数据，请查证！', 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
+}
+
+function initSetProportionHtmlValue(project) {
+    setProjectCommission(project.ContractMoney, project.CommissionProportion ? project.CommissionProportion : 0);
+    setProjectManagement(project.ContractMoney, project.ManagementProportion ? project.ManagementProportion : 0);
+    setProjectAudit(project.ContractMoney, project.AuditProportion ? project.AuditProportion : 0);
+    setProjectJudgement(project.ContractMoney, project.JudgementProportion ? project.JudgementProportion : 0);
+    initSetProportionUser(project.Managementer, project.Auditer, project.Judgementer);
+}
+function setProjectCommission(ContractMoney, CommissionProportion) {
+    CommissionFund = ContractMoney * CommissionProportion / 100;
+    $('#StateContractMoney').val(ContractMoney);
+    $('#CommissionProportion').val(CommissionProportion);
+    $('#CommissionFund').html(CommissionFund);
+}
+function setProjectManagement(ContractMoney, ManagementProportion) {
+    ManagementFund = ContractMoney * ManagementProportion / 100;
+    $('#ManagementProportion').val(ManagementProportion);
+    $('#ManagementFund').html(ManagementFund);
+}
+function setProjectAudit(ContractMoney, AuditProportion) {
+    AuditFund = ContractMoney * AuditProportion / 100;
+    $('#AuditProportion').val(AuditProportion);
+    $('#AuditFund').html(AuditFund);
+}
+function setProjectJudgement(ContractMoney, JudgementProportion) {
+    JudgementFund = ContractMoney * JudgementProportion / 100;
+    $('#AuditProportion').val(JudgementProportion);
+    $('#AuditFund').html(JudgementFund);
+}
+function initSetProportionUser(Managementer, Auditer, Judgementer) {
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetUserList,
+        async: false,
+        success: function (result) {
+            if (result && result.length > 0) {
+                let userManagementHtml = (Managementer > 0) ? '<option value="0">请选择</option>' : '<option value="0" selected>请选择</option>';
+                let userAuditHtml = (Auditer > 0) ? '<option value="0">请选择</option>' : '<option value="0" selected>请选择</option>';
+                let userJudgementHtml = (Judgementer > 0) ? '<option value="0">请选择</option>' : '<option value="0" selected>请选择</option>';
+                result.forEach(i => {
+                    if (i.value === Managementer) {
+                        userManagementHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                    }
+                    else {
+                        userManagementHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                    }
+                    if (i.value === Auditer) {
+                        userAuditHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                    }
+                    else {
+                        userAuditHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                    }
+                    if (i.value === Judgementer) {
+                        userJudgementHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                    }
+                    else {
+                        userJudgementHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                    }
+                });
+                $("#Managementer").html(userManagementHtml);
+                $("#Auditer").html(userAuditHtml);
+                $("#Judgementer").html(userJudgementHtml);
+            }
+            else {
+                setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
+            }
+        }
+    });
+}
+function initSetProportionErrorMsg() {
+    $("#CommissionProportionErrorMsg").html('');
+    $("#ManagementerErrorMsg").html('');
+    $("#ManagementProportionErrorMsg").html('');
+    $("#AuditerErrorMsg").html('');
+    $("#AuditProportionErrorMsg").html('');
+    $("#JudgementerErrorMsg").html('');
+    $("#JudgementProportionErrorMsg").html('');
+}
+
+function deleteProject(projectId) {
+    lightyear.loading('show');
+    $.ajax({
+        type: 'post',
+        url: actionUrl.DeleteProject,
+        data: { projectId: projectId },
+        async: false,
+        success: function (result) {
+            if (result) {
+                setTimeout(function () { lightyear.notify('删除项目成功！', 'success'); }, 1e3);
+                $('#searchBtn').click();
+            }
+            else {
+                setTimeout(function () { lightyear.notify('删除失败', 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
 }
 
 function clearNoNum(obj) {

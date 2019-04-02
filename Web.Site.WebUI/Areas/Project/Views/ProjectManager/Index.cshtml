@@ -17,12 +17,12 @@
                     <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" onclick="OpenCreateProjectModal();">
                         <i class="mdi mdi-plus"></i>新增
                     </button>
-                    @Html.Partial("Create")
                 </div>
             </div>
         </div>
     </div>
-
+    @Html.Partial("Create")
+    @Html.Partial("SetProportion")
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
