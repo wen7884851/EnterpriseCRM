@@ -16,6 +16,7 @@
                                 <div class="input-group m-b-10">
                                     <input class="form-control" type="text" id="CommissionProportion" placeholder="提成系数.." onkeyup="this.value=changeProportionFund(this.value,$('#CommissionFund'))">
                                     <span class="input-group-addon">%</span>
+                                    <div class="help-block" id="CommissionErrorMsg" style="color:red"></div>
                                 </div>
                             </div>
                         </div>
@@ -28,21 +29,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-xs-12">当前项目组成员数(个)</label>
-                            <div class="col-xs-12">
-                                <div class="form-control-static" id="UserStoreCount"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-xs-12" for="Managementer">管理负责人</label>
                             <div class="col-xs-12">
-                                <select class="form-control" id="Managementer" size="1" onchange="changePerson($('#Managementer'),$('#ManagementProportion'))"></select>
+                                <select class="form-control" id="Managementer" size="1" onchange="changePerson($('#Managementer'),$('#ManagementProportion'),$('#ManagementFund'))"></select>
                                 <div class="help-block" id="ManagementerErrorMsg" style="color:red"></div>
                             </div>
                         </div>
@@ -72,7 +65,7 @@
                         <div class="form-group">
                             <label class="col-xs-12" for="Auditer">审核负责人</label>
                             <div class="col-xs-12">
-                                <select class="form-control" id="Auditer" size="1" onchange="changePerson($('#Auditer'),$('#AuditProportion'))"></select>
+                                <select class="form-control" id="Auditer" size="1" onchange="changePerson($('#Auditer'),$('#AuditProportion'),$('#AuditFund'))"></select>
                                 <div class="help-block" id="AuditerErrorMsg" style="color:red"></div>
                             </div>
                         </div>
@@ -102,7 +95,7 @@
                         <div class="form-group">
                             <label class="col-xs-12" for="Judgementer">审定负责人</label>
                             <div class="col-xs-12">
-                                <select class="form-control" id="Judgementer" size="1"  onchange="changePerson($('#Judgementer'),$('#JudgementProportion'))"></select>
+                                <select class="form-control" id="Judgementer" size="1"  onchange="changePerson($('#Judgementer'),$('#JudgementProportion'),$('#JudgementFund'))"></select>
                                 <div class="help-block" id="JudgementerErrorMsg" style="color:red"></div>
                             </div>
                         </div>

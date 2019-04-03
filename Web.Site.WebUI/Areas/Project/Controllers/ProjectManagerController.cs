@@ -1,7 +1,9 @@
-﻿using Core.Service;
+﻿using AutoMapper;
+using Core.Service;
 using Domain.Site.Models;
 using Framework.Tool.Operator;
 using System.ComponentModel.Composition;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -35,11 +37,17 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         {
             return View();
         }
-
         public ActionResult GetProjectPointById(int pointId)
         {
             return Json(_projectPointManager.GetPointById(pointId), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult GetProjectById(int projectId)
+        {
+            return Json(Mapper.Map<ProjectViewModel>(_projectService.projects.FirstOrDefault(t => t.Id == projectId)));
+        }
+
         [HttpPost]
         public ActionResult ProjectList(ProjectSerchModel query)
         {

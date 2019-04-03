@@ -1,8 +1,9 @@
 ﻿var query = {};
 var actionUrl = {
     ProjectList: "/Project/projectmanager/ProjectList", GetUserList: "/Common/Account/GetUserList",
-    CreateProject: "/Project/projectmanager/CreateProject", GetProjectList: "/Project/projectmanager/ProjectList",
-    DeleteProject: "/Project/projectmanager/DeleteProject", SetProjectProportion: "/Project/projectmanager/SetProjectProportion"};
+    CreateProject: "/Project/projectmanager/CreateProject", GetProject: "/Project/projectmanager/GetProjectById",
+    DeleteProject: "/Project/projectmanager/DeleteProject", SetProjectProportion: "/Project/projectmanager/SetProjectProportion",
+    UpdateProject: "/Project/projectmanager/UpdateProject"};
 var aoColumns = [
     { "sName": "Id" },
     { "sName": "ProjectName" },
@@ -14,7 +15,7 @@ var aoColumns = [
         "sName": "Id",
         "fnRender": function (oObj) {
             var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj + ')"></i></a>';
-            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="EditProjectModal(' + oObj + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditProjectModal(' + oObj + ')"></i></a>';
             btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteProjectModal(' + oObj + ')"></i></a>';
             return btnArray;
         }
@@ -34,7 +35,6 @@ function Search(index) {
 
 function CreateProject() {
     if (CheckCreateProjectItem()) {
-        initCreateProjectErrorMsg();
         lightyear.loading('show');
         let project = GetProjectHtmlValue();
         $.ajax({
@@ -76,10 +76,10 @@ function OpenCreateProjectModal() {
                 let userHtml = '<option value="0" selected>请选择</option>';
                 result.forEach(i => {
                     userHtml += '<option value="' + i.value + '">' + i.text + '</option>';
-                    $('#projectModal').modal('show');
+                    
                 });
                 $("#ProjectLeader").html(userHtml);
-                
+                $('#projectModal').modal('show');
             }
             else {
                 setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
@@ -88,13 +88,11 @@ function OpenCreateProjectModal() {
         }
     });
 }
-
 function closeCreateProjectModal() {
     initCreateProjectErrorMsg();
     initCreateProjectModal();
     $('#projectModal').modal('hide');
 }
-
 function GetProjectHtmlValue() {
     return {
         ContractMoney: $("#ContractMoney").val(), TotalCost: $("#TotalCost").val(),
@@ -143,18 +141,138 @@ function initCreateProjectModal() {
     $("#Content").val('');
 }
 
+function EditProject() {
+    if (CheckEditProjectItem()) {
+        lightyear.loading('show');
+        let project = GetEditProjectHtmlValue();
+        $.ajax({
+            type: 'post',
+            url: actionUrl.UpdateProject,
+            data: project,
+            async: false,
+            success: function (result) {
+                if (result) {
+                    if (result.IsSuccess) {
+                        setTimeout(function () { lightyear.notify('保存成功！', 'success'); }, 1e3);
+                        closeEditProjectModal();
+                        $('#searchBtn').click();
+                    }
+                    else {
+                        setTimeout(function () { lightyear.notify(result.Result, 'danger'); }, 1e3);
+                    }
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('系统错误，请联系管理人员', 'danger'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            }
+        });
+    }
+    else {
+        setTimeout(function () { lightyear.notify('请填写完整信息！', 'warning'); }, 1e3);
+    }
+}
+function CheckEditProjectItem() {
+    initEditProjectErrorMsg();
+    let isCheck = true;
+    let projectName = $("#EProjectName").val();
+    if (projectName === "") {
+        $("#EProjectNameErrorMsg").html('项目名称不为空');
+        isCheck = false;
+    }
+    let totalCost = parseFloat($("#ETotalCost").val());
+    if (isNaN(totalCost) || totalCost <= 0) {
+        $("#ETotalCostErrorMsg").html('总造价输入有误');
+        isCheck = false;
+    }
+    let contractMoney = parseFloat($("#EContractMoney").val());
+    if (isNaN(contractMoney) || contractMoney <= 0) {
+        $("#EContractMoneyErrorMsg").html('合同金额输入有误');
+        isCheck = false;
+    }
+    return isCheck;
+}
+function GetEditProjectHtmlValue() {
+    return {
+        Id: $("#EProjectId").val(),ContractMoney: $("#EContractMoney").val(), TotalCost: $("#ETotalCost").val(),
+        ProjectName: $("#EProjectName").val(), ProjectLeader: parseInt($("#EProjectLeader")[0].options[$("#EProjectLeader")[0].selectedIndex].value),
+        Content: $("#EContent").val(), LinkPerson: $("#ELinkPerson").val(), LinkPhoneNo: $("#ELinkPhoneNo").val(), Address: $("#EAddress").val()
+    };
+}
+function OpenEditProjectModal(projectId) {
+    lightyear.loading('show');
+    initEditProjectErrorMsg();
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetProject,
+        data: { projectId: projectId },
+        async: false,
+        success: function (result) {
+            if (result) {
+                let project = result;
+                $('#EProjectId').val(projectId);
+                initEditProjectHtmlValue(project);
+                $('#projectEditModal').modal('show');
+            }
+            else {
+                setTimeout(function () { lightyear.notify('无项目数据，请查证！', 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
+}
+function closeEditProjectModal() {
+    $('#projectEditModal').modal('hide');
+    initEditProjectErrorMsg();
+}
+function initEditProjectHtmlValue(project) {
+    $("#EProjectName").val(project.ProjectName);
+    $("#ELinkPerson").val(project.LinkPerson);
+    $("#ELinkPhoneNo").val(project.LinkPhoneNo);
+    $("#ETotalCost").val(project.TotalCost);
+    $("#EContractMoney").val(project.ContractMoney);
+    $("#EAddress").val(project.Address);
+    $("#EContent").val(project.Content);
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetUserList,
+        async: false,
+        success: function (result) {
+            if (result && result.length > 0) {
+                let userHtml = '';
+                result.forEach(i => {
+                    if (project.ProjectLeader === i.value) {
+                        userHtml += '<option value="' + i.value + '" selected>' + i.text + '</option>';
+                    }
+                    else {
+                        userHtml += '<option value="' + i.value + '">' + i.text + '</option>';
+                    }
+                });
+                $("#EProjectLeader").html(userHtml);
+            }
+            else {
+                setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
+            }
+        }
+    });
+}
+function initEditProjectErrorMsg() {
+    $("#EProjectNameErrorMsg").html('');
+    $("#ETotalCostErrorMsg").html('');
+    $("#EContractMoneyErrorMsg").html('');
+}
 
 function OpenSetProportionModal(projectId) {
     lightyear.loading('show');
     initSetProportionErrorMsg();
     $.ajax({
         type: 'post',
-        url: actionUrl.GetProjectList,
+        url: actionUrl.GetProject,
         data: { projectId: projectId },
         async: false,
         success: function (result) {
-            if (result && result.Items.length > 0) {
-                let project = result.Items[0];
+            if (result) {
+                let project = result;
                 $('#SProjectId').val(projectId);
                 initSetProportionHtmlValue(project);
                 $('#setProportionModal').modal('show');
@@ -217,6 +335,11 @@ function checkSetProjectProportion() {
         $('#JudgementerErrorMsg').html('请选择项目管理人员');
         isCheck = false;
     }
+    let totleProportion = parseFloat($('#CommissionProportion').val()) + parseFloat($('#ManagementProportion').val()) + parseFloat($('#AuditProportion').val()) + parseFloat($('#JudgementProportion').val());
+    if (totleProportion > 100) {
+        $('#CommissionErrorMsg').html('总系数超过百分百，请查证！');
+        isCheck = false;
+    }
     return isCheck;
 }
 function GetProjectProportionHtmlValue() {
@@ -232,11 +355,12 @@ function GetProjectProportionHtmlValue() {
         AuditProportion: $('#AuditProportion').val(), Auditer: projectAuditer,
         JudgementProportion: $('#JudgementProportion').val(), Judgementer: projectJudgementer};
 }
-function changePerson(obj, changeValue) {
-    var index = obj.selectedIndex; 
-    var value = parseInt(obj.options[index].value);
+function changePerson(obj, changeValue1, changeValue2) {
+    var index = obj[0].selectedIndex; 
+    var value = parseInt(obj[0].options[index].value);
     if (value === 0) {
-        changeValue.val('0');
+        changeValue1.val('0');
+        changeValue2.html('0');
     }
 }
 function changeProportionFund(obj,changeFund) {
@@ -277,8 +401,8 @@ function setProjectAudit(ContractMoney, AuditProportion) {
 }
 function setProjectJudgement(ContractMoney, JudgementProportion) {
     JudgementFund = ContractMoney * JudgementProportion / 100;
-    $('#AuditProportion').val(JudgementProportion);
-    $('#AuditFund').html(JudgementFund);
+    $('#JudgementProportion').val(JudgementProportion);
+    $('#JudgementFund').html(JudgementFund);
 }
 function initSetProportionUser(Managementer, Auditer, Judgementer) {
     $.ajax({
@@ -292,22 +416,22 @@ function initSetProportionUser(Managementer, Auditer, Judgementer) {
                 let userJudgementHtml = (Judgementer > 0) ? '<option value="0">请选择</option>' : '<option value="0" selected>请选择</option>';
                 result.forEach(i => {
                     if (i.value === Managementer) {
-                        userManagementHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                        userManagementHtml += '<option value="' + i.value + '" selected>' + i.text + '</option>';
                     }
                     else {
-                        userManagementHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                        userManagementHtml += '<option value="' + i.value + '">' + i.text + '</option>';
                     }
                     if (i.value === Auditer) {
-                        userAuditHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                        userAuditHtml += '<option value="' + i.value + '" selected>' + i.text + '</option>';
                     }
                     else {
-                        userAuditHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                        userAuditHtml += '<option value="' + i.value + '">' + i.text + '</option>';
                     }
                     if (i.value === Judgementer) {
-                        userJudgementHtml += '<option value="' + i.value + ' selected">' + i.text + '</option>';
+                        userJudgementHtml += '<option value="' + i.value + '" selected>' + i.text + '</option>';
                     }
                     else {
-                        userJudgementHtml += '<option value="' + i.value + ' ">' + i.text + '</option>';
+                        userJudgementHtml += '<option value="' + i.value + '">' + i.text + '</option>';
                     }
                 });
                 $("#Managementer").html(userManagementHtml);

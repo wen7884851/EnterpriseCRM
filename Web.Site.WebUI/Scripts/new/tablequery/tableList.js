@@ -15,13 +15,14 @@
     };
 
     function BuildDataTable(dataTableObj, aoColumns, tableData) {
-        let table ='<tr>';
+        let table ='';
         tableData.Items.forEach(i => {
+            table += '<tr>';
             aoColumns.forEach(c => {
                 table += BuildCellData(i, c);
             });
+            table += '</tr>';
         });
-        table += '</tr>';
         dataTableObj.html(table);
     }
 

@@ -1,0 +1,101 @@
+﻿<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" id="projectEditModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="closeEditProjectModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editModalLabel">创建项目</h4>
+            </div>
+            <div class="modal-body">
+                <label hidden id="EProjectId"></label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EProjectName">项目名称</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="EProjectName" placeholder="项目名称..">
+                                <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EProjectLeader">项目负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="EProjectLeader" size="1" style="height: 38px;"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ELinkPerson">项目联系人</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="ELinkPerson" placeholder="项目联系人..">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ELinkPhoneNo">联系电话</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="ELinkPhoneNo" placeholder="联系电话.." onkeypress="return event.keyCode>=4&&event.keyCode<=57">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ETotalCost">项目总造价</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="ETotalCost" placeholder="项目总造价.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">元</span>
+                                </div>
+                                <div class="help-block" id="ETotalCostErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EContractMoney">项目合同金额</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="EContractMoney" placeholder="项目合同金额.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">元</span>
+                                </div>
+                                <div class="help-block" id="EContractMoneyErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EAddress">项目地址</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="EAddress" placeholder="项目地址..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EContent">项目内容</label>
+                            <div class="col-xs-12">
+                                <textarea class="form-control" id="EContent" rows="6" placeholder="内容.."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="closeEditProjectModal()">关闭</button>
+                <button class="btn btn-label btn-primary" onclick="EditProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+

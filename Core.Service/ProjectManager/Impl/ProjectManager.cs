@@ -50,6 +50,8 @@ namespace Core.Service.ProjectManager.Impl
             if (projectDTO != null)
             {
                 projectDTO.Address = projectViewModel.Address;
+                projectDTO.ContractMoney = projectViewModel.ContractMoney;
+                projectDTO.TotalCost = projectViewModel.TotalCost;
                 projectDTO.Content = projectViewModel.Content;
                 projectDTO.LinkPerson = projectViewModel.LinkPerson;
                 projectDTO.LinkPhoneNo = projectViewModel.LinkPhoneNo;
@@ -173,6 +175,17 @@ namespace Core.Service.ProjectManager.Impl
                 TotalItemsCount = projectDTO.Count()
             };
             return result;
+        }
+
+        public int GetProjectUserCount(int projectId)
+        {
+            int userCount = 0;
+            var projectDTO = projects.FirstOrDefault(t => t.Id==projectId);
+            foreach(var point in projectDTO.points)
+            {
+                userCount+=point.projectPointUserStores.Count();
+            }
+            return userCount;
         }
 
         public decimal GetUserProjectSouceByUserId(int UserId)
