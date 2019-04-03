@@ -2,7 +2,7 @@
 var actionUrl = {
     ProjectList: "/Project/projectmanager/ProjectList", GetUserList: "/Common/Account/GetUserList",
     CreateProject: "/Project/projectmanager/CreateProject", GetProjectList: "/Project/projectmanager/ProjectList",
-    DeleteProject:"/Project/projectmanager/DeleteProject"};
+    DeleteProject: "/Project/projectmanager/DeleteProject", SetProjectProportion: "/Project/projectmanager/SetProjectProportion"};
 var aoColumns = [
     { "sName": "Id" },
     { "sName": "ProjectName" },
@@ -13,9 +13,9 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" onclick="SetProportionModal(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-settings"></i></a>';
-            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" onclick="EditProjectModal(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>';
-            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除"  onclick="Delete(' + oObj + ') data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>';
+            var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="EditProjectModal(' + oObj + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteProjectModal(' + oObj + ')"></i></a>';
             return btnArray;
         }
     }
@@ -97,10 +97,10 @@ function closeCreateProjectModal() {
 
 function GetProjectHtmlValue() {
     return {
+        ContractMoney: $("#ContractMoney").val(), TotalCost: $("#TotalCost").val(),
         ProjectName: $("#ProjectName").val(), ProjectLeader: parseInt($("#ProjectLeader")[0].options[$("#ProjectLeader")[0].selectedIndex].value),
         Content: $("#Content").val(), LinkPerson: $("#LinkPerson").val(), LinkPhoneNo: $("#LinkPhoneNo").val(), Address: $("#Address").val()};
 }
-
 function CheckCreateProjectItem() {
     initCreateProjectErrorMsg();
     let isCheck = true;
@@ -127,14 +127,12 @@ function CheckCreateProjectItem() {
     }
     return isCheck;
 }
-
 function initCreateProjectErrorMsg() {
     $("#ProjectNameErrorMsg").html('');
     $("#ProjectLeaderErrorMsg").html('');
     $("#TotalCostErrorMsg").html('');
     $("#ContractMoneyErrorMsg").html('');
 }
-
 function initCreateProjectModal() {
     $("#ProjectName").val('');
     $("#LinkPerson").val('');
@@ -144,6 +142,7 @@ function initCreateProjectModal() {
     $("#Address").val('');
     $("#Content").val('');
 }
+
 
 function OpenSetProportionModal(projectId) {
     lightyear.loading('show');
@@ -156,6 +155,7 @@ function OpenSetProportionModal(projectId) {
         success: function (result) {
             if (result && result.Items.length > 0) {
                 let project = result.Items[0];
+                $('#SProjectId').val(projectId);
                 initSetProportionHtmlValue(project);
                 $('#setProportionModal').modal('show');
             }
@@ -166,7 +166,92 @@ function OpenSetProportionModal(projectId) {
         }
     });
 }
-
+function setProjectProportion(){
+    if (checkSetProjectProportion()) {
+        lightyear.loading('show');
+        let projectProportion = GetProjectProportionHtmlValue();
+        $.ajax({
+            type: 'post',
+            url: actionUrl.SetProjectProportion,
+            data: projectProportion,
+            async: false,
+            success: function (result) {
+                if (result) {
+                    if (result.IsSuccess) {
+                        setTimeout(function () { lightyear.notify('设置成功', 'success'); }, 1e3);
+                        $('#setProportionModal').modal('hide');
+                    }
+                    else {
+                        setTimeout(function () { lightyear.notify(result.Result, 'danger'); }, 1e3);
+                    }
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('系统错误，请联系管理人员', 'danger'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            }
+        });
+    }
+    else {
+        setTimeout(function () { lightyear.notify('请填写完整信息！', 'warning'); }, 1e3);
+    }
+}
+function checkSetProjectProportion() {
+    initSetProportionErrorMsg();
+    let isCheck = true;
+    let selectManagementer = $("#Managementer");
+    let projectManagementer = parseInt(selectManagementer[0].options[selectManagementer[0].selectedIndex].value);
+    if (parseFloat($('#ManagementProportion').val()) > 0 && projectManagementer < 1) {
+        $('#ManagementerErrorMsg').html('请选择管理负责人');
+        isCheck = false;
+    }
+    let selectAuditer = $("#Auditer");
+    let projectAuditer = parseInt(selectAuditer[0].options[selectAuditer[0].selectedIndex].value);
+    if (parseFloat($('#AuditProportion').val()) > 0 && projectAuditer < 1) {
+        $('#AuditerErrorMsg').html('请选择审核负责人');
+        isCheck = false;
+    }
+    let selectJudgementer = $("#Judgementer");
+    let projectJudgementer = parseInt(selectJudgementer[0].options[selectJudgementer[0].selectedIndex].value);
+    if (parseFloat($('#JudgementProportion').val()) > 0 && projectJudgementer < 1) {
+        $('#JudgementerErrorMsg').html('请选择项目管理人员');
+        isCheck = false;
+    }
+    return isCheck;
+}
+function GetProjectProportionHtmlValue() {
+    let selectManagementer = $("#Managementer");
+    let projectManagementer = parseInt(selectManagementer[0].options[selectManagementer[0].selectedIndex].value);
+    let selectAuditer = $("#Auditer");
+    let projectAuditer = parseInt(selectAuditer[0].options[selectAuditer[0].selectedIndex].value);
+    let selectJudgementer = $("#Judgementer");
+    let projectJudgementer = parseInt(selectJudgementer[0].options[selectJudgementer[0].selectedIndex].value);
+    return {
+        Id: $('#SProjectId').val(), CommissionProportion: $('#CommissionProportion').val(),
+        ManagementProportion: $('#ManagementProportion').val(), Managementer: projectManagementer,
+        AuditProportion: $('#AuditProportion').val(), Auditer: projectAuditer,
+        JudgementProportion: $('#JudgementProportion').val(), Judgementer: projectJudgementer};
+}
+function changePerson(obj, changeValue) {
+    var index = obj.selectedIndex; 
+    var value = parseInt(obj.options[index].value);
+    if (value === 0) {
+        changeValue.val('0');
+    }
+}
+function changeProportionFund(obj,changeFund) {
+    let value = clearNoNum(obj);
+    if (value > 100) {
+        let o = value.toString();
+        value = parseFloat(o.substr(0, o.length-1));
+    }
+    if (value <= 0) {
+        value = 0;
+    }
+    let ContractMoney = $("#StateContractMoney").val();
+    changeFund.html(ContractMoney * value / 100);
+    return value;
+}
 function initSetProportionHtmlValue(project) {
     setProjectCommission(project.ContractMoney, project.CommissionProportion ? project.CommissionProportion : 0);
     setProjectManagement(project.ContractMoney, project.ManagementProportion ? project.ManagementProportion : 0);
@@ -236,17 +321,18 @@ function initSetProportionUser(Managementer, Auditer, Judgementer) {
     });
 }
 function initSetProportionErrorMsg() {
-    $("#CommissionProportionErrorMsg").html('');
     $("#ManagementerErrorMsg").html('');
-    $("#ManagementProportionErrorMsg").html('');
     $("#AuditerErrorMsg").html('');
-    $("#AuditProportionErrorMsg").html('');
     $("#JudgementerErrorMsg").html('');
-    $("#JudgementProportionErrorMsg").html('');
 }
 
-function deleteProject(projectId) {
+function OpenDeleteProjectModal(projectId) {
+    $('#DProjectId').val(projectId);
+    $('#DeleteProjectModal').modal('show');
+}
+function deleteProject() {
     lightyear.loading('show');
+    let projectId = $('#DProjectId').val();
     $.ajax({
         type: 'post',
         url: actionUrl.DeleteProject,
@@ -260,6 +346,7 @@ function deleteProject(projectId) {
             else {
                 setTimeout(function () { lightyear.notify('删除失败', 'warning'); }, 1e3);
             }
+            $('#DeleteProjectModal').modal('hide');
             lightyear.loading('hide');
         }
     });

@@ -14,6 +14,7 @@ namespace Domain.Site.Models
         public string LinkPhoneNo { get; set; }
         public string Address { get; set; }
         public decimal ContractMoney { get; set; }
+        public decimal TotalCost { get; set; }
         public decimal? ManagementProportion { get; set; }
         public int? Managementer { get; set; }
         public decimal? AuditProportion { get; set; }
@@ -37,6 +38,7 @@ namespace Domain.Site.Models
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Domain.DB.Models.Project, ProjectViewModel>();
+            configuration.CreateMap<ProjectViewModel, Domain.DB.Models.Project>();
         }
     }
 }

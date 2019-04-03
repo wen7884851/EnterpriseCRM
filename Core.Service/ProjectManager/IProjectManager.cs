@@ -16,7 +16,7 @@ namespace Core.Service
         int UpdateProject(ProjectViewModel projectViewModel);
         void DeleteProject(int projectId);
         int CreateProject(ProjectViewModel project);
-
+        ActionResultViewModel SetProjectProportion(ProjectViewModel model);
         decimal GetUserProjectSouceByUserId(int UserId);
 
         PageResult<ProjectViewModel> GetCurrentUserProjectViewModel(ProjectSerchModel model);

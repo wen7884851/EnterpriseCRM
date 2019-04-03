@@ -6,6 +6,7 @@ using Domain.Site.Models;
 using Framework.EFData.DBExtend;
 using Framework.Tool.Operator;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Linq.Expressions;
@@ -70,6 +71,14 @@ namespace Core.Service.ProjectManager.Impl
             {
                 var project = _projectRepository.GetByKey(projectId);
                 project.IsDeleted = true;
+                foreach(var point in project.points)
+                {
+                    point.IsDeleted = true;
+                    foreach (var userStore in point.projectPointUserStores)
+                    {
+                        userStore.IsDeleted = true;
+                    }
+                }
                 _projectRepository.Update(project);
                 tran.Commit();
             }
@@ -79,6 +88,7 @@ namespace Core.Service.ProjectManager.Impl
             var projectDTO = new Project()
             {
                 ContractMoney=project.ContractMoney,
+                TotalCost=project.TotalCost,
                 ProjectName = project.ProjectName,
                 ProjectLeader = project.ProjectLeader,
                 Content = project.Content,
@@ -94,6 +104,30 @@ namespace Core.Service.ProjectManager.Impl
                 tran.Commit();
             }
             return projectDTO.Id;
+        }
+
+        public ActionResultViewModel SetProjectProportion(ProjectViewModel model)
+        {
+            var result = new ActionResultViewModel(){IsSuccess = false};
+            if(model.Id>0)
+            {
+                var projectDTO = projects.FirstOrDefault(t => t.Id == model.Id);
+                projectDTO.CommissionProportion = model.CommissionProportion ?? projectDTO.CommissionProportion;
+                projectDTO.ManagementProportion = model.ManagementProportion ?? projectDTO.ManagementProportion;
+                projectDTO.Managementer = model.Managementer ?? projectDTO.Managementer;
+                projectDTO.AuditProportion = model.AuditProportion ?? projectDTO.AuditProportion;
+                projectDTO.Auditer = model.Auditer ?? projectDTO.Auditer;
+                projectDTO.JudgementProportion = model.JudgementProportion ?? projectDTO.JudgementProportion;
+                projectDTO.Judgementer = model.Judgementer ?? projectDTO.Judgementer;
+                projectDTO.Modify();
+                _projectRepository.Update(projectDTO);
+                result.IsSuccess = true;
+            }
+            else
+            {
+                result.Result = "项目ID为空";
+            }
+            return result;
         }
 
         public void SetProjectCoefficient(ProjectViewModel projectViewModel)
@@ -131,22 +165,11 @@ namespace Core.Service.ProjectManager.Impl
         {
             var expr = BuildSearchProject(model);
             var projectDTO = expr!=null? projects.Where(expr): projects;
-            var user = _userService.Users;
+            var projectList = Mapper.Map<List<ProjectViewModel>>(projectDTO.OrderByDescending(t => t.CreateTime).Skip((model.PageIndex - 1) * model.PageSize).Take(model.PageSize));
+            projectList.ForEach(t => t.LeaderName = _userService.Users.FirstOrDefault(n => n.Id == t.ProjectLeader).LoginName);
             var result = new PageResult<ProjectViewModel>()
             {
-                Items = projectDTO.OrderByDescending(t => t.CreateTime).Skip((model.PageIndex - 1) * model.PageSize).Take(model.PageSize).AsEnumerable()
-                .Select(t => new ProjectViewModel()
-                {
-                    Id = t.Id,
-                    ProjectName = t.ProjectName,
-                    ProjectLeader = t.ProjectLeader,
-                    LeaderName = user.FirstOrDefault(u => u.Id == t.ProjectLeader.Value).LoginName,
-                    LinkPerson = t.LinkPerson,
-                    LinkPhoneNo = t.LinkPhoneNo,
-                    Content = t.Content,
-                    Address = t.Address,
-                    CreateTime = t.CreateTime.HasValue ? t.CreateTime.Value.ToString("yyyy-MM-dd HH:mm:ss:ms") : ""
-                }).ToList(),
+                Items = projectList,
                 TotalItemsCount = projectDTO.Count()
             };
             return result;

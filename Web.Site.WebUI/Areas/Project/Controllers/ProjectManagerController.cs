@@ -62,7 +62,12 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             {
                 result.Result = _projectService.CreateProject(model);
             }
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
+        }
+        [HttpPost]
+        public ActionResult SetProjectProportion(ProjectViewModel model)
+        {
+            return Json(_projectService.SetProjectProportion(model));
         }
 
         [HttpPost]

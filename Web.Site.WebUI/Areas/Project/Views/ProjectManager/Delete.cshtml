@@ -1,16 +1,17 @@
-﻿<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="DeleteProjectModalLabel">
+﻿<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="DeleteProjectModalLabel" id="DeleteProjectModal">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myLargeModalLabel">标题（小）</h4>
+                <h4 class="modal-title" id="myLargeModalLabel">删除项目</h4>
             </div>
+            <label hidden id="DProjectId"></label>
             <div class="modal-body">
-                您的内容...
+                是否删除本项目
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">点击保存</button>
+                <button class="btn btn-label btn-danger" onclick="deleteProject()"><label><i class="mdi mdi-close" ></i></label> 删除</button>
             </div>
         </div>
     </div>
