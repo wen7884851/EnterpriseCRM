@@ -17,7 +17,8 @@ namespace Web.Site.WebUI
                  "~/Scripts/new/jquery.min.js",
                  "~/Scripts/new/bootstrap.min.js",
                  "~/Scripts/new/perfect-scrollbar.min.js",
-                 "~/Scripts/new/main.min.js");
+                 "~/Scripts/new/main.min.js",
+                 "~/Scripts/new/common.js");
             var JsNotify = new ScriptBundle("~/bundles/scripts/jsNotify").Include("~/Scripts/new/bootstrap-notify.min.js",
                "~/Scripts/new/lightyear.js");
             bundles.Add(JsBase);

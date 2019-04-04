@@ -41,11 +41,17 @@ namespace Core.Service.ProjectManager.Impl
             return null;
         }
 
-        public decimal GetPointOccupiedFundByPointId(int pointId)
+        public IEnumerable<ProjectUserStoreViewModel> GetUserStoreListByPointId(int pointId)
         {
-            var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId && t.IsDeleted == false);
-            return userStoreList.Sum(t => t.UserFund) ?? 0;
+            var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId)
+                .Select(t=>Mapper.Map<ProjectUserStoreViewModel>(t));
+            foreach(var userStore in userStoreList)
+            {
+                userStore.UserName = _userService.Users.FirstOrDefault(t => t.Id == userStore.UserId).LoginName;
+            }
+            return userStoreList;
         }
+
 
         public int CreateProjectUserStore(ProjectUserStoreViewModel model)
         {
@@ -118,8 +124,6 @@ namespace Core.Service.ProjectManager.Impl
         private void UpdateStoreModel(ProjectUserStoreViewModel model, ProjectPointUserStore entity)
         {
             entity.StoreContent = model.StoreContent;
-            entity.UserProportion = model.ProjectPointProportion;
-            entity.UserFund = model.StoreFund;
             if((model.UserId!=null)&&model.UserId>0)
             {
                 entity.UserId = model.UserId;
@@ -151,8 +155,6 @@ namespace Core.Service.ProjectManager.Impl
                 UserId=t.UserId,
                 UserName= _userService.Users.FirstOrDefault(m=>m.Id==t.UserId).LoginName,
                 StoreContent=t.StoreContent,
-                StoreFund=t.UserFund,
-                ProjectPointProportion=t.UserProportion,
                 DeleteItem=true,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
             }).OrderByDescending(t => t.CreateTime).Skip((queryModel.PageIndex-1)*queryModel.PageSize).Take(queryModel.PageSize).ToList();

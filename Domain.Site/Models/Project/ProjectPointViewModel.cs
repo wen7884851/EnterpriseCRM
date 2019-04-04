@@ -12,14 +12,10 @@ namespace Domain.Site.Models
         public int? Id { get; set; }
         public int? ProjectId { get; set; }
         public int? ProfessionalTypeId { get; set; }
+        public string ProfessionalTypeName { get; set; }
         public string PointName { get; set; }
         public int? Status { get; set; }
-        public decimal? PointFund { get; set; }
         public string PointContent { get; set; }
-        // public ProjectPointStatus Status { get; set; }
-        public string LeaderName { get; set; }
-        public int? PointLeader { get; set; }
-        public decimal? PointCommission { get; set; }
         public decimal? PointProportion { get; set; }
         public string CreateTime { get; set; }
     }

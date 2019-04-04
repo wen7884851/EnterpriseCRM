@@ -27,6 +27,11 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             var store = _projectUserStoreManager.GetUserStoreById(storeId);
             return Json(store);
         }
+        [HttpPost]
+        public ActionResult GetUserStoreListByPointId(int pointId)
+        {
+            return Json(_projectUserStoreManager.GetUserStoreListByPointId(pointId));
+        }
 
         [HttpPost]
         public ActionResult CreateUserStore(ProjectUserStoreViewModel store)

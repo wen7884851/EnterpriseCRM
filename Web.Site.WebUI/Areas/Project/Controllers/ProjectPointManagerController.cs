@@ -16,39 +16,27 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
     {
         [Import]
         private IProjectPointManager _projectPointManager;
-        [Import]
-        private IProjectUserStoreManager _projectUserStoreManager;
-        [Import]
-        private IUserService _userService;
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+         public ActionResult GetProjectPointListByProjectId(int projectId)
+        {
+            return Json(_projectPointManager.GetProjectPointListByProjectId(projectId));
+        }
 
         [HttpPost]
-        public ActionResult GetUserIdAndExceptPointUser(int pointId)
+        public ActionResult GetProfessionalType()
         {
-           var userExcept = _projectUserStoreManager.GetUserStoreUserIdsByPointId(pointId);
-           var userResult = _userService.Users
-           .Select(t => new OptionViewMode
-           {
-               key = t.Id,
-               text = t.LoginName,
-               value = t.Id
-           });
-            if(userExcept!=null)
-            {
-                userResult = userResult.Where(t => !userExcept.Contains(t.key));
-            }
-            return Json(userResult.ToList());
+            return Json(_projectPointManager.pointProfessionalTypes.Where(t=>t.IsDeleted==false).Select(t=>new {Id=t.Id,TypeName=t.TypeName }));
         }
 
         [HttpPost]
         public ActionResult CreateProjectPoint(ProjectPointViewModel model)
         {
-            return Json(_projectPointManager.CreateProjectPoint(model));
-        }
-
-        [HttpPost]
-        public ActionResult UpdateProjectPoint(ProjectPointViewModel model)
-        {
-            return Json(_projectPointManager.UpdateProjectPoint(model));
+           return Json(_projectPointManager.CreateProjectPoint(model));
         }
     }
 }

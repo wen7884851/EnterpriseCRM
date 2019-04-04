@@ -19,18 +19,16 @@ namespace Core.Service.ProjectManager.Impl
     {
         [Import]
         private IProjectPointRepository _projectPointsRepository { get; set; }
+        [Import]
+        private IPointProfessionalTypeRepository _pointProfessionalTypeRepository { get; set; }
         public IQueryable<ProjectPoint> projectPoints
         {
             get { return _projectPointsRepository.NoCahecEntities; }
         }
-        [Import]
-        private IPointProfessionalTypeRepository _pointProfessionalTypeRepository { get; set; }
-        [Import]
-        private IUserService _userService { get; set; }
-        [Import]
-        private IFormulaManager _formulaManager { get; set; }
-        [Import]
-        private IProjectUserStoreManager _projectUserStoreManager { get; set; }
+        public IQueryable<PointProfessionalType> pointProfessionalTypes
+        {
+            get { return _pointProfessionalTypeRepository.NoCahecEntities; }
+        }
 
         public PageResult<ProjectPointViewModel> GetProjectPointListByQuery(ProjectPointQueryModel queryModel)
         {
@@ -41,7 +39,6 @@ namespace Core.Service.ProjectManager.Impl
                 Id = t.Id,
                 ProjectId = t.ProjectId,
                 PointName = t.PointName,
-                PointCommission = t.PointCommission,
                 PointProportion = t.PointProportion,
                 PointContent = t.PonitContent,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
@@ -56,18 +53,18 @@ namespace Core.Service.ProjectManager.Impl
 
         public ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point)
         {
-            var projectPointDTO = Mapper.Map<ProjectPoint>(point);
             var result = new ActionResultViewModel()
             {
                 IsSuccess=false
             };
-            if((projectPointDTO!=null)&& projectPointDTO.ProjectId!=null)
+            if((point != null)&& point.ProjectId!=null)
             {
+                var projectPointDTO = Mapper.Map<ProjectPoint>(point);
                 try
                 {
-                    var calculation = Mapper.Map<ProjectCalculationViewModel>(point);
                     using (UnitOfWork tran = new UnitOfWork())
                     {
+                        projectPointDTO.Status = 1;
                         projectPointDTO.Create();
                         _projectPointsRepository.Insert(projectPointDTO);
                         tran.Commit();
@@ -81,6 +78,10 @@ namespace Core.Service.ProjectManager.Impl
                     result.Result = ex.Message;
                     return result;
                 }
+            }
+            else
+            {
+                result.Result = "数据有误，请查证！";
             }
             return result;
         }
@@ -109,7 +110,6 @@ namespace Core.Service.ProjectManager.Impl
                 foreach (var point in pointList)
                 {
                     point.PointProportion = 0;
-                    point.PointCommission = 0;
                     _projectPointsRepository.Update(point);
                 }
                 tran.Commit();
@@ -154,9 +154,15 @@ namespace Core.Service.ProjectManager.Impl
             return result;
         }
 
-        public IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId)
+        public IEnumerable<ProjectPointViewModel> GetProjectPointListByProjectId(int projectId)
         {
-            throw new NotImplementedException();
+            var pointDTOList = projectPoints.Where(t => t.ProjectId == projectId);
+            var pointViewModelList = pointDTOList.Select(t => Mapper.Map<ProjectPointViewModel>(t));
+            foreach (var point in pointDTOList)
+            {
+                pointViewModelList.FirstOrDefault(t => t.Id == point.Id).ProfessionalTypeName = point.professionalType.TypeName;
+            }
+            return pointViewModelList;
         }
 
         public ProjectPointViewModel GetPointById(int pointId)

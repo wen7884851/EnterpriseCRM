@@ -5,7 +5,13 @@ var actionUrl = {
     DeleteProject: "/Project/projectmanager/DeleteProject", SetProjectProportion: "/Project/projectmanager/SetProjectProportion",
     UpdateProject: "/Project/projectmanager/UpdateProject"};
 var aoColumns = [
-    { "sName": "Id" },
+    {
+        "sName": "Id",
+        "fnRender": function (oObj) {
+            let href = '/Project/ProjectPointManager?projectId=' + oObj;
+            return '<a href="' + href+'">' + oObj+'</a>';
+        }
+    },
     { "sName": "ProjectName" },
     { "sName": "LeaderName" },
     { "sName": "Content" },
@@ -14,7 +20,7 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            var btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj + ')"></i></a>';
+            let btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj + ')"></i></a>';
             btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditProjectModal(' + oObj + ')"></i></a>';
             btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteProjectModal(' + oObj + ')"></i></a>';
             return btnArray;
@@ -102,8 +108,7 @@ function GetProjectHtmlValue() {
 function CheckCreateProjectItem() {
     initCreateProjectErrorMsg();
     let isCheck = true;
-    let projectName = $("#ProjectName").val();
-    if (projectName === "") {
+    if ($("#ProjectName").val() === "") {
         $("#ProjectNameErrorMsg").html('项目名称不为空');
         isCheck = false;
     }
@@ -364,14 +369,7 @@ function changePerson(obj, changeValue1, changeValue2) {
     }
 }
 function changeProportionFund(obj,changeFund) {
-    let value = clearNoNum(obj);
-    if (value > 100) {
-        let o = value.toString();
-        value = parseFloat(o.substr(0, o.length-1));
-    }
-    if (value <= 0) {
-        value = 0;
-    }
+    let value = setProportionValue(obj);
     let ContractMoney = $("#StateContractMoney").val();
     changeFund.html(ContractMoney * value / 100);
     return value;
@@ -476,12 +474,3 @@ function deleteProject() {
     });
 }
 
-function clearNoNum(obj) {
-    obj = obj.replace(/[^\d.]/g, "");  //清除“数字”和“.”以外的字符  
-    obj = obj.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  
-    obj = obj.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
-    if (obj.indexOf(".") < 0 && obj !== "") {//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额 
-        obj = parseFloat(obj);
-    }
-    return obj;
-} 

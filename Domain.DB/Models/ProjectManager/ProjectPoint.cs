@@ -20,7 +20,6 @@ namespace Domain.DB.Models
         public int? Status { get; set; }
         public string PonitContent { get; set; }
         public decimal? PointProportion { get; set; }
-        public decimal? PointCommission { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateTime { get; set; }

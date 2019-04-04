@@ -15,8 +15,7 @@ namespace Domain.Site.Models
         public int? UserId { get; set; }
         public string UserName { get; set; }
         public string StoreContent { get; set; }
-        public decimal? StoreFund { get; set; }
-        public decimal? ProjectPointProportion { get; set; }
+        public decimal? StoreProportion { get; set; }
         public string CreateTime { get; set; }
         public bool DeleteItem { get; set; }
     }

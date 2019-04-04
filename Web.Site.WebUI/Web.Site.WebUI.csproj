@@ -645,6 +645,8 @@
     <Content Include="Areas\Project\Views\ProjectManager\SetProportion.cshtml" />
     <Content Include="Areas\Project\Views\ProjectManager\Delete.cshtml" />
     <Content Include="Areas\Project\Views\ProjectManager\Edit.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\index.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\CreatePoint.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
@@ -872,6 +874,7 @@
     <Content Include="Scripts\new\bootstrap.min.js" />
     <Content Include="Scripts\new\Chart.js" />
     <Content Include="Scripts\new\chosen.jquery.min.js" />
+    <Content Include="Scripts\new\common.js" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.css" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.js" />
     <Content Include="Scripts\new\jconfirm\jquery-confirm.min.css" />
@@ -884,6 +887,7 @@
     <Content Include="Scripts\new\md5.js" />
     <Content Include="Scripts\new\perfect-scrollbar.min.js" />
     <Content Include="Scripts\new\project\project.js" />
+    <Content Include="Scripts\new\project\ProjectPoint.js" />
     <Content Include="Scripts\new\tablequery\tableList.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -926,9 +930,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Common\Controllers\Api\" />
-    <Folder Include="Areas\Project\Views\ProjectCalculation\" />
-    <Folder Include="Areas\Project\Views\ProjectPointManager\" />
-    <Folder Include="Areas\Project\Views\ProjectUserStore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

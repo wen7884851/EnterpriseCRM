@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "项目分项";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-toolbar clearfix">
+                    <h4>项目列表</h4>
+                    <label hidden id="ProjectId"></label>
+                    <label hidden id="ContractMoney"></label>
+                </div>
+                <div class="toolbar-btn-action" style="float:right;margin-top: 20px;">
+                    <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" onclick="OpenCreateProjectPointModal();">
+                        <i class="mdi mdi-plus"></i>新增
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("CreatePoint")
+    <div id="pointList"></div>
+</div>
+
+<script src="~/Scripts/new/project/ProjectPoint.js"></script>

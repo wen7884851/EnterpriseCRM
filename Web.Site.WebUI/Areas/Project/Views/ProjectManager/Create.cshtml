@@ -6,93 +6,91 @@
                 <h4 class="modal-title" id="createModalLabel">创建项目</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" id="project" action="#" method="post" enctype="multipart/form-data" onsubmit="CreateProject()">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="ProjectName">项目名称</label>
-                                <div class="col-xs-12">
-                                    <input class="form-control" type="text" id="ProjectName" placeholder="项目名称..">
-                                    <div class="help-block" id="ProjectNameErrorMsg" style="color:red"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="ProjectLeader">项目负责人</label>
-                                <div class="col-xs-12">
-                                    <select class="form-control" id="ProjectLeader" size="1" style="height: 38px;">
-                                    </select>
-                                    <div class="help-block" id="ProjectLeaderErrorMsg"  style="color:red"></div>
-                                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ProjectName">项目名称</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="ProjectName" placeholder="项目名称..">
+                                <div class="help-block" id="ProjectNameErrorMsg" style="color:red"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="LinkPerson">项目联系人</label>
-                                <div class="col-xs-12">
-                                    <input class="form-control" type="text" id="LinkPerson" placeholder="项目联系人..">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="LinkPhoneNo">联系电话</label>
-                                <div class="col-xs-12">
-                                    <input class="form-control" type="text" id="LinkPhoneNo" placeholder="联系电话.." onkeypress="return event.keyCode>=4&&event.keyCode<=57">
-                                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ProjectLeader">项目负责人</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="ProjectLeader" size="1" style="height: 38px;">
+                                </select>
+                                <div class="help-block" id="ProjectLeaderErrorMsg"  style="color:red"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="TotalCost">项目总造价</label>
-                                <div class="col-xs-12">
-                                    <div class="input-group m-b-10">
-                                        <input class="form-control" type="text" id="TotalCost" placeholder="项目总造价.." onkeyup="this.value=clearNoNum(this.value)">
-                                        <span class="input-group-addon">元</span>
-                                    </div>
-                                    <div class="help-block" id="TotalCostErrorMsg" style="color:red"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="ContractMoney">项目合同金额</label>
-                                <div class="col-xs-12">
-                                    <div class="input-group m-b-10">
-                                        <input class="form-control" type="text" id="ContractMoney" placeholder="项目合同金额.." onkeyup="this.value=clearNoNum(this.value)">
-                                        <span class="input-group-addon">元</span>
-                                    </div>
-                                    <div class="help-block" id="ContractMoneyErrorMsg" style="color:red"></div>
-                                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="LinkPerson">项目联系人</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="LinkPerson" placeholder="项目联系人..">
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="Address">项目地址</label>
-                                <div class="col-xs-12">
-                                    <input class="form-control" type="text" id="Address" placeholder="项目地址..">
-                                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="LinkPhoneNo">联系电话</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="LinkPhoneNo" placeholder="联系电话.." onkeypress="return event.keyCode>=4&&event.keyCode<=57">
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="col-xs-12" for="Content">项目内容</label>
-                                <div class="col-xs-12">
-                                    <textarea class="form-control" id="Content" rows="6" placeholder="内容.."></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="TotalCost">项目总造价</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="TotalCost" placeholder="项目总造价.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">元</span>
                                 </div>
+                                <div class="help-block" id="TotalCostErrorMsg" style="color:red"></div>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ContractMoney">项目合同金额</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="ContractMoney" placeholder="项目合同金额.." onkeyup="this.value=clearNoNum(this.value)">
+                                    <span class="input-group-addon">元</span>
+                                </div>
+                                <div class="help-block" id="ContractMoneyErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Address">项目地址</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="Address" placeholder="项目地址..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Content">项目内容</label>
+                            <div class="col-xs-12">
+                                <textarea class="form-control" id="Content" rows="6" placeholder="内容.."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" onclick="closeCreateProjectModal()">关闭</button>

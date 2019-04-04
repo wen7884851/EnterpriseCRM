@@ -10,6 +10,7 @@ namespace Core.Service
     {
         #region 属性
         IQueryable<ProjectPoint> projectPoints { get; }
+        IQueryable<PointProfessionalType> pointProfessionalTypes { get; }
         #endregion
 
         #region 方法
@@ -17,7 +18,7 @@ namespace Core.Service
         int[] GetUserIdsByProjectId(int projectId);
         ProjectPointViewModel GetPointById(int pointId);
         int[] GetPointUserId(int pointId);
-        IEnumerable<ProjectPoint> GetPointListByProjectId(int projectId);
+        IEnumerable<ProjectPointViewModel> GetProjectPointListByProjectId(int projectId);
         ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point);
         ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point);
         void InitProjectPointCommission(int projectId);

@@ -61,6 +61,11 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             //如果是负责人这个UserId不需要赋值
             return Json(_projectPointManager.GetProjectPointListByQuery(queryModel));
         }
+        [HttpPost]
+        public ActionResult GetProjectContractMoneyById(int projectId)
+        {
+            return Json(_projectService.projects.FirstOrDefault(t => t.Id == projectId).ContractMoney);
+        }
 
         [HttpPost]
         public ActionResult CreateProject(ProjectViewModel model)
