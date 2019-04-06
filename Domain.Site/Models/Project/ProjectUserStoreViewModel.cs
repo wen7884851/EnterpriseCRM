@@ -11,11 +11,11 @@ namespace Domain.Site.Models
     public class ProjectUserStoreViewModel
     {
         public int? Id { get; set; }
-        public int ProjectPointId { get; set; }
+        public int? ProjectPointId { get; set; }
         public int? UserId { get; set; }
         public string UserName { get; set; }
         public string StoreContent { get; set; }
-        public decimal? StoreProportion { get; set; }
+        public decimal? UserProportion { get; set; }
         public string CreateTime { get; set; }
         public bool DeleteItem { get; set; }
     }

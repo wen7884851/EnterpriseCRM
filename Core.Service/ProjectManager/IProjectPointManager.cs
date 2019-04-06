@@ -21,7 +21,9 @@ namespace Core.Service
         IEnumerable<ProjectPointViewModel> GetProjectPointListByProjectId(int projectId);
         ActionResultViewModel CreateProjectPoint(ProjectPointViewModel point);
         ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point);
+        ActionResultViewModel DeleteProjectPoint(int pointId);
         void InitProjectPointCommission(int projectId);
+        decimal GetPointRestProportion(int pointId);
         #endregion
     }
 }

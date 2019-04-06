@@ -14,7 +14,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
     public class ProjectUserStoreController : Controller
     {
         [Import]
-        private IProjectUserStoreManager _projectUserStoreManager;
+        private IProjectUserStoreManager _projectUserStoreManager { get; set; }
         // GET: Project/ProjectUserStore
         public ActionResult Index()
         {
@@ -56,5 +56,6 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         {
             return Json(_projectUserStoreManager.GetUserStoreListByQuery(query));
         }
+
     }
 }

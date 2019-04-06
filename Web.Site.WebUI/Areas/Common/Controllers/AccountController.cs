@@ -24,7 +24,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #region 属性
         [Import]
-        private IUserService _userService;
+        private IUserService _userService { get; set; }
 
         #endregion
 

@@ -17,7 +17,7 @@ namespace Domain.DB.Mapping
             Property(t => t.ProjectId).HasColumnName("ProjectId");
             Property(t => t.PointName).HasColumnName("PointName");
             Property(t => t.Status).HasColumnName("Status");
-            Property(t => t.PonitContent).HasColumnName("PonitContent");
+            Property(t => t.PointContent).HasColumnName("PointContent");
             Property(t => t.PointProportion).HasColumnName("PointProportion");
             Property(t => t.CreateId).HasColumnName("CreateId");
             Property(t => t.CreateBy).HasColumnName("CreateBy");

@@ -19,6 +19,7 @@ namespace Core.Service
         ActionResultViewModel SetProjectProportion(ProjectViewModel model);
         decimal GetUserProjectSouceByUserId(int UserId);
         int GetProjectUserCount(int projectId);
+        decimal? GetProjectRestProportion(int projectId);
         PageResult<ProjectViewModel> GetCurrentUserProjectViewModel(ProjectSerchModel model);
         #endregion
     }

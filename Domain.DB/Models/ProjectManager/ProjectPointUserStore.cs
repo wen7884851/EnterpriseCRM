@@ -11,7 +11,6 @@ namespace Domain.DB.Models
     {
         public int? UserId { get; set; }
         public string StoreContent { get; set; }
-        public decimal? UserFund { get; set; }
         public decimal? UserProportion { get; set; }
         public int? ProjectPointId { get; set; }
         public virtual ProjectPoint projectPoint { get; set; }

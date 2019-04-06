@@ -17,9 +17,9 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
     {
         #region 属性
         [Import]
-        private IProjectManager _projectService;
+        private IProjectManager _projectService { get; set; }
         [Import]
-        private IProjectPointManager _projectPointManager;
+        private IProjectPointManager _projectPointManager { get; set; }
 
         #endregion
         // GET: Project/Project
@@ -47,7 +47,11 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         {
             return Json(Mapper.Map<ProjectViewModel>(_projectService.projects.FirstOrDefault(t => t.Id == projectId)));
         }
-
+        [HttpPost]
+        public ActionResult GetProjectRestProportion(int projectId)
+        {
+            return Json(_projectService.GetProjectRestProportion(projectId));
+        }
         [HttpPost]
         public ActionResult ProjectList(ProjectSerchModel query)
         {
@@ -64,7 +68,8 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         [HttpPost]
         public ActionResult GetProjectContractMoneyById(int projectId)
         {
-            return Json(_projectService.projects.FirstOrDefault(t => t.Id == projectId).ContractMoney);
+            var ContractMoney = _projectService.projects.FirstOrDefault(t => t.Id == projectId).ContractMoney;
+            return Json(ContractMoney);
         }
 
         [HttpPost]

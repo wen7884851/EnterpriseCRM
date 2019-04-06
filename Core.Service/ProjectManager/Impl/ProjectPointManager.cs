@@ -21,6 +21,10 @@ namespace Core.Service.ProjectManager.Impl
         private IProjectPointRepository _projectPointsRepository { get; set; }
         [Import]
         private IPointProfessionalTypeRepository _pointProfessionalTypeRepository { get; set; }
+        [Import]
+        private IProjectManager _projectManager { get; set; }
+        [Import]
+        private IProjectUserStoreManager  _projectUserStoreManager { get; set; }
         public IQueryable<ProjectPoint> projectPoints
         {
             get { return _projectPointsRepository.NoCahecEntities; }
@@ -28,6 +32,17 @@ namespace Core.Service.ProjectManager.Impl
         public IQueryable<PointProfessionalType> pointProfessionalTypes
         {
             get { return _pointProfessionalTypeRepository.NoCahecEntities; }
+        }
+
+        public decimal GetPointRestProportion(int pointId)
+        {
+            var point = projectPoints.FirstOrDefault(t => t.Id == pointId);
+            decimal restProportion = point.PointProportion.Value;
+            foreach (var store in point.projectPointUserStores)
+            {
+                restProportion -= store.UserProportion.Value;
+            }
+            return restProportion;
         }
 
         public PageResult<ProjectPointViewModel> GetProjectPointListByQuery(ProjectPointQueryModel queryModel)
@@ -40,7 +55,7 @@ namespace Core.Service.ProjectManager.Impl
                 ProjectId = t.ProjectId,
                 PointName = t.PointName,
                 PointProportion = t.PointProportion,
-                PointContent = t.PonitContent,
+                PointContent = t.PointContent,
                 CreateTime = t.CreateTime.Value.ToLocalTime().ToString()
             }).OrderByDescending(t=>t.CreateTime).ToList();
             var result = new PageResult<ProjectPointViewModel>()
@@ -59,24 +74,32 @@ namespace Core.Service.ProjectManager.Impl
             };
             if((point != null)&& point.ProjectId!=null)
             {
-                var projectPointDTO = Mapper.Map<ProjectPoint>(point);
-                try
+                var restProportion = _projectManager.GetProjectRestProportion(point.ProjectId.Value) - point.PointProportion;
+                if (restProportion >= 0)
                 {
-                    using (UnitOfWork tran = new UnitOfWork())
+                    var projectPointDTO = Mapper.Map<ProjectPoint>(point);
+                    try
                     {
-                        projectPointDTO.Status = 1;
-                        projectPointDTO.Create();
-                        _projectPointsRepository.Insert(projectPointDTO);
-                        tran.Commit();
-                        result.Result = projectPointDTO.Id;
-                        result.IsSuccess = true;
+                        using (UnitOfWork tran = new UnitOfWork())
+                        {
+                            projectPointDTO.Status = 1;
+                            projectPointDTO.Create();
+                            _projectPointsRepository.Insert(projectPointDTO);
+                            tran.Commit();
+                            result.Result = restProportion;
+                            result.IsSuccess = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        result.IsSuccess = false;
+                        result.Result = ex.Message;
+                        return result;
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    result.IsSuccess = false;
-                    result.Result = ex.Message;
-                    return result;
+                    result.Result = "已超出项目提成占比"+(-restProportion).ToString()+"%";
                 }
             }
             else
@@ -88,16 +111,69 @@ namespace Core.Service.ProjectManager.Impl
 
         public ActionResultViewModel UpdateProjectPoint(ProjectPointViewModel point)
         {
-            var result = CheckUpdatePoint(point);
-            if (result.IsSuccess)
+            var result = new ActionResultViewModel()
             {
-                var pointDTO = projectPoints.FirstOrDefault(t => t.Id == point.Id);
-                
-                using (UnitOfWork tran = new UnitOfWork())
+                IsSuccess = false
+            };
+            if ((point != null) && point.Id != null)
+            {
+                var projectPointDTO = projectPoints.FirstOrDefault(t => t.Id == point.Id);
+                var restProportion = _projectManager.GetProjectRestProportion(projectPointDTO.ProjectId.Value) - point.PointProportion+ projectPointDTO.PointProportion;
+                if (restProportion >= 0)
                 {
-                    _projectPointsRepository.Update(pointDTO);
-                    tran.Commit();
+                    try
+                    {
+                        using (UnitOfWork tran = new UnitOfWork())
+                        {
+                            projectPointDTO.Status = point.Status;
+                            projectPointDTO.ProfessionalTypeId = point.ProfessionalTypeId;
+                            projectPointDTO.PointContent = point.PointContent;
+                            projectPointDTO.PointProportion = point.PointProportion;
+                            projectPointDTO.Modify();
+                            _projectPointsRepository.Update(projectPointDTO);
+                            tran.Commit();
+                            result.Result = restProportion;
+                            result.IsSuccess = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        result.IsSuccess = false;
+                        result.Result = ex.Message;
+                        return result;
+                    }
                 }
+                else
+                {
+                    result.Result = "已超出项目提成占比" + (-restProportion).ToString() + "%";
+                }
+            }
+            else
+            {
+                result.Result = "数据有误，请查证！";
+            }
+            return result;
+        }
+
+        public ActionResultViewModel DeleteProjectPoint(int pointId)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false
+            };
+            var point = projectPoints.FirstOrDefault(t => t.Id == pointId);
+            if(point!=null)
+            {
+                foreach(var store in point.projectPointUserStores)
+                {
+                    _projectUserStoreManager.DeleteUserStoreById(store.Id);
+                }
+                _projectPointsRepository.Delete(pointId);
+                result.IsSuccess = true;
+            }
+            else
+            {
+                result.Result = "point不存在！";
             }
             return result;
         }
@@ -156,18 +232,22 @@ namespace Core.Service.ProjectManager.Impl
 
         public IEnumerable<ProjectPointViewModel> GetProjectPointListByProjectId(int projectId)
         {
-            var pointDTOList = projectPoints.Where(t => t.ProjectId == projectId);
-            var pointViewModelList = pointDTOList.Select(t => Mapper.Map<ProjectPointViewModel>(t));
-            foreach (var point in pointDTOList)
+            if (projectId > 0)
             {
-                pointViewModelList.FirstOrDefault(t => t.Id == point.Id).ProfessionalTypeName = point.professionalType.TypeName;
+                var pointDTOList = projectPoints.Where(t => t.ProjectId == projectId).ToList();
+                var pointViewModelList =Mapper.Map<List<ProjectPointViewModel>>(pointDTOList);
+                foreach (var point in pointDTOList)
+                {
+                    pointViewModelList.FirstOrDefault(t => t.Id == point.Id).ProfessionalTypeName = point.professionalType.TypeName;
+                }
+                return pointViewModelList;
             }
-            return pointViewModelList;
+            return null;         
         }
 
         public ProjectPointViewModel GetPointById(int pointId)
         {
-            var point = projectPoints.FirstOrDefault(t=>t.Id== pointId);
+            var point = projectPoints.FirstOrDefault(t=>t.Id== pointId&&t.IsDeleted==false);
             return Mapper.Map<ProjectPointViewModel>(point);
         }
 

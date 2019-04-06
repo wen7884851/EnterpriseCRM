@@ -18,7 +18,7 @@ namespace Domain.DB.Models
         public int? ProfessionalTypeId { get; set; }
         public string PointName { get; set; }
         public int? Status { get; set; }
-        public string PonitContent { get; set; }
+        public string PointContent { get; set; }
         public decimal? PointProportion { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }

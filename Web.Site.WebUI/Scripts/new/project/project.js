@@ -82,7 +82,6 @@ function OpenCreateProjectModal() {
                 let userHtml = '<option value="0" selected>请选择</option>';
                 result.forEach(i => {
                     userHtml += '<option value="' + i.value + '">' + i.text + '</option>';
-                    
                 });
                 $("#ProjectLeader").html(userHtml);
                 $('#projectModal').modal('show');

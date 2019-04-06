@@ -32,7 +32,7 @@
                             <label class="col-xs-12" for="PointProportion">分项占比</label>
                             <div class="col-xs-12">
                                 <div class="input-group m-b-10">
-                                    <input class="form-control" type="text" id="PointProportion" placeholder="分项占比.." onkeyup="this.value=onChangePointProportion(this.value)">
+                                    <input class="form-control" type="text" id="PointProportion" placeholder="分项占比.." onkeyup="this.value=onChangePointProportion(this.value,$('#PointContractMoney'))">
                                     <span class="input-group-addon">%</span>
                                 </div>
                                 <div class="help-block" id="PointProportionErrorMsg" style="color:red"></div>
@@ -59,10 +59,10 @@
                     </div>
                 </div>
             </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button class="btn btn-label btn-primary" onclick="CreateProjectPoint()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button class="btn btn-label btn-primary" onclick="CreateProjectPoint()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
+            </div>
             </div>
     </div>
 </div>

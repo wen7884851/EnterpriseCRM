@@ -1,4 +1,5 @@
-﻿using Core.Service;
+﻿using AutoMapper;
+using Core.Service;
 using Core.Service.Authen;
 using Domain.Site.Models;
 using System;
@@ -15,8 +16,9 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
     public class ProjectPointManagerController : Controller
     {
         [Import]
-        private IProjectPointManager _projectPointManager;
-
+        private IProjectPointManager _projectPointManager { get; set; }
+        [Import]
+        private IUserService _userService { get; set; }
         public ActionResult Index()
         {
             return View();
@@ -24,7 +26,23 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         [HttpPost]
          public ActionResult GetProjectPointListByProjectId(int projectId)
         {
-            return Json(_projectPointManager.GetProjectPointListByProjectId(projectId));
+            var pointList = _projectPointManager.GetProjectPointListByProjectId(projectId);
+            return Json(pointList);
+        }
+        [HttpPost]
+        public ActionResult GetPointById(int pointId)
+        {
+            return Json(_projectPointManager.GetPointById(pointId));
+        }
+
+        [HttpPost]
+        public ActionResult GetExportCurrentPointUser(int pointId)
+        {
+            var point = _projectPointManager.projectPoints.FirstOrDefault(t => t.Id == pointId&&t.IsDeleted==false);
+            var exportCurrentPointUser = _userService.GetAllUser()
+                .Where(t=>!point.projectPointUserStores.Select(u => u.UserId.Value).Contains(t.Id))
+                .Select(t=>new {value=t.Id, text=t.LoginName });
+            return Json(exportCurrentPointUser);
         }
 
         [HttpPost]
@@ -37,6 +55,16 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         public ActionResult CreateProjectPoint(ProjectPointViewModel model)
         {
            return Json(_projectPointManager.CreateProjectPoint(model));
+        }
+        [HttpPost]
+        public ActionResult UpdateProjectPoint(ProjectPointViewModel model)
+        {
+            return Json(_projectPointManager.UpdateProjectPoint(model));
+        }
+        [HttpPost]
+        public ActionResult DeleteProjectPoint(int pointId)
+        {
+            return Json(_projectPointManager.DeleteProjectPoint(pointId));
         }
     }
 }

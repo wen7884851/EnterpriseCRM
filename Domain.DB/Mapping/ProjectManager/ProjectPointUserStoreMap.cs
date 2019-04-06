@@ -15,7 +15,6 @@ namespace Domain.DB.Mapping
             this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.UserId).HasColumnName("UserId");
             Property(t => t.StoreContent).HasColumnName("StoreContent");
-            Property(t => t.UserFund).HasColumnName("UserFund");
             Property(t => t.ProjectPointId).HasColumnName("ProjectPointId");
             Property(t => t.UserProportion).HasColumnName("UserProportion");
             Property(t => t.CreateId).HasColumnName("CreateId");

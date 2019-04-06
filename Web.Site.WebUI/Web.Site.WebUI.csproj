@@ -647,6 +647,10 @@
     <Content Include="Areas\Project\Views\ProjectManager\Edit.cshtml" />
     <Content Include="Areas\Project\Views\ProjectPointManager\index.cshtml" />
     <Content Include="Areas\Project\Views\ProjectPointManager\CreatePoint.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\CreateUserStore.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\EditPoint.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\DeletePoint.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectPointManager\EditUserStore.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />

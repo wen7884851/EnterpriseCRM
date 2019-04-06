@@ -7,9 +7,10 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-toolbar clearfix">
-                    <h4>项目列表</h4>
+                    <h4 id="RestProportion"></h4>
                     <label hidden id="ProjectId"></label>
                     <label hidden id="ContractMoney"></label>
+                    <label hidden id="ProjectName"></label>
                 </div>
                 <div class="toolbar-btn-action" style="float:right;margin-top: 20px;">
                     <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" onclick="OpenCreateProjectPointModal();">
@@ -20,6 +21,10 @@
         </div>
     </div>
     @Html.Partial("CreatePoint")
+    @Html.Partial("CreateUserStore")
+    @Html.Partial("EditPoint")
+    @Html.Partial("DeletePoint")
+    @Html.Partial("EditUserStore")
     <div id="pointList"></div>
 </div>
 

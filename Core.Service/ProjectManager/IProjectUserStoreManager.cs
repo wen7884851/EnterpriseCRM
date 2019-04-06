@@ -12,7 +12,7 @@ namespace Core.Service
     {
         IQueryable<ProjectPointUserStore> projectPointUserStores { get; }
         ProjectUserStoreViewModel GetUserStoreById(int storeId);
-        int CreateProjectUserStore(ProjectUserStoreViewModel model);
+        ActionResultViewModel CreateProjectUserStore(ProjectUserStoreViewModel model);
         ActionResultViewModel UpdateProjectUserStore(ProjectUserStoreViewModel model);
         ActionResultViewModel DeleteUserStoreById(int storeId);
         PageResult<ProjectUserStoreViewModel> GetUserStoreListByQuery(ProjectUserStoreQueryModel queryModel);

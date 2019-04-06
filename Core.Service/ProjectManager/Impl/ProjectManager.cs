@@ -30,19 +30,34 @@ namespace Core.Service.ProjectManager.Impl
             get { return _projectRepository.NoCahecEntities; }
         }
 
+        #endregion
+
+        #region 公共方法
         public IQueryable<Project> GetCurrentUserProject()
         {
             var user = OperatorProvider.Provider.GetCurrent();   //OperatorProvider.Provider.GetCurrent();
             var userStoreProject = _projectPointManager.projectPoints
-                .Where(t => (t.projectPointUserStores.Select(x=>x.Id).Contains(user.UserId))&&t.IsDeleted==false)
-                .Select(t=>t.project);
-            var projectList =projects.Where(p => p.ProjectLeader == user.UserId);
+                .Where(t => (t.projectPointUserStores.Select(x => x.Id).Contains(user.UserId)) && t.IsDeleted == false)
+                .Select(t => t.project);
+            var projectList = projects.Where(p => p.ProjectLeader == user.UserId);
             projectList.Concat(userStoreProject);
             return projectList;
         }
-        #endregion
 
-        #region 公共方法
+        public decimal? GetProjectRestProportion(int projectId)
+        {
+            var project = projects.FirstOrDefault(t => t.Id == projectId&&t.IsDeleted==false);
+            if (project != null)
+            {
+                decimal restProportion = project.CommissionProportion.Value;
+                foreach (var point in project.points)
+                {
+                    restProportion -= point.PointProportion.Value;
+                }
+                return restProportion;
+            }
+            return null;
+        }
         public int UpdateProject(ProjectViewModel projectViewModel)
         {
             var projectDTO = projects.FirstOrDefault(t => t.Id == projectViewModel.Id);

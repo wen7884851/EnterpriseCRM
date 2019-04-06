@@ -1,0 +1,80 @@
+﻿<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="editPointModalLabel" id="editPointModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editPointModalLabel">编辑项目分项</h4>
+                <label hidden id="EPoint"></label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EPointStatus">分项状态</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="EPointStatus" size="1" style="height: 38px;" onchange="onchangePointStatus()">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EPointName">分项名称</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="EPointName" placeholder="分项名称..">
+                                <div class="help-block" id="EPointNameErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EProfessionalType">专业类别</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="EProfessionalType" size="1" style="height: 38px;"></select>
+                                <div class="help-block" id="EProfessionalTypeErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EPointProportion">分项占比</label>
+                            <div class="col-xs-12">
+                                <div class="input-group m-b-10">
+                                    <input class="form-control" type="text" id="EPointProportion" placeholder="分项占比.." onkeyup="this.value=onChangePointProportion(this.value,$('#EPointContractMoney'))">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <div class="help-block" id="EPointProportionErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12">占比项目合同金额（元）</label>
+                            <div class="col-xs-12">
+                                <div class="form-control-static" id="EPointContractMoney"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="EContent">分项简介</label>
+                            <div class="col-xs-12">
+                                <textarea class="form-control" id="EContent" rows="6" placeholder="分项简介.."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button class="btn btn-label btn-primary" onclick="EditProjectPoint()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 保存</button>
+            </div>
+        </div>
+    </div>
+</div>

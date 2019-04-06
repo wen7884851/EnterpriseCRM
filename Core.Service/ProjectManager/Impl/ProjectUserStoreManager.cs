@@ -21,7 +21,7 @@ namespace Core.Service.ProjectManager.Impl
         [Import]
         private IProjectUserStoreRepository _projectUserStoreRepository { get; set; }
         [Import]
-        private IProjectPointRepository _projectPointRepository { get; set; }
+        private IProjectPointManager _projectPointManager { get; set; }
         [Import]
         private IUserService _userService { get; set; }
 
@@ -43,8 +43,7 @@ namespace Core.Service.ProjectManager.Impl
 
         public IEnumerable<ProjectUserStoreViewModel> GetUserStoreListByPointId(int pointId)
         {
-            var userStoreList = projectPointUserStores.Where(t => t.ProjectPointId == pointId)
-                .Select(t=>Mapper.Map<ProjectUserStoreViewModel>(t));
+            var userStoreList = Mapper.Map<List<ProjectUserStoreViewModel>>(projectPointUserStores.Where(t => t.ProjectPointId == pointId).ToList());
             foreach(var userStore in userStoreList)
             {
                 userStore.UserName = _userService.Users.FirstOrDefault(t => t.Id == userStore.UserId).LoginName;
@@ -53,18 +52,33 @@ namespace Core.Service.ProjectManager.Impl
         }
 
 
-        public int CreateProjectUserStore(ProjectUserStoreViewModel model)
+        public ActionResultViewModel CreateProjectUserStore(ProjectUserStoreViewModel model)
         {
-            var projectUserStoreDTO = Mapper.Map<ProjectPointUserStore>(model);
-            projectUserStoreDTO.Create();
-            int storeId = 0;
-            using (UnitOfWork tran = new UnitOfWork())
+            var result = new ActionResultViewModel()
             {
-                _projectUserStoreRepository.Insert(projectUserStoreDTO);
-               tran.Commit();
+                IsSuccess = false
+            };
+            if ((model != null) && model.ProjectPointId != null)
+            {
+                var restProportion = _projectPointManager.GetPointRestProportion(model.ProjectPointId.Value) - model.UserProportion;
+                if (restProportion >= 0)
+                {
+                    var projectUserStoreDTO = Mapper.Map<ProjectPointUserStore>(model);
+                    projectUserStoreDTO.Create();
+                    _projectUserStoreRepository.Insert(projectUserStoreDTO);
+                    result.Result = restProportion;
+                    result.IsSuccess = true;
+                }
+                else
+                {
+                    result.Result = "已超出项目分项提成占比" + (-restProportion).ToString() + "%";
+                }
             }
-            storeId = projectUserStoreDTO.Id;
-            return storeId;
+            else
+            {
+                result.Result = "数据有误，请查证！";
+            }
+            return result;
         }
 
         public ProjectUserStoreViewModel GetUserStoreById(int storeId)
