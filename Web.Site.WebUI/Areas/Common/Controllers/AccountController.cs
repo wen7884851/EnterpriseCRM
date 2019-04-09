@@ -45,9 +45,10 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public ActionResult ForgetPwd()
+        public ActionResult ChangePwd(UserAccountViewModel model)
         {
-            return PartialView();
+            model.userId = OperatorProvider.Provider.GetCurrent().UserId;
+            return Json(_userService.ChangeUserPassWord(model));
         }
 
         [HttpPost]

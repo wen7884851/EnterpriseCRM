@@ -17,6 +17,7 @@ namespace Core.Service.Authen
         UserViewModel GetUserModelById(int userId);
         UserViewModel GetUserModelByToken(string token);
         ActionResultViewModel CheckLogin(UserAccountViewModel user);
+        ActionResultViewModel ChangeUserPassWord(UserAccountViewModel user)
         #endregion
     }
 }

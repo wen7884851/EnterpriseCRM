@@ -104,7 +104,7 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户名输入密码错误次数超过5次，请5分钟后再登录！";
                 return result;
             }
-            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd).ToLower())
+            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd))
             {
                 result.Result = "密码错误，请确定后重新输入！";
                 UpdateUserLoginError(userAccount.userId);
@@ -116,6 +116,24 @@ namespace Core.Service.Authen.Impl
                 return result;
             }
             result=Login(userAccount.userId);
+            return result;
+        }
+
+        public ActionResultViewModel ChangeUserPassWord(UserAccountViewModel user)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false,
+            };
+            var userDto = Users.FirstOrDefault(t => t.Id == user.userId);
+            if (userDto.LoginPwd != MD5Provider.GetMD5String(user.LoginPwd))
+            {
+                result.Result = "用户原密码输入错误,请重新输入！";
+                return result;
+            }
+            userDto.LoginPwd = MD5Provider.GetMD5String(user.NewLoginPwd);
+            UserRepository.Update(userDto);
+            result.IsSuccess = true;
             return result;
         }
         #endregion
