@@ -10,7 +10,9 @@
     CreateUserStore: '/Project/ProjectUserStore/CreateUserStore',
     EditProjectPoint: '/Project/ProjectPointManager/UpdateProjectPoint',
     DeletePoint: '/Project/ProjectPointManager/DeleteProjectPoint',
-    GetUserStoreById:'/Project/ProjectUserStore/GetUserStoreById'
+    GetUserStoreById: '/Project/ProjectUserStore/GetUserStoreById',
+    EditUserStore: '/Project/ProjectUserStore/UpdateUserStore',
+    DeleteUserStore:'/Project/ProjectUserStore/DeleteUserStore'
 };
 
 init();
@@ -204,8 +206,8 @@ function getCardTable(userStore) {
     html += ' <td>' + userStore.UserName + '</td>';
     html += ' <td>' + userStore.StoreContent + '</td>';
     html += ' <td>' + userStore.UserProportion + '</td>';
-    let btnArray = '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditUserStoreModal(' + userStore.Id + ')"></i></a>';
-    btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteUserStoreModal(' + userStore.Id + ')"></i></a>';
+    let btnArray = '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditUserStoreModal(' + userStore.Id + ',' + userStore.ProjectPointId+')"></i></a>';
+    btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteEditStoreModal(' + userStore.Id + ',' + userStore.ProjectPointId +')"></i></a>';
     html += ' <td>' + btnArray + '</td><tr>';
     return html;
 }
@@ -340,13 +342,14 @@ function CreateUserStore() {
                 else {
                     setTimeout(function () { lightyear.notify('无项目数据，请查证！', 'warning'); }, 1e3);
                 }
+                lightyear.loading('hide');
             }
         });
     }
     else {
         setTimeout(function () { lightyear.notify('请填写完整信息！', 'warning'); }, 1e3);
     }
-    lightyear.loading('hide');
+    
 }
 function getUserStoreHtmlValue() {
     let userStore = $("#UserStore");
@@ -568,9 +571,69 @@ function deletePoint() {
 }
 
 function EditUserStore() {
-
+    lightyear.loading('show');
+    if (checkEditUserStore()) {
+        let userStore = getEditUserStoreHtmlValue();
+        $.ajax({
+            type: 'post',
+            url: actionUrl.EditUserStore,
+            data: userStore,
+            async: false,
+            success: function (result) {
+                if (result) {
+                    if (result.IsSuccess) {
+                        let msg = '编辑成功！';
+                        if (parseFloat(result.Result) > 0) {
+                            msg += '分项剩余可分配点数为' + result.Result + '%';
+                        }
+                        else {
+                            msg += '项目分项已完全分配到各成员！';
+                        }
+                        setTimeout(function () { lightyear.notify(msg, 'success'); }, 1e3);
+                        $('#editUserStoreModal').modal('hide');
+                        RefreshPoint(userStore.ProjectPointId);
+                    }
+                    else {
+                        setTimeout(function () { lightyear.notify(result.Result, 'warning'); }, 1e3);
+                    }
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('无项目数据，请查证！', 'warning'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            }
+        });
+    }
+    else {
+        setTimeout(function () { lightyear.notify('请填写完整信息！', 'warning'); }, 1e3);
+    }
 }
-function OpenEditUserStoreModal(storeId) {
+function getEditUserStoreHtmlValue() {
+    let userStore = $("#EUserStore");
+    let userId = parseInt(userStore[0].options[userStore[0].selectedIndex].value);
+    return {
+        Id: $('#EStore').val(), ProjectPointId: $('#EProjectPointId').val(), UserId: userId, StoreContent: $('#EStoreContent').val()
+        , UserProportion: $('#EStoreProportion').val()
+    };
+}
+function checkEditUserStore() {
+    clearEditStoreErrorMsg();
+    let isCheck = true;
+    let pointProportion = parseFloat($('#pointProportion').val());
+    let currentProportion = parseFloat($('#EStoreProportion').val());
+    if (currentProportion > pointProportion) {
+        $('#EStoreProportionErrorMsg').html('成员占比大于分项占比，请重新填写！');
+        isCheck = false;
+    }
+    let userStore = $("#EUserStore");
+    let userId = parseInt(userStore[0].options[userStore[0].selectedIndex].value);
+    if (userId < 1) {
+        $("#EUserStoreErrorMsg").html('请选择成员');
+        isCheck = false;
+    }
+    return isCheck;
+}
+function OpenEditUserStoreModal(storeId,pointId) {
     lightyear.loading('show');
     clearEditStoreErrorMsg();
     $.ajax({
@@ -581,6 +644,7 @@ function OpenEditUserStoreModal(storeId) {
         success: function (result) {
             if (result) {
                 $('#EStore').val(storeId);
+                $('#EProjectPointId').val(pointId);
                 SetEditStoreHtmlValue(result);
                 $('#editUserStoreModal').modal('show');
             }
@@ -595,7 +659,6 @@ function clearEditStoreErrorMsg() {
     $('#EStoreProportionErrorMsg').html('');
     $('#EUserStoreErrorMsg').html('');
 }
-
 function SetEditStoreHtmlValue(store) {
     $.ajax({
         type: 'post',
@@ -623,4 +686,36 @@ function SetEditStoreHtmlValue(store) {
     let userContractMoney = contractMoney * store.UserProportion / 100;
     $('#EUserContractMoney').html(userContractMoney);
     $("#EStoreContent").val(store.StoreContent);
+}
+
+function OpenDeleteEditStoreModal(storeId, DPointId) {
+    $('#DStoreId').val(storeId);
+    $('#DeleteStoreModal').modal('show');
+    $('#DpointId').val(DPointId);
+}
+function deleteStore() {
+    lightyear.loading('show');
+    let storeId = $('#DStoreId').val();
+    $.ajax({
+        type: 'post',
+        url: actionUrl.DeleteUserStore,
+        data: { storeId: storeId },
+        async: false,
+        success: function (result) {
+            if (result) {
+                if (result.IsSuccess) {
+                    RefreshPoint($('#DpointId').val());
+                    setTimeout(function () { lightyear.notify('删除分项成功！', 'success'); }, 1e3);
+                    $('#DeleteStoreModal').modal('hide');
+                }
+                else {
+                    setTimeout(function () { lightyear.notify(result.Result, 'warning'); }, 1e3);
+                }
+            }
+            else {
+                setTimeout(function () { lightyear.notify('删除分项失败！', 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
 }

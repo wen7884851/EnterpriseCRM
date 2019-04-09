@@ -119,44 +119,28 @@ namespace Core.Service.ProjectManager.Impl
             };
             if (model.Id>0)
             {
-                var projectUserStoreDTO = _projectUserStoreRepository.Entities.FirstOrDefault(t=>t.Id==model.Id);
-                UpdateStoreModel(model, projectUserStoreDTO);
-                using (UnitOfWork tran = new UnitOfWork())
+                var projectUserStoreDTO = projectPointUserStores.FirstOrDefault(t=>t.Id==model.Id);
+                var restProportion=_projectPointManager.GetPointRestProportion(model.ProjectPointId.Value) - model.UserProportion + projectUserStoreDTO.UserProportion;
+                if (restProportion >= 0)
                 {
-                     _projectUserStoreRepository.Update(projectUserStoreDTO);
-                    tran.Commit();
+                    projectUserStoreDTO.UserId = model.UserId;
+                    projectUserStoreDTO.StoreContent = model.StoreContent;
+                    projectUserStoreDTO.UserProportion = model.UserProportion;
+                    projectUserStoreDTO.Modify();
+                    _projectUserStoreRepository.Update(projectUserStoreDTO);
+                    result.IsSuccess = true;
+                    result.Result = restProportion;
                 }
-                result.IsSuccess = true;
+                else
+                {
+                    result.Result = "已超出分项占比" + (-restProportion).ToString() + "%";
+                }    
             }
             else
             {
-                result.Result = "数据更新异常";
+                result.Result = "store不存在！";
             }
             return result;
-        }
-
-        private void UpdateStoreModel(ProjectUserStoreViewModel model, ProjectPointUserStore entity)
-        {
-            entity.StoreContent = model.StoreContent;
-            if((model.UserId!=null)&&model.UserId>0)
-            {
-                entity.UserId = model.UserId;
-            }
-        }
-
-        public int DeleteProjectUserStore(int userStoreId)
-        {
-            int storeId = 0;
-            if (userStoreId>0)
-            {
-                var projectUserStoreDTO = projectPointUserStores.FirstOrDefault(t => t.Id == userStoreId);
-                projectUserStoreDTO.IsDeleted = true;
-                using (UnitOfWork tran = new UnitOfWork())
-                {
-                    storeId = _projectUserStoreRepository.Update(projectUserStoreDTO);
-                }
-            }
-            return storeId;
         }
 
         public PageResult<ProjectUserStoreViewModel> GetUserStoreListByQuery(ProjectUserStoreQueryModel queryModel)
