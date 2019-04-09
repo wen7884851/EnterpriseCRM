@@ -80,10 +80,10 @@
     <Compile Include="Models\Authen\Permission.cs" />
     <Compile Include="Models\Authen\Resources.cs" />
     <Compile Include="Models\Authen\Role.cs" />
+    <Compile Include="Models\Authen\RoleModule.cs" />
     <Compile Include="Models\Authen\SystemSite.cs" />
     <Compile Include="Models\Authen\User.cs" />
     <Compile Include="Models\Authen\UserProfile.cs" />
-    <Compile Include="Models\Authen\UserRole.cs" />
     <Compile Include="Models\Formula\Formula.cs" />
     <Compile Include="Models\Formula\FormulaItem.cs" />
     <Compile Include="Models\ProjectManager\Project.cs" />

@@ -11,12 +11,11 @@ namespace Domain.DB.Models
     {
         public Role()
         {
-			this.UserRole = new List<UserRole>();
+			this.Users = new List<User>();
         }
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public int OrderSort { get; set; }
         public bool Enabled { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
@@ -25,6 +24,6 @@ namespace Domain.DB.Models
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
 
-        public virtual ICollection<UserRole> UserRole { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

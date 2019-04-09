@@ -10,6 +10,7 @@ namespace Framework.Tool.Operator
         public string Email { get; set; }
         public string Phone { get; set; }
         public bool Enabled { get; set; }
+        public bool IsFirstLogin { get; set; }
         public string AppKey { get; set; }
         public int? PwdErrorCount { get; set; }
         public int? LoginCount { get; set; }

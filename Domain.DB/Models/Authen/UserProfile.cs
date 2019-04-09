@@ -10,6 +10,7 @@ namespace Domain.DB.Models
     {
         public int UserId { get; set; }
         public string FullName { get; set; }
+        public string IDCardNo { get; set; }
         public string Aptitude { get; set; }
         public string Education { get; set; }
         public string Birthday { get; set; }
@@ -23,5 +24,6 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

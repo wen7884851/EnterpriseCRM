@@ -160,6 +160,7 @@ namespace Core.Service.Authen.Impl
                 LoginCount= user.LoginCount,
                 RegisterTime= user.RegisterTime,
                 Token = user.Token,
+                IsFirstLogin=user.isFirstLogin
             };
             result.LoginIPAddress = Net.Ip;
             result.LoginIPAddressName = Net.Host;

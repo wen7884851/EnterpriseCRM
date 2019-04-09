@@ -28,7 +28,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #endregion
 
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }

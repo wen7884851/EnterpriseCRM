@@ -21,7 +21,7 @@ namespace Domain.DB
         {
             var users = new List<User>
             {
-                new User{LoginName="admin",LoginPwd="123456",IsDeleted=false,Enabled=true}
+                new User{LoginName="admin",LoginPwd="123456",IsDeleted=false,Enabled=true,isFirstLogin=true}
             };
             var userSet = context.Set<User>();
             if (userSet.FirstOrDefault(t => t.LoginName== "admin") == null)

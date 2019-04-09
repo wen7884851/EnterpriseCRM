@@ -265,6 +265,8 @@
     <Compile Include="Areas\Project\Controllers\ProjectPointManagerController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectUserStoreController.cs" />
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
+    <Compile Include="Areas\System\Controllers\RoleController.cs" />
+    <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Common\AdminController.cs" />
     <Compile Include="Common\ConfigSettingHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -576,7 +578,7 @@
     <Content Include="Areas\Common\Views\Error\Page404.cshtml" />
     <Content Include="Areas\Common\Views\Error\Page500.cshtml" />
     <Content Include="Areas\Common\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Common\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Account\Login.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_BreadCrumb.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_Footer.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_FormModal.cshtml" />
@@ -652,6 +654,8 @@
     <Content Include="Areas\Project\Views\ProjectPointManager\DeletePoint.cshtml" />
     <Content Include="Areas\Project\Views\ProjectPointManager\EditUserStore.cshtml" />
     <Content Include="Areas\Project\Views\ProjectPointManager\DeleteStore.cshtml" />
+    <Content Include="Areas\System\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Dashboard\SetUserProfile.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />

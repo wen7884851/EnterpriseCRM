@@ -50,6 +50,7 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.PwdErrorCount).HasColumnName("PwdErrorCount");
             this.Property(t => t.LoginCount).HasColumnName("LoginCount");
             this.Property(t => t.IsRemeberUserName).HasColumnName("IsRemeberUserName");
+            this.Property(t => t.isFirstLogin).HasColumnName("isFirstLogin");
             this.Property(t => t.Enabled).HasColumnName("Enabled");
             this.Property(t => t.RegisterTime).HasColumnName("RegisterTime");
             this.Property(t => t.LastLoginTime).HasColumnName("LastLoginTime");
@@ -59,6 +60,8 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.ModifyId).HasColumnName("ModifyId");
             this.Property(t => t.ModifyBy).HasColumnName("ModifyBy");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
+
+            this.HasRequired(t => t.Profile).WithMany(t => t.Users).HasForeignKey(d => d.ProfileId);
         }
     }
 }

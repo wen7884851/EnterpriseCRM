@@ -5,15 +5,14 @@ using System.Text;
 
 using Framework.Tool.Entity;
 
-namespace Domain.DB.Models.Authen
+namespace Domain.DB.Models
 {
     public class Module : EntityBase<int>, ICreationAudited, IModificationAudited
     {
         public Module()
         {
 			this.ChildModule = new List<Module>();
-			this.ModulePermission = new List<ModulePermission>();
-			this.Resources = new List<Resources>();        
+            this.RoleModules = new List<RoleModule>();
         }
 
 		public int? ParentId { get; set; }
@@ -41,13 +40,9 @@ namespace Domain.DB.Models.Authen
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
 
-
-        public virtual SystemSite System { get; set; }
-
         public virtual Module ParentModule { get; set; }
-        public virtual ICollection<Module> ChildModule { get; set; }       
-        public virtual ICollection<ModulePermission> ModulePermission { get; set; }
-		public virtual ICollection<Resources> Resources { get; set; }
+        public virtual ICollection<Module> ChildModule { get; set; }   
+        public virtual ICollection<RoleModule> RoleModules { get; set; }
 
     }
 }

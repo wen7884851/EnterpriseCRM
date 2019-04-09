@@ -55,12 +55,14 @@
     <Compile Include="Authen\Impl\ResourcesRepository.cs" />
     <Compile Include="Authen\Impl\RoleRepository.cs" />
     <Compile Include="Authen\Impl\SystemSiteRepository.cs" />
+    <Compile Include="Authen\Impl\UserProfileRepository.cs" />
     <Compile Include="Authen\Impl\UserRepository.cs" />
     <Compile Include="Authen\Impl\UserRoleRepository.cs" />
     <Compile Include="Authen\IPermissionRepository.cs" />
     <Compile Include="Authen\IResourcesRepository.cs" />
     <Compile Include="Authen\IRoleRepository.cs" />
     <Compile Include="Authen\ISystemSiteRepository.cs" />
+    <Compile Include="Authen\IUserProfileRepository.cs" />
     <Compile Include="Authen\IUserRepository.cs" />
     <Compile Include="Authen\IUserRoleRepository.cs" />
     <Compile Include="Formula\IFormulaRepository.cs" />

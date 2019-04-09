@@ -8,6 +8,8 @@ namespace Domain.DB.Models
 {
     public class User : EntityBase<int>, ICreationAudited, IModificationAudited
     {
+        public int RoleId { get; set; }
+        public int ProfileId { get; set; }
         public int? AddressId { get; set; }
         public string LoginName { get; set; }
         public string LoginPwd { get; set; }
@@ -17,6 +19,7 @@ namespace Domain.DB.Models
         public int? PwdErrorCount { get; set; }
         public int? LoginCount { get; set; }
         public string Token { get; set; }
+        public bool isFirstLogin { get; set; }
         public bool? IsRemeberUserName { get; set; }
         public DateTime? RegisterTime { get; set; }
         public DateTime? LastLoginTime { get; set; }
@@ -26,5 +29,7 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
+        public virtual Role Role { get; set; }
+        public virtual UserProfile Profile { get; set; }
     }
 }
