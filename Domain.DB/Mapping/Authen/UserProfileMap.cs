@@ -49,6 +49,8 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.ModifyId).HasColumnName("ModifyId");
             this.Property(t => t.ModifyBy).HasColumnName("ModifyBy");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
+
+            this.HasRequired(t => t.Users).WithMany(t => t.Profile).HasForeignKey(d => d.UserId);
         }
     }
 }

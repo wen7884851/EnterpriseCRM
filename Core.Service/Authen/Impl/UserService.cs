@@ -104,7 +104,7 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户名输入密码错误次数超过5次，请5分钟后再登录！";
                 return result;
             }
-            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd))
+            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd).ToLower())
             {
                 result.Result = "密码错误，请确定后重新输入！";
                 UpdateUserLoginError(userAccount.userId);

@@ -28,6 +28,11 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         #endregion
 
+        public ActionResult index()
+        {
+            return RedirectToAction("Login");
+        }
+
         public ActionResult Login()
         {
             return View();
@@ -42,7 +47,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         public ActionResult SignOut()
         {
             OperatorProvider.Provider.RemoveCurrent();
-            return RedirectToAction("Index");
+            return RedirectToAction("Login");
         }
         [HttpPost]
         public ActionResult ChangePwd(UserAccountViewModel model)

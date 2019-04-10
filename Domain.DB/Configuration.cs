@@ -28,6 +28,13 @@ namespace Domain.DB
             {
                 userSet.AddOrUpdate(t => new { t.Id }, users.ToArray());
                 context.SaveChanges();
+                var profile = new List<UserProfile>
+                {
+                    new UserProfile{FullName="系统管理员",UserId=userSet.FirstOrDefault(t => t.LoginName== "admin").Id}
+                 };
+                var profileSet = context.Set<UserProfile>();
+                profileSet.AddOrUpdate(t => new { t.Id }, profile.ToArray());
+                context.SaveChanges();
             }
             var projectTypes = new List<PointProfessionalType>
             {

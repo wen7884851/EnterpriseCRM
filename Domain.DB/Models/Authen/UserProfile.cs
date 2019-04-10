@@ -14,8 +14,11 @@ namespace Domain.DB.Models
         public string Aptitude { get; set; }
         public string Education { get; set; }
         public string Birthday { get; set; }
+        public string PhoneNo { get; set; }
+        public string address { get; set; }
         public string Age { get; set; }
         public int? Sex { get; set; }
+        public string Motto { get; set; }
         public DateTime? InductionDate { get; set; }
         public DateTime? PositiveDate { get; set; }
         public int? CreateId { get; set; }
@@ -24,6 +27,6 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
-        public ICollection<User> Users { get; set; }
+        public User Users { get; set; }
     }
 }

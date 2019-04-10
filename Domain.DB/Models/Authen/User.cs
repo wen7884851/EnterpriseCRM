@@ -8,8 +8,11 @@ namespace Domain.DB.Models
 {
     public class User : EntityBase<int>, ICreationAudited, IModificationAudited
     {
-        public int RoleId { get; set; }
-        public int ProfileId { get; set; }
+        public User()
+        {
+            this.Profile = new List<UserProfile>();
+        }
+     //   public int RoleId { get; set; }
         public int? AddressId { get; set; }
         public string LoginName { get; set; }
         public string LoginPwd { get; set; }
@@ -29,7 +32,7 @@ namespace Domain.DB.Models
         public int? ModifyId { get; set; }
         public string ModifyBy { get; set; }
         public DateTime? ModifyTime { get; set; }
-        public virtual Role Role { get; set; }
-        public virtual UserProfile Profile { get; set; }
+       // public virtual Role Role { get; set; }
+        public virtual ICollection<UserProfile> Profile { get; set; }
     }
 }

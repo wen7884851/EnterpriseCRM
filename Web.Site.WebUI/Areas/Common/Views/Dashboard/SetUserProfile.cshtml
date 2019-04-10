@@ -1,18 +1,181 @@
-﻿@using Framework.Tool.Operator;
-@{
+﻿@{
     ViewBag.Title = "设置用户个人信息";
-    var user = new OperatorModel();
-    user = ViewBag.User;
+    var user = ViewBag.User;
 }
 
 <div class="col-sm-8">
     <div class="card">
         <div class="card-header">
             <h4>用户信息</h4>
+            <label hidden id="userId"></label>
         </div>
         <div class="card-body">
-
+            <div class="row show-grid">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-control-static">用户头像</div>
+                </div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-xs-6 col-sm-3">
+                    <a class="masonry-item" href="#" onclick="$('#uploadImage').click()">
+                        <img src="~/image/main/userProfile.jpg" alt="用户头像" id="UserPhoto">
+                    </a>
+                    <input type="file" id="uploadImage" style="display:none;" accept="image/*" onchange="UpLoadPhoto()"/>
+                </div>
+                <div class="col-xs-6 col-sm-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">姓名</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="姓名..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">身份证号</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="身份证号..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">联系电话</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="学历学位..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">邮箱地址</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="资质证书..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">紧急联系人</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="学历学位..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">紧急联系人电话</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="资质证书..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">学历学位</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="学历学位..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">资质证书</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="资质证书..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">家庭住址</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EProjectName" placeholder="学历学位..">
+                                    <div class="help-block" id="EProjectNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EProjectName">个人格言</label>
+                                <div class="col-xs-12">
+                                    <textarea class="form-control" id="EContent" rows="6" placeholder="个人格言.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-label btn-primary" onclick="EditProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label>保存</button>
         </div>
     </div>
 </div>
 
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            <h4>密码修改</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请输入原密码" class="form-control" id="oldPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请输入新密码" class="form-control" id="newPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请再次输入新密码" class="form-control" id="newDPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-label btn-primary" onclick="EditProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label>保存</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function UpLoadPhoto() {
+        lightyear.loading('show');
+        let filePath = $(uploadImage).val();
+        let fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();
+        if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+            setTimeout(function () { lightyear.loading('hide'); lightyear.notify('上传错误,文件格式必须为：png/jpg/jpeg', 'warning'); }, 1e3);
+            return;
+        }
+        let file = document.getElementById('uploadImage').files[0];
+        if (file.size > 20 * 1024 * 1024) {
+            setTimeout(function () { lightyear.loading('hide'); lightyear.notify('上传图片文件不能大于2M'); }, 1e3);
+            return;
+        }
+        directTurnIntoBase64(file, UpLoad);
+    }
+
+    function UpLoad(imgBase64) {
+
+    }
+</script>

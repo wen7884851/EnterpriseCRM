@@ -30,7 +30,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         public ActionResult SetUserProfile()
         {
-            ViewBag.User= OperatorProvider.Provider.GetCurrent();
+            ViewBag.User= OperatorProvider.Provider.GetCurrent().UserId;
             return View();
         }
 

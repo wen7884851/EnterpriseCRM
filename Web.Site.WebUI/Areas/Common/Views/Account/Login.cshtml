@@ -106,7 +106,11 @@
                         if (result.IsSuccess) {
                             location.href = "@Url.Action("Index", "Dashboard", new { Area = "Common" })";
                         } else {
-                            setTimeout(function () { lightyear.loading('hide'); lightyear.notify(result.Result, 'danger'); }, 1e3);
+                            let message = result.Result;
+                            if (typeof (result.Result) === "undefined") {
+                                message = jQuery.parseJSON(result).Message;
+                            }
+                            setTimeout(function () { lightyear.loading('hide'); lightyear.notify(message, 'danger'); }, 1e3);
                             $("#username").val('');
                             $("#password").val('')
                         }
