@@ -96,6 +96,7 @@
     <Compile Include="Models\Authen\Account\ChangePwdModel.cs" />
     <Compile Include="Models\Authen\Account\UserAccountViewModel.cs" />
     <Compile Include="Models\Authen\Account\UpdateUserModel.cs" />
+    <Compile Include="Models\Authen\Account\UserPhotoViewModel.cs" />
     <Compile Include="Models\Authen\Account\UserViewModel.cs" />
     <Compile Include="Models\Common\DataTableParameter.cs" />
     <Compile Include="Models\Common\DisplayDirection.cs" />

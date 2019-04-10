@@ -18,6 +18,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Web;
 
 namespace Framework.Common.FileHelper
 {
@@ -45,6 +46,18 @@ namespace Framework.Common.FileHelper
             MemoryStream memStream = new MemoryStream(bytes);
             BinaryFormatter binFormatter = new BinaryFormatter();
             return (Image)binFormatter.Deserialize(memStream);
+        }
+        /// <summary>
+        /// 将Base64字符串转换为图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public static string ToImageAndSaveFlieByName(HttpPostedFileBase image,string fileName)
+        {
+            FileOperate.FolderCreate("UserPhoto");
+            var saveUrl = Directory.GetCurrentDirectory() + "\\UserPhoto\\"+fileName;
+            image.SaveAs(fileName);
+            return saveUrl;
         }
 
         /// <summary>

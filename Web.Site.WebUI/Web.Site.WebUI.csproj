@@ -266,6 +266,7 @@
     <Compile Include="Areas\Project\Controllers\ProjectUserStoreController.cs" />
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\RoleController.cs" />
+    <Compile Include="Areas\System\Controllers\UserController.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Common\AdminController.cs" />
     <Compile Include="Common\ConfigSettingHelper.cs" />
@@ -939,6 +940,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Common\Controllers\Api\" />
+    <Folder Include="Areas\System\Views\User\" />
     <Folder Include="image\main\userProfile\" />
   </ItemGroup>
   <ItemGroup>

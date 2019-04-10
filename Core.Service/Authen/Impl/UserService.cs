@@ -7,10 +7,12 @@ using Core.Repository.Authen;
 using Domain.DB.Models;
 using Domain.Site.Models;
 using Domain.Site.Models.Authen.User;
+using Framework.Common.FileHelper;
 using Framework.Common.SecurityHelper;
 using Framework.Common.ToolsHelper;
 using Framework.Common.ToolsHelper.Net;
 using Framework.Tool.Operator;
+using System.Drawing;
 
 namespace Core.Service.Authen.Impl
 {
@@ -134,6 +136,27 @@ namespace Core.Service.Authen.Impl
             userDto.LoginPwd = MD5Provider.GetMD5String(user.NewLoginPwd);
             UserRepository.Update(userDto);
             result.IsSuccess = true;
+            return result;
+        }
+
+        public ActionResultViewModel UploadUserPhoto(UserPhotoViewModel model)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false,
+            };
+            if (model.UserId == 0)
+            {
+                result.Result = "用户ID有误！";
+                return result;
+            }
+            string fileName = model.UserId.ToString() + ".jpg";
+           // string file=ImageThumbnailMake.ToImageAndSaveFlieByName(model.ImgBase64, fileName);
+            var userDTO = Users.FirstOrDefault(t => t.Id == model.UserId);
+           // userDTO.PhotoPath = file;
+            UserRepository.Update(userDTO);
+            result.IsSuccess = true;
+           // result.Result = file;
             return result;
         }
         #endregion

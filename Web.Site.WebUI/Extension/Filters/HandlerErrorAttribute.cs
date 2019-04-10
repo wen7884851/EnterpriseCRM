@@ -57,7 +57,7 @@ namespace Web.Site.WebUI.Extension.Filter
                 {
                     base.OnException(context);
                     context.ExceptionHandled = true;
-                    context.Result = new ContentResult { Content = new OperationResult { ResultType = OperationResultType.LosToken, AppendData = "/Common/Account", Message = exception.Message }.ToJson() };
+                    context.Result = new ContentResult { Content = new OperationResult { ResultType = OperationResultType.LosToken, AppendData = "/Common/Account/Login", Message = exception.Message }.ToJson() };
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace Web.Site.WebUI.Extension.Filter
                 {
                     base.OnException(context);
                     context.ExceptionHandled = true;
-                    context.Result = new ContentResult { Content = new OperationResult { ResultType = OperationResultType.LosToken, AppendData = "/Common/Account", Message = exception.Message }.ToJson() };
+                    context.Result = new ContentResult { Content = new OperationResult { ResultType = OperationResultType.LosToken, AppendData = "/Common/Account/Login", Message = exception.Message }.ToJson() };
 
                 }
                 else

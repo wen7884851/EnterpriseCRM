@@ -117,7 +117,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="col-xs-12" for="EProjectName">个人格言</label>
+                                <label class="col-xs-12" for="EProjectName">备注</label>
                                 <div class="col-xs-12">
                                     <textarea class="form-control" id="EContent" rows="6" placeholder="个人格言.."></textarea>
                                 </div>
@@ -159,6 +159,7 @@
 </div>
 
 <script>
+    $("#userId").val(@ViewBag.User);
     function UpLoadPhoto() {
         lightyear.loading('show');
         let filePath = $(uploadImage).val();
@@ -172,10 +173,34 @@
             setTimeout(function () { lightyear.loading('hide'); lightyear.notify('上传图片文件不能大于2M'); }, 1e3);
             return;
         }
-        directTurnIntoBase64(file, UpLoad);
+        UpLoad(file);
     }
 
-    function UpLoad(imgBase64) {
-
+    function UpLoad(file) {
+        let actionUrl = "/System/User/UploadUserPhoto";
+        $.ajax({
+            type: 'post',
+            url: actionUrl,
+            data: file,
+            cache: false,//不需要缓存
+            processData: false,
+            contentType: false,
+            async: false,
+            success: function (result) {
+                if (result) {
+                    if (result.IsSuccess) {
+                        var element = document.getElementById('UserPhoto');
+                        element.src = result.Result;
+                        setTimeout(function () { lightyear.loading('hide'); lightyear.notify('头像修改成功！', 'success'); }, 1e3);
+                    }
+                    else {
+                        setTimeout(function () { lightyear.loading('hide');lightyear.notify(result.Result, 'warning'); }, 1e3);
+                    }
+                }
+                else {
+                    setTimeout(function () { lightyear.loading('hide'); lightyear.notify('头像上传失败！', 'warning'); }, 1e3);
+                } 
+            }
+        });
     }
 </script>

@@ -16,6 +16,7 @@ namespace Domain.DB.Models
         public int? AddressId { get; set; }
         public string LoginName { get; set; }
         public string LoginPwd { get; set; }
+        public string PhotoPath { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public bool Enabled { get; set; }
