@@ -30,11 +30,6 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
 
         public ActionResult index()
         {
-            return RedirectToAction("Login");
-        }
-
-        public ActionResult Login()
-        {
             return View();
         }
         [HttpPost]

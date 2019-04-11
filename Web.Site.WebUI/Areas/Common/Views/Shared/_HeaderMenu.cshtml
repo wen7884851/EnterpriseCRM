@@ -59,6 +59,7 @@
 </header>
 <script src="~/Scripts/new/md5.js"></script>
 <script>
+    var photoPath = "/image/main/userProfile/";
     var attime;
     function clock() {
         var time = new Date();
@@ -68,10 +69,15 @@
     setInterval(clock, 1000);
 
     function getUserName() {
-        var userName = getCookiesByName('LoginName');
+        let userName = getCookiesByName('LoginName');
         if (userName && userName != "") {
+            let photo = getCookiesByName('PhotoPath');
+            if (!photo) {
+                photo = "userProfile.jpg";
+            }
             document.getElementById("header-userName").innerHTML = userName + '<span class="caret">';
             document.getElementById("header-userName-alt").innerText = userName;
+            document.getElementById("header-userName-alt").src = photoPath + photo;
         }
         else {
             window.location.href = "@Url.Action("index", "Account", new { Area = "Common" })";

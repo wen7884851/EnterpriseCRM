@@ -14,8 +14,9 @@ namespace Domain.DB.Models
         public string Aptitude { get; set; }
         public string Education { get; set; }
         public string Birthday { get; set; }
-        public string PhoneNo { get; set; }
-        public string address { get; set; }
+        public string Address { get; set; }
+        public string EmergencyContact { get; set; }
+        public string EmergencyPhone { get; set; }
         public string Age { get; set; }
         public int? Sex { get; set; }
         public string Motto { get; set; }

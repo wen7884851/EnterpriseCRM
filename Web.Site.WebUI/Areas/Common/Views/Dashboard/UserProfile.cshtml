@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "设置用户个人信息";
+    var user = ViewBag.User;
+}
+
+<div class="col-sm-8">
+    <div class="card">
+        <div class="card-header">
+            <h4>用户信息</h4>
+        </div>
+        <div class="card-body">
+            <div class="row show-grid">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-control-static">用户头像</div>
+                    <label hidden id="userId"></label>
+                </div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-xs-6 col-sm-3">
+                    <a class="masonry-item" href="#" onclick="$('#uploadImage').click()">
+                        <img src="" alt="用户头像" id="UserPhoto" style="width:230px;height:350px">
+                    </a>
+                    <input type="file" id="uploadImage" style="display:none;" accept="image/*" onchange="UpLoadPhoto()" />
+                    <div class="form-control-static" style="color:red">图像大小最好为230*350，小于2M</div>
+                </div>
+                <div class="col-xs-6 col-sm-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="FullName">姓名</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="FullName" placeholder="姓名..">
+                                    <div class="help-block" id="FullNameErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="IDCardNo">身份证号</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="IDCardNo" placeholder="身份证号..">
+                                    <div class="help-block" id="IDCardNoErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Phone">联系电话</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="Phone" placeholder="联系电话..">
+                                    <div class="help-block" id="PhoneErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Email">邮箱地址</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="Email" placeholder="邮箱地址..">
+                                    <div class="help-block" id="EmailMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EmergencyContact">紧急联系人</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EmergencyContact" placeholder="紧急联系人..">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="EmergencyPhone">紧急联系人电话</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="EmergencyPhone" placeholder="紧急联系人电话..">
+                                    <div class="help-block" id="EmergencyPhoneErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Education">学历学位</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="Education" placeholder="学历学位..">
+                                    <div class="help-block" id="EducationErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Aptitude">资质证书</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="Aptitude" placeholder="资质证书..">
+                                    <div class="help-block" id="AptitudeErrorMsg" style="color:red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Address">家庭住址</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" id="Address" placeholder="家庭住址..">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="Motto">个人备注</label>
+                                <div class="col-xs-12">
+                                    <textarea class="form-control" id="Motto" rows="6" placeholder="个人备注.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-label btn-primary" onclick="EditProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label>保存</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            <h4>密码修改</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请输入原密码" class="form-control" id="oldPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请输入新密码" class="form-control" id="newPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback feedback-left">
+                <input type="password" placeholder="请再次输入新密码" class="form-control" id="newDPassword" />
+                <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-label btn-primary" onclick="EditProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label>保存</button>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/new/Dashboard/UserProfile.js"></script>
+
+<script>
+    $('#userId').val(@user);
+</script>

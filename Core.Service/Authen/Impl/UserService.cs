@@ -13,6 +13,7 @@ using Framework.Common.ToolsHelper;
 using Framework.Common.ToolsHelper.Net;
 using Framework.Tool.Operator;
 using System.Drawing;
+using System.IO;
 
 namespace Core.Service.Authen.Impl
 {
@@ -64,6 +65,16 @@ namespace Core.Service.Authen.Impl
                 };
             }
             return null;
+        }
+
+        public UserProfileViewModel GetUserProfileById(int userId)
+        {
+            var user = Users.FirstOrDefault(t => t.Id == userId);
+            var profile = Mapper.Map<UserProfileViewModel>(user.Profile);
+            profile.PhotoPath = user.PhotoPath;
+            profile.Phone = user.Phone;
+            profile.Email = user.Email;
+            return profile;
         }
         public UserViewModel GetUserModelById(int userId)
         {
@@ -150,18 +161,24 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户ID有误！";
                 return result;
             }
-            string fileName = model.UserId.ToString() + ".jpg";
-           // string file=ImageThumbnailMake.ToImageAndSaveFlieByName(model.ImgBase64, fileName);
             var userDTO = Users.FirstOrDefault(t => t.Id == model.UserId);
-           // userDTO.PhotoPath = file;
+            DeletePhoto(model, userDTO.PhotoPath);
+            userDTO.PhotoPath = model.FileName;
             UserRepository.Update(userDTO);
             result.IsSuccess = true;
-           // result.Result = file;
+            result.Result = model.FileName;
             return result;
         }
         #endregion
 
         #region 私有方法
+        private void DeletePhoto(UserPhotoViewModel model,string fileName)
+        {
+            if (fileName != null&& fileName != "")
+            {
+                FileOperate.DelFile(model.FilePath + fileName);
+            }
+        }
         private void UpdateUserLoginError(int userId)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
@@ -201,7 +218,8 @@ namespace Core.Service.Authen.Impl
                 LoginCount= user.LoginCount,
                 RegisterTime= user.RegisterTime,
                 Token = user.Token,
-                IsFirstLogin=user.isFirstLogin
+                IsFirstLogin=user.isFirstLogin,
+                PhotoPath=user.PhotoPath
             };
             result.LoginIPAddress = Net.Ip;
             result.LoginIPAddressName = Net.Host;

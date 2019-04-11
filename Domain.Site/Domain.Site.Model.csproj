@@ -113,6 +113,7 @@
     <Compile Include="Models\Common\PageQuery.cs" />
     <Compile Include="Models\Common\PageResult.cs" />
     <Compile Include="Models\Common\PermissionCustomMode.cs" />
+    <Compile Include="Models\Core\UserProfileViewModel.cs" />
     <Compile Include="Models\Formula\FormulaItemViewModel.cs" />
     <Compile Include="Models\Project\ProjectCalculationViewModel.cs" />
     <Compile Include="Models\Project\ProjectPointLogViewModel.cs" />

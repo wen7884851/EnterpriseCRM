@@ -20,7 +20,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             var user = OperatorProvider.Provider.GetCurrent();
             if(user.IsFirstLogin)
             {
-                return RedirectToAction("SetUserProfile");
+                return RedirectToAction("UserProfile");
             }
             else
             {
@@ -28,7 +28,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             }
         }
 
-        public ActionResult SetUserProfile()
+        public ActionResult UserProfile()
         {
             ViewBag.User= OperatorProvider.Provider.GetCurrent().UserId;
             return View();

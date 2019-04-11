@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Web.Site.WebUI.Areas.System.Controllers
+namespace Web.Site.WebUI.Areas.Core.Controllers
 {
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
@@ -25,13 +25,18 @@ namespace Web.Site.WebUI.Areas.System.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadUserPhoto()
+        public ActionResult UploadUserPhoto(UserPhotoViewModel model)
         {
-            var user = OperatorProvider.Provider.GetCurrent();
-            HttpPostedFileBase fostFile = Request.Files[0];
-            string fileName = user.UserId.ToString() + ".jpg";
-            var s= ImageThumbnailMake.ToImageAndSaveFlieByName(fostFile, fileName);
-            return Json("");
+            model.FileName= System.Guid.NewGuid() + "." + HttpContext.Request.Files["file"].FileName.Split('.')[1];
+            model.FilePath = Request.PhysicalApplicationPath + "image\\main\\userProfile\\";
+            model.File.SaveAs(model.FilePath+model.FileName);
+            return Json(_userService.UploadUserPhoto(model));
+        }
+
+        [HttpPost]
+        public ActionResult GetUserProfile(int userId)
+        {
+            return Json(_userService.GetUserProfileById(userId));
         }
     }
 }

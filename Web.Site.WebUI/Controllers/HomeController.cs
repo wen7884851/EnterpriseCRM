@@ -15,7 +15,7 @@ namespace Web.Site.WebUI.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("Login","Account", "Common");
+            return RedirectToAction("Account", "Common");
         }
 
         public ActionResult About()

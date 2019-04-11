@@ -16,6 +16,7 @@ namespace Core.Service.Authen
         IQueryable<UserViewModel> GetAllUser();
         UserViewModel GetUserModelById(int userId);
         UserViewModel GetUserModelByToken(string token);
+        UserProfileViewModel GetUserProfileById(int userId)
         ActionResultViewModel CheckLogin(UserAccountViewModel user);
         ActionResultViewModel ChangeUserPassWord(UserAccountViewModel user);
         ActionResultViewModel UploadUserPhoto(UserPhotoViewModel model);

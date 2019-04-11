@@ -9,6 +9,7 @@ namespace Framework.Tool.Operator
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string PhotoPath { get; set; }
         public bool Enabled { get; set; }
         public bool IsFirstLogin { get; set; }
         public string AppKey { get; set; }
