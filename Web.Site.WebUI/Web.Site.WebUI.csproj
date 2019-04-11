@@ -884,6 +884,7 @@
     <Content Include="Scripts\new\Chart.js" />
     <Content Include="Scripts\new\chosen.jquery.min.js" />
     <Content Include="Scripts\new\common.js" />
+    <Content Include="Scripts\new\FileAPI.min.js" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.css" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.js" />
     <Content Include="Scripts\new\jconfirm\jquery-confirm.min.css" />
