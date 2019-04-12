@@ -1,0 +1,60 @@
+﻿<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" id="editUserModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editUserModalLabel">编辑用户</h4>
+            </div>
+            <label hidden id="EUserId"></label>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-12" for="ELoginName">用户名</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="ELoginName" placeholder="用户名..">
+                            <div class="help-block" id="ELoginNameErrorMsg" style="color:red"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="ERoleId">角色</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="ERoleId" placeholder="角色..">
+                                <div class="help-block" id="ERoleIdErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-12" for="EFullName">用户姓名</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="EFullName" placeholder="用户名..">
+                            <div class="help-block" id="EFullNameErrorMsg" style="color:red"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-12" for="EPhone">联系电话</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="EPhone" placeholder="联系电话..">
+                            <div class="help-block" id="EPhoneErrorMsg" style="color:red"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button class="btn btn-label btn-primary" onclick="EditUser()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
+        </div>
+    </div>
+</div>
+

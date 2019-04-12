@@ -11,13 +11,20 @@ var aoColumns = [
     { "sName": "FullName" },
     { "sName": "Email" },
     { "sName": "Phone" },
-    { "sName": "LastLoginTime" },
+    {
+        "sName": "LastLoginTime",
+        "fnRender": function (oObj) {
+            let date = new Date(parseInt(oObj.LastLoginTime.replace("/Date(", "").replace(")/", ""), 10));
+            let time_str = date.toLocaleDateString()+"  " + date.toLocaleTimeString();
+            return time_str;
+        }
+    },
     { "sName": "RoleName" },
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            let btnArray = '<a class="btn btn-xs btn-default" href="#!" title="重置密码" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteUserModal(' + oObj.Id + ')"></i></a>';
-            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteUserModal(' + oObj.Id + ')"></i></a>';
+            let btnArray = '<a class="btn btn-xs btn-default" href="#!" title="重置密码" data-toggle="tooltip" style="margin-left:20px"><i class="mdi mdi-lock-reset" onclick="OpenDeleteUserModal(' + oObj.Id + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-delete" onclick="OpenDeleteUserModal(' + oObj.Id + ')"></i></a>';
             return btnArray;
         }
     }
@@ -37,3 +44,6 @@ function Search(index) {
     tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetUserListByQuery, aoColumns, query);
 }
 
+function OpenCreateUserModal() {
+
+}

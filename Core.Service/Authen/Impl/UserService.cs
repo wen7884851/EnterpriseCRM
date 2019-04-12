@@ -70,7 +70,7 @@ namespace Core.Service.Authen.Impl
             }
             return null;
         }
-        public List<UserViewModel> GetUserListByQuery(UserSearchViewModel query)
+        public PageResult<UserViewModel> GetUserListByQuery(UserSearchViewModel query)
         {
             var expr = BuildSearchUser(query);
             var userList = Users.Where(expr).OrderByDescending(t => t.CreateTime).Skip((query.PageIndex - 1) * query.PageSize).Take(query.PageSize)
@@ -81,9 +81,14 @@ namespace Core.Service.Authen.Impl
                 Email=t.Email,
                 Phone=t.Phone,
                 RoleName="测试",
-                LastLoginTime=t.LastLoginTime
+                LastLoginTime=t.LastLoginTime.Value
             }).ToList();
-            return userList;
+            var result = new PageResult<UserViewModel>()
+            {
+                Items = userList,
+                TotalItemsCount = userList.Count()
+            };
+            return result;
         }
 
         private Expression<Func<User, bool>> BuildSearchUser(UserSearchViewModel query)
