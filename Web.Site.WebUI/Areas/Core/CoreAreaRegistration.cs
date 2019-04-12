@@ -6,13 +6,13 @@ using System.Web.Mvc;
 
 namespace Web.Site.WebUI.Areas.Core
 {
-    public class SystemAreaRegistration : AreaRegistration
+    public class CoreAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "System";
+                return "Core";
             }
         }
 

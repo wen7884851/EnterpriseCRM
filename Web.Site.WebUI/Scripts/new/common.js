@@ -92,7 +92,7 @@ function compress(fileObj, callback) {
 
 function GUID() {
     this.date = new Date();   /* 判断是否初始化过，如果初始化过以下代码，则以下代码将不再执行，实际中只执行一次 */
-    if (typeof this.newGUID != 'function') {   /* 生成GUID码 */
+    if (typeof this.newGUID !== 'function') {   /* 生成GUID码 */
         GUID.prototype.newGUID = function () {
             this.date = new Date(); var guidStr = '';
             sexadecimalDate = this.hexadecimal(this.getGUIDDate(), 16);
@@ -117,14 +117,14 @@ function GUID() {
         }
         /* * 功能: 为一位数的正整数前面添加0，如果是可以转成非NaN数字的字符串也可以实现 * 参数: 参数表示准备再前面添加0的数字或可以转换成数字的字符串 * 返回值: 如果符合条件，返回添加0后的字条串类型，否则返回自身的字符串 */
         GUID.prototype.addZero = function (num) {
-            if (Number(num).toString() != 'NaN' && num >= 0 && num < 10) {
+            if (Number(num).toString() !== 'NaN' && num >= 0 && num < 10) {
                 return '0' + Math.floor(num);
             } else {
                 return num.toString();
             }
         }
         /*  * 功能：将y进制的数值，转换为x进制的数值 * 参数：第1个参数表示欲转换的数值；第2个参数表示欲转换的进制；第3个参数可选，表示当前的进制数，如不写则为10 * 返回值：返回转换后的字符串 */GUID.prototype.hexadecimal = function (num, x, y) {
-            if (y != undefined) { return parseInt(num.toString(), y).toString(x); }
+            if (y !== undefined) { return parseInt(num.toString(), y).toString(x); }
             else { return parseInt(num.toString()).toString(x); }
         }
         /* * 功能：格式化32位的字符串为GUID模式的字符串 * 参数：第1个参数表示32位的字符串 * 返回值：标准GUID格式的字符串 */
@@ -134,3 +134,27 @@ function GUID() {
         }
     }
 }
+
+function checkPoneAvailable(str) {
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (myreg.test(str)) {
+        return true;
+    }
+    return false;
+}
+
+function checkEmail(str) {
+    var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+    if (re.test(str)) {
+        return true;
+    }
+    return false;
+}
+
+function checkCardNo(str) {
+    var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    if (reg.test(str)) {
+        return true;
+    }
+    return false;
+}  

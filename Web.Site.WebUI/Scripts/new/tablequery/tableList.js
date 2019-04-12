@@ -27,7 +27,7 @@
     }
 
     function BuildCellData(item, col) {
-        let content = col.fnRender ? col.fnRender(item[col.sName] ? item[col.sName] : null) : item[col.sName];
+        let content = col.fnRender ? col.fnRender(item ? item : null) : item[col.sName];
         if (col.fnRender) {
             return '<td>' + content + '</td>';
         }

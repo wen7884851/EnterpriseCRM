@@ -38,5 +38,16 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
             return Json(_userService.GetUserProfileById(userId));
         }
+
+        [HttpPost]
+        public ActionResult EditUserProfile(UserProfileViewModel model)
+        {
+            return Json(_userService.UpdateUserProfile(model));
+        }
+        [HttpPost]
+        public ActionResult GetUserListByQuery(UserSearchViewModel query)
+        {
+           return Json(_userService.GetUserListByQuery(query));
+        }
     }
 }

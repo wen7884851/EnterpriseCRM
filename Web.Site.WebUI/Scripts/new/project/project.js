@@ -8,8 +8,8 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            let href = '/Project/ProjectPointManager?projectId=' + oObj;
-            return '<a href="' + href+'">' + oObj+'</a>';
+            let href = '/Project/ProjectPointManager?projectId=' + oObj.Id;
+            return '<a href="' + href + '">' + oObj.Id+'</a>';
         }
     },
     { "sName": "ProjectName" },
@@ -20,9 +20,9 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            let btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj + ')"></i></a>';
-            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditProjectModal(' + oObj + ')"></i></a>';
-            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteProjectModal(' + oObj + ')"></i></a>';
+            let btnArray = '<a class="btn btn-xs btn -default" href="#!" title="设置系数" data-toggle="tooltip"><i class="mdi mdi-settings"  onclick="OpenSetProportionModal(' + oObj.Id + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn -default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil" onclick="OpenEditProjectModal(' + oObj.Id + ')"></i></a>';
+            btnArray += '<a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close" onclick="OpenDeleteProjectModal(' + oObj.Id + ')"></i></a>';
             return btnArray;
         }
     }

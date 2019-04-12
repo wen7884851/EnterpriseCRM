@@ -656,6 +656,9 @@
     <Content Include="Areas\Project\Views\ProjectPointManager\DeleteStore.cshtml" />
     <Content Include="Areas\Core\Views\Role\Index.cshtml" />
     <Content Include="Areas\Common\Views\Dashboard\UserProfile.cshtml" />
+    <Content Include="Areas\Core\Views\User\Index.cshtml" />
+    <Content Include="Areas\Core\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Core\Views\web.config" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
@@ -884,6 +887,7 @@
     <Content Include="Scripts\new\Chart.js" />
     <Content Include="Scripts\new\chosen.jquery.min.js" />
     <Content Include="Scripts\new\common.js" />
+    <Content Include="Scripts\new\Core\user.js" />
     <Content Include="Scripts\new\Dashboard\UserProfile.js" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.css" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.js" />
@@ -940,7 +944,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Common\Controllers\Api\" />
-    <Folder Include="Areas\Core\Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

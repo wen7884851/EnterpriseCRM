@@ -1,15 +1,18 @@
-﻿@{
-    ViewBag.Title = "项目管理";
-}
-<div class="row">
+﻿<div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header"><h4>项目列表</h4></div>
+            <div class="card-header"><h4>用户列表</h4></div>
             <div class="card-toolbar clearfix">
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="example-input-normal">项目名称</label>
-                        <input class="form-control" type="text" id="projectName" placeholder="项目名称..">
+                        <label for="LoginName">账户名</label>
+                        <input class="form-control" type="text" id="LoginName" placeholder="账户名..">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        <label for="FullName">姓名</label>
+                        <input class="form-control" type="text" id="FullName" placeholder="姓名..">
                     </div>
                 </div>
                 <div class="toolbar-btn-action" style="float:right">
@@ -21,10 +24,6 @@
             </div>
         </div>
     </div>
-    @Html.Partial("Create")
-    @Html.Partial("Edit")
-    @Html.Partial("SetProportion")
-    @Html.Partial("Delete")
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
@@ -32,12 +31,12 @@
                     <table class="table table-bordered" id="tablelist">
                         <thead>
                             <tr>
-                                <th>编号</th>
-                                <th>项目名称</th>
-                                <th>项目负责人</th>
-                                <th>项目内容</th>
-                                <th>项目联系人</th>
+                                <th>用户名</th>
+                                <th>姓名</th>
+                                <th>邮箱地址</th>
                                 <th>联系电话</th>
+                                <th>最后一次登录时间</th>
+                                <th>系统角色</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -50,6 +49,3 @@
         </div>
     </div>
 </div>
-
-<script src="~/Scripts/new/tablequery/tableList.js"></script>
-<script src="~/Scripts/new/project/project.js"></script>

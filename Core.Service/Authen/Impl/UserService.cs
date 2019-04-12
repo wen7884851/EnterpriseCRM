@@ -14,6 +14,8 @@ using Framework.Common.ToolsHelper.Net;
 using Framework.Tool.Operator;
 using System.Drawing;
 using System.IO;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace Core.Service.Authen.Impl
 {
@@ -27,7 +29,9 @@ namespace Core.Service.Authen.Impl
 
         [Import]
         public IUserRepository UserRepository { get; set; }
-      
+        [Import]
+        public IUserProfileRepository _userProfileRepository { get; set; }
+
         public IQueryable<User> Users
         {
             get { return UserRepository.NoCahecEntities; }
@@ -66,11 +70,97 @@ namespace Core.Service.Authen.Impl
             }
             return null;
         }
+        public List<UserViewModel> GetUserListByQuery(UserSearchViewModel query)
+        {
+            var expr = BuildSearchUser(query);
+            var userList = Users.Where(expr).OrderByDescending(t => t.CreateTime).Skip((query.PageIndex - 1) * query.PageSize).Take(query.PageSize)
+            .Select(t=>new UserViewModel() {
+                Id=t.Id,
+                LoginName=t.LoginName,
+                FullName=t.Profile.FirstOrDefault().FullName,
+                Email=t.Email,
+                Phone=t.Phone,
+                RoleName="测试",
+                LastLoginTime=t.LastLoginTime
+            }).ToList();
+            return userList;
+        }
+
+        private Expression<Func<User, bool>> BuildSearchUser(UserSearchViewModel query)
+        {
+            var bulider = new DynamicLambda<User>();
+            Expression<Func<User, bool>> expr = t => t.IsDeleted == false;
+            if (!string.IsNullOrEmpty(query.LoginName))
+            {
+                Expression<Func<User, bool>> tmp = t => t.LoginName.Contains(query.LoginName.Trim());
+                expr = bulider.BuildQueryAnd(expr, tmp);
+            }
+            if (query.FullName != null)
+            {
+                Expression<Func<User, bool>> tmp = t => t.Profile.Select(x=>x.FullName).Contains(query.FullName);
+                expr = bulider.BuildQueryAnd(expr, tmp);
+            }
+            return expr;
+        }
+        public ActionResultViewModel UpdateUserProfile(UserProfileViewModel model)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false,
+            };
+            if (model.UserId == 0)
+            {
+                result.Result = "用户ID有误";
+                return result;
+            }
+            if (model.IDCardNo == "")
+            {
+                result.Result = "用户IDCard不能为空";
+                return result;
+            }
+            var user = UsersByCahec.FirstOrDefault(t => (t.Id == model.UserId) && t.IsDeleted == false);
+            if (user == null)
+            {
+                result.Result = "用户数据不存在";
+                return result;
+            }
+
+            UpdateProfile(model, user);
+            result.IsSuccess = true;
+            return result;
+        }
+
+        private void UpdateProfile(UserProfileViewModel model, User user)
+        {
+            user.Phone = model.Phone;
+            user.Email = model.Email;
+            var profile = user.Profile.FirstOrDefault();
+            profile.FullName = model.FullName;
+            profile.IDCardNo = model.IDCardNo;
+            profile.EmergencyContact = model.EmergencyContact;
+            profile.EmergencyPhone = model.EmergencyPhone;
+            profile.Education = model.Education;
+            profile.Aptitude = model.Aptitude;
+            profile.Address = model.Address;
+            profile.Motto = model.Motto;
+            profile.Birthday = profile.IDCardNo.Substring(6, 4) + "-" + profile.IDCardNo.Substring(10, 2) + "-" + profile.IDCardNo.Substring(12, 2);
+            string sexCode = profile.IDCardNo.Substring(14, 3);
+            if (int.Parse(sexCode) % 2 == 0)
+            {
+                profile.Sex = 0;
+            }
+            else
+            {
+                profile.Sex = 1;
+            }
+            UserRepository.Update(user);
+            _userProfileRepository.Update(profile);
+        }
 
         public UserProfileViewModel GetUserProfileById(int userId)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
-            var profile = Mapper.Map<UserProfileViewModel>(user.Profile);
+            var profile = Mapper.Map<UserProfileViewModel>(user.Profile.FirstOrDefault());
             profile.PhotoPath = user.PhotoPath;
             profile.Phone = user.Phone;
             profile.Email = user.Email;
@@ -139,12 +229,13 @@ namespace Core.Service.Authen.Impl
                 IsSuccess = false,
             };
             var userDto = Users.FirstOrDefault(t => t.Id == user.userId);
-            if (userDto.LoginPwd != MD5Provider.GetMD5String(user.LoginPwd))
+            if (user.LoginPwd != MD5Provider.GetMD5String(userDto.LoginPwd).ToLower())
             {
                 result.Result = "用户原密码输入错误,请重新输入！";
                 return result;
             }
-            userDto.LoginPwd = MD5Provider.GetMD5String(user.NewLoginPwd);
+            userDto.LoginPwd = user.NewLoginPwd;
+            userDto.isFirstLogin = false;
             UserRepository.Update(userDto);
             result.IsSuccess = true;
             return result;
@@ -207,7 +298,7 @@ namespace Core.Service.Authen.Impl
             var user = Users.FirstOrDefault(t => t.Id == userId);
             user.IsRemeberUserName = isRemeberUserName;
             user.Token = Guid.NewGuid().ToString("N");
-            user.RegisterTime = DateTime.Now;
+            user.LastLoginTime= DateTime.Now;
             var result = new OperatorModel()
             {
                 UserId= user.Id,

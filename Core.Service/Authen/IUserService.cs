@@ -2,6 +2,7 @@
 using Domain.Site.Models;
 using Domain.DB.Models;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Core.Service.Authen
 {
@@ -16,7 +17,9 @@ namespace Core.Service.Authen
         IQueryable<UserViewModel> GetAllUser();
         UserViewModel GetUserModelById(int userId);
         UserViewModel GetUserModelByToken(string token);
-        UserProfileViewModel GetUserProfileById(int userId)
+        List<UserViewModel> GetUserListByQuery(UserSearchViewModel query);
+        UserProfileViewModel GetUserProfileById(int userId);
+        ActionResultViewModel UpdateUserProfile(UserProfileViewModel model);
         ActionResultViewModel CheckLogin(UserAccountViewModel user);
         ActionResultViewModel ChangeUserPassWord(UserAccountViewModel user);
         ActionResultViewModel UploadUserPhoto(UserPhotoViewModel model);
