@@ -16,14 +16,9 @@ namespace Domain.DB.Models
         }
 
 		public int? ParentId { get; set; }
-
-        public int? SystemID { get; set; }
-
-        public string Sys_Gid { get; set; }
         public string Name { get; set; }
         public string LinkUrl { get; set; }
-
-        public int? Layer { get; set; }
+        public int Layer { get; set; }
         public string Area { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }

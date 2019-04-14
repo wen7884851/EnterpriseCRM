@@ -11,6 +11,9 @@ namespace Domain.DB.Models
     {
         public int RoleId { get; set; }
         public int ModuleId { get; set; }
+        public bool IsSearch { get; set; }
+        public bool IsCreate { get; set; }
+        public bool IsEdit { get; set; }
         public int? CreateId { get; set; }
         public string CreateBy { get; set; }
         public DateTime? CreateTime { get; set; }
