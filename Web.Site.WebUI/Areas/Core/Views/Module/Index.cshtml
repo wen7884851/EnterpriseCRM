@@ -1,0 +1,53 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><h4>模块列表</h4></div>
+            <div class="card-toolbar clearfix">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        <label for="SParentModule">父级菜单</label>
+                        <select class="form-control" id="SParentModule" size="1" style="height: 38px;"></select>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        <label for="ModuleName">模块名称</label>
+                        <input class="form-control" type="text" id="ModuleName" placeholder="模块名称..">
+                    </div>
+                </div>
+                <div class="toolbar-btn-action" style="float:right">
+                    <a class="btn btn-success m-r-5" href="#!" id="searchBtn" onclick="Search(1)"><i class="mdi mdi-magnify"></i> 查询</a>
+                    <button type="button" class="btn btn-primary m-r-5" data-toggle="modal" onclick="OpenCreateModuleModal();">
+                        <i class="mdi mdi-plus"></i>新增
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="tablelist">
+                        <thead>
+                            <tr>
+                                <th>模块名称</th>
+                                <th>层级</th>
+                                <th>访问地址</th>
+                                <th>Icon</th>
+                                <th>顺序Id</th>
+                                <th>启用标识</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <ul class="pagination" id="filter" style="float:right"></ul>
+                <ul class="clear" style="clear:both"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/new/tablequery/tableList.js"></script>

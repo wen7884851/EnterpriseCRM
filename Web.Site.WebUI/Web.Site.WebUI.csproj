@@ -261,6 +261,7 @@
     <Compile Include="Areas\Common\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Common\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Common\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Core\Controllers\ModuleController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectManagerController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectPointManagerController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectUserStoreController.cs" />
@@ -662,6 +663,8 @@
     <Content Include="Areas\Core\Views\User\Create.cshtml" />
     <Content Include="Areas\Core\Views\User\Edit.cshtml" />
     <Content Include="Areas\Core\Views\User\changePassword.cshtml" />
+    <Content Include="Areas\Core\Views\Module\Index.cshtml" />
+    <Content Include="Areas\Core\Views\Module\Create.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
@@ -890,6 +893,7 @@
     <Content Include="Scripts\new\Chart.js" />
     <Content Include="Scripts\new\chosen.jquery.min.js" />
     <Content Include="Scripts\new\common.js" />
+    <Content Include="Scripts\new\Core\module.js" />
     <Content Include="Scripts\new\Core\user.js" />
     <Content Include="Scripts\new\Dashboard\UserProfile.js" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.css" />

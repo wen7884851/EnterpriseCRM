@@ -31,7 +31,7 @@ var aoColumns = [
 ];
 
 $(function () {
-    Search();
+    Search(1);
 });
 
 function Search(index) {
