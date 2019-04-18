@@ -41,6 +41,7 @@ namespace Domain.DB.Mapping.Authen
             // Table & Column Mappings
             this.ToTable("Common_Auth_User");
             this.Property(t => t.Id).HasColumnName("Id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            this.Property(t => t.RoleId).HasColumnName("RoleId");
             this.Property(t => t.AddressId).HasColumnName("AddressId");
             this.Property(t => t.LoginName).HasColumnName("LoginName");
             this.Property(t => t.LoginPwd).HasColumnName("LoginPwd");
@@ -61,7 +62,7 @@ namespace Domain.DB.Mapping.Authen
             this.Property(t => t.ModifyBy).HasColumnName("ModifyBy");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
 
-            
+            this.HasRequired(t => t.Role).WithMany(t => t.Users).HasForeignKey(d => d.RoleId);
         }
     }
 }

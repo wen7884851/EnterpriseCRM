@@ -19,9 +19,29 @@ namespace Domain.DB
 
         protected override void Seed(EFDbContext context)
         {
+            var modules = new List<Module>
+            {
+                new Module{ Name="系统模块",ParentId=0,Layer=1,OrderSort=1,Icon="mdi-widgets" }
+            };
+            var moduleSet = context.Set<Module>();
+            if (moduleSet.FirstOrDefault(t => t.Name == "系统模块") == null)
+            {
+                moduleSet.AddOrUpdate(t => new { t.Id }, modules.ToArray());
+                context.SaveChanges();
+            }
+            var roles = new List<Role>
+            {
+                new Role{ Name="系统管理员" }
+            };
+            var roleSet = context.Set<Role>();
+            if(roleSet.FirstOrDefault(t => t.Name == "系统管理员") == null)
+            {
+                roleSet.AddOrUpdate(t => new { t.Id }, roles.ToArray());
+                context.SaveChanges();
+            }
             var users = new List<User>
             {
-                new User{LoginName="admin",LoginPwd="123456",IsDeleted=false,Enabled=true,isFirstLogin=true}
+                new User{LoginName="admin",RoleId=roles[0].Id,LoginPwd="123456",IsDeleted=false,Enabled=true,isFirstLogin=true}
             };
             var userSet = context.Set<User>();
             if (userSet.FirstOrDefault(t => t.LoginName== "admin") == null)

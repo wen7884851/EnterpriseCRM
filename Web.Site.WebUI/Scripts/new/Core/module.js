@@ -1,5 +1,7 @@
 ﻿var query = {};
-var actionUrl = { GetModuleListByQuery: "/Core/Module/GetModuleListByQuery", GetParentModuleKeyValue: "/Core/Module/GetParentModuleKeyValue"};
+var actionUrl = {
+    GetModuleListByQuery: "/Core/Module/GetModuleListByQuery", GetParentModuleKeyValue: "/Core/Module/GetParentModuleKeyValue",
+    GetLayerKeyValue: "/Core/Module/GetLayerKeyValue", CreateModule: "/Core/Module/CreateModule"};
 
 var aoColumns = [
     {
@@ -42,21 +44,22 @@ var aoColumns = [
 
 $(function () {
     SetParentModuleHtmlValue();
-    Search(1);
 });
 
 function SetParentModuleHtmlValue() {
+    let html = '<option value="0" selected>请选择</option>';
     $.ajax({
         type: 'post',
         url: actionUrl.GetParentModuleKeyValue,
+        data: { layer: 1 },
         success: function (result) {
-            let html = '<option value="0" selected>请选择</option>';
             result.forEach(i => {
                 html += '<option value="' + i.value + '">' + i.text + '</option>';
+                $('#SParentModule').html(html);
             });
-            $('#SParentModule').html(html);
         }
     });
+   
 }
 
 function Search(index) {
@@ -75,5 +78,119 @@ function Search(index) {
 }
 
 function OpenCreateModuleModal() {
+    GetLayerHtmlValue();
     $('#CreateModuleModal').modal('show');
+}
+function IsChildModuleChange() {
+    let isChildModule = document.getElementById("isChildModule");
+    if (isChildModule.checked) {
+        document.getElementById("ChildModuleRow").style.visibility = "visible";
+    }
+    else {
+        document.getElementById("ChildModuleRow").style.visibility = "hidden";
+    }
+}
+
+function LayerChange() {
+    let html = '<option value="0" selected>请选择</option>';
+    let layer = parseInt($('#Layer')[0].options[$('#Layer')[0].selectedIndex].value);
+    if (layer <= 1) {
+        $('#ParentModule').html(html);
+        return;
+    }
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetParentModuleKeyValue,
+        data: { layer: layer-1},
+        success: function (result) {
+            result.forEach(i => {
+                html += '<option value="' + i.value + '">' + i.text + '</option>';
+                $('#ParentModule').html(html);
+            });
+        }
+    });
+   
+    return;
+}
+function GetLayerHtmlValue() {
+    let html = '<option value="0" selected>请选择</option>';
+    $('#ParentModule').html(html);
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetLayerKeyValue,
+        success: function (result) {
+            result.forEach(i => {
+                html += '<option value="' + i.value + '">' + i.text + '</option>';
+            });
+            $('#Layer').html(html);
+        }
+    });
+}
+function CreateModule() {
+    if (CheckCreateModule()) {
+        lightyear.loading('show');
+        let Module = getCreateModuleHtmlValue();
+        $.ajax({
+            type: 'post',
+            url: actionUrl.CreateModule,
+            data: Module,
+            success: function (result) {
+                if (result) {
+                    if (result.IsSuccess) {
+                        setTimeout(function () { lightyear.notify('创建成功！', 'success'); }, 1e3);
+                        $('#CreateModuleModal').modal('hide');
+                        $('#searchBtn').click();
+                    }
+                    else {
+                        setTimeout(function () { lightyear.notify(result.Result, 'danger'); }, 1e3);
+                    }
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('系统错误，请联系管理人员', 'danger'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            }
+        });
+    }
+}
+function getCreateModuleHtmlValue() {
+    let isChildModule = document.getElementById("isChildModule");
+    let parentId = parseInt($('#ParentModule')[0].options[$('#ParentModule')[0].selectedIndex].value);
+    let layer = parseInt($('#Layer')[0].options[$('#Layer')[0].selectedIndex].value);
+    return {
+        ParentId: parentId, Name: $("#ModuleName").val(), LinkUrl: isChildModule.checked ? $("#LinkUrl").val() : "", Layer: layer,
+        Icon: $("#Icon").val(), OrderSort: $("#OrderSort").val(), Description: $("#Description").val()
+    };
+}
+function CheckCreateModule() {
+    initCreateModuleErrorMsg();
+    let isCheck = true;
+    if ($("#ModuleName").val() === "") {
+        $("#ModuleNameErrorMsg").html('模块名称不为空');
+        isCheck = false;
+    }
+    let layer = parseInt($('#Layer')[0].options[$('#Layer')[0].selectedIndex].value);
+    if (layer < 1) {
+        $("#LayerErrorMsg").html('请选择菜单层级');
+        isCheck = false;
+    }
+    let parentModule = parseInt($('#ParentModule')[0].options[$('#ParentModule')[0].selectedIndex].value);
+    if (parentModule < 1 && layer < 1) {
+        $("#ParentModuleNameErrorMsg").html('请选择父级菜单');
+        isCheck = false;
+    }
+    let isChildModule = document.getElementById("isChildModule");
+    if (isChildModule.checked) {
+        if ($("#LinkUrl").val() === "") {
+            $("#LinkUrlErrorMsg").html('访问地址不为空');
+            isCheck = false;
+        }
+    }
+    return isCheck;
+}
+function initCreateModuleErrorMsg() {
+    $('#ModuleNameErrorMsg').html('');
+    $('#LayerErrorMsg').html('');
+    $('#ParentModuleNameErrorMsg').html('');
+    $('#LinkUrlErrorMsg').html('');
 }

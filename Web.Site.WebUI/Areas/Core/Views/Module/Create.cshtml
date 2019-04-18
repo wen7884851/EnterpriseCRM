@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-xs-12" for="isChildModule">是否子集菜单</label>
+                            <label class="col-xs-12" for="isChildModule">是否子菜单</label>
                             <label class="lyear-switch switch-solid switch-primary">
                                 <input type="checkbox" checked="" onchange="IsChildModuleChange()" id="isChildModule">
                                 <span></span>
@@ -29,17 +29,19 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-xs-12" for="LinkPerson">项目联系人</label>
+                            <label class="col-xs-12" for="Layer">本模块菜单层级</label>
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" id="LinkPerson" placeholder="项目联系人..">
+                                <select class="form-control" id="Layer" size="1" style="height: 38px;" onchange="LayerChange()"></select>
+                                <div class="help-block" id="LayerErrorMsg" style="color:red"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-xs-12" for="LinkPhoneNo">联系电话</label>
+                            <label class="col-xs-12" for="ParentModule">父级菜单</label>
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" id="LinkPhoneNo" placeholder="联系电话.." onkeypress="return event.keyCode>=4&&event.keyCode<=57">
+                                <select class="form-control" id="ParentModule" size="1" style="height: 38px;"></select>
+                                <div class="help-block" id="ParentModuleNameErrorMsg" style="color:red"></div>
                             </div>
                         </div>
                     </div>
@@ -47,25 +49,28 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-xs-12" for="TotalCost">项目总造价</label>
+                            <label class="col-xs-12" for="Icon">图标</label>
                             <div class="col-xs-12">
-                                <div class="input-group m-b-10">
-                                    <input class="form-control" type="text" id="TotalCost" placeholder="项目总造价.." onkeyup="this.value=clearNoNum(this.value)">
-                                    <span class="input-group-addon">元</span>
-                                </div>
-                                <div class="help-block" id="TotalCostErrorMsg" style="color:red"></div>
+                                <input class="form-control" type="text" id="Icon" placeholder="不填显示默认图标..">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-xs-12" for="ContractMoney">项目合同金额</label>
+                            <label class="col-xs-12" for="OrderSort">排序Id</label>
                             <div class="col-xs-12">
-                                <div class="input-group m-b-10">
-                                    <input class="form-control" type="text" id="ContractMoney" placeholder="项目合同金额.." onkeyup="this.value=clearNoNum(this.value)">
-                                    <span class="input-group-addon">元</span>
-                                </div>
-                                <div class="help-block" id="ContractMoneyErrorMsg" style="color:red"></div>
+                                <input class="form-control" type="text" id="OrderSort" placeholder="不填将默认排后..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="ChildModuleRow">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="LinkUrl">访问地址</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="LinkUrl" placeholder="访问地址..">
+                                <div class="help-block" id="LinkUrlErrorMsg" style="color:red"></div>
                             </div>
                         </div>
                     </div>
@@ -73,27 +78,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-xs-12" for="Address">项目地址</label>
+                            <label class="col-xs-12" for="Description">模块简介</label>
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" id="Address" placeholder="项目地址..">
+                                <textarea class="form-control" id="Description" rows="6" placeholder="模块简介.."></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label class="col-xs-12" for="Content">项目内容</label>
-                            <div class="col-xs-12">
-                                <textarea class="form-control" id="Content" rows="6" placeholder="内容.."></textarea>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-label btn-primary" onclick="CreateModule()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="closeCreateProjectModal()">关闭</button>
-                <button class="btn btn-label btn-primary" onclick="CreateProject()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
             </div>
         </div>
     </div>

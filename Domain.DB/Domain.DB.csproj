@@ -54,8 +54,14 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Mapping\Authen\Configuration\ModuleMap.generated.cs" />
+    <Compile Include="Mapping\Authen\Configuration\RoleMap.cs.generated.cs" />
+    <Compile Include="Mapping\Authen\Configuration\RoleModuleMap.generated.cs" />
     <Compile Include="Mapping\Authen\Configuration\UserMap.generated.cs" />
     <Compile Include="Mapping\Authen\Configuration\UserProfileMap.generated.cs" />
+    <Compile Include="Mapping\Authen\ModuleMap.cs" />
+    <Compile Include="Mapping\Authen\RoleMap.cs" />
+    <Compile Include="Mapping\Authen\RoleModuleMap.cs" />
     <Compile Include="Mapping\Authen\UserMap.cs" />
     <Compile Include="Mapping\Authen\UserProfileMap.cs" />
     <Compile Include="Mapping\Formula\Configuration\FormulaItemMap.generated.cs" />

@@ -12,6 +12,7 @@ namespace Domain.DB.Models
         public Role()
         {
 			this.Users = new List<User>();
+            this.RoleModules=new List<RoleModule>();
         }
 
         public string Name { get; set; }
@@ -25,5 +26,6 @@ namespace Domain.DB.Models
         public DateTime? ModifyTime { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<RoleModule> RoleModules { get; set; }
     }
 }
