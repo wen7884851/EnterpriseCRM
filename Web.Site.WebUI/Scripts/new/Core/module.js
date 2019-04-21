@@ -32,7 +32,6 @@ var aoColumns = [
             return html;
         }
     },
-    { "sName": "RoleName" },
     {
         "sName": "Id",
         "fnRender": function (oObj) {
@@ -44,6 +43,7 @@ var aoColumns = [
 
 $(function () {
     SetParentModuleHtmlValue();
+    Search(1);
 });
 
 function SetParentModuleHtmlValue() {
@@ -67,13 +67,13 @@ function Search(index) {
         index = 1;
     }
     query['PageIndex'] = index;
+    let parentModule = 0;
     let selectParentModule = $("#SParentModule");
-    let projectLeader = parseInt(selectParentModule[0].options[selectParentModule[0].selectedIndex].value);
-    if (projectLeader < 1) {
-        projectLeader = 0;
+    if (selectParentModule[0].selectedIndex && selectParentModule[0].selectedIndex > 1) {
+        parentModule = parseInt(selectParentModule[0].options[selectParentModule[0].selectedIndex].value);
     }
-    query['ParentModule'] = projectLeader;
-    query['ModuleName'] = $("#ModuleName").val() ? $("#ModuleName").val() : '';
+    query['ParentModule'] = parentModule;
+    query['SModuleName'] = $("#SModuleName").val() ? $("#SModuleName").val() : '';
     tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetModuleListByQuery, aoColumns, query);
 }
 

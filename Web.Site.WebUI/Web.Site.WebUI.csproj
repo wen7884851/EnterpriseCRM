@@ -903,6 +903,7 @@
     <Content Include="Scripts\new\jquery-tags-input\jquery.tagsinput.min.css" />
     <Content Include="Scripts\new\jquery-tags-input\jquery.tagsinput.min.js" />
     <Content Include="Scripts\new\jquery.min.js" />
+    <Content Include="Scripts\new\layout.js" />
     <Content Include="Scripts\new\lightyear.js" />
     <Content Include="Scripts\new\main.min.js" />
     <Content Include="Scripts\new\md5.js" />

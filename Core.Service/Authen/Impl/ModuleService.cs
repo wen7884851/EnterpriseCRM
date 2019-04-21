@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,17 @@ namespace Core.Service.Authen.Impl
             get { return _moduleRepository.NoCahecEntities; }
         }
         #endregion
+
+        public PageResult<ModuleViewModel> GetModuleListByQuery(ModuleQueryModel query)
+        {
+            var expr = BuildSearchModules(query);
+            var Items = Mapper.Map<List<ModuleViewModel>>(Modules.Where(expr).ToList());
+            return  new PageResult<ModuleViewModel>()
+            {
+                Items = Items,
+                TotalItemsCount = Items.Count()
+            };
+        }
 
         public List<OptionViewMode> GetLayerKeyValue()
         {
@@ -62,9 +74,9 @@ namespace Core.Service.Authen.Impl
             var result = new ActionResultViewModel() { IsSuccess = false };
             try
             {
-                var moduleDTO = Mapper.Map<Module>(model);
                 DefultOrderSort(model);
                 DefultIcon(model);
+                var moduleDTO = Mapper.Map<Module>(model);
                 moduleDTO.IsMenu = true;
                 moduleDTO.Enabled = true;
                 moduleDTO.Create();
@@ -79,11 +91,29 @@ namespace Core.Service.Authen.Impl
             return result;
         }
 
+        private Expression<Func<Module, bool>> BuildSearchModules(ModuleQueryModel model)
+        {
+            var bulider = new DynamicLambda<Module>();
+            Expression<Func<Module, bool>> expr = t => t.IsDeleted == false;
+            Expression<Func<Module, bool>> tmp;
+            if (model.ParentModule.HasValue)
+            {
+                tmp = t => t.ParentId == model.ParentModule;
+                expr = bulider.BuildQueryAnd(expr, tmp);
+            }
+            if (!string.IsNullOrEmpty(model.ModuleName))
+            {
+                tmp = t => t.Name == model.ModuleName;
+                expr = bulider.BuildQueryAnd(expr, tmp);
+            }
+            return expr;
+        }
+
         private void DefultIcon(ModuleViewModel model)
         {
-            if (model.Icon == "")
+            if (model.Icon == null && model.Icon == "")
             {
-
+                model.Icon = "mdi mdi-widgets";
             }
         }
 
@@ -92,7 +122,7 @@ namespace Core.Service.Authen.Impl
             if (model.OrderSort == 0)
             {
                 var last = Modules.Where(t => (t.IsDeleted == false) && t.Layer == model.Layer).OrderByDescending(t => t.OrderSort).FirstOrDefault();
-                model. last?.OrderSort
+                model.OrderSort = last != null ? last.OrderSort : 1;
             }
         }
     }

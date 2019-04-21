@@ -79,7 +79,9 @@
   <ItemGroup>
     <Compile Include="Authen\IModuleService.cs" />
     <Compile Include="Authen\Impl\ModuleService.cs" />
+    <Compile Include="Authen\Impl\RoleService.cs" />
     <Compile Include="Authen\Impl\UserService.cs" />
+    <Compile Include="Authen\IRoleService.cs" />
     <Compile Include="Authen\IUserService.cs" />
     <Compile Include="Common\DynamicLambda.cs" />
     <Compile Include="CoreServiceBase.cs" />

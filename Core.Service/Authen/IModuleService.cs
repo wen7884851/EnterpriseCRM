@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Service.Authen
+namespace Core.Service
 {
     public interface IModuleService
     {
         #region 属性
         IQueryable<Module> Modules { get; }
         #endregion
-
+        PageResult<ModuleViewModel> GetModuleListByQuery(ModuleQueryModel query);
         List<OptionViewMode> GetLayerKeyValue();
         List<OptionViewMode> GetParentModuleKeyValue(int layer);
         ActionResultViewModel CreateModule(ModuleViewModel model);

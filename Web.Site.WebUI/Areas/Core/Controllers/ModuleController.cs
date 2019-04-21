@@ -1,4 +1,4 @@
-﻿using Core.Service.Authen;
+﻿using Core.Service;
 using Domain.Site.Models;
 using System;
 using System.Collections.Generic;
@@ -19,6 +19,11 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult GetModuleListByQuery(ModuleQueryModel query)
+        {
+            return Json(_moduleService.GetModuleListByQuery(query));
         }
 
         [HttpPost]

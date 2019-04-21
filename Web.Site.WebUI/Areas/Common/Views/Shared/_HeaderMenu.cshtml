@@ -40,6 +40,18 @@
     }
     setInterval(clock, 1000);
 
+    function getCookiesByName(name) {
+        var arr;
+        if (arr = document.cookie.match("pubser_loginuserkey")) {
+            var obj = arr['input'];
+            var index = obj.lastIndexOf("=");
+            obj = obj.substring(index + 1, obj.length);
+            var cookies = JSON.parse(obj);
+            return cookies[name];
+        }
+        return null;
+    }
+
     function getUserName() {
         let userName = getCookiesByName('LoginName');
         if (userName && userName != "") {
@@ -56,17 +68,6 @@
         }
     }
 
-    function getCookiesByName(name) {
-        var arr;
-        if (arr = document.cookie.match("pubser_loginuserkey")) {
-            var obj = arr['input'];
-            var index = obj.lastIndexOf("=");
-            obj = obj.substring(index + 1, obj.length);
-            var cookies = JSON.parse(obj);
-            return cookies[name];
-        }
-        return null;
-    }
     getUserName();
     setInterval(getUserName, 60*1000);
 </script>
