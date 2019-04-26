@@ -37,7 +37,7 @@
 
     function BuildPageFilter(pageFilterObj, currentPageIndex, totalItemsCount) {
         let filter='';
-        let pageCount = Math.ceil(totalItemsCount / 20);
+        let pageCount = Math.ceil(totalItemsCount / 10);
         if (pageCount <= 3) {
             for (var i = 1; i <= pageCount; i++) {
                 if (i === currentPageIndex) {

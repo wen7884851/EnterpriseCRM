@@ -23,7 +23,7 @@ namespace Domain.Site.Models
             {
                 if (_pageSize <= 0)
                 {
-                    return 20;
+                    return 10;
                 }
 
                 if (_pageSize > 100)

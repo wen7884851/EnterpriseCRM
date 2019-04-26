@@ -27,7 +27,8 @@ namespace Domain.DB
             }
             var roles = new List<Role>
             {
-                new Role{ Name="系统管理员" }
+                new Role{ Name="系统管理员",Enabled=true },
+                new Role{ Name="普通成员",Enabled=true }
             };
             var roleSet = context.Set<Role>();
             if(roleSet.FirstOrDefault(t => t.Name == "系统管理员") == null)
@@ -35,9 +36,32 @@ namespace Domain.DB
                 roleSet.AddOrUpdate(t => new { t.Id }, roles.ToArray());
                 context.SaveChanges();
             }
+            var roleModules = new List<RoleModule>();
+            var moduleIds = moduleSet.Select(t => t.Id);
+            var roleId = roleSet.FirstOrDefault().Id;
+            foreach (var moduleId in moduleIds)
+            {
+                var roleModule = new RoleModule
+                {
+                    ModuleId = moduleId,
+                    RoleId = roleId,
+                    IsSearch = true,
+                    IsEdit = true,
+                    IsCreate = true,
+                    IsDeleted = false,
+                    CreateTime=DateTime.Now
+                };
+                roleModules.Add(roleModule);
+            }
+            var roleModuleSet = context.Set<RoleModule>();
+            if(roleModuleSet.FirstOrDefault()==null)
+            {
+                roleModuleSet.AddOrUpdate(t => new { t.Id }, roleModules.ToArray());
+                context.SaveChanges();
+            }
             var users = new List<User>
             {
-                new User{LoginName="admin",RoleId=roles[0].Id,LoginPwd="123456",IsDeleted=false,Enabled=true,isFirstLogin=true}
+                new User{LoginName="admin",RoleId=roleId,LoginPwd="123456",IsDeleted=false,Enabled=true,isFirstLogin=true}
             };
             var userSet = context.Set<User>();
             if (userSet.FirstOrDefault(t => t.LoginName== "admin") == null)
@@ -76,7 +100,7 @@ namespace Domain.DB
                 new Module{ Name="项目模块",ParentId=0,Layer=1,OrderSort=2,Icon="mdi mdi-widgets",Enabled=true,IsMenu=true },
                 new Module{ Name="申报模块",ParentId=0,Layer=1,OrderSort=3,Icon="mdi mdi-send",Enabled=true,IsMenu=true },
                 new Module{ Name="财务模块",ParentId=0,Layer=1,OrderSort=4,Icon="mdi mdi-skype",Enabled=true,IsMenu=true },
-                new Module{ Name="报表模块",ParentId=0,Layer=1,OrderSort=5,Icon="mdi chart-bar",LinkUrl="/Common/Error/Page404",Enabled=true,IsMenu=true },
+                new Module{ Name="报表模块",ParentId=0,Layer=1,OrderSort=5,Icon="mdi mdi-chart-bar",LinkUrl="/Common/Error/Page404",Enabled=true,IsMenu=true },
                 new Module{ Name="模块管理",ParentId=0,Layer=1,OrderSort=6,Icon="mdi mdi-message-bulleted",LinkUrl="/Common/Error/Page404",Enabled=true,IsMenu=true }
             };
             moduleSet.AddOrUpdate(t => new { t.Id }, parentModules.ToArray());
@@ -119,7 +143,7 @@ namespace Domain.DB
                         break;
                     case "财务模块":
                         childModule.Add(new Module { Name = "物资列表", ParentId = module.Id, LinkUrl= "/Common/Error/Page404"
-                            , Layer = 2, OrderSort = 1, Icon = "mdimdi-bulletin-board", Enabled = true, IsMenu = true });
+                            , Layer = 2, OrderSort = 1, Icon = "mdi mdimdi-bulletin-board", Enabled = true, IsMenu = true });
                         childModule.Add(new Module { Name = "个人支出列表", ParentId = module.Id, LinkUrl= "/Common/Error/Page404"
                             , Layer = 2, OrderSort = 2, Icon = "mdi mdi-square-inc-cash", Enabled = true, IsMenu = true });
                         childModule.Add(new Module { Name = "个人提成列表", ParentId = module.Id, LinkUrl= "/Common/Error/Page404"

@@ -29,11 +29,30 @@ namespace Core.Service.Authen.Impl
         {
             var expr = BuildSearchModules(query);
             var Items = Mapper.Map<List<ModuleViewModel>>(Modules.Where(expr).ToList());
+            Items = SortModuleList(Items,1);
+            var result = Items.Skip((query.PageIndex - 1) * query.PageSize).Take(query.PageSize);
             return  new PageResult<ModuleViewModel>()
             {
-                Items = Items,
+                Items = result,
                 TotalItemsCount = Items.Count()
             };
+        }
+
+        private List<ModuleViewModel> SortModuleList(List<ModuleViewModel> moduleList,int layer)
+        {
+            var result =new List<ModuleViewModel>();
+            var parentModuleList = moduleList.Where(t => t.Layer == layer).OrderBy(t=>t.OrderSort);
+            foreach(var parentModule in parentModuleList)
+            {
+                result.Add(parentModule);
+                if ((parentModule.LinkUrl == null)||parentModule.LinkUrl=="")
+                {
+                    var list = moduleList.Where(t => t.ParentId == parentModule.Id).ToList();
+                    layer = parentModule.Layer + 1;
+                    result.AddRange(SortModuleList(list, layer));
+                }
+            }
+            return result;
         }
 
         public List<OptionViewMode> GetLayerKeyValue()
@@ -96,7 +115,7 @@ namespace Core.Service.Authen.Impl
             var bulider = new DynamicLambda<Module>();
             Expression<Func<Module, bool>> expr = t => t.IsDeleted == false;
             Expression<Func<Module, bool>> tmp;
-            if (model.ParentModule.HasValue)
+            if (model.ParentModule.HasValue&& model.ParentModule.Value>0)
             {
                 tmp = t => t.ParentId == model.ParentModule;
                 expr = bulider.BuildQueryAnd(expr, tmp);

@@ -1,5 +1,5 @@
 ﻿var query = {};
-var actionUrl = { GetUserListByQuery: "/Core/User/GetUserListByQuery" };
+var actionUrl = { GetUserListByQuery: "/Core/User/GetUserListByQuery",GetRoleList:"/Core/Role/GetAllRole" };
 
 var aoColumns = [
     {
@@ -45,5 +45,27 @@ function Search(index) {
 }
 
 function OpenCreateUserModal() {
-
+    lightyear.loading('show');
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetRoleList,
+        async: false,
+        success: function (result) {
+            result.forEach(i => {
+                if (result && result.length > 0) {
+                    let roleHtml = '<option value="0" selected>请选择</option>';
+                    result.forEach(i => {
+                        roleHtml += '<option value="' + i.value + '">' + i.text + '</option>';
+                    });
+                    $("#RoleId").html(roleHtml);
+                    $('#createUserModalLabel').modal('show');
+                }
+                else {
+                    setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
+                }
+                lightyear.loading('hide');
+            });
+        }
+    });
+    
 }

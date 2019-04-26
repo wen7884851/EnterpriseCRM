@@ -665,6 +665,9 @@
     <Content Include="Areas\Core\Views\User\changePassword.cshtml" />
     <Content Include="Areas\Core\Views\Module\Index.cshtml" />
     <Content Include="Areas\Core\Views\Module\Create.cshtml" />
+    <Content Include="Areas\Core\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Core\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Core\Views\Role\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />

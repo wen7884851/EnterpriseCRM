@@ -29,7 +29,7 @@ namespace Core.Service.Authen.Impl
             var role = Roles.FirstOrDefault(t => t.Id == roleId && t.IsDeleted == false);
             if(role!=null)
             {
-                var module = Mapper.Map<List<ModuleViewModel>>(role.RoleModules.Select(t => t.Module));
+                var module = Mapper.Map<List<ModuleViewModel>>(role.RoleModules.Where(t=> t.IsDeleted == false).Select(t => t.Module));
                 return module;
             }
             return null;
