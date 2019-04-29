@@ -10,7 +10,7 @@ namespace Domain.Site.Models
 {
     public class UserProfileViewModel
     {
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public string FullName { get; set; }
         public string IDCardNo { get; set; }
         public string Aptitude { get; set; }

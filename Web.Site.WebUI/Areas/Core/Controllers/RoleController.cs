@@ -25,5 +25,11 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
             return Json(_roleService.GetMenuByRoleId(roleId));
         }
+
+        [HttpGet]
+        public ActionResult GetAllRole()
+        {
+            return Json(_roleService.GetAllRoleKeyValue(),JsonRequestBehavior.AllowGet);
+        }
     }
 }

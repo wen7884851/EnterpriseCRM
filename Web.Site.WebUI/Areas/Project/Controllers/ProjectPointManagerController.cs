@@ -41,7 +41,7 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
             var point = _projectPointManager.projectPoints.FirstOrDefault(t => t.Id == pointId&&t.IsDeleted==false);
             var exportCurrentPointUser = _userService.GetAllUser()
                 .Where(t=>!point.projectPointUserStores.Select(u => u.UserId.Value).Contains(t.Id))
-                .Select(t=>new {value=t.Id, text=t.LoginName });
+                .Select(t=>new {value=t.Id, text=t.LoginName }).ToList();
             return Json(exportCurrentPointUser);
         }
 

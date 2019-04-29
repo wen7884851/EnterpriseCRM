@@ -15,5 +15,6 @@ namespace Core.Service
         #endregion
 
         List<ModuleViewModel> GetMenuByRoleId(int roleId);
+        List<OptionViewMode> GetAllRoleKeyValue();
     }
 }

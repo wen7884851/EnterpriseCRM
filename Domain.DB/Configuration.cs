@@ -27,8 +27,8 @@ namespace Domain.DB
             }
             var roles = new List<Role>
             {
-                new Role{ Name="系统管理员",Enabled=true },
-                new Role{ Name="普通成员",Enabled=true }
+                new Role{ Name="系统管理员",Enabled=true,IsDeleted=false},
+                new Role{ Name="普通成员",Enabled=true,IsDeleted=false }
             };
             var roleSet = context.Set<Role>();
             if(roleSet.FirstOrDefault(t => t.Name == "系统管理员") == null)

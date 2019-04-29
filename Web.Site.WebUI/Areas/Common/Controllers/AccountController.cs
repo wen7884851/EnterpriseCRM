@@ -47,7 +47,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         [HttpPost]
         public ActionResult ChangePwd(UserAccountViewModel model)
         {
-            model.userId = OperatorProvider.Provider.GetCurrent().UserId;
+            model.UserId = OperatorProvider.Provider.GetCurrent().UserId;
             return Json(_userService.ChangeUserPassWord(model));
         }
 
@@ -57,7 +57,7 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
             var userList = _userService.GetAllUser().Select(t => new OptionViewMode
             {
                 key = t.Id,
-                text = t.LoginName,
+                text = t.LoginName+"("+t.FullName+")",
                 value = t.Id
             }).ToList();
             return Json(userList, JsonRequestBehavior.AllowGet);

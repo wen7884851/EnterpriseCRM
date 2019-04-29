@@ -49,5 +49,22 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
            return Json(_userService.GetUserListByQuery(query));
         }
+
+        [HttpPost]
+        public ActionResult CreateUser(UserAccountViewModel model)
+        {
+            return Json(_userService.CreateUser(model));
+        }
+
+        [HttpPost]
+        public ActionResult ChangePwd(UserAccountViewModel model)
+        {
+            return Json(_userService.ChangeUserPassWordBySystemUser(model));
+        }
+        [HttpPost]
+        public ActionResult DeleteUser(int userId)
+        {
+            return Json(_userService.DeleteUser(userId));
+        }
     }
 }

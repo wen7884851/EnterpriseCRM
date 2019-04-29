@@ -34,5 +34,15 @@ namespace Core.Service.Authen.Impl
             }
             return null;
         }
+
+        public List<OptionViewMode> GetAllRoleKeyValue()
+        {
+            var role = Roles.Where(t => t.IsDeleted == false).Select(t=>new OptionViewMode {
+                key=t.Id,
+                text=t.Name,
+                value=t.Id
+            }).ToList();
+            return role;
+        }
     }
 }

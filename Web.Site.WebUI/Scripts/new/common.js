@@ -10,6 +10,17 @@
     return obj;
 }
 
+function GetErrorMsg(obj) {
+    let result = JSON.parse(obj);
+    let msg = '';
+    if (result.Result) {
+        msg = result.Result;
+        return msg;
+    }
+    msg = result.Message;
+    return msg;
+}
+
 function clearNoNum(obj) {
     obj = obj.replace(/[^\d.]/g, "");  //清除“数字”和“.”以外的字符  
     obj = obj.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  

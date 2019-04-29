@@ -16,6 +16,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using Framework.EFData.DBExtend;
 
 namespace Core.Service.Authen.Impl
 {
@@ -28,18 +29,18 @@ namespace Core.Service.Authen.Impl
         #region 属性
 
         [Import]
-        public IUserRepository UserRepository { get; set; }
+        public IUserRepository _userRepository { get; set; }
         [Import]
         public IUserProfileRepository _userProfileRepository { get; set; }
 
         public IQueryable<User> Users
         {
-            get { return UserRepository.NoCahecEntities; }
+            get { return _userRepository.NoCahecEntities; }
         }
 
         private IQueryable<User> UsersByCahec
         {
-            get { return UserRepository.Entities; }
+            get { return _userRepository.Entities; }
         }
         #endregion
 
@@ -55,33 +56,70 @@ namespace Core.Service.Authen.Impl
         }
         public UserAccountViewModel GetAccountByLoginName(string LoginName)
         {
-            var user = Users.FirstOrDefault(t => ((t.LoginName == LoginName) || t.Email == LoginName )|| t.Phone == LoginName);
-            if(user!=null)
+            var user = Users.FirstOrDefault(t => ((t.LoginName == LoginName) || t.Email == LoginName) || t.Phone == LoginName);
+            if (user != null)
             {
                 return new UserAccountViewModel()
                 {
-                    userId=user.Id,
-                    LoginName=user.LoginName,
-                    LoginPwd=user.LoginPwd,
-                    PwdErrorCount=user.PwdErrorCount,
-                    Enabled=user.Enabled,
-                    LastLoginTime=user.LastLoginTime
+                    UserId = user.Id,
+                    LoginName = user.LoginName,
+                    LoginPwd = user.LoginPwd,
+                    PwdErrorCount = user.PwdErrorCount,
+                    Enabled = user.Enabled,
+                    LastLoginTime = user.LastLoginTime
                 };
             }
             return null;
+        }
+
+        public ActionResultViewModel CreateUser(UserAccountViewModel model)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false
+            };
+            if(Users.FirstOrDefault(t=>t.LoginName==model.LoginName)!=null)
+            {
+                result.Result = "该用户名系统内已存在，请重新输入！";
+                return result;
+            }
+            if (model != null)
+            {
+                using (UnitOfWork tran = new UnitOfWork())
+                {
+                    var userDTO = Mapper.Map<User>(model);
+                    userDTO.Enabled = true;
+                    userDTO.Create();
+                    _userRepository.Insert(userDTO);
+                    var userProfileDTO = new UserProfile()
+                    {
+                        UserId = userDTO.Id,
+                        FullName = model.FullName
+                    };
+                    userProfileDTO.Create();
+                    _userProfileRepository.Insert(userProfileDTO);
+                    tran.Commit();
+                }
+                result.IsSuccess = true;
+            }
+            else
+            {
+                result.Result = "数据有误，请查证！";
+            }
+            return result;
         }
         public PageResult<UserViewModel> GetUserListByQuery(UserSearchViewModel query)
         {
             var expr = BuildSearchUser(query);
             var userList = Users.Where(expr).OrderByDescending(t => t.CreateTime).Skip((query.PageIndex - 1) * query.PageSize).Take(query.PageSize)
-            .Select(t=>new UserViewModel() {
-                Id=t.Id,
-                LoginName=t.LoginName,
-                FullName=t.Profile.FirstOrDefault().FullName,
-                Email=t.Email,
-                Phone=t.Phone,
-                RoleName="测试",
-                LastLoginTime=t.LastLoginTime.Value
+            .Select(t => new UserViewModel() {
+                Id = t.Id,
+                LoginName = t.LoginName,
+                FullName = t.Profile.FirstOrDefault().FullName,
+                Email = t.Email,
+                Phone = t.Phone,
+                RoleName = "测试",
+                LastLoginTime = t.LastLoginTime.Value
             }).ToList();
             var result = new PageResult<UserViewModel>()
             {
@@ -102,7 +140,7 @@ namespace Core.Service.Authen.Impl
             }
             if (query.FullName != null)
             {
-                Expression<Func<User, bool>> tmp = t => t.Profile.Select(x=>x.FullName).Contains(query.FullName);
+                Expression<Func<User, bool>> tmp = t => t.Profile.Select(x => x.FullName).Contains(query.FullName);
                 expr = bulider.BuildQueryAnd(expr, tmp);
             }
             return expr;
@@ -158,8 +196,21 @@ namespace Core.Service.Authen.Impl
             {
                 profile.Sex = 1;
             }
-            UserRepository.Update(user);
+            _userRepository.Update(user);
             _userProfileRepository.Update(profile);
+        }
+
+        public ActionResultViewModel DeleteUser(int userId)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false,
+            };
+            var userProfileDTO = _userProfileRepository.Entities.FirstOrDefault(t => t.UserId == userId);
+            _userProfileRepository.Delete(userProfileDTO);
+            _userRepository.Delete(userId);
+            result.IsSuccess = true;
+            return result;
         }
 
         public UserProfileViewModel GetUserProfileById(int userId)
@@ -176,17 +227,18 @@ namespace Core.Service.Authen.Impl
             var user = Users.FirstOrDefault(t => t.Id == userId);
             if (user != null)
             {
-               return  Mapper.Map<UserViewModel>(user);
+                return Mapper.Map<UserViewModel>(user);
             }
             return null;
         }
 
         public IQueryable<UserViewModel> GetAllUser()
         {
-            return Users.Where(t=>t.IsDeleted==false).Select(t => new UserViewModel()
+            return Users.Where(t => t.IsDeleted == false).Select(t => new UserViewModel()
             {
-                Id=t.Id,
-                LoginName = t.LoginName
+                Id = t.Id,
+                LoginName = t.LoginName,
+                FullName=t.Profile.FirstOrDefault().FullName
             });
         }
         public ActionResultViewModel CheckLogin(UserAccountViewModel user)
@@ -201,7 +253,7 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户名密码为空，请重新输入！";
                 return result;
             }
-            var userAccount =GetAccountByLoginName(user.LoginName);
+            var userAccount = GetAccountByLoginName(user.LoginName);
             if (userAccount == null)
             {
                 result.Result = "用户名不存在，请确定后重新输入！";
@@ -212,18 +264,42 @@ namespace Core.Service.Authen.Impl
                 result.Result = "用户名输入密码错误次数超过5次，请5分钟后再登录！";
                 return result;
             }
-            if ( user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd).ToLower())
+            if (user.LoginPwd != MD5Provider.GetMD5String(userAccount.LoginPwd).ToLower())
             {
                 result.Result = "密码错误，请确定后重新输入！";
-                UpdateUserLoginError(userAccount.userId);
+                UpdateUserLoginError(userAccount.UserId);
                 return result;
             }
-            if(!userAccount.Enabled)
+            if (!userAccount.Enabled)
             {
                 result.Result = "该用户已禁用！";
                 return result;
             }
-            result=Login(userAccount.userId);
+            result = Login(userAccount.UserId);
+            return result;
+        }
+
+        public ActionResultViewModel ChangeUserPassWordBySystemUser(UserAccountViewModel user)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false,
+            };
+            if(user.LoginPwd =="")
+            {
+                result.Result = "密码为空！";
+                return result;
+            }
+            if (user.UserId == 0)
+            {
+                result.Result = "用户ID为空！";
+                return result;
+            }
+            var userDto = Users.FirstOrDefault(t => t.Id == user.UserId);
+            userDto.LoginPwd = user.LoginPwd;
+            userDto.Modify();
+            _userRepository.Update(userDto);
+            result.IsSuccess = true;
             return result;
         }
 
@@ -233,7 +309,7 @@ namespace Core.Service.Authen.Impl
             {
                 IsSuccess = false,
             };
-            var userDto = Users.FirstOrDefault(t => t.Id == user.userId);
+            var userDto = Users.FirstOrDefault(t => t.Id == user.UserId);
             if (user.LoginPwd != MD5Provider.GetMD5String(userDto.LoginPwd).ToLower())
             {
                 result.Result = "用户原密码输入错误,请重新输入！";
@@ -241,7 +317,8 @@ namespace Core.Service.Authen.Impl
             }
             userDto.LoginPwd = user.NewLoginPwd;
             userDto.isFirstLogin = false;
-            UserRepository.Update(userDto);
+            userDto.Modify();
+            _userRepository.Update(userDto);
             result.IsSuccess = true;
             return result;
         }
@@ -260,7 +337,7 @@ namespace Core.Service.Authen.Impl
             var userDTO = Users.FirstOrDefault(t => t.Id == model.UserId);
             DeletePhoto(model, userDTO.PhotoPath);
             userDTO.PhotoPath = model.FileName;
-            UserRepository.Update(userDTO);
+            _userRepository.Update(userDTO);
             result.IsSuccess = true;
             result.Result = model.FileName;
             return result;
@@ -295,7 +372,7 @@ namespace Core.Service.Authen.Impl
                     user.PwdErrorCount = 1;
                 }
             }
-            UserRepository.Update(user);
+            _userRepository.Update(user);
         }
 
         private ActionResultViewModel Login(int userId,bool isRemeberUserName=false)
@@ -320,7 +397,7 @@ namespace Core.Service.Authen.Impl
             result.LoginIPAddress = Net.Ip;
             result.LoginIPAddressName = Net.Host;
             OperatorProvider.Provider.AddCurrent(result);
-            UserRepository.Update(user);
+            _userRepository.Update(user);
             return new ActionResultViewModel()
             {
                 IsSuccess = true,

@@ -3,65 +3,74 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createModalLabel">创建用户</h4>
+                <h4 class="modal-title" id="createUserModalLabel">创建用户</h4>
             </div>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-xs-12" for="LoginName">用户名</label>
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" id="LoginName" placeholder="用户名..">
-                            <div class="help-block" id="LoginNameErrorMsg" style="color:red"></div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="LoginName">用户名</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="LoginName" placeholder="用户名..">
+                                <div class="help-block" id="LoginNameErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="LoginPassword">密码</label>
+                            <div class="col-xs-12">
+                                <input type="password" placeholder="密码.." class="form-control" id="LoginPassword" />
+                                <div class="help-block" id="LoginPasswordErrorMsg" style="color:red"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-xs-12" for="LoginPassword">密码</label>
-                        <div class="col-xs-12">
-                            <input type="password" placeholder="密码.." class="form-control" id="LoginPassword" />
-                            <div class="help-block" id="LoginPasswordErrorMsg" style="color:red"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="RoleId">角色</label>
+                            <div class="col-xs-12">
+                                <select class="form-control" id="RoleId" size="1" style="height: 38px;"></select>
+                                <div class="help-block" id="RoleIdErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="FullName">用户姓名</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="FullName" placeholder="用户名..">
+                                <div class="help-block" id="FullNameErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Phone">联系电话</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="Phone" placeholder="联系电话..">
+                                <div class="help-block" id="PhoneErrorMsg" style="color:red"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="Email">邮箱地址</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" id="Email" placeholder="邮箱地址..">
+                                <div class="help-block" id="EmailMsg" style="color:red"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-xs-12" for="RoleId">角色</label>
-                        <div class="col-xs-12">
-                            <select class="form-control" id="RoleId" size="1" style="height: 38px;"></select>
-                            <div class="help-block" id="RoleIdErrorMsg" style="color:red"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-xs-12" for="FullName">用户姓名</label>
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" id="FullName" placeholder="用户名..">
-                            <div class="help-block" id="FullNameErrorMsg" style="color:red"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button class="btn btn-label btn-primary" onclick="CreateUser()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-xs-12" for="Phone">联系电话</label>
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" id="Phone" placeholder="联系电话..">
-                            <div class="help-block" id="PhoneErrorMsg" style="color:red"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button class="btn btn-label btn-primary" onclick="CreateUser()"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 创建</button>
         </div>
     </div>
 </div>

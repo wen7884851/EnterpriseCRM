@@ -18,11 +18,14 @@ namespace Core.Service.Authen
         UserViewModel GetUserModelById(int userId);
         UserViewModel GetUserModelByToken(string token);
         PageResult<UserViewModel> GetUserListByQuery(UserSearchViewModel query);
+        ActionResultViewModel DeleteUser(int userId);
         UserProfileViewModel GetUserProfileById(int userId);
         ActionResultViewModel UpdateUserProfile(UserProfileViewModel model);
         ActionResultViewModel CheckLogin(UserAccountViewModel user);
+        ActionResultViewModel ChangeUserPassWordBySystemUser(UserAccountViewModel user);
         ActionResultViewModel ChangeUserPassWord(UserAccountViewModel user);
         ActionResultViewModel UploadUserPhoto(UserPhotoViewModel model);
+        ActionResultViewModel CreateUser(UserAccountViewModel model);
         #endregion
     }
 }
