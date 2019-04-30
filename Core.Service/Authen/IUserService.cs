@@ -14,8 +14,8 @@ namespace Core.Service.Authen
 
         #region 公共方法
         UserAccountViewModel GetAccountByLoginName(string LoginName);
-        IQueryable<UserViewModel> GetAllUser();
-        UserViewModel GetUserModelById(int userId);
+        IQueryable<UserAccountViewModel> GetAllUser();
+        UserAccountViewModel GetUserAccountById(int userId);
         UserViewModel GetUserModelByToken(string token);
         PageResult<UserViewModel> GetUserListByQuery(UserSearchViewModel query);
         ActionResultViewModel DeleteUser(int userId);

@@ -38,6 +38,11 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
             return Json(_userService.GetUserProfileById(userId));
         }
+        [HttpPost]
+        public ActionResult GetUserAccountById(int userId)
+        {
+            return Json(_userService.GetUserAccountById(userId));
+        }
 
         [HttpPost]
         public ActionResult EditUserProfile(UserProfileViewModel model)

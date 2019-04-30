@@ -135,7 +135,6 @@ function checkCreateProjectPoint() {
 }
 function OpenCreateProjectPointModal() {
     lightyear.loading('show');
-    clearCreatePointErrorMsg();
     $.ajax({
         type: 'post', url: actionUrl.GetProfessionalType, async: false, success: function (result) {
             let html = '<option value="0" selected>请选择</option>';
@@ -143,12 +142,14 @@ function OpenCreateProjectPointModal() {
                 for (let index = 0; index < result.length; index++) {
                     html += '<option value="' + result[index].Id + '">' + result[index].TypeName + '</option>';
                 }
+                $('#ProfessionalType').html(html);
+                clearCreatePointErrorMsg();
+                initCreatePointHtml();
+                $('#createPointModal').modal('show');
             }
-            $('#ProfessionalType').html(html);
             lightyear.loading('hide');
         }
     });
-    $('#createPointModal').modal('show');
 }
 function onChangePointProportion(obj,e) {
     obj = setProportionValue(obj);
@@ -160,6 +161,12 @@ function clearCreatePointErrorMsg() {
     $("#PointNameErrorMsg").html('');
     $("#ProfessionalTypeErrorMsg").html('');
     $("#PointProportionErrorMsg").html('');
+}
+function initCreatePointHtml() {
+    $("#PointName").val('');
+    $("#PointProportion").val('');
+    $("#PointContractMoney").html('');
+    $("#Content").val('');
 }
 
 function buildPointHtmlValue(point) {
@@ -272,9 +279,6 @@ function RefreshPoint(pointId) {
 }
 function OpenAddUserModal(pointId, pointProportion) {
     lightyear.loading('show');
-    clearCreateUserStoreErrorMsg();
-    $('#pointId').val(pointId);
-    $('#pointProportion').val(pointProportion);
     $.ajax({
         type: 'post',
         url: actionUrl.GetExportCurrentPointUser,
@@ -289,6 +293,10 @@ function OpenAddUserModal(pointId, pointProportion) {
                     });
                 }
                 $("#UserStore").html(userHtml);
+                clearCreateUserStoreErrorMsg();
+                initCreateUserStoreHtmlValue();
+                $('#pointId').val(pointId);
+                $('#pointProportion').val(pointProportion);
                 $('#createUserStoreModal').modal('show');
             }
             else {
@@ -381,6 +389,12 @@ function clearCreateUserStoreErrorMsg() {
     $('#UserStoreErrorMsg').html('');
 }
 
+function initCreateUserStoreHtmlValue() {
+    $('#StoreProportion').val();
+    $('#UserContractMoney').html('');
+    $('#StoreContent').val();
+}
+
 function EditProjectPoint() {
     lightyear.loading('show');
     if (checkEditProjectPoint()) {
@@ -447,7 +461,6 @@ function checkEditProjectPoint() {
 }
 function OpenEditPointModal(pointId) {
     lightyear.loading('show');
-    clearEditPointErrorMsg();
     $.ajax({
         type: 'post',
         url: actionUrl.GetPointById,
@@ -456,6 +469,7 @@ function OpenEditPointModal(pointId) {
         success: function (result) {
             if (result) {
                 $('#EPoint').val(pointId);
+                clearEditPointErrorMsg();
                 SetEditPointHtmlValue(result);
                 $('#editPointModal').modal('show');
             }
@@ -491,7 +505,7 @@ function SetEditPointHtmlValue(point) {
             let html = '<option value="0">请选择</option>';
             if (result) {
                 for (let index = 0; index < result.length; index++) {
-                    if (point.ProfessionalTypeId == result[index].Id) {
+                    if (point.ProfessionalTypeId === result[index].Id) {
                         html += '<option value="' + result[index].Id + '" selected>' + result[index].TypeName + '</option>';
                     }
                     else {
@@ -525,7 +539,7 @@ function getStatus(status) {
 function onchangePointStatus() {
     let status = $("#EPointStatus");
     let statusId = parseInt(status[0].options[status[0].selectedIndex].value);
-    if (statusId == 3) {
+    if (statusId === 3) {
         $("#EPointName").attr("readOnly", "true");
         $("#EProfessionalType").attr("readOnly", "true");
         $("#EPointProportion").attr("readOnly", "true");
@@ -606,6 +620,7 @@ function EditUserStore() {
     }
     else {
         setTimeout(function () { lightyear.notify('请填写完整信息！', 'warning'); }, 1e3);
+        lightyear.loading('hide');
     }
 }
 function getEditUserStoreHtmlValue() {

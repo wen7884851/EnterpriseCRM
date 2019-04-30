@@ -8,11 +8,15 @@ var aoColumns = [
     {
         "sName": "Id",
         "fnRender": function (oObj) {
-            let href = '/Project/ProjectPointManager?projectId=' + oObj.Id;
-            return '<a href="' + href + '">' + oObj.Id+'</a>';
+            return "No."+oObj.Id;
         }
     },
-    { "sName": "ProjectName" },
+    {
+        "sName": "ProjectName",
+        "fnRender": function (oObj) {
+            let href = '/Project/ProjectPointManager?projectId=' + oObj.Id;
+            return '<a href="' + href + '">' + oObj.ProjectName + '</a>';
+        }},
     { "sName": "LeaderName" },
     { "sName": "Content" },
     { "sName": "LinkPerson" },
@@ -84,6 +88,8 @@ function OpenCreateProjectModal() {
                     userHtml += '<option value="' + i.value + '">' + i.text + '</option>';
                 });
                 $("#ProjectLeader").html(userHtml);
+                initCreateProjectErrorMsg();
+                initCreateProjectModal();
                 $('#projectModal').modal('show');
             }
             else {
@@ -94,8 +100,6 @@ function OpenCreateProjectModal() {
     });
 }
 function closeCreateProjectModal() {
-    initCreateProjectErrorMsg();
-    initCreateProjectModal();
     $('#projectModal').modal('hide');
 }
 function GetProjectHtmlValue() {
@@ -205,8 +209,7 @@ function GetEditProjectHtmlValue() {
 }
 function OpenEditProjectModal(projectId) {
     lightyear.loading('show');
-    initEditProjectErrorMsg();
-    $.ajax({
+        $.ajax({
         type: 'post',
         url: actionUrl.GetProject,
         data: { projectId: projectId },
@@ -216,6 +219,7 @@ function OpenEditProjectModal(projectId) {
                 let project = result;
                 $('#EProjectId').val(projectId);
                 initEditProjectHtmlValue(project);
+                initEditProjectErrorMsg();
                 $('#projectEditModal').modal('show');
             }
             else {

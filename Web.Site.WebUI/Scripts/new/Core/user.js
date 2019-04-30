@@ -2,7 +2,7 @@
 var actionUrl = {
     GetUserListByQuery: "/Core/User/GetUserListByQuery", GetRoleList: "/Core/Role/GetAllRole",
     CreateUser: "/Core/User/CreateUser", ResetPassWord: "/Core/User/ChangePwd", GetUserById: "/Core/User/GetUserProfile",
-    DeleteUser:"/Core/User/DeleteUser"};
+    DeleteUser: "/Core/User/DeleteUser", GetUserAccountById: "/Core/User/GetUserAccountById"};
 
 var aoColumns = [
     {
@@ -57,20 +57,20 @@ function OpenCreateUserModal() {
         url: actionUrl.GetRoleList,
         async: false,
         success: function (result) {
-            result.forEach(i => {
-                if (result && result.length > 0) {
-                    let roleHtml = '<option value="0" selected>请选择</option>';
-                    result.forEach(i => {
-                        roleHtml += '<option value="' + i.value + '">' + i.text + '</option>';
-                    });
-                    $("#RoleId").html(roleHtml);
-                    $('#createUserModal').modal('show');
-                }
-                else {
-                    setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
-                }
-                lightyear.loading('hide');
-            });
+            if (result && result.length > 0) {
+                let roleHtml = '<option value="0" selected>请选择</option>';
+                result.forEach(i => {
+                    roleHtml += '<option value="' + i.value + '">' + i.text + '</option>';
+                });
+                $("#RoleId").html(roleHtml);
+                initCreateUserErrorMsg();
+                initCreateUserHtml();
+                $('#createUserModal').modal('show');
+            }
+            else {
+                setTimeout(function () { lightyear.notify('无用户数据，请先配置用户', 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
         }
     });
 }
@@ -156,9 +156,17 @@ function initCreateUserErrorMsg() {
     $('#PhoneErrorMsg').html('');
     $('#EmailMsg').html('');
 }
+function initCreateUserHtml() {
+    $("#LoginName").val('');
+    $("#LoginPassword").val('');
+    $("#FullName").val('');
+    $("#Phone").val('');
+    $("#Email").val('');
+}
 
 function OpenResetPasswordModal(userId) {
-    $('#Reset_UserId').val(userId);
+    initResetPassWordHtml();
+    initResetPassWordErrorMsg();
     $('#ResetPasswordModal').modal('show');
 }
 function ResetPassWord() {
@@ -205,6 +213,11 @@ function CheckResetPassWord() {
 }
 function initResetPassWordErrorMsg() {
     $('#RLoginPasswordErrorMsg').html('');
+}
+function initResetPassWordHtml() {
+    $('#Reset_UserId').val(userId);
+    $('#RLoginPassword').val('');
+    $('#RNewLoginPassword').val('');
 }
 
 function OpenDeleteUserModal(userId) {
@@ -254,3 +267,60 @@ function DeleteUser() {
 }
 
 
+function OpenEditUserModal(userId) {
+    lightyear.loading('show');
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetUserAccountById,
+        data: { userId: userId},
+        async: false,
+        success: function (result) {
+            if (result.UserId) {
+                initEditUserHtml(result);
+            }
+            else {
+                setTimeout(function () { lightyear.notify(GetErrorMsg(result), 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
+}
+function initEditUserHtml(userAccount) {
+    $('#EUserId').val(userAccount.UserId);
+    $('#ELoginName').val(userAccount.LoginName);
+    $('#EFullName').val(userAccount.FullName);
+    $('#EPhone').val(userAccount.Phone);
+    $('#EEmail').val(userAccount.Email);
+    $.ajax({
+        type: 'GET',
+        url: actionUrl.GetRoleList,
+        async: false,
+        success: function (result) {
+            if (result[0].value) {
+                let roleHtml = '<option value="0">请选择</option>';
+                result.forEach(i => {
+                    if (i.value === userAccount.RoleId) {
+                        roleHtml += '<option value="' + i.value + '" selected>' + i.text + '</option>';
+                    }
+                    else {
+                        roleHtml += '<option value="' + i.value + '">' + i.text + '</option>';
+                    }
+                });
+                $('#ERoleId').html(roleHtml);
+                initEditUserErrorMsg();
+                $('#editUserModal').modal('show');
+            }
+            else {
+                setTimeout(function () { lightyear.notify(GetErrorMsg(result), 'warning'); }, 1e3);
+            }
+            lightyear.loading('hide');
+        }
+    });
+}
+function initEditUserErrorMsg() {
+    $('#ELoginNameErrorMsg').html('');
+    $('#ERoleIdErrorMsg').html('');
+    $('#EFullNameErrorMsg').html('');
+    $('#EPhoneErrorMsg').html('');
+    $('#EEmailMsg').html('');
+}

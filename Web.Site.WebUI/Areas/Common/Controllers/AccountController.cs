@@ -56,9 +56,9 @@ namespace Web.Site.WebUI.Areas.Common.Controllers
         {
             var userList = _userService.GetAllUser().Select(t => new OptionViewMode
             {
-                key = t.Id,
+                key = t.UserId,
                 text = t.LoginName+"("+t.FullName+")",
-                value = t.Id
+                value = t.UserId
             }).ToList();
             return Json(userList, JsonRequestBehavior.AllowGet);
         }

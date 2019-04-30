@@ -38,10 +38,11 @@ namespace Web.Site.WebUI.Areas.Project.Controllers
         [HttpPost]
         public ActionResult GetExportCurrentPointUser(int pointId)
         {
-            var point = _projectPointManager.projectPoints.FirstOrDefault(t => t.Id == pointId&&t.IsDeleted==false);
-            var exportCurrentPointUser = _userService.GetAllUser()
-                .Where(t=>!point.projectPointUserStores.Select(u => u.UserId.Value).Contains(t.Id))
-                .Select(t=>new {value=t.Id, text=t.LoginName }).ToList();
+            var point = _projectPointManager.projectPoints.FirstOrDefault(t => t.Id == pointId && t.IsDeleted == false);
+            var allUser = _userService.GetAllUser();
+            var exportPointUser = point.projectPointUserStores.Select(u => u.UserId.Value).ToList();
+            var exportCurrentPointUser = allUser.Where(t => !exportPointUser.Contains(t.UserId))
+                .Select(t => new OptionViewMode { value = t.UserId, text = t.LoginName + "(" + t.FullName + ")", key = t.UserId }).ToList();
             return Json(exportCurrentPointUser);
         }
 

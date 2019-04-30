@@ -118,7 +118,7 @@ namespace Core.Service.Authen.Impl
                 FullName = t.Profile.FirstOrDefault().FullName,
                 Email = t.Email,
                 Phone = t.Phone,
-                RoleName = "测试",
+                RoleId = t.RoleId,
                 LastLoginTime = t.LastLoginTime.Value
             }).ToList();
             var result = new PageResult<UserViewModel>()
@@ -222,21 +222,23 @@ namespace Core.Service.Authen.Impl
             profile.Email = user.Email;
             return profile;
         }
-        public UserViewModel GetUserModelById(int userId)
+
+
+        public UserAccountViewModel GetUserAccountById(int userId)
         {
             var user = Users.FirstOrDefault(t => t.Id == userId);
             if (user != null)
             {
-                return Mapper.Map<UserViewModel>(user);
+                return Mapper.Map<UserAccountViewModel>(user);
             }
             return null;
         }
 
-        public IQueryable<UserViewModel> GetAllUser()
+        public IQueryable<UserAccountViewModel> GetAllUser()
         {
-            return Users.Where(t => t.IsDeleted == false).Select(t => new UserViewModel()
+            return Users.Where(t => t.IsDeleted == false).Select(t => new UserAccountViewModel()
             {
-                Id = t.Id,
+                UserId = t.Id,
                 LoginName = t.LoginName,
                 FullName=t.Profile.FirstOrDefault().FullName
             });
