@@ -27,6 +27,12 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         }
 
         [HttpPost]
+        public ActionResult GetAllModule()
+        {
+            return Json(_moduleService.GetAllModuleList());
+        }
+
+        [HttpPost]
         public ActionResult GetLayerKeyValue()
         {
             return Json(_moduleService.GetLayerKeyValue());

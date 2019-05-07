@@ -1,4 +1,5 @@
 ﻿using Core.Service;
+using Domain.Site.Models.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -31,5 +32,13 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
             return Json(_roleService.GetAllRoleKeyValue(),JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult GetRoleList(RoleQueryModel query)
+        {
+            return Json(_roleService.GetRoleListByQuery(query), JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

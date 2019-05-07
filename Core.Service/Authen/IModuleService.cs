@@ -13,6 +13,8 @@ namespace Core.Service
         #region 属性
         IQueryable<Module> Modules { get; }
         #endregion
+
+        List<ModuleViewModel> GetAllModuleList();
         PageResult<ModuleViewModel> GetModuleListByQuery(ModuleQueryModel query);
         List<OptionViewMode> GetLayerKeyValue();
         List<OptionViewMode> GetParentModuleKeyValue(int layer);

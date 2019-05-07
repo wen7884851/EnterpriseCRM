@@ -2,10 +2,12 @@
 using Core.Repository.Authen;
 using Domain.DB.Models;
 using Domain.Site.Models;
+using Domain.Site.Models.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,6 +45,31 @@ namespace Core.Service.Authen.Impl
                 value=t.Id
             }).ToList();
             return role;
+        }
+
+        public PageResult<RoleViewModel> GetRoleListByQuery(RoleQueryModel query)
+        {
+            var expr = BuildSearchModules(query);
+            var roleList = Mapper.Map<List<RoleViewModel>>(Roles.Where(expr).OrderBy(t=>t.CreateTime)
+                .Skip((query.PageIndex - 1) * query.PageSize).Take(query.PageSize));
+            return new PageResult<RoleViewModel>()
+            {
+                Items = roleList,
+                TotalItemsCount = Roles.Where(expr).Count()
+            };
+        }
+
+        private Expression<Func<Role, bool>> BuildSearchModules(RoleQueryModel model)
+        {
+            var bulider = new DynamicLambda<Role>();
+            Expression<Func<Role, bool>> expr = t => t.IsDeleted == false;
+            Expression<Func<Role, bool>> tmp;
+            if (!string.IsNullOrEmpty(model.Name))
+            {
+                tmp = t => t.Name.Contains(model.Name);
+                expr = bulider.BuildQueryAnd(expr, tmp);
+            }
+            return expr;
         }
     }
 }

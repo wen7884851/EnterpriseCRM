@@ -44,19 +44,19 @@
                     filter += '<li class="active"><span>第' + i + '页</span></li>';
                 }
                 else {
-                    filter += '<li><a href="#" onclick=Search(' + i + ')>第' + i + '页</a></li>'
+                    filter += '<li><a href="#" onclick=TurnPage(' + i + ')>第' + i + '页</a></li>'
                 }
             }
         }
         else {
             if (currentPageIndex > 2) {
-                filter += '<li ><a href="#" onclick=Search(1)>第1页</a></li>';
+                filter += '<li ><a href="#" onclick=TurnPage(1)>第1页</a></li>';
             }
-            filter += '<li ><a href="#" onclick=Search(' + currentPageIndex - 1 + ')>上1页</a></li>';
+            filter += '<li ><a href="#" onclick=TurnPage(' + currentPageIndex - 1 + ')>上1页</a></li>';
             filter += '<li class="active"><span>第' + currentPageIndex + '页</span></li>';
-            filter += '<li ><a href="#" onclick=Search(' + currentPageIndex + 1 + ')>下1页</a></li>';
+            filter += '<li ><a href="#" onclick=TurnPage(' + currentPageIndex + 1 + ')>下1页</a></li>';
             if (pageCount - currentPageIndex > 1) {
-                filter += '<li ><a href="#" onclick=Search(' + pageCount + ')>第' + pageCount + '页</a></li>';
+                filter += '<li ><a href="#" onclick=TurnPage(' + pageCount + ')>第' + pageCount + '页</a></li>';
             }
         }
         pageFilterObj.html(filter);

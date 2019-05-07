@@ -32,13 +32,19 @@ var aoColumns = [
     }
 ];
 
-Search(1);
 
-function Search(index) {
+Search();
+
+function TurnPage(index) {
     if (index && index <= 0) {
         index = 1;
     }
     query['PageIndex'] = index;
+    tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.ProjectList, aoColumns, query);
+}
+
+function Search() {
+    query['PageIndex'] = 1;
     query['projectName'] = $("#projectName").val() ? $("#projectName").val() : '';
     tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.ProjectList, aoColumns, query);
 }

@@ -1,5 +1,6 @@
 ﻿using Domain.DB.Models;
 using Domain.Site.Models;
+using Domain.Site.Models.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Core.Service
 
         List<ModuleViewModel> GetMenuByRoleId(int roleId);
         List<OptionViewMode> GetAllRoleKeyValue();
+        PageResult<RoleViewModel> GetRoleListByQuery(RoleQueryModel query);
     }
 }

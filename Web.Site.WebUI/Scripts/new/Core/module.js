@@ -43,7 +43,7 @@ var aoColumns = [
 
 $(function () {
     SetParentModuleHtmlValue();
-    Search(1);
+    Search();
 });
 
 function SetParentModuleHtmlValue() {
@@ -59,21 +59,25 @@ function SetParentModuleHtmlValue() {
             });
         }
     });
-   
 }
 
-function Search(index) {
+function TurnPage(index) {
     if (index && index <= 0) {
         index = 1;
     }
     query['PageIndex'] = index;
+    tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetModuleListByQuery, aoColumns, query);
+}
+
+function Search() {
+    query['PageIndex'] = 1;
     let parentModule = 0;
     let selectParentModule = $("#SParentModule");
-    if (selectParentModule[0].selectedIndex && selectParentModule[0].selectedIndex > 1) {
+    if (selectParentModule[0].selectedIndex && selectParentModule[0].selectedIndex > -1) {
         parentModule = parseInt(selectParentModule[0].options[selectParentModule[0].selectedIndex].value);
     }
     query['ParentModule'] = parentModule;
-    query['SModuleName'] = $("#SModuleName").val() ? $("#SModuleName").val() : '';
+    query['ModuleName'] = $("#SModuleName").val() ? $("#SModuleName").val() : '';
     tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetModuleListByQuery, aoColumns, query);
 }
 

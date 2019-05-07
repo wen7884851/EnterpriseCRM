@@ -37,14 +37,19 @@ var aoColumns = [
 ];
 
 $(function () {
-    Search(1);
+    Search();
 });
 
-function Search(index) {
+function TurnPage(index) {
     if (index && index <= 0) {
         index = 1;
     }
     query['PageIndex'] = index;
+    tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetUserListByQuery, aoColumns, query);
+}
+
+function Search() {
+    query['PageIndex'] = 1;
     query['LoginName'] = $("#SLoginName").val() ? $("#SLoginName").val() : '';
     query['FullName'] = $("#SFullName").val() ? $("#SFullName").val() : '';
     tablelist.SearchDataTables($("#tablelist tbody"), $("#filter"), actionUrl.GetUserListByQuery, aoColumns, query);

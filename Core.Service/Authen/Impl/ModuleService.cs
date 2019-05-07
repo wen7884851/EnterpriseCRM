@@ -25,6 +25,13 @@ namespace Core.Service.Authen.Impl
         }
         #endregion
 
+        public List<ModuleViewModel> GetAllModuleList()
+        {
+            var Items = Mapper.Map<List<ModuleViewModel>>(Modules.Where(t => t.IsDeleted == false));
+            Items = SortModuleList(Items, 1);
+            return Items;
+        }
+
         public PageResult<ModuleViewModel> GetModuleListByQuery(ModuleQueryModel query)
         {
             var expr = BuildSearchModules(query);
@@ -52,7 +59,14 @@ namespace Core.Service.Authen.Impl
                     result.AddRange(SortModuleList(list, layer));
                 }
             }
+            MergeBaseModule(moduleList, result);
             return result;
+        }
+
+        private void MergeBaseModule(List<ModuleViewModel> souce, List<ModuleViewModel> merge)
+        {
+            var except = souce.Except(merge).OrderBy(t => t.OrderSort);
+            merge.AddRange(except);
         }
 
         public List<OptionViewMode> GetLayerKeyValue()
@@ -122,7 +136,7 @@ namespace Core.Service.Authen.Impl
             }
             if (!string.IsNullOrEmpty(model.ModuleName))
             {
-                tmp = t => t.Name == model.ModuleName;
+                tmp = t => t.Name.Contains(model.ModuleName);
                 expr = bulider.BuildQueryAnd(expr, tmp);
             }
             return expr;

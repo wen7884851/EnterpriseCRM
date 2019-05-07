@@ -669,6 +669,8 @@
     <Content Include="Areas\Core\Views\Role\Edit.cshtml" />
     <Content Include="Areas\Core\Views\Role\Delete.cshtml" />
     <Content Include="Areas\Core\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Core\Views\Role\CreateRoleInfo.cshtml" />
+    <Content Include="Areas\Core\Views\Role\RoleModuleConfiguration.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
@@ -898,6 +900,7 @@
     <Content Include="Scripts\new\chosen.jquery.min.js" />
     <Content Include="Scripts\new\common.js" />
     <Content Include="Scripts\new\Core\module.js" />
+    <Content Include="Scripts\new\Core\role.js" />
     <Content Include="Scripts\new\Core\user.js" />
     <Content Include="Scripts\new\Dashboard\UserProfile.js" />
     <Content Include="Scripts\new\ion-rangeslider\ion.rangeSlider.min.css" />

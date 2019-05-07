@@ -114,6 +114,7 @@
     <Compile Include="Models\Common\PageResult.cs" />
     <Compile Include="Models\Common\PermissionCustomMode.cs" />
     <Compile Include="Models\Core\ModuleViewModel.cs" />
+    <Compile Include="Models\Core\RoleViewModel.cs" />
     <Compile Include="Models\Core\UserProfileViewModel.cs" />
     <Compile Include="Models\Formula\FormulaItemViewModel.cs" />
     <Compile Include="Models\Project\ProjectCalculationViewModel.cs" />
