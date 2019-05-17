@@ -1,5 +1,7 @@
 ﻿var query = {};
-var actionUrl = { GetRoleList: "/Core/Role/GetRoleList", GetAllModule: "/Core/Module/GetAllModule", CreateRole:"/Core/Role/CreateRole"};
+var actionUrl = {
+    GetRoleList: "/Core/Role/GetRoleList", GetAllModule: "/Core/Module/GetAllModule", CreateRole: "/Core/Role/CreateRole",
+    GetRoleModuleByRoleId: "/Core/Role/GetRoleModuleByRoleId"};
 
 var aoColumns = [
     {
@@ -63,6 +65,7 @@ function ClearCreateHtml() {
 function OpenCreateRoleModal() {
     ClearCreateHtml();
     $('#CreateRoleModal').modal('show');
+    $('#initCreateli').click();
     initRoleModuleConfiguration(false);
 }
 function CreateRole() {
@@ -92,6 +95,9 @@ function CreateRole() {
         });
     }
     else {
+        if (role.Name === '') {
+            setTimeout(function () { lightyear.notify('角色名为空', 'warning'); }, 1e3);
+        }
         lightyear.loading('hide');
     }
 }
@@ -115,8 +121,10 @@ function GetRoleHtmlValue() {
 
 function OpenEditRoleModal(roleId) {
     ClearEditHtml();
-    $(roleId).val(roleId);
+    $('#roleId').val(roleId);
+    initRoleModuleConfiguration(true);
     $('#EditRoleModal').modal('show');
+    $('#initEditli').click();
 }
 function ClearEditHtml() {
     $('#ERoleName').val('');
@@ -143,7 +151,7 @@ function initRoleModuleConfiguration(IsEdit) {
         let currentModule = GetRoleCurrentModule();
         allModule.forEach(i => {
             let checked = currentModule.find((e) => (e.Id === i.Id)) ? 'checked' : '';
-            switch (i.key) {
+            switch (i.Layer) {
                 case 1:
                     html += '<tr><td><label class="lyear-checkbox checkbox-primary">';
                     html += '<input type="checkbox" class="checkbox-parent" dataid="' + i.DataId + '" value="' + i.Id + '" ' + checked +'>';
@@ -161,7 +169,8 @@ function initRoleModuleConfiguration(IsEdit) {
                     break;
             }
         });
-        $('div#Edit_RoleModuleConfiguration').html(html);
+        $('#Edit_RoleModuleConfiguration').html(html);
+        e = $('#Edit_RoleModuleConfiguration');
     }
     else {
         html += '<table class="table table-striped" id="CreateRoleModuleConfiguration"><thead><tr><th><label class="lyear-checkbox checkbox-primary">';
@@ -185,27 +194,41 @@ function initRoleModuleConfiguration(IsEdit) {
                     break;
             }
         });
-        $('div#Create_RoleModuleConfiguration').html(html);
+        $('#Create_RoleModuleConfiguration').html(html);
+        e = $('#Create_RoleModuleConfiguration');
     }
-    $("#check-all").change(function () {
+    e.find("#check-all").change(function () {
         $("input[type='checkbox']").prop('checked', $(this).prop("checked"));
     });
-    checkRegistered(allModule);
+    checkRegistered(allModule,e);
 }
 function GetRoleCurrentModule() {
-
+    let roleId = $('#roleId').val();
+    let Id = [];
+    $.ajax({
+        type: 'post',
+        url: actionUrl.GetRoleModuleByRoleId,
+        data: {
+            roleId: roleId
+        },
+        async: false,
+        success: function (result) {
+            Id = result;
+        }
+    });
+    return Id;
 }
 
-function checkRegistered(obj) {
+function checkRegistered(obj,e) {
     obj.forEach(i => {
-        $("input[dataid='" + i.DataId + "']").change(function () {
-            $("input[dataid*='" + i.DataId + "']").prop('checked', $(this).prop("checked"));
+        e.find("input[dataid='" + i.DataId + "']").change(function () {
+            e.find("input[dataid*='" + i.DataId + "']").prop('checked', $(this).prop("checked"));
             let parentIds = i.DataId.split('-');
             parentIds.splice(0, 1);
             parentIds.splice((parentIds.length - 1), 1);
             if (parentIds.length > 0) {
                 parentIds.forEach(j => {
-                    $("input[value='" + j + "']").prop('checked', $(this).prop("checked"));
+                    e.find("input[value='" + j + "']").prop('checked', $(this).prop("checked"));
                 });
             }
         });

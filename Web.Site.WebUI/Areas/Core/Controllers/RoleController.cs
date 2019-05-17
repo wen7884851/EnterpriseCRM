@@ -44,5 +44,12 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
         {
             return Json(_roleService.CreateRole(model));
         }
+
+        [HttpPost]
+        public ActionResult GetRoleModuleByRoleId(int roleId)
+        {
+            var role = _roleService.Roles.FirstOrDefault(t => t.Id == roleId && t.IsDeleted == false);
+            return Json(role.RoleModules.Select(t => new { Id = t.ModuleId }).ToList());
+        }
     }
 }

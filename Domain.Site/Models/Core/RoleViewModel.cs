@@ -27,7 +27,8 @@ namespace Domain.Site.Models.Core
     {
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Role, RoleViewModel>().ForMember(d => d.UserCount, opt => { opt.MapFrom(s => s.Users.Count); });
+            configuration.CreateMap<Role, RoleViewModel>().ForMember(d => d.UserCount, opt => { opt.MapFrom(s => s.Users.Count); })
+                .ForMember(d=>d.RoleId,opt=>{ opt.MapFrom(s => s.Id); });
             configuration.CreateMap<RoleViewModel, Role>();
         }
     }
