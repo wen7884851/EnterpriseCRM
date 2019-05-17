@@ -1,1 +1,32 @@
 ﻿
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="EditRoleModalLabel" id="EditRoleModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="EditRoleModalLabel">编辑模块</h4>
+                <label hidden id="roleId"></label>
+            </div>
+            <div class="modal-body">
+                <ul class="nav-step step-anchor">
+                    <li class="nav-step-item complete" style="width:50%">
+                        <a data-toggle="tab" href="#RoleInfo">
+                            <h6>角色信息</h6>
+                            <p class="m-0">角色基本信息</p>
+                        </a>
+                    </li>
+                    <li class="nav-step-item" style="width:50%">
+                        <a data-toggle="tab" href="#SetRoleModule">
+                            <h6>菜单配置</h6>
+                            <p class="m-0">角色与菜单管理权限配置</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    @Html.Partial("EditRoleInfo")
+                    @Html.Partial("EditRoleModuleConfiguration")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

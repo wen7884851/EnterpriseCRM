@@ -78,7 +78,7 @@ namespace Core.Service.Authen.Impl
             {
                 IsSuccess = false
             };
-            if(Users.FirstOrDefault(t=>t.LoginName==model.LoginName)!=null)
+            if (Users.FirstOrDefault(t => t.LoginName == model.LoginName) != null)
             {
                 result.Result = "该用户名系统内已存在，请重新输入！";
                 return result;

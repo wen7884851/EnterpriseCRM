@@ -29,7 +29,23 @@ namespace Core.Service.Authen.Impl
         {
             var Items = Mapper.Map<List<ModuleViewModel>>(Modules.Where(t => t.IsDeleted == false));
             Items = SortModuleList(Items, 1);
+            foreach(var item in Items)
+            {
+                item.DataId = "id-" + GetDataId(item, Items);
+            }
             return Items;
+        }
+
+        private string GetDataId(ModuleViewModel model, List<ModuleViewModel> modelList)
+        {
+            string dataId = model.Id.ToString();
+            if(model.ParentId!=0)
+            {
+                var parentModel = modelList.FirstOrDefault
+                    (t => t.Id == model.ParentId);
+                dataId = GetDataId(parentModel, modelList) + "-" + dataId;
+            }
+            return dataId;
         }
 
         public PageResult<ModuleViewModel> GetModuleListByQuery(ModuleQueryModel query)

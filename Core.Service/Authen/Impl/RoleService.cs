@@ -3,6 +3,7 @@ using Core.Repository.Authen;
 using Domain.DB.Models;
 using Domain.Site.Models;
 using Domain.Site.Models.Core;
+using Framework.EFData.DBExtend;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -35,6 +36,36 @@ namespace Core.Service.Authen.Impl
                 return module;
             }
             return null;
+        }
+
+        public ActionResultViewModel CreateRole(RoleViewModel model)
+        {
+            var result = new ActionResultViewModel()
+            {
+                IsSuccess = false
+            };
+            if (Roles.FirstOrDefault(t => t.IsDeleted == false && t.Name == model.Name) != null)
+            {
+                result.Result = "已存在同名称角色，请修改名称后再提交!";
+                return result;
+            }
+            using (UnitOfWork tran = new UnitOfWork())
+            {
+                var roleDTO = Mapper.Map<Role>(model);
+                roleDTO.Create();
+                roleDTO.Enabled = true;
+                _roleRepository.Insert(roleDTO);
+                foreach (var module in model.RoleModuleConfiguration)
+                {
+                    var roleModule = new RoleModule { RoleId = roleDTO.Id, ModuleId = module, IsSearch = true, IsCreate = true, IsEdit = true };
+                    roleModule.Create();
+                    roleDTO.RoleModules.Add(roleModule);
+                }
+                _roleRepository.Update(roleDTO);
+                result.IsSuccess = true;
+                tran.Commit();
+            }
+            return result;
         }
 
         public List<OptionViewMode> GetAllRoleKeyValue()

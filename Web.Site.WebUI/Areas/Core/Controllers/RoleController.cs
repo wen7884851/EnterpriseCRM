@@ -33,12 +33,16 @@ namespace Web.Site.WebUI.Areas.Core.Controllers
             return Json(_roleService.GetAllRoleKeyValue(),JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult GetRoleList(RoleQueryModel query)
         {
-            return Json(_roleService.GetRoleListByQuery(query), JsonRequestBehavior.AllowGet);
+            return Json(_roleService.GetRoleListByQuery(query));
         }
 
-
+        [HttpPost]
+        public ActionResult CreateRole(RoleViewModel model)
+        {
+            return Json(_roleService.CreateRole(model));
+        }
     }
 }

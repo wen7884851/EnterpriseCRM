@@ -9,6 +9,7 @@ namespace Domain.Site.Models
         public int? ParentId { get; set; }
         public string Name { get; set; }
         public string LinkUrl { get; set; }
+        public string DataId { get; set; }
         public int Layer { get; set; }
         public string Icon { get; set; }
         public bool? Enabled { get; set; }

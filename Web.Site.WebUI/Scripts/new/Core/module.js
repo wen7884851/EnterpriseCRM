@@ -146,7 +146,7 @@ function CreateModule() {
                         $('#searchBtn').click();
                     }
                     else {
-                        setTimeout(function () { lightyear.notify(result.Result, 'danger'); }, 1e3);
+                        setTimeout(function () { lightyear.notify(GetErrorMsg(result), 'danger'); }, 1e3);
                     }
                 }
                 else {

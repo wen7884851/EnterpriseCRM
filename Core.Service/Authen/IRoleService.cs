@@ -14,7 +14,7 @@ namespace Core.Service
         #region 属性
         IQueryable<Role> Roles { get; }
         #endregion
-
+        ActionResultViewModel CreateRole(RoleViewModel model);
         List<ModuleViewModel> GetMenuByRoleId(int roleId);
         List<OptionViewMode> GetAllRoleKeyValue();
         PageResult<RoleViewModel> GetRoleListByQuery(RoleQueryModel query);

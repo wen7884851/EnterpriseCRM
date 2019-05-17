@@ -12,6 +12,7 @@ namespace Domain.Site.Models.Core
     {
         public int? RoleId { get; set; }
         public string Name { get; set; }
+        public int[] RoleModuleConfiguration { get; set; }
         public int UserCount { get; set; }
         public string Description { get; set; }
         public bool Enabled { get; set; }
@@ -26,7 +27,7 @@ namespace Domain.Site.Models.Core
     {
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Role, RoleViewModel>();
+            configuration.CreateMap<Role, RoleViewModel>().ForMember(d => d.UserCount, opt => { opt.MapFrom(s => s.Users.Count); });
             configuration.CreateMap<RoleViewModel, Role>();
         }
     }

@@ -670,7 +670,9 @@
     <Content Include="Areas\Core\Views\Role\Delete.cshtml" />
     <Content Include="Areas\Core\Views\User\Delete.cshtml" />
     <Content Include="Areas\Core\Views\Role\CreateRoleInfo.cshtml" />
-    <Content Include="Areas\Core\Views\Role\RoleModuleConfiguration.cshtml" />
+    <Content Include="Areas\Core\Views\Role\CreateRoleModuleConfiguration.cshtml" />
+    <Content Include="Areas\Core\Views\Role\EditRoleInfo.cshtml" />
+    <Content Include="Areas\Core\Views\Role\EditRoleModuleConfiguration.cshtml" />
     <None Include="Properties\PublishProfiles\WxAdmin.pubxml" />
     <None Include="Properties\PublishProfiles\ZHWeb.pubxml" />
     <Content Include="React-1.rar" />
